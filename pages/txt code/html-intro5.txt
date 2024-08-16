@@ -1,0 +1,4 @@
+<p>
+  Я создал ссылку на
+  <a href="https://www.mozilla.org/ru/">домашнюю страницу Mozilla</a>.
+</p>

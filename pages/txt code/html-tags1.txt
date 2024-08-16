@@ -1,0 +1,8 @@
+<blockquote
+  cite="https://developer.mozilla.org/ru/docs/Web/HTML/Element/blockquote">
+  <p>
+    <strong>HTML-элемент<code>&lt;blockquote&gt;</code></strong> (от англ.
+    <em>HTML Block Quotation Element</em>) указывает на то, что заключённый в
+    нём текст является развёрнутой цитатой.
+  </p>
+</blockquote>

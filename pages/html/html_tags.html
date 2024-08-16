@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <script src="../../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Теги HTML</h1><hr>
+
+        <p>
+          <code>&lt;p&gt;</code> - представляет собой абзац, блок текста, отделяющийся от соседних блоков 
+          пустыми строками.
+        </p>
+
+        <p>
+          <code>&lt;br&gt;</code> - перенос на другую строку
+        </p>
+
+        <p>
+          <code>&lt;hr&gt;</code> - делает разделяющую строку
+        </p>
+
+        <p>
+          <code>&lt;em&gt;</code> - <em>курсив</em>
+        </p>
+
+        <p>
+          <code>&lt;strong&gt;</code> - <strong>жирнит текст</strong>
+        </p>
+
+        <p>
+        <code>&lt;i&gt;</code> - <i>Italic text</i>
+        </p>
+        
+        <p>
+          <code>&lt;mark&gt;</code> - <mark>Marked text</mark>
+        </p>
+
+        <p>
+          <code>&lt;small&gt;</code> - <small>Smaller text</small>
+        </p>
+
+        <p>
+          <code>&lt;del&gt;</code> - <del>Deleted text</del>
+        </p>
+
+        <p>
+          <code>&lt;ins&gt;</code> - <ins>Inserted text</ins>
+        </p>
+
+        <p>
+          <code>&lt;sub&gt;</code> - <sub>Subscript text</sub>
+        </p>
+        
+        <p>
+          <code>&lt;sup&gt;</code> - <sup>Superscript text</sup>
+        </p>
+          
+        
+          <code>&lt;a href="#"&gt;отображаемый текст названия&lt;/a&gt;</code> - структура гиперссылки
+        </p>
+
+        <p>
+          <code>&lt;img class="#" src="#" alt="#"/&gt;</code> - вставка картинки, атрибут <code>src="#"</code> это
+          непосредственно путь к картинке
+        </p>
+
+        <p>
+          <code>&lt;u&gt;</code> - <u>подчёркивает</u> текст
+        </p>
+
+        <p>
+          <code>&lt;blockquote&gt;</code> - цитирование. Стиль браузера по умолчанию будет 
+          отображать это как абзац с отступом, как индикатор того, что это цитата;
+          <blockquote
+              cite="https://developer.mozilla.org/ru/docs/Web/HTML/Element/blockquote">
+              <p>
+                <strong>HTML-элемент<code>&lt;blockquote&gt;</code></strong> (от англ.
+                <em>HTML Block Quotation Element</em>) указывает на то, что заключённый в
+                нём текст является развёрнутой цитатой.
+              </p>
+            </blockquote>
+        </p>
+        <iframe class="iframe-code" src="../txt code/html-tags1.txt"></iframe>
+
+        <p>
+          <code>&lt;abbr&gt;</code> - аббревиатура. Пример:
+        </p>
+        <p>Мы используем <abbr title="Hypertext Markup Language">HTML</abbr> для структурирования наших 
+          веб-документов.</p>
+        <p>Я думаю, <abbr title="Почтенный">Почт.</abbr> Грин сделал это на кухне с бензопилой.</p>
+        <iframe class="iframe-code" src="../txt code/html-tags2.txt"></iframe>
+
+        <p>
+          <code>&lt;address&gt;</code> - элемент разметки контактных данных. 
+        </p>
+
+        <h3>Представление компьютерного кода</h3>
+        <p>
+          <a href="https://developer.mozilla.org/ru/docs/Learn/HTML/Introduction_to_HTML/Advanced_text_formatting#%D0%BF%D1%80%D0%B5%D0%B4%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5_%D0%BA%D0%BE%D0%BC%D0%BF%D1%8C%D1%8E%D1%82%D0%B5%D1%80%D0%BD%D0%BE%D0%B3%D0%BE_%D0%BA%D0%BE%D0%B4%D0%B0">Ссылка на оригинал</a>
+        </p>
+        <p>
+          <code>&lt;code&gt;</code>: Для разметки общих частей компьютерного кода.
+        </p>
+        <p>
+          <code>&lt;pre&gt;</code>: Для сохранения пробелов (как правило, кодовых блоков) — если вы используете отступы или 
+              лишние пробелы внутри вашего текста, браузеры будут игнорировать его, и вы не увидите его на вашей 
+              отображаемой странице; если вы поместите текст в теги <code>&lt;pre&gt;&lt;/pre&gt;</code>, то ваши 
+              пробелы будут отображаться идентично тому, как вы видите текст в редакторе.
+        <p>
+        <p>
+         <code>&lt;var&gt;</code>: Для конкретной маркировки имён переменных.
+        </p>
+        <p>
+         <code>&lt;kbd&gt;</code>: Для маркировки ввода с клавиатуры (и других типов).
+        </p>
+        <p>
+         <code>&lt;samp&gt;</code>: Для маркировки вывода компьютерной программы.
+        </p>
+
+       
+
+
+
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>

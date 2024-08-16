@@ -1,0 +1,6 @@
+<a href="https://developer.mozilla.org/ru/">
+  <h1>MDN Web Docs</h1>
+</a>
+<p>
+  Документируем веб-технологии, включая CSS, HTML и JavaScript, с 2005 года.
+</p>

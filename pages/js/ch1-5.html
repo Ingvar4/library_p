@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <script src="../../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Операторы и выражения в JavaScript</h1><hr>
+        <p>Операторы в JavaScript — это специальные символы, которые выполняют операции над операндами (переменными или значениями) и возвращают результат. Выражение — это комбинация переменных, операторов и значений, которая вычисляется и возвращает результат.</p>
+        <h3>Типы операторов в JavaScript</h3>
+        <p>JavaScript поддерживает различные типы операторов:</p>
+        <ol>
+          <li><a href="#Ao">Арифметические операторы</a></li>
+          <li><a href="#Op">Операторы присваивания</a></li>
+          <li><a href="#So">Строковые операторы</a></li>
+          <li><a href="#Os">Операторы сравнения</a></li>
+          <li><a href="#Lo">Логические операторы</a></li>
+          <li><a href="#Or">Операторы работы с битами</a></li>
+          <li><a href="#Ot">Операторы типа</a></li>
+          <li><a href="#Sop">Специальные операторы</a></li>
+        </ol>
+        <h3 id="Ao">1. Арифметические операторы</h3>
+        <p>Арифметические операторы используются для выполнения математических операций.</p>
+        <ul>
+          <li><code>+</code> (сложение): Складывает два числа.</li>
+          <pre><code>let sum = 5 + 3; // 8</code></pre>
+          <li><code>-</code> (вычитание): Вычитает одно число из другого.</li>
+          <p><pre><code>let difference = 10 - 4; // 6</code></pre></p>
+          <li><code>*</code> (умножение): Умножает два числа.</li>
+          <p><pre><code>let product = 7 * 3; // 21</code></pre></p>
+          <li><code>/</code> (деление): Делит одно число на другое.</li>
+          <p><pre><code>let quotient = 20 / 4; // 5</code></pre></p>
+          <li><code>%</code> (остаток от деления): Возвращает остаток от деления двух чисел.</li>
+          <p><pre><code>let remainder = 10 % 3; // 1</code></pre></p>
+          <li><code>**</code> (возведение в степень): Возводит число в степень.</li>
+          <p><pre><code>let power = 2 ** 3; // 8</code></pre></p>
+        </ul>
+        <h3 id="Op">2. Операторы присваивания</h3>
+        <p>Эти операторы присваивают значения переменным. Основной оператор — это =, но существуют и составные операторы присваивания, которые объединяют операцию и присваивание.</p>
+        <ul>
+          <li><code>=</code> Присваивает значение переменной.</li>
+          <p><pre><code>let x = 10;</code></pre></p>
+          <li><code>+=</code> Добавляет и присваивает.</li>
+          <pre><code>let x = 5;<br>x += 3; // x = x + 3; x теперь равен 8</code></pre>
+          <li><code>-=</code> Вычитает и присваивает.</li>
+          <p class="notextIndent"><pre><code>let x = 5;<br>x -= 2; // x теперь равен 3</code></pre></p>
+          <li><code>*=</code> Умножает и присваивает.</li>
+          <p class="notextIndent"><pre><code>let x = 5;<br>x *= 3; // x теперь равен 15</code></pre></p>
+          <li><code>/=</code> Делит и присваивает.</li>
+          <p class="notextIndent"><pre><code>let x = 10;<br>x /= 2; // x теперь равен 5</code></pre></p>
+          <li><code>%=</code> Делит и присваивает остаток.</li>
+          <p class="notextIndent"><pre><code>let x = 10;<br>x %= 3; // x теперь равен 1</code></pre></p>
+        </ul>
+        <h3 id="So">3. Строковые операторы</h3>
+        <p>Основной оператор для работы со строками — '+', который используется для конкатенации строк.</p>
+        <ul>
+          <li>Конкатенация строк: Объединение двух или более строк.</li>
+          <p><pre><code>let greeting = "Hello, " + "world!"; // "Hello, world!"</code></pre></p>
+        </ul>
+        <h3 id="Os">4. Операторы сравнения</h3>
+        <p>Операторы сравнения используются для сравнения значений. Результатом сравнения является логическое значение 'true' или 'false'.</p>
+        <ul>
+          <li><code>==</code> Равно. Проверяет равенство двух значений, при этом не учитывается их тип.</li>
+          <p><pre><code>5 == "5"; // true</code></pre></p>
+          <li><code>===</code> Строгое равенство. Проверяет как значение, так и тип.</li>
+          <p><pre><code>5 === "5"; // false</code></pre></p>
+          <li><code>!=</code> Не равно. Проверяет неравенство значений.</li>
+          <p><pre><code>5 != "5"; // false</code></pre></p>
+          <li><code>!==</code> Строгое неравенство. Проверяет неравенство значений и типов.</li>
+          <p><pre><code>5 !== "5"; // true</code></pre></p>
+          <li><code>></code> Больше.</li>
+          <p><pre><code>10 > 5; // true</code></pre></p>
+          <li><code><</code> Меньше.</li>
+          <p><pre><code>3 < 7; // true</code></pre></p>
+          <li><code>>=</code> Больше или равно.</li>
+          <p><pre><code>5 >= 5; // true</code></pre></p>
+          <li><code><=</code> Меньше или равно.</li>
+          <p><pre><code>4 <= 8; // true</code></pre></p>
+        </ul>
+        <h3 id="Lo">5. Логические операторы</h3>
+        <p>Логические операторы используются для выполнения логических операций, которые возвращают значения 'true' или 'false'.</p>
+        <ul>
+          <li><code>&&</code> (логическое И): Возвращает true, если оба операнда истинны.</li>
+          <p><pre><code>let result = (5 > 3) && (8 > 5); // true</code></pre></p>
+          <li><code>||</code> (логическое ИЛИ): Возвращает true, если хотя бы один из операндов истинен.</li>
+          <p><pre><code>let result = (5 > 3) || (8 < 5); // true</code></pre></p>
+          <li><code>!</code> (логическое НЕ): Возвращает противоположное логическое значение.</li>
+          <p><pre><code>let result = !(5 > 3); // false</code></pre></p>
+        </ul>
+        <h3 id="Or">6. Операторы работы с битами</h3>
+        <p>Операторы работы с битами позволяют выполнять операции на уровне отдельных битов в числах.</p>
+        <ul>
+          <li><code>&</code> Побитовое И.</li>
+          <li><code>|</code> Побитовое ИЛИ.</li>
+          <li><code>^</code> Побитовое исключающее ИЛИ.</li>
+          <li><code>~</code> Побитовое НЕ.</li>
+          <li><code><<</code> Сдвиг влево.</li>
+          <li><code>>></code> Сдвиг вправо.</li>
+        </ul>
+        <h3 id="Ot">7. Операторы типа</h3>
+        <p>Операторы типа позволяют определить тип переменной или преобразовать значения к определенному типу.</p>
+        <ul>
+          <li><code>typeof</code> Возвращает строку, которая обозначает тип переменной.</li>
+          <p class="notextIndent"><pre><code>typeof "Hello"; // "string"<br>typeof 42; // "number"<br>typeof true; // "boolean"</code></pre></p>
+          <li><code>instanceof</code> Проверяет, является ли объект экземпляром определенного класса или конструктора.</li>
+          <p class="notextIndent"><pre><code>let date = new Date();<br>date instanceof Date; // true</code></pre></p>
+        </ul>
+        <h3 id="Sop">8. Специальные операторы</h3>
+        <ul>
+          <li>Запятая (<code>,</code>): Позволяет вычислить несколько выражений, возвращая значение последнего.</li>
+          <p class="notextIndent"><pre><code>let a = 1, b = 2, c = 3;</code></pre></p>
+          <li>Тернарный оператор (<code>?:</code>): Упрощенная форма условного оператора <code>if</code>.</li>
+          <p class="notextIndent"><pre><code>let age = 18;<br>let isAdult = age >= 18 ? "Взрослый" : "Ребенок"; // "Взрослый"</code></pre></p>
+          <li>Оператор <code>delete</code>: Удаляет свойство объекта.</li>
+          <p class="notextIndent"><pre><code>let person = {name: "John", age: 30};<br>delete person.age; // Удаляет свойство age</code></p></pre>
+          <li>Оператор <code>in</code>: Проверяет, существует ли определенное свойство в объекте.</li>
+          <p class="notextIndent"><pre><code>let person = {name: "John", age: 30};<br>"age" in person; // true</code></pre></p>
+          <li>Оператор <code>void</code>: Выполняет выражение, но всегда возвращает <code>undefined</code>.</li>
+          <p class="notextIndent"><pre><code>void(0); // undefined</code></pre></p>
+        </ul>
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>
