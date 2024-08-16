@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <script src="../../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Основы работы с функциями в JavaScript</h1>
+        <h3>1. Что такое функция?</h3>
+        <p>Функция — это блок кода, который выполняет определённую задачу. Функцию можно вызвать в любом месте программы, сколько угодно раз. Основные элементы функции:</p>
+        <ul>
+            <li><strong>Имя функции</strong> (необязательно) — используется для вызова функции.</li>
+            <li><strong>Аргументы</strong> (или параметры) — данные, которые передаются в функцию.</li>
+            <li><strong>Тело функции</strong> — блок кода, который выполняется при вызове функции.</li>
+            <li><strong>Возврат значения</strong> (необязательно) — функция может вернуть значение, которое будет результатом её работы.</li>
+        </ul>
+        <h3>2. Объявление функции</h3>
+        <p>Существует несколько способов объявления функций в JavaScript:</p>
+        <p><strong>Функциональное выражение (Function Expression)</strong></p>
+        <p>Функции могут быть объявлены как часть выражения, например, присвоены переменной.</p>
+<pre>
+  <code>
+    const myFunction = function() {
+      console.log("Hello from Function Expression!");
+    };
+  </code>
+</pre>
+        <p><strong>Функциональное декларирование (Function Declaration)</strong></p>
+        <p>Это традиционный способ объявления функций, который добавляет функцию в глобальную область видимости или в область видимости текущего блока.</p>
+<pre>
+  <code>
+    function greet() {
+      console.log("Hello from Function Declaration!");
+    }
+  </code>
+</pre>
+
+        <p><strong>Стрелочные функции (Arrow Functions)</strong></p>
+        <p>Стрелочные функции — это сокращённый синтаксис для создания функций, введённый в ES6. Они не имеют своего контекста (<code>this</code>), что делает их полезными в некоторых ситуациях, таких как обработка    событий или работа с асинхронным кодом.</p>
+<pre>
+  <code>
+    const add = (a, b) => a + b;
+    console.log(add(2, 3)); // 5
+  </code>
+</pre>
+        <h3>3. Вызов функции</h3>
+        <p>Для вызова функции нужно использовать её имя с круглыми скобками, в которых можно передать аргументы:</p>
+<pre>
+  <code>
+    function sayHello(name) {
+      console.log("Hello, " + name + "!");
+    }
+
+    sayHello("Alice"); // "Hello, Alice!"
+    </code>
+  </pre>
+
+        <h3>4. Аргументы и параметры</h3>
+        <p>Функции могут принимать параметры — значения, которые передаются в функцию при её вызове. Внутри функции они становятся локальными переменными.</p>
+<pre>
+  <code>
+    function multiply(a, b) {
+      return a * b;
+    }
+
+    console.log(multiply(2, 3)); // 6
+  </code>
+</pre>
+        <p>Параметры могут иметь значения по умолчанию, если они не были переданы при вызове:</p>
+<pre>
+  <code>
+    function greet(name = "Guest") {
+      console.log("Hello, " + name + "!");
+    }
+
+    greet(); // "Hello, Guest!"
+  </code>
+</pre>
+        <h3>5. Возврат значения</h3>
+        <p>Функция может вернуть значение с помощью оператора <code>return</code>. После выполнения <code>return</code> выполнение функции прекращается, и результат передается обратно вызывающему коду.</p>
+<pre>
+  <code>
+    function sum(a, b) {
+      return a + b;
+    }
+
+    let result = sum(5, 10);
+    console.log(result); // 15
+  </code>
+</pre>
+
+        <h3>6. Область видимости и замыкания</h3>
+        <p>Функции в JavaScript создают свою область видимости. Всякий раз, когда создаётся функция, она получает доступ к своим переменным (локальная область видимости), а также к переменным внешних областей    видимости (замыкания).</p>
+<pre>
+  <code>
+    function outerFunction() {
+      let outerVariable = "I'm outside!";
+    
+      function innerFunction() {
+          console.log(outerVariable); // Имеет доступ к outerVariable
+      }
+    
+      innerFunction();
+    }
+
+    outerFunction(); // "I'm outside!"
+  </code>
+</pre>
+        <h3>7. Рекурсия</h3>
+        <p>Рекурсия — это техника, при которой функция вызывает сама себя для решения задачи. Важно предусмотреть условие выхода, чтобы избежать бесконечной рекурсии.</p>
+<pre>
+  <code>
+    function factorial(n) {
+      if (n === 1) return 1;
+      return n * factorial(n - 1);
+    }
+
+    console.log(factorial(5)); // 120
+  </code>
+</pre>
+
+        <h3>8. Функции высшего порядка</h3>
+        <p>Функции высшего порядка — это функции, которые принимают другие функции в качестве аргументов или возвращают функции как результат.</p>
+<pre>
+  <code>
+    function operate(operation, a, b) {
+      return operation(a, b);
+    }
+
+    function add(x, y) {
+      return x + y;
+    }
+
+    console.log(operate(add, 5, 3)); // 8
+  </code>
+</pre>
+
+        <h3>9. Стрелочные функции и контекст</h3>
+        <p>Стрелочные функции ведут себя по-другому по отношению к <code>this</code>. В отличие от обычных функций, стрелочные функции не имеют собственного <code>this</code> и берут его из внешнего контекста.</p>
+<pre>
+  <code>
+    let person = {
+      name: "Alice",
+      greet: function() {
+          setTimeout(() => {
+              console.log("Hello, " + this.name);
+          }, 1000);
+      }
+    };
+
+    person.greet(); // "Hello, Alice"
+  </code>
+</pre>
+        <h3>Заключение</h3>
+        <p>Понимание функций в JavaScript — это ключевой шаг на пути к тому, чтобы стать уверенным разработчиком. Функции позволяют структурировать код, делают его более читабельным и легко модифицируемым. Постепенное освоение различных способов работы с функциями, от простого декларирования до сложных паттернов вроде замыканий и рекурсии, позволит вам создавать более мощные и гибкие программы.</p>
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>
