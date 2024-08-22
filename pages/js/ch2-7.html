@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <script src="../../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Основные методы массивов в JavaScript</h1><hr>
+        <p>Массивы в JavaScript предоставляют множество методов для работы с элементами, но четыре из них являются основными и наиболее часто используемыми: <code>push</code>, <code>pop</code>, <code>shift</code>, и <code>unshift</code>. Эти методы позволяют добавлять, удалять и изменять элементы массива, что делает работу с массивами гибкой и удобной.</p>
+        <ol>
+          <li><strong>Метод <code>push</strong></code>()</li>
+          <p>Метод <code>push()</code> добавляет один или несколько элементов в конец массива и возвращает новую длину массива.</p>
+          <p>Синтаксис:</p>
+<pre>
+  <code>
+    array.push(element1, ..., elementN)
+  </code>
+</pre>
+          <p>Пример:</p>
+<pre>
+  <code>
+    let fruits = ["Яблоко", "Банан"];
+    fruits.push("Апельсин"); 
+    console.log(fruits); // ["Яблоко", "Банан", "Апельсин"]
+  </code>
+</pre>
+          <p>В этом примере <code>"Апельсин"</code> добавляется в конец массива <code>fruits</code>.</p>
+          <li><strong>Метод <code>pop()</code></strong></li>
+          <p>Метод <code>pop()</code> удаляет последний элемент из массива и возвращает его. Если массив пуст, он возвращает <code>undefined</code>.</p>
+          <p>Синтаксис:</p>
+<pre>
+  <code>
+    array.pop()
+  </code>
+</pre>
+          <p>Пример:</p>
+<pre>
+  <code>
+    let fruits = ["Яблоко", "Банан", "Апельсин"];
+    let lastFruit = fruits.pop(); 
+    console.log(fruits); // ["Яблоко", "Банан"]
+    console.log(lastFruit); // "Апельсин"
+  </code>
+</pre>
+          <p>Здесь метод <code>pop()</code> удаляет <code>"Апельсин"</code> из массива и возвращает его.</p>
+          <li><strong>Метод <code>shift()</code></strong></li>
+          <p>Метод <code>shift()</code> удаляет первый элемент из массива и возвращает его. Этот метод также изменяет длину массива. Если массив пуст, он возвращает <code>undefined</code>.</p>
+          <p>Синтаксис:</p>
+<pre>
+  <code>
+    array.shift()
+  </code>
+</pre>
+          <p>Пример:</p>
+<pre>
+  <code>
+    let fruits = ["Яблоко", "Банан", "Апельсин"];
+    let firstFruit = fruits.shift(); 
+    console.log(fruits); // ["Банан", "Апельсин"]
+    console.log(firstFruit); // "Яблоко"
+  </code>
+</pre>
+          <p>В этом примере <code>"Яблоко"</code> удаляется из начала массива, а оставшиеся элементы смещаются влево.</p>
+          <li><strong>Метод <code>unshift()</code></strong></li>
+          <p>Метод <code>unshift()</code> добавляет один или несколько элементов в начало массива и возвращает новую длину массива.</p>
+          <p>Синтаксис:</p>
+<pre>
+  <code>
+    array.unshift(element1, ..., elementN)
+  </code>
+</pre>
+          <p>Пример:</p>
+<pre>
+  <code>
+    let fruits = ["Банан", "Апельсин"];
+    fruits.unshift("Яблоко");
+    console.log(fruits); // ["Яблоко", "Банан", "Апельсин"]
+  </code>
+</pre>
+          <p>Здесь <code>"Яблоко"</code> добавляется в начало массива <code>fruits</code>.</p>
+        </ol>
+        <p><strong>Заключение</strong></p>
+        <p>Методы <code>push</code>, <code>pop</code>, <code>shift</code>, и <code>unshift</code> предоставляют простой способ для добавления и удаления элементов в массивах. Они позволяют динамически изменять массивы, что особенно полезно при работе с данными, которые могут изменяться в процессе выполнения программы. Понимание того, как эти методы работают и когда их применять, является важным навыком для любого разработчика.</p>
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>
