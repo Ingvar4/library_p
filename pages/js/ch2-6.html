@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <script src="../../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Введение в массивы в JavaScript</h1><hr>
+        <p>Массивы — это одна из фундаментальных структур данных в программировании, которая позволяет хранить коллекции значений под одним именем. В JavaScript массивы являются динамическими, что означает, что их размер может изменяться по мере добавления или удаления элементов.</p>
+        <ol>
+          <li><strong>Создание массивов</strong></li>
+          <p>Массивы в JavaScript можно создавать несколькими способами. Самый распространенный — использование квадратных скобок <strong>[]</strong>.</p>
+          <p>Пример:</p>
+<pre>
+  <code>
+    let fruits = ["Яблоко", "Банан", "Апельсин"];
+  </code>
+</pre>
+          <p>Здесь массив <code>fruits</code> содержит три элемента: <code>"Яблоко"</code>, <code>"Банан"</code>, и <code>"Апельсин"</code>.</p>
+          <p>Вы также можете создать массив с помощью конструктора <code>Array</code>:</p>
+<pre>
+  <code>
+    let numbers = new Array(1, 2, 3, 4, 5);
+  </code>
+</pre>
+          <li><strong>Доступ к элементам массива</strong></li>
+          <p>Элементы массива индексируются, начиная с нуля. Это означает, что первый элемент имеет индекс <code>0</code>, второй — <code>1</code>, и так далее.</p>
+          <p>Пример:</p>
+<pre>
+  <code>
+    let firstFruit = fruits[0]; // "Яблоко"
+    let secondFruit = fruits[1]; // "Банан"
+  </code>
+</pre>
+          <li><strong>Изменение элементов массива</strong></li>
+          <p>Вы можете изменять элементы массива, присваивая им новые значения.</p>
+          <p>Пример:</p>
+<pre>
+  <code>
+    fruits[1] = "Груша"; // Теперь массив будет ["Яблоко", "Груша", "Апельсин"]
+  </code>
+</pre>
+          <li><strong>Длина массива</strong></li>
+          <p>Свойство <code>length</code> позволяет узнать количество элементов в массиве.</p>
+          <p>Пример:</p>
+<pre>
+  <code>
+    let count = fruits.length; // 3
+  </code>
+</pre>
+          <li><strong>Методы массивов</strong></li>
+          <p>Массивы в JavaScript обладают множеством встроенных методов для работы с элементами.</p>
+          <ul>
+            <li><code>push</code>: Добавляет элемент в конец массива.</li>
+<pre>
+  <code>
+    fruits.push("Виноград"); // ["Яблоко", "Груша", "Апельсин", "Виноград"]
+  </code>
+</pre>
+            <li><code>pop</code>: Удаляет последний элемент массива и возвращает его.</li>
+<pre>
+  <code>
+    let lastFruit = fruits.pop(); // "Виноград"
+  </code>
+</pre>
+            <li><code>shift</code>: Удаляет первый элемент массива и возвращает его.</li>
+<pre>
+  <code>
+    let firstFruitRemoved = fruits.shift(); // "Яблоко"
+  </code>
+</pre>
+            <li><code>unshift</code>: Добавляет элемент в начало массива.</li>
+<pre>
+  <code>
+    fruits.unshift("Киви"); // ["Киви", "Груша", "Апельсин"]
+  </code>
+</pre>
+            <li><code>splice</code>: Добавляет, удаляет или заменяет элементы массива.</li>
+<pre>
+  <code>
+    fruits.splice(1, 1, "Персик"); // ["Киви", "Персик", "Апельсин"]
+  </code>
+</pre>
+            <li><code>slice</code>: Создает новый массив из части существующего массива.</li>
+<pre>
+  <code>
+    let citrus = fruits.slice(1, 2); // ["Персик"]
+  </code>
+</pre>
+            <li><code>concat</code>: Объединяет два или более массива в один.</li>
+<pre>
+  <code>
+    let moreFruits = fruits.concat(["Манго", "Ананас"]); // ["Киви", "Персик", "Апельсин", "Манго", "Ананас"]
+  </code>
+</pre>
+            <li><code>indexOf</code>: Возвращает индекс первого вхождения элемента в массив или -1, если элемент не найден.</li>
+<pre>
+  <code>
+    let index = fruits.indexOf("Апельсин"); // 2
+  </code>
+</pre>
+            <li><code>forEach</code>: Выполняет указанную функцию один раз для каждого элемента массива.</li>
+<pre>
+  <code>
+    fruits.forEach(function(item, index, array) {
+        console.log(item, index);
+    });
+  </code>
+</pre>
+          </ul>
+          <li><strong>Итерация по массиву</strong></li>
+          <p>Итерация по массиву может быть выполнена с использованием различных циклов, таких как <code>for</code>, <code>while</code>, и <code>for...of</code>.</p>
+          <p>Пример:</p>
+<pre>
+  <code>
+    for (let i = 0; i < fruits.length; i++) {
+        console.log(fruits[i]);
+    }
+  </code>
+</pre>
+          <p>Или с использованием цикла <code>for...of</code>:</p>
+<pre>
+  <code>
+    for (let fruit of fruits) {
+       console.log(fruit);
+    }
+  </code>
+</pre>
+          <li><strong>Многомерные массивы</strong></li>
+          <p>Массивы в JavaScript могут быть многомерными, что позволяет создавать массивы массивов.</p>
+          <p>Пример:</p>
+<pre>
+  <code>
+    let matrix = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+    ];
+  </code>
+</pre>
+          <p>Доступ к элементам в многомерных массивах осуществляется с использованием нескольких индексов:</p>
+<pre>
+  <code>
+    let element = matrix[1][2]; // 6
+  </code>
+</pre>
+        </ol>
+        <p><strong>Заключение</strong></p>
+        <p>Массивы являются мощным и гибким инструментом в JavaScript, позволяющим организовать и управлять данными. Понимание того, как создавать, изменять и управлять массивами, является основой для написания эффективного кода. Массивы часто используются в повседневной практике программирования для хранения данных, работы с коллекциями и выполнения повторяющихся задач.</p>
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>
