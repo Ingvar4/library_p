@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <script src="../../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Прототипы и наследование в JavaScript</h1><hr>
+        <p>В JavaScript прототипы и наследование — это фундаментальные концепции, которые позволяют объектам наследовать свойства и методы друг у друга. Эта модель известна как "прототипное наследование".</p>
+        <ol>
+          <li><strong>Прототипы: Основные понятия</strong></li>
+          <p>Каждый объект в JavaScript имеет скрытую ссылку на другой объект, называемый прототипом. Этот прототип также может иметь свой собственный прототип, и так далее, образуя цепочку прототипов. Эта цепочка называется "прототипной цепочкой" и заканчивается объектом <code>null</code>.</p>
+          <ul>
+            <li><code>[[Prototype]]</code>: Это внутренняя ссылка, которая указывает на прототип объекта.</li>
+            <li><code>Object.prototype</code>: Это прототипный объект, с которого начинается большинство объектов в JavaScript. Он является вершиной цепочки прототипов.</li>
+          </ul>
+          <p>Пример:</p>
+<pre>
+  <code>
+    let person = {
+        name: "Иван",
+        greet() {
+            console.log("Привет, меня зовут " + this.name);
+        }
+    };
+  
+    let student = {
+        study() {
+           console.log(this.name + " учится");
+        }
+   };
+  
+    student.__proto__ = person;
+  
+    student.greet(); // "Привет, меня зовут Иван"
+    student.study(); // "Иван учится"
+  </code>
+</pre>
+          <p>В этом примере объект <code>student</code> наследует свойства и методы объекта <code>person</code> через прототипную цепочку.</p>
+          <li><strong>Прототипное наследование</strong></li>
+          <p>Прототипное наследование позволяет одному объекту наследовать свойства и методы другого объекта. Это достигается путем установления прототипа одного объекта как другого объекта.</p>
+          <ul>
+            <li><code>Object.create()</code>: Метод, позволяющий создавать новый объект с указанным прототипом.</li>
+          </ul>
+          <p>Пример:</p>
+<pre>
+  <code>
+    let animal = {
+        eat() {
+            console.log("Животное ест");
+        }
+    };
+  
+    let dog = Object.create(animal);
+    dog.bark = function() {
+       console.log("Собака лает");
+    };
+  
+    dog.eat(); // "Животное ест"
+    dog.bark(); // "Собака лает"
+  </code>
+</pre>
+          <p>Здесь объект <code>dog</code> был создан с прототипом <code>animal</code>, что позволяет ему использовать метод <code>eat</code>, определенный в <code>animal</code>, наряду с собственным методом <code>bark</code>.</p>
+          <li><strong>Конструкторы и прототипы</strong></li>
+          <p>Функции-конструкторы используются для создания объектов с общим прототипом. Функция-конструктор — это обычная функция, которая используется с оператором <code>new</code>.</p>
+          <p>Пример:</p>
+<pre>
+  <code>
+    function Person(name) {
+        this.name = name;
+    }
+  
+    Person.prototype.greet = function() {
+       console.log("Привет, меня зовут " + this.name);
+    };
+  
+    let ivan = new Person("Иван");
+    ivan.greet(); // "Привет, меня зовут Иван"
+  </code>
+</pre>
+          <p>В этом примере функция <code>Person</code> используется как конструктор для создания объектов <code>ivan</code>. Метод <code>greet</code> добавляется в <code>Person.prototype</code>, что делает его доступным для всех экземпляров <code>Person</code>.</p>
+          <li><strong>Наследование с использованием конструкторов</strong></li>
+          <p>JavaScript позволяет создавать цепочку прототипов, используя конструкторы, что позволяет организовать более сложное наследование.</p>
+          <p>Пример:</p>
+<pre>
+  <code>
+    function Animal(name) {
+      this.name = name;
+    }
+  
+    Animal.prototype.eat = function() {
+        console.log(this.name + " ест");
+    };
+  
+    function Dog(name, breed) {
+        Animal.call(this, name);
+        this.breed = breed;
+    }
+  
+    Dog.prototype = Object.create(Animal.prototype);
+    Dog.prototype.constructor = Dog;
+  
+    Dog.prototype.bark = function() {
+        console.log(this.name + " лает");
+    };
+  
+    let rex = new Dog("Рекс", "Овчарка");
+    rex.eat();  // "Рекс ест"
+    rex.bark(); // "Рекс лает"
+  </code>
+</pre>
+          <p>В этом примере функция <code>Dog</code> наследует от <code>Animal</code>, используя <code>Object.create</code> для создания нового объекта с прототипом <code>Animal.prototype</code>. Метод <code>bark</code> добавляется в <code>Dog.prototype</code>, что делает его доступным для всех объектов <code>Dog</code>.</p>
+          <li><strong>Современный синтаксис классов</strong></li>
+          <p>Начиная с ECMAScript 2015 (ES6), в JavaScript появился синтаксис классов, который предоставляет более удобный способ работы с наследованием.</p>
+          <p>Пример:</p>
+<pre>
+  <code>
+    class Animal {
+        constructor(name) {
+            this.name = name;
+        }
+  
+        eat() {
+            console.log(this.name + " ест");
+        } 
+    }
+  
+    class Dog extends Animal {
+       constructor(name, breed) {
+           super(name);
+            this.breed = breed;
+        }
+  
+        bark() {
+           console.log(this.name + " лает");
+        }
+    }
+  
+    let rex = new Dog("Рекс", "Овчарка");
+    rex.eat();  // "Рекс ест"
+    rex.bark(); // "Рекс лает"
+  </code>
+</pre>
+          <p>Здесь <code>class</code> и <code>extends</code> используются для создания классов и организации наследования. Метод <code>super</code> вызывает конструктор родительского класса.</p>
+        </ol>
+        <p><strong>Заключение</strong></p>
+        <p>Прототипы и наследование — это мощные инструменты в JavaScript, которые позволяют организовывать код и переиспользовать его. Понимание этих концепций важно для разработки сложных приложений, где требуется организовать наследование и полиморфизм. Современный синтаксис классов делает работу с наследованием более интуитивной, но прототипное наследование остается основой JavaScript.</p>
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>
