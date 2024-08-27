@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS</title>
     <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
     <script src="../../scripts/script.js" defer></script>
   </head>
 
@@ -41,7 +43,7 @@
           <p>Основным инструментом для обработки ошибок в JavaScript является конструкция <code>try...catch</code>. Она позволяет "ловить" ошибки, возникающие в блоке <code>try</code>, и обрабатывать их в блоке <code>catch</code>.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     try {
        // Код, который может вызвать ошибку
         let result = someFunction();
@@ -57,7 +59,7 @@
           <p>Конструкция <code>try...catch</code> может быть дополнена блоком <code>finally</code>, который выполнится в любом случае — независимо от того, произошла ли ошибка.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     try {
         let result = someFunction();
         console.log(result);
@@ -73,7 +75,7 @@
           <p>В JavaScript можно намеренно "выбросить" (<code>throw</code>) ошибку, используя оператор <code>throw</code>. Это полезно, когда вы хотите сигнализировать о неправильном состоянии программы.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     function divide(a, b) {
         if (b === 0) {
            throw new Error("Деление на ноль невозможно");
