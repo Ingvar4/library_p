@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS</title>
     <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
     <script src="../../scripts/script.js" defer></script>
   </head>
 
@@ -41,7 +43,7 @@
             <li><strong>Остаток от деления:</strong> <code>%</code></li>
         </ul>
 <pre>
-  <code>
+  <code class="lang-js">
     let a = 10;
     let b = 3;
 
@@ -59,7 +61,7 @@
             <li><code>--</code> уменьшает значение переменной на 1.</li>
         </ul>
 <pre>
-  <code>
+  <code class="lang-js">
     let count = 5;
     count++;
     console.log(count); // 6
@@ -74,7 +76,7 @@
           <li><code>NaN</code> (Not-a-Number) — это результат некорректной математической операции, например, деления строки на число.</li>
         </ul>
 <pre>
-  <code>
+  <code class="lang-js">
     console.log(1 / 0); // Infinity
     console.log("hello" / 2); // NaN
   </code>
@@ -86,7 +88,7 @@
             <li><strong>Конкатенация:</strong> Операция объединения строк с использованием оператора <code>+</code>.</li>
         </ul>
 <pre>
-  <code>
+  <code class="lang-js">
     let greeting = "Hello, ";
     let name = "Alice";
     let message = greeting + name;
@@ -96,7 +98,7 @@
         <p><strong>Шаблонные строки:</strong></p>
         <p>С использованием обратных кавычек и вставкой значений через <code>${...}</code>.</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let age = 30;
     let info = `Alice is ${age} years old.`;
     console.log(info); // "Alice is 30 years old."
@@ -105,7 +107,7 @@
         <p><strong>Длина строки:</strong></p>
         <p>Получить длину строки можно с помощью свойства <code>length</code>.</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let text = "Hello, world!";
     console.log(text.length); // 13
   </code>
@@ -113,7 +115,7 @@
         <p><strong>Доступ к символам строки:</strong></p>
         <p>Вы можете получить доступ к отдельным символам строки, используя индекс.</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let text = "JavaScript";
     console.log(text[0]); // "J"
     console.log(text[text.length - 1]); // "t"
@@ -127,7 +129,7 @@
             <li><code>split()</code> для разбиения строки на массив по заданному разделителю.</li>
         </ul>
 <pre>
-  <code>
+  <code class="lang-js">
     let text = "Hello, World!";
     console.log(text.toUpperCase()); // "HELLO, WORLD!"
     console.log(text.toLowerCase()); // "hello, world!"

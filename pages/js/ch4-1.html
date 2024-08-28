@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS</title>
     <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
     <script src="../../scripts/script.js" defer></script>
   </head>
 
@@ -95,7 +97,7 @@
           </ul>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     // Получаем элемент по ID
     let header = document.getElementById("main-header");
 
@@ -115,7 +117,7 @@
             <li><strong>Изменение текста элемента</strong>: С помощью свойства <code>textContent</code> можно изменить текст внутри элемента.</li>
             <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let header = document.getElementById("main-header");
     header.textContent = "Новый заголовок";
   </code>
@@ -123,7 +125,7 @@
             <li><strong>Изменение атрибутов</strong>: Атрибуты элемента, такие как <code>src</code>, <code>href</code>, <code>class</code>, могут быть изменены с помощью методов <code>setAttribute</code>, <code>getAttribute</code>, <code>removeAttribute</code>.</li>
             <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let image = document.querySelector("img");
     image.setAttribute("src", "new-image.jpg");
   </code>
@@ -132,7 +134,7 @@
           </ul>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let newDiv = document.createElement("div");
     newDiv.textContent = "Это новый элемент";
     document.body.appendChild(newDiv);
@@ -144,7 +146,7 @@
             <li>Назначение обработчика события: Используется метод <code>addEventListener</code>.</li>
             <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let button = document.querySelector("button");
     button.addEventListener("click", function() {
         alert("Кнопка нажата!");
@@ -163,7 +165,7 @@
           </ul>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let firstParagraph = document.querySelector("p");
     let parent = firstParagraph.parentNode;
     let nextElement = firstParagraph.nextSibling;
@@ -173,7 +175,7 @@
           <p>Чтобы удалить элемент из DOM, используется метод <code>removeChild</code>:</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let parentElement = document.querySelector("div");
     let childElement = document.querySelector("p");
     parentElement.removeChild(childElement);
@@ -182,7 +184,7 @@
           <p>Также существует метод <code>remove</code>, который можно применить непосредственно к элементу:</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let element = document.querySelector("p");
     element.remove();
   </code>

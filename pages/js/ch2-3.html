@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS</title>
     <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
     <script src="../../scripts/script.js" defer></script>
   </head>
 
@@ -33,7 +35,7 @@
           <li><strong>Синтаксис тернарного оператора</strong></li>
           <p>Тернарный оператор имеет следующий синтаксис:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     условие ? выражение1 : выражение2;
   </code>
 </pre>
@@ -46,7 +48,7 @@
           <p>Допустим, нужно присвоить переменной <code>status</code> значение <code>"Совершеннолетний"</code>, если возраст (<code>age</code>) больше или равен <code>18</code>, и <code>"Несовершеннолетний"</code> в противном случае.</p>
           <p>С использованием тернарного оператора это можно сделать следующим образом:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let age = 20;
     let status = age >= 18 ? "Совершеннолетний" : "Несовершеннолетний";
 
@@ -57,7 +59,7 @@
           <li><strong>Пример с использованием функции</strong></li>
           <p>Тернарный оператор можно использовать для возврата значений из функции:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     function checkNumber(number) {
         return number > 0 ? "Положительное" : "Отрицательное или Ноль";
     }
@@ -71,7 +73,7 @@
           <p>Вложенные тернарные операторы позволяют проверять несколько условий, хотя использование их таким образом может сделать код менее читаемым.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let score = 85;
     let grade = score >= 90 ? "Отлично" : score >= 75 ? "Хорошо" : "Попробуйте еще раз";
 

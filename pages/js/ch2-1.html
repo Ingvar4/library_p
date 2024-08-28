@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS</title>
     <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
     <script src="../../scripts/script.js" defer></script>
   </head>
 
@@ -34,7 +36,7 @@
           <p>Оператор <code>if</code> используется для выполнения кода, если условие истинно (т.е. имеет значение <code>true</code>). Если условие ложно (т.е. имеет значение <code>false</code>), код внутри <code>if</code> не будет выполнен.</p>
           <p>Синтаксис:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     if (условие) {
       // Код, который будет выполнен, если условие истинно
     }
@@ -42,7 +44,7 @@
 </pre>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let age = 18;
 
     if (age >= 18) {
@@ -55,7 +57,7 @@
           <p>Оператор <code>else</code> используется в сочетании с <code>if</code> и выполняет код, если условие в <code>if</code> ложно.</p>
           <p>Синтаксис:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     if (условие) {
         // Код, который будет выполнен, если условие истинно
     } else {
@@ -65,7 +67,7 @@
 </pre>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let age = 16;
 
     if (age >= 18) {
@@ -80,7 +82,7 @@
           <p>Оператор <code>else if</code> позволяет проверять несколько условий. Если первое условие в <code>if</code> ложно, проверяется следующее условие в <code>else if</code>, и так далее. Если все условия ложны, можно добавить блок <code>else</code> в конце.</p>
           <p>Синтаксис:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     if (условие1) {
         // Код, который будет выполнен, если условие1 истинно
     } else if (условие2) {
@@ -92,7 +94,7 @@
 </pre>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let score = 85;
 
     if (score >= 90) {
@@ -109,7 +111,7 @@
           <p>Оператор <code>switch</code> используется для проверки одного значения на соответствие нескольким вариантам (<code>case</code>). Он часто применяется, когда необходимо проверить одно и то же выражение на несколько значений.</p>
           <p><strong>Синтаксис:</strong></p>
 <pre>
-  <code>
+  <code class="lang-js">
     switch (выражение) {
         case значение1:
             // Код, который будет выполнен, если выражение равно значение1
@@ -125,7 +127,7 @@
 </pre>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let day = 3;
 
     switch (day) {
@@ -156,7 +158,7 @@
             <li>Логические операторы: В <code>if</code>-условиях можно использовать логические операторы, такие как <code>&&</code> (и) и <code>||</code> (или) для комбинирования нескольких условий.</li>
             <p>Пример использования логических операторов:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let isMember = true;
     let age = 20;
 
@@ -169,7 +171,7 @@
             <li>Вложенные условия: Можно вкладывать одно условие в другое, создавая более сложные логические проверки.</li>
             <p>Пример вложенных условий:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let age = 20;
     let hasPermission = true;
 

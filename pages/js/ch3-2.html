@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS</title>
     <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
     <script src="../../scripts/script.js" defer></script>
   </head>
 
@@ -36,7 +38,7 @@
           <p>Самый простой и распространенный способ создания объекта — это использование литерала объекта, который заключается в фигурные скобки <code>{}</code>. Внутри скобок перечисляются пары «ключ-значение».</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let car = {
         make: "Toyota",
         model: "Corolla",
@@ -49,7 +51,7 @@
           <p>Объект можно создать с помощью конструктора <code>Object</code>. Этот способ менее распространен, но он также полезен, особенно если объект создается программно, а не вручную.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let car = new Object();
     car.make = "Toyota";
     car.model = "Corolla";
@@ -63,7 +65,7 @@
           <p>Точечная нотация — это наиболее распространенный способ доступа к свойствам объекта. Он прост и нагляден, особенно когда имена свойств известны заранее и не содержат специальных символов.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let model = car.model; // "Corolla"
   </code>
 </pre>
@@ -72,7 +74,7 @@
           <p>Квадратные скобки позволяют более гибко обращаться к свойствам, особенно когда имя свойства динамическое, хранится в переменной или содержит специальные символы (например, пробелы).</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let key = "year";
     let year = car[key]; // 2020
   </code>
@@ -82,7 +84,7 @@
           <p>Имена свойств в JavaScript могут содержать практически любые символы, включая пробелы и цифры, но в таких случаях требуется использовать квадратные скобки для доступа к ним.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let car = {
         "make": "Toyota",
         "model year": 2020,
@@ -98,14 +100,14 @@
           <p>JavaScript позволяет свободно изменять существующие свойства объектов и добавлять новые.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     car.color = "red"; // Добавление нового свойства
     car.year = 2021;   // Изменение существующего свойства
   </code>
 </pre>
           <p>После выполнения этих операций объект <code>car</code> будет содержать обновленные данные:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     console.log(car);
     // { make: "Toyota", model: "Corolla", year: 2021, color: "red" }
   </code>
@@ -114,7 +116,7 @@
           <p>Чтобы удалить свойство из объекта, используется оператор <code>delete</code>.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     delete car.color;
     console.log(car);
     // { make: "Toyota", model: "Corolla", year: 2021 }
@@ -125,7 +127,7 @@
           <p>Иногда перед доступом к свойству объекта нужно проверить, существует ли оно. Это можно сделать с помощью оператора <code>in</code> или метода <code>hasOwnProperty()</code>.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     console.log("model" in car); // true
     console.log(car.hasOwnProperty("color")); // false
   </code>

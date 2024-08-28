@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS</title>
     <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
     <script src="../../scripts/script.js" defer></script>
   </head>
 
@@ -34,7 +36,7 @@
           <p>В JavaScript существует несколько способов создания объектов. Наиболее распространенный способ — это использование литерала объекта.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let person = {
         name: "Иван",
         age: 30,
@@ -45,7 +47,7 @@
           <p>В этом примере объект <code>person</code> имеет три свойства: <code>name</code>, <code>age</code>, и <code>isEmployed</code>.</p>
           <p>Также можно создать объект с помощью конструктора <code>Object</code>:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let person = new Object();
     person.name = "Иван";
     person.age = 30;
@@ -56,7 +58,7 @@
           <p>Свойства объекта можно получить двумя способами: через точечную нотацию и с помощью квадратных скобок.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     console.log(person.name); // "Иван"
     console.log(person["age"]); // 30
   </code>
@@ -64,7 +66,7 @@
           <p>Точечная нотация используется чаще, но если имя свойства хранится в переменной или содержит пробелы, следует использовать квадратные скобки.</p>
           <p>Пример с переменной:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let prop = "name";
     console.log(person[prop]); // "Иван"
   </code>
@@ -73,14 +75,14 @@
           <p>Вы можете изменить существующие свойства объекта или добавить новые в любое время.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     person.age = 31; // Изменение существующего свойства
     person.city = "Москва"; // Добавление нового свойства
   </code>
 </pre>
           <p>После этого объект person будет содержать новые данные:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     console.log(person); 
     // {name: "Иван", age: 31, isEmployed: true, city: "Москва"}
   </code>
@@ -89,7 +91,7 @@
           <p>Свойства объекта можно удалять с помощью оператора <code>delete</code>.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     delete person.isEmployed;
     console.log(person); 
     // {name: "Иван", age: 31, city: "Москва"}
@@ -100,7 +102,7 @@
           <p>Объекты могут содержать другие объекты в качестве свойств, создавая тем самым вложенные структуры.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let person = {
         name: "Иван",
         age: 30,
@@ -114,7 +116,7 @@
 </pre>
           <p>Для доступа к вложенным объектам используется цепочка из точек:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     console.log(person.address.city); // "Москва"
   </code>
 </pre>
@@ -122,7 +124,7 @@
           <p>Методом объекта называется функция, которая является значением его свойства. Методы позволяют объектам выполнять действия.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let person = {
         name: "Иван",
         age: 30,
@@ -139,7 +141,7 @@
           <p>Для перебора всех свойств объекта используется цикл <code>for...in</code>.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     for (let key in person) {
         console.log(key + ": " + person[key]);
     }
@@ -147,7 +149,7 @@
 </pre>
           <p>Результат:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     name: Иван
     age: 30
     address: [object Object]
@@ -158,7 +160,7 @@
           <p>Объекты в JavaScript сравниваются по ссылке, а не по значению. Это означает, что два объекта равны (<code>===</code>) только в том случае, если они ссылаются на один и тот же объект в памяти.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let obj1 = { name: "Иван" };
     let obj2 = { name: "Иван" };
 

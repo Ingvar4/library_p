@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS</title>
     <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
     <script src="../../scripts/script.js" defer></script>
   </head>
 
@@ -38,7 +40,7 @@
           </ul>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let person = {
         name: "Иван",
         greet() {
@@ -66,7 +68,7 @@
           </ul>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let animal = {
         eat() {
             console.log("Животное ест");
@@ -87,7 +89,7 @@
           <p>Функции-конструкторы используются для создания объектов с общим прототипом. Функция-конструктор — это обычная функция, которая используется с оператором <code>new</code>.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     function Person(name) {
         this.name = name;
     }
@@ -105,7 +107,7 @@
           <p>JavaScript позволяет создавать цепочку прототипов, используя конструкторы, что позволяет организовать более сложное наследование.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     function Animal(name) {
       this.name = name;
     }
@@ -136,7 +138,7 @@
           <p>Начиная с ECMAScript 2015 (ES6), в JavaScript появился синтаксис классов, который предоставляет более удобный способ работы с наследованием.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     class Animal {
         constructor(name) {
             this.name = name;

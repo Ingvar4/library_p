@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS</title>
     <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
     <script src="../../scripts/script.js" defer></script>
   </head>
 
@@ -34,14 +36,14 @@
           <p>Массивы в JavaScript можно создавать несколькими способами. Самый распространенный — использование квадратных скобок <strong>[]</strong>.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let fruits = ["Яблоко", "Банан", "Апельсин"];
   </code>
 </pre>
           <p>Здесь массив <code>fruits</code> содержит три элемента: <code>"Яблоко"</code>, <code>"Банан"</code>, и <code>"Апельсин"</code>.</p>
           <p>Вы также можете создать массив с помощью конструктора <code>Array</code>:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let numbers = new Array(1, 2, 3, 4, 5);
   </code>
 </pre>
@@ -49,7 +51,7 @@
           <p>Элементы массива индексируются, начиная с нуля. Это означает, что первый элемент имеет индекс <code>0</code>, второй — <code>1</code>, и так далее.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let firstFruit = fruits[0]; // "Яблоко"
     let secondFruit = fruits[1]; // "Банан"
   </code>
@@ -58,7 +60,7 @@
           <p>Вы можете изменять элементы массива, присваивая им новые значения.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     fruits[1] = "Груша"; // Теперь массив будет ["Яблоко", "Груша", "Апельсин"]
   </code>
 </pre>
@@ -66,7 +68,7 @@
           <p>Свойство <code>length</code> позволяет узнать количество элементов в массиве.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let count = fruits.length; // 3
   </code>
 </pre>
@@ -75,55 +77,55 @@
           <ul>
             <li><code>push</code>: Добавляет элемент в конец массива.</li>
 <pre>
-  <code>
+  <code class="lang-js">
     fruits.push("Виноград"); // ["Яблоко", "Груша", "Апельсин", "Виноград"]
   </code>
 </pre>
             <li><code>pop</code>: Удаляет последний элемент массива и возвращает его.</li>
 <pre>
-  <code>
+  <code class="lang-js">
     let lastFruit = fruits.pop(); // "Виноград"
   </code>
 </pre>
             <li><code>shift</code>: Удаляет первый элемент массива и возвращает его.</li>
 <pre>
-  <code>
+  <code class="lang-js">
     let firstFruitRemoved = fruits.shift(); // "Яблоко"
   </code>
 </pre>
             <li><code>unshift</code>: Добавляет элемент в начало массива.</li>
 <pre>
-  <code>
+  <code class="lang-js">
     fruits.unshift("Киви"); // ["Киви", "Груша", "Апельсин"]
   </code>
 </pre>
             <li><code>splice</code>: Добавляет, удаляет или заменяет элементы массива.</li>
 <pre>
-  <code>
+  <code class="lang-js">
     fruits.splice(1, 1, "Персик"); // ["Киви", "Персик", "Апельсин"]
   </code>
 </pre>
             <li><code>slice</code>: Создает новый массив из части существующего массива.</li>
 <pre>
-  <code>
+  <code class="lang-js">
     let citrus = fruits.slice(1, 2); // ["Персик"]
   </code>
 </pre>
             <li><code>concat</code>: Объединяет два или более массива в один.</li>
 <pre>
-  <code>
+  <code class="lang-js">
     let moreFruits = fruits.concat(["Манго", "Ананас"]); // ["Киви", "Персик", "Апельсин", "Манго", "Ананас"]
   </code>
 </pre>
             <li><code>indexOf</code>: Возвращает индекс первого вхождения элемента в массив или -1, если элемент не найден.</li>
 <pre>
-  <code>
+  <code class="lang-js">
     let index = fruits.indexOf("Апельсин"); // 2
   </code>
 </pre>
             <li><code>forEach</code>: Выполняет указанную функцию один раз для каждого элемента массива.</li>
 <pre>
-  <code>
+  <code class="lang-js">
     fruits.forEach(function(item, index, array) {
         console.log(item, index);
     });
@@ -134,7 +136,7 @@
           <p>Итерация по массиву может быть выполнена с использованием различных циклов, таких как <code>for</code>, <code>while</code>, и <code>for...of</code>.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     for (let i = 0; i < fruits.length; i++) {
         console.log(fruits[i]);
     }
@@ -142,7 +144,7 @@
 </pre>
           <p>Или с использованием цикла <code>for...of</code>:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     for (let fruit of fruits) {
        console.log(fruit);
     }
@@ -152,7 +154,7 @@
           <p>Массивы в JavaScript могут быть многомерными, что позволяет создавать массивы массивов.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let matrix = [
         [1, 2, 3],
         [4, 5, 6],
@@ -162,7 +164,7 @@
 </pre>
           <p>Доступ к элементам в многомерных массивах осуществляется с использованием нескольких индексов:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let element = matrix[1][2]; // 6
   </code>
 </pre>

@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS</title>
     <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
     <script src="../../scripts/script.js" defer></script>
   </head>
 
@@ -34,13 +36,13 @@
           <p>Метод <code>push()</code> добавляет один или несколько элементов в конец массива и возвращает новую длину массива.</p>
           <p>Синтаксис:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     array.push(element1, ..., elementN)
   </code>
 </pre>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let fruits = ["Яблоко", "Банан"];
     fruits.push("Апельсин"); 
     console.log(fruits); // ["Яблоко", "Банан", "Апельсин"]
@@ -51,13 +53,13 @@
           <p>Метод <code>pop()</code> удаляет последний элемент из массива и возвращает его. Если массив пуст, он возвращает <code>undefined</code>.</p>
           <p>Синтаксис:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     array.pop()
   </code>
 </pre>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let fruits = ["Яблоко", "Банан", "Апельсин"];
     let lastFruit = fruits.pop(); 
     console.log(fruits); // ["Яблоко", "Банан"]
@@ -69,13 +71,13 @@
           <p>Метод <code>shift()</code> удаляет первый элемент из массива и возвращает его. Этот метод также изменяет длину массива. Если массив пуст, он возвращает <code>undefined</code>.</p>
           <p>Синтаксис:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     array.shift()
   </code>
 </pre>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let fruits = ["Яблоко", "Банан", "Апельсин"];
     let firstFruit = fruits.shift(); 
     console.log(fruits); // ["Банан", "Апельсин"]
@@ -87,13 +89,13 @@
           <p>Метод <code>unshift()</code> добавляет один или несколько элементов в начало массива и возвращает новую длину массива.</p>
           <p>Синтаксис:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     array.unshift(element1, ..., elementN)
   </code>
 </pre>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let fruits = ["Банан", "Апельсин"];
     fruits.unshift("Яблоко");
     console.log(fruits); // ["Яблоко", "Банан", "Апельсин"]

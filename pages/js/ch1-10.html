@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS</title>
     <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
     <script src="../../scripts/script.js" defer></script>
   </head>
 
@@ -35,7 +37,7 @@
           <p>Когда вы определяете функцию, вы указываете параметры в круглых скобках после имени функции. При вызове функции вы передаете значения для этих параметров — это и есть <strong>аргументы</strong>. Параметры позволяют передавать различную информацию в функцию, делая её более универсальной и гибкой.</p>
           <p>Пример определения функции с параметрами:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     function greet(name, greeting) {
       console.log(greeting + ", " + name + "!");
     }
@@ -44,7 +46,7 @@
           <p>В этом примере функция <code>greet</code> имеет два параметра: <code>name</code> и <code>greeting</code>. Эти параметры принимают значения, передаваемые в функцию при её вызове.</p>
           <p>Пример вызова функции с аргументами:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     greet("Алиса", "Здравствуйте"); // "Здравствуйте, Алиса!"
     greet("Боб", "Привет"); // "Привет, Боб!"
   </code>
@@ -54,7 +56,7 @@
           <p>JavaScript позволяет задавать значения по умолчанию для параметров. Если аргумент не передан при вызове функции, параметр примет значение по умолчанию.</p>
           <p>Пример параметров с значением по умолчанию:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     function greet(name, greeting = "Привет") {
       console.log(greeting + ", " + name + "!");
     }
@@ -68,7 +70,7 @@
           <p>Функция может возвращать результат своей работы с помощью оператора <code>return</code>. После выполнения <code>return</code> функция завершает свою работу, и результат возвращается в то место, где функция была вызвана.</p>
           <p>Пример функции с возвратом значения:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     function add(a, b) {
       return a + b;
     }
@@ -82,7 +84,7 @@
           <p>Если в функции нет оператора <code>return</code>, или он используется без значения, функция возвращает значение <code>undefined</code>.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     function multiply(a, b) {
       let result = a * b;
     }
@@ -96,7 +98,7 @@
           <p>Функции могут возвращать не только простые значения, такие как числа или строки, но и более сложные данные, такие как объекты, массивы или даже другие функции.</p>
           <p>Пример возврата объекта:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     function createUser(name, age) {
       return {
           name: name,
@@ -114,7 +116,7 @@
           <p>Параметры и возврат значений тесно связаны друг с другом. Параметры позволяют функции получать входные данные, а возврат значений — возвращать результат обработки этих данных.</p>
           <p>Пример взаимодействия:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     function calculateTotalPrice(price, quantity) {
       let total = price * quantity;
       return total;

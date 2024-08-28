@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS</title>
     <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
     <script src="../../scripts/script.js" defer></script>
   </head>
 
@@ -34,13 +36,13 @@
           <p>Оператор <code>&&</code> (логическое И) возвращает <code>true</code>, если оба операнда истинны. Если хотя бы один из операндов ложно (<code>false</code>), результат будет <code>false</code>.</p>
           <p>Синтаксис:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     условие1 && условие2
   </code>
 </pre>
           <p>Пример использования <code>&&</code>:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let age = 25;
     let hasDrivingLicense = true;
 
@@ -56,13 +58,13 @@
           <p>Оператор <code>||</code> (логическое ИЛИ) возвращает <code>true</code>, если хотя бы один из операндов истинный. Если оба операнда ложны, результат будет <code>false</code>.</p>
           <p>Синтаксис:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     условие1 || условие2
   </code>
 </pre>
           <p>Пример использования <code>||</code>:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let isWeekend = true;
     let isHoliday = false;
 
@@ -78,13 +80,13 @@
           <p>Оператор <code>!</code> (логическое НЕ) используется для инвертирования значения условия. Если условие истинное, <code>!</code> превращает его в ложное, и наоборот.</p>
           <p>Синтаксис:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     !условие
   </code>
 </pre>
           <p>Пример использования <code>!</code>:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let isRaining = true;
 
     if (!isRaining) {
@@ -99,7 +101,7 @@
           <p>Логические операторы могут быть комбинированы для создания более сложных условий. В этом случае важно понимать приоритет операций: оператор <code>!</code> имеет наивысший приоритет, затем идет <code>&&</code>, и затем <code>||</code>.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let isAdult = true;
     let hasPermission = false;
     let isStudent = true;
@@ -116,7 +118,7 @@
           <p>В JavaScript логические операторы также поддерживают концепцию короткого замыкания. Это означает, что при использовании <code>&&</code> и <code>||</code> выполнение операции может быть завершено раньше, если результат уже известен.</p>
           <p>Пример для <code>&&</code>:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let x = 5;
     let y = 10;
 
@@ -128,7 +130,7 @@
           <p>Здесь, если <code>x > 0</code> является ложным, то второе условие <code>y > 0</code> не будет проверяться, так как результат всей операции уже очевиден — он будет ложным.</p>
           <p>Пример для <code>||</code>:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let isLoggedIn = false;
     let isAdmin = true;
 

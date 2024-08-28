@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS</title>
     <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
     <script src="../../scripts/script.js" defer></script>
   </head>
 
@@ -41,7 +43,7 @@
         <p><strong>Функциональное выражение (Function Expression)</strong></p>
         <p>Функции могут быть объявлены как часть выражения, например, присвоены переменной.</p>
 <pre>
-  <code>
+  <code class="lang-js">
     const myFunction = function() {
       console.log("Hello from Function Expression!");
     };
@@ -50,7 +52,7 @@
         <p><strong>Функциональное декларирование (Function Declaration)</strong></p>
         <p>Это традиционный способ объявления функций, который добавляет функцию в глобальную область видимости или в область видимости текущего блока.</p>
 <pre>
-  <code>
+  <code class="lang-js">
     function greet() {
       console.log("Hello from Function Declaration!");
     }
@@ -60,7 +62,7 @@
         <p><strong>Стрелочные функции (Arrow Functions)</strong></p>
         <p>Стрелочные функции — это сокращённый синтаксис для создания функций, введённый в ES6. Они не имеют своего контекста (<code>this</code>), что делает их полезными в некоторых ситуациях, таких как обработка    событий или работа с асинхронным кодом.</p>
 <pre>
-  <code>
+  <code class="lang-js">
     const add = (a, b) => a + b;
     console.log(add(2, 3)); // 5
   </code>
@@ -68,7 +70,7 @@
         <h3>3. Вызов функции</h3>
         <p>Для вызова функции нужно использовать её имя с круглыми скобками, в которых можно передать аргументы:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     function sayHello(name) {
       console.log("Hello, " + name + "!");
     }
@@ -80,7 +82,7 @@
         <h3>4. Аргументы и параметры</h3>
         <p>Функции могут принимать параметры — значения, которые передаются в функцию при её вызове. Внутри функции они становятся локальными переменными.</p>
 <pre>
-  <code>
+  <code class="lang-js">
     function multiply(a, b) {
       return a * b;
     }
@@ -90,7 +92,7 @@
 </pre>
         <p>Параметры могут иметь значения по умолчанию, если они не были переданы при вызове:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     function greet(name = "Guest") {
       console.log("Hello, " + name + "!");
     }
@@ -101,7 +103,7 @@
         <h3>5. Возврат значения</h3>
         <p>Функция может вернуть значение с помощью оператора <code>return</code>. После выполнения <code>return</code> выполнение функции прекращается, и результат передается обратно вызывающему коду.</p>
 <pre>
-  <code>
+  <code class="lang-js">
     function sum(a, b) {
       return a + b;
     }
@@ -114,7 +116,7 @@
         <h3>6. Область видимости и замыкания</h3>
         <p>Функции в JavaScript создают свою область видимости. Всякий раз, когда создаётся функция, она получает доступ к своим переменным (локальная область видимости), а также к переменным внешних областей    видимости (замыкания).</p>
 <pre>
-  <code>
+  <code class="lang-js">
     function outerFunction() {
       let outerVariable = "I'm outside!";
     
@@ -131,7 +133,7 @@
         <h3>7. Рекурсия</h3>
         <p>Рекурсия — это техника, при которой функция вызывает сама себя для решения задачи. Важно предусмотреть условие выхода, чтобы избежать бесконечной рекурсии.</p>
 <pre>
-  <code>
+  <code class="lang-js">
     function factorial(n) {
       if (n === 1) return 1;
       return n * factorial(n - 1);
@@ -144,7 +146,7 @@
         <h3>8. Функции высшего порядка</h3>
         <p>Функции высшего порядка — это функции, которые принимают другие функции в качестве аргументов или возвращают функции как результат.</p>
 <pre>
-  <code>
+  <code class="lang-js">
     function operate(operation, a, b) {
       return operation(a, b);
     }
@@ -160,7 +162,7 @@
         <h3>9. Стрелочные функции и контекст</h3>
         <p>Стрелочные функции ведут себя по-другому по отношению к <code>this</code>. В отличие от обычных функций, стрелочные функции не имеют собственного <code>this</code> и берут его из внешнего контекста.</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let person = {
       name: "Alice",
       greet: function() {

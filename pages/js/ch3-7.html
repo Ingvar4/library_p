@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS</title>
     <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
     <script src="../../scripts/script.js" defer></script>
   </head>
 
@@ -35,7 +37,7 @@
           <p>Поверхностное копирование создает новый объект, но свойства верхнего уровня этого объекта будут ссылаться на те же данные, что и в исходном объекте. Это означает, что если объект содержит вложенные объекты, они не будут копироваться, а останутся ссылками на оригиналы.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let original = { name: "Иван", address: { city: "Москва" } };
     let copy = Object.assign({}, original);
 
@@ -52,7 +54,7 @@
             Для глубокого копирования можно использовать различные подходы, включая рекурсивные функции и сторонние библиотеки.</p>
           <p>Пример с использованием рекурсии:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     function deepCopy(obj) {
         if (obj === null || typeof obj !== "object") {
             return obj;
@@ -84,7 +86,7 @@
           <p>Если сравнивать два объекта с помощью оператора <code>===</code>, проверяется, указывают ли они на одну и ту же область памяти. Даже если два объекта имеют одинаковые свойства и значения, они считаются разными, если ссылки на них разные.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let obj1 = { name: "Иван" };
     let obj2 = { name: "Иван" };
     let obj3 = obj1;
@@ -98,7 +100,7 @@
           <p>Глубокое сравнение проверяет, равны ли объекты по структуре и значению. Для этого необходимо рекурсивно сравнивать все свойства объектов.</p>
           <p>Пример функции для глубокого сравнения:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     function deepEqual(obj1, obj2) {
         if (obj1 === obj2) {
            return true;

@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS</title>
     <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
     <script src="../../scripts/script.js" defer></script>
   </head>
 
@@ -34,7 +36,7 @@
           <p>Вложенные циклы — это циклы, которые находятся внутри других циклов. Они используются для работы с многомерными структурами данных, такими как двумерные массивы, или для выполнения сложных вычислений, где требуется повторение действий на нескольких уровнях.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     for (let i = 0; i < 3; i++) {
         console.log("Внешний цикл: " + i);
       
@@ -46,7 +48,7 @@
 </pre>
           <p>Результат:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     Внешний цикл: 0
       Внутренний цикл: 0
       Внутренний цикл: 1
@@ -63,7 +65,7 @@
           <p>Вложенные циклы часто используются для работы с двумерными массивами, где каждый элемент массива является массивом.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let matrix = [
         [1, 2, 3],
         [4, 5, 6],
@@ -79,7 +81,7 @@
 </pre>
           <p>Результат:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     Элемент [0][0] = 1
     Элемент [0][1] = 2
     Элемент [0][2] = 3
@@ -96,7 +98,7 @@
           <p>Оператор <code>break</code> позволяет немедленно завершить выполнение текущего цикла. В случае вложенных циклов <code>break</code> завершает только тот цикл, в котором он вызван.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     for (let i = 0; i < 5; i++) {
         for (let j = 0; j < 5; j++) {
             if (j === 3) {
@@ -109,7 +111,7 @@
 </pre>
           <p>Результат:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     i: 0, j: 0
     i: 0, j: 1
     i: 0, j: 2
@@ -132,7 +134,7 @@
           <p>Оператор <code>continue</code> пропускает оставшуюся часть тела текущей итерации и переходит к следующей итерации цикла. В случае вложенных циклов <code>continue</code> влияет только на тот цикл, в котором он вызван.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     for (let i = 0; i < 5; i++) {
         for (let j = 0; j < 5; j++) {
             if (j === 2) {
@@ -145,7 +147,7 @@
 </pre>
           <p>Результат:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     i: 0, j: 0
     i: 0, j: 1
     i: 0, j: 3
@@ -173,7 +175,7 @@
           <p>Если нужно выйти из всех вложенных циклов сразу, обычно это делается с помощью метки и оператора <code>break</code>:</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     outerLoop: for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
             if (i === 1 && j === 1) {
@@ -186,7 +188,7 @@
 </pre>
           <p>Результат:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     i: 0, j: 0
     i: 0, j: 1
     i: 0, j: 2

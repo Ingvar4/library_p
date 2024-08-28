@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS</title>
     <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
     <script src="../../scripts/script.js" defer></script>
   </head>
 
@@ -34,7 +36,7 @@
           <p>Цикл <code>for</code> используется, когда известно точное количество итераций, которые нужно выполнить. Он состоит из трех частей: инициализации, условия и шага.</p>
           <p>Синтаксис:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     for (инициализация; условие; шаг) {
         // Код, который будет повторяться
     }
@@ -47,7 +49,7 @@
           </ul>
           <p>Пример использования <code>for</code>:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     for (let i = 0; i < 5; i++) {
         console.log("Итерация номер " + i);
     }
@@ -56,7 +58,7 @@
           <p>В этом примере цикл начнется с <code>i = 0</code>, будет выполняться до тех пор, пока <code>i < 5</code>, и после каждой итерации <code>i</code> будет увеличиваться на единицу.</p>
           <p>Результат:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     Итерация номер 0
     Итерация номер 1
     Итерация номер 2
@@ -68,7 +70,7 @@
           <p>Цикл <code>while</code> используется, когда количество итераций заранее неизвестно, и цикл должен продолжаться до тех пор, пока выполняется определенное условие.</p>
           <p>Синтаксис:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     while (условие) {
         // Код, который будет повторяться
     }
@@ -79,7 +81,7 @@
           </ul>
           <p>Пример использования <code>while</code>:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let count = 0;
 
     while (count < 5) {
@@ -91,7 +93,7 @@
           <p>В этом примере цикл <code>while</code> будет выполняться до тех пор, пока значение переменной <code>count</code> меньше <code>5</code>. После каждой итерации <code>count</code> увеличивается на единицу.</p>
           <p>Результат:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     Счетчик: 0
     Счетчик: 1
     Счетчик: 2
@@ -103,7 +105,7 @@
           <p>Цикл <code>do...while</code> похож на <code>while</code>, с тем отличием, что условие проверяется после выполнения тела цикла. Это означает, что цикл <code>do...while</code> всегда выполнит тело хотя бы один раз, даже если условие ложно с самого начала.</p>
           <p>Синтаксис:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     do {
        // Код, который будет повторяться
     } while (условие);
@@ -111,7 +113,7 @@
 </pre>
           <p>Пример использования <code>do...while</code>:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let i = 0;
 
     do {
@@ -123,7 +125,7 @@
           <p>В этом примере цикл <code>do...while</code> выполнит тело цикла один раз, а затем будет повторять его до тех пор, пока <code>i</code> меньше <code>5</code>.</p>
           <p>Результат:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     Число: 0
     Число: 1
     Число: 2
@@ -135,7 +137,7 @@
           <p>Циклы часто используются для работы с массивами. С помощью цикла можно пройтись по всем элементам массива и выполнить над ними определенные операции.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let fruits = ["Яблоко", "Банан", "Апельсин"];
 
     for (let i = 0; i < fruits.length; i++) {
@@ -146,7 +148,7 @@
           <p>В этом примере цикл <code>for</code> проходит по каждому элементу массива <code>fruits</code> и выводит его на консоль.</p>
           <p>Результат:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     Яблоко
     Банан
     Апельсин
@@ -160,7 +162,7 @@
           </ul>
           <p>Пример с <code>break</code>:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     for (let i = 0; i < 10; i++) {
         if (i === 5) {
            break;
@@ -171,7 +173,7 @@
 </pre>  
           <p>Результат:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     0
     1
     2
@@ -182,7 +184,7 @@
           <p>Здесь цикл прерывается, когда <code>i</code> достигает значения <code>5</code>.</p>
           <p>Пример с <code>continue</code>:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     for (let i = 0; i < 5; i++) {
        if (i === 2) {
             continue;
@@ -193,7 +195,7 @@
 </pre>
           <p>Результат:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     0
     1
     3

@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS</title>
     <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
     <script src="../../scripts/script.js" defer></script>
   </head>
 
@@ -34,7 +36,7 @@
           <p>Метод объекта создается так же, как и обычное свойство, но его значение — это функция.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let person = {
         name: "Иван",
         age: 30,
@@ -49,7 +51,7 @@
           <p>Ключевое слово <code>this</code> в методах объектов относится к самому объекту, в котором этот метод находится. Оно используется для доступа к свойствам и другим методам этого объекта.</p>
           <p>Пример:</p>
 <pre> 
-  <code>
+  <code class="lang-js">
     let car = {
         make: "Toyota",
         model: "Corolla",
@@ -67,7 +69,7 @@
           <p>Начиная с ES6, появилась возможность использовать сокращенную запись для методов в объектах. Вместо того чтобы писать <code>greet: function() {...}</code>, можно использовать сокращенный синтаксис.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let person = {
         name: "Иван",
         age: 30,
@@ -86,7 +88,7 @@
           <p>Метод <code>Object.keys()</code> возвращает массив всех перечисляемых свойств (ключей) объекта.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let keys = Object.keys(person);
     console.log(keys); // ["name", "age", "greet"]
   </code>
@@ -95,7 +97,7 @@
           <p>Метод <code>Object.values()</code> возвращает массив всех значений перечисляемых свойств объекта.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let values = Object.values(person);
     console.log(values); // ["Иван", 30, ƒ]
   </code>
@@ -104,7 +106,7 @@
           <p>Метод <code>Object.entries()</code> возвращает массив пар [ключ, значение] для каждого перечисляемого свойства объекта.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let entries = Object.entries(person);
     console.log(entries); 
     // [["name", "Иван"], ["age", 30], ["greet", ƒ]]
@@ -114,7 +116,7 @@
           <p>Метод <code>Object.assign()</code> используется для копирования значений всех перечисляемых свойств из одного или более исходных объектов в целевой объект. Он возвращает целевой объект.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let target = {};
     let source = { a: 1, b: 2 };
     Object.assign(target, source);
@@ -126,7 +128,7 @@
           <p>Метод <code>Object.freeze()</code> замораживает объект, то есть делает его неизменяемым. Все свойства и методы становятся константами, их нельзя изменить, добавить или удалить.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let frozenObject = Object.freeze({ name: "Иван" });
     frozenObject.name = "Пётр"; // Ошибка в строгом режиме
     console.log(frozenObject.name); // "Иван"
@@ -136,7 +138,7 @@
           <p>Поскольку массивы в JavaScript также являются объектами, они могут использовать методы, характерные для объектов. Это делает работу с массивами гибкой и мощной.</p>
           <p>Пример использования <code>Object.keys()</code> с массивом:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let arr = ["a", "b", "c"];
     let keys = Object.keys(arr);
     console.log(keys); // ["0", "1", "2"]
@@ -148,7 +150,7 @@
           <p>Метод <code>Object.create()</code> создает новый объект с указанным объектом-прототипом и свойствами.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let proto = { greet() { console.log("Привет"); } };
     let obj = Object.create(proto);
 
@@ -159,7 +161,7 @@
           <p>Метод <code>Object.getPrototypeOf()</code> возвращает прототип объекта (т.е. внутреннее свойство <code>[[Prototype]]</code>).</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let proto = Object.getPrototypeOf(obj);
     console.log(proto === proto); // true
   </code>
@@ -168,7 +170,7 @@
           <p>Метод <code>Object.setPrototypeOf()</code> устанавливает прототип (т.е. внутреннее свойство <code>[[Prototype]]</code>) указанного объекта на другой объект или <code>null</code>.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let newProto = { farewell() { console.log("До свидания"); } };
     Object.setPrototypeOf(obj, newProto);
     obj.farewell(); // "До свидания"

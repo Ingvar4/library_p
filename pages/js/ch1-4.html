@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS</title>
     <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
     <script src="../../scripts/script.js" defer></script>
   </head>
 
@@ -37,7 +39,7 @@
         </ul>
         <p>Примеры:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     var name = "John"; // Объявление переменной с использованием var
     let age = 25; // Объявление переменной с использованием let
     const country = "USA"; // Объявление переменной с использованием const
@@ -49,38 +51,38 @@
         <ul>
           <li><strong>String</strong>: Представляет текстовые данные. Строки заключаются в одинарные или двойные кавычки.</li>
 <pre>
-  <code>
+  <code class="lang-js">
     let greeting = "Hello, world!";
   </code>
 </pre>
           <li><strong>Number</strong>: Представляет как целые числа, так и числа с плавающей запятой.</li>
 <pre>
-  <code>
+  <code class="lang-js">
     let age = 30;code 
     let pi = 3.14;
   </code>
 </pre>
           <li><strong>Boolean</strong>: Представляет логические значения true (истина) или false (ложь)</li>
 <pre>
-  <code>
+  <code class="lang-js">
     let isStudent = true;
   </code>
 </pre>
           <li><strong>Null</strong>: Специальное значение, которое означает отсутствие какого-либо значения.</li>
 <pre>
-  <code>
+  <code class="lang-js">
     let emptyValue = null;
   </code>
 </pre>
           <li><strong>Undefined</strong>: Переменная, которая была объявлена, но ей не было присвоено значение.</li>
 <pre>
-  <code>
+  <code class="lang-js">
     let undefinedValue;
   </code>
 </pre>
           <li><strong>Symbol</strong>: Уникальное и неизменное значение, которое может быть использовано как идентификатор для свойств объектов.</li>
 <pre>
-  <code>
+  <code class="lang-js">
     let symbol = Symbol('description');
   </code>
 </pre>
@@ -89,7 +91,7 @@
         <ul>
           <li><strong>Object</strong>: Комплексный тип данных, который используется для хранения коллекций данных или более сложных сущностей.</li>
 <pre>
-  <code>
+  <code class="lang-js">
     let person = {
       name: "John",
       age: 30,
@@ -100,14 +102,14 @@
 
           <li><strong>Array</strong>: Тип данных, который представляет собой упорядоченный список значений.</li>
 <pre>
-  <code>
+  <code class="lang-js">
     let numbers = [1, 2, 3, 4, 5];
   </code>
 </pre>
 
           <li><strong>Function</strong>: Объект, представляющий функцию, которая может быть вызвана.</li>
 <pre>
-  <code>
+  <code class="lang-js">
     function greet() {
       console.log("Hello!");
     }
@@ -117,7 +119,7 @@
         <h3>3. Динамическая типизация</h3>
         <p>JavaScript — это язык с динамической типизацией, что означает, что тип переменной определяется автоматически в момент выполнения программы, а не в момент объявления переменной. Это также означает, что переменная может менять свой тип в процессе выполнения программы.</p>
 <pre>
-  <code>
+  <code class="lang-js">
     let variable = 42;    // variable имеет тип Number
     variable = "Hello";   // Теперь variable имеет тип String
   </code>
@@ -127,7 +129,7 @@
         <ul>
           <li><strong>Конкатенация строк</strong>: Складывание строк с помощью оператора "+".</li>
 <pre>
-  <code>
+  <code class="lang-js">
     let firstName = "John";
     let lastName = "Doe";
     let fullName = firstName + " " + lastName; // "John Doe"
@@ -135,14 +137,14 @@
 </pre>
           <li><strong>Арифметические операции</strong>: Стандартные математические операции, такие как сложение, вычитание, умножение и деление.</li>
 <pre>
-  <code>
+  <code class="lang-js">
     let sum = 10 + 5; // 15
     let product = 4 * 3; // 12
   </code>
 </pre>
           <li><strong>Логические операции</strong>: Операции, которые возвращают логическое значение "true" или "false".</li>
 <pre>
-  <code>
+  <code class="lang-js">
     let isAdult = age > 18; // true, если age больше 18
   </code>
 </pre>
