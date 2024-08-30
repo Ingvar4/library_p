@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
+    <script src="../../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Изменение стилей и содержимого элементов DOM</h1><hr>
+        <p>Возможность динамически изменять стили и содержимое элементов DOM с помощью JavaScript — одна из ключевых возможностей для создания интерактивных веб-страниц. Давайте подробнее рассмотрим, как это можно делать.</p>
+        <ol>
+          <li>Изменение текстового содержимого</li>
+          <p>Существует несколько способов изменить текст внутри HTML-элемента:</p>
+          <p><strong>1.1 <code>textContent</code></strong></p>
+          <p>Свойство <code>textContent</code> позволяет получить или изменить текстовое содержимое элемента, включая текст всех его потомков.</p>
+          <p>Пример:</p>
+<pre>
+  <code class="lang-js">
+    let header = document.getElementById("main-header");
+    header.textContent = "Новый заголовок"; 
+  </code>
+</pre>
+          <p>Этот код изменяет текст элемента с id <code>"main-header"</code> на <code>"Новый заголовок"</code>. Важно отметить, что <code>textContent</code> заменяет весь текст внутри элемента, включая пробелы и текст внутри дочерних элементов.</p>
+          <p><strong>1.2 <code>innerHTML</code></strong></p>
+          <p>Свойство <code>innerHTML</code> позволяет получить или изменить HTML-содержимое элемента, включая вложенные элементы и текст.</p>
+          <p>Пример:</p>
+<pre>
+  <code class="lang-js">
+    let container = document.querySelector(".container");
+    container.innerHTML = "&lt;h2>Заголовок уровня 2&lt;/h2>&lt;p>Новый текст параграфа&lt;/p>";
+  </code>
+</pre>
+          <p>Этот код заменяет всё содержимое элемента с классом <code>container</code> на новый заголовок и параграф.</p>
+          <p>Отличие от <code>textContent</code>: <code>innerHTML</code> позволяет вставлять HTML-разметку, тогда как <code>textContent</code> работает только с текстом.</p>
+          <p><strong>1.3 <code>innerText</code></strong></p>
+          <p>Свойство <code>innerText</code> похоже на <code>textContent</code>, но оно учитывает стили и отображает текст так, как он виден пользователю, с учетом CSS. Это значит, что <code>innerText</code> игнорирует текст, скрытый с помощью CSS, тогда как <code>textContent</code>  возвращает весь текст, включая скрытый.</p>
+          <p>Пример:</p>
+<pre>
+  <code class="lang-js">
+    let paragraph = document.querySelector(".paragraph");
+    paragraph.innerText = "Изменённый текст параграфа";
+  </code>
+</pre>
+          <p>Этот код изменяет видимый текст параграфа на <code>"Изменённый текст параграфа"</code>.</p>
+          <li><strong>Изменение стилей элементов</strong></li>
+          <p>Для изменения стилей элементов DOM используется свойство <code>style</code>, которое позволяет изменять любые CSS-свойства, примененные к элементу.</p>
+          <p><strong>2.1 Изменение отдельных стилей</strong></p>
+          <p>Каждое CSS-свойство можно установить как отдельное свойство объекта style. Для этого используется camelCase-нотация, где каждое слово в имени CSS-свойства, кроме первого, пишется с заглавной буквы.</p>
+          <p>Пример:</p>
+<pre>
+  <code class="lang-js">
+    let header = document.getElementById("main-header");
+    header.style.color = "blue";
+    header.style.fontSize = "24px";
+    header.style.backgroundColor = "lightgray";
+  </code>
+</pre>
+          <p>Этот код изменяет цвет текста заголовка на синий, увеличивает размер шрифта до 24 пикселей и устанавливает светло-серый цвет фона.</p>
+          <p><strong>2.2 Изменение нескольких стилей одновременно</strong></p>
+          <p>Для применения нескольких стилей одновременно можно использовать строку CSS-кода.</p>
+          <p>Пример:</p>
+<pre>
+  <code class="lang-js">
+    header.style.cssText = "color: blue; font-size: 24px; background-color: lightgray;";  
+  </code>
+</pre>
+          <p>Этот код делает то же самое, что и предыдущий, но в одной строке.</p>
+          <p><strong>2.3 Управление классами через <code>classList</code></strong></p>
+          <p>Вместо того чтобы изменять отдельные стили, часто удобнее управлять классами элементов. Для этого используется свойство <code>classList</code>, которое предоставляет методы <code>add</code>, <code>remove</code>, <code>toggle</code>, <code>contains</code>.</p>
+          <p>Пример:</p>
+<pre>
+  <code class="lang-js">
+    let button = document.querySelector("button");
+    button.classList.add("active");     // Добавляет класс "active"
+    button.classList.remove("inactive"); // Удаляет класс "inactive"
+    button.classList.toggle("highlight"); // Переключает класс "highlight"
+  </code>
+</pre>
+          <p>Этот код управляет классами кнопки, добавляя, удаляя и переключая их.</p>
+          <p><strong>2.4 Изменение стилей через CSS-переменные</strong></p>
+          <p>Если на странице используются CSS-переменные (также называемые пользовательскими свойствами), их можно изменять через JavaScript, что позволяет гибко управлять стилями на уровне всего документа.</p>
+          <p>Пример:</p>
+<pre>
+  <code class="lang-js">
+    document.documentElement.style.setProperty('--main-bg-color', 'coral');
+  </code>
+</pre>
+          <p>Этот код изменяет значение CSS-переменной <code>--main-bg-color</code>, что автоматически обновит все стили на странице, зависящие от этой переменной.</p>
+          <li><strong>Изменение атрибутов элементов</strong></li>
+          <p>Иногда нужно изменить атрибуты HTML-элементов, такие как <code>src</code>, <code>href</code>, <code>alt</code>, и другие. Это делается с помощью методов <code>setAttribute</code>, <code>getAttribute</code>, <code>removeAttribute</code>.</p>
+          <p>Пример:</p>
+<pre>
+  <code class="lang-js">
+    let image = document.querySelector("img");
+    image.setAttribute("src", "new-image.jpg"); // Меняет путь к изображению
+    image.setAttribute("alt", "Новое изображение"); // Меняет текстовое описание
+  </code>
+</pre>
+          <p>Этот код изменяет путь к изображению и текстовое описание для элемента <code>img</code>.</p>
+        </ol>
+        <p><strong>Заключение</strong></p>
+        <p>Изменение стилей и содержимого элементов DOM — это мощный инструмент для создания динамических и интерактивных веб-страниц. Владение этими методами позволяет разработчикам гибко управлять внешним видом и содержанием страницы в зависимости от действий пользователя или других условий, что делает веб-приложения более отзывчивыми и удобными в использовании.</p>
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>
