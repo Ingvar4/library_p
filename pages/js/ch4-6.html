@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
+    <script src="../../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Создание и удаление элементов DOM</h1><hr>
+        <p>Веб-страницы могут динамически изменяться и адаптироваться в зависимости от действий пользователя или других условий. Одной из ключевых возможностей JavaScript является создание и удаление элементов DOM в реальном времени. Это позволяет не только отображать новые данные, но и управлять содержимым страницы более гибко и интерактивно.</p>
+        <ol>
+          <li><strong>Создание элементов DOM</strong></li>
+          <p>Для создания новых элементов в DOM используется метод <code>document.createElement</code>. Он позволяет создать новый элемент заданного типа, который затем можно настроить и добавить в документ.</p>
+          <p><strong>1.1 Основы создания элемента</strong></p>
+          <p>Метод <code>createElement</code> принимает один аргумент — строку с именем тега HTML, который вы хотите создать.</p>
+          <p>Пример:</p>
+<pre>
+  <code class="lang-js">
+    let newDiv = document.createElement("div");
+  </code>
+</pre>
+          <p>Этот код создаёт новый элемент <code>div</code>, но пока не добавляет его на страницу.</p>
+          <p><strong>1.2 Настройка элемента</strong></p>
+          <p>После создания элемента его можно настроить, задав текстовое содержимое, атрибуты, стили и классы.</p>
+          <p>Пример:</p>
+<pre>
+  <code class="lang-js">
+    newDiv.textContent = "Это новый div!";
+    newDiv.classList.add("highlight");
+    newDiv.style.backgroundColor = "yellow";
+  </code>
+</pre>
+          <p>Здесь элементу <code>div</code> назначается текстовое содержимое, добавляется класс <code>highlight</code>, и устанавливается жёлтый цвет фона.</p>
+          <p><strong>1.3 Вставка элемента в DOM</strong></p>
+          <p>После настройки элемент нужно вставить в DOM, чтобы он стал видимым на странице. Для этого используется несколько методов:</p>
+          <ul>
+            <li><strong><code>appendChild</code></strong> — добавляет элемент как последний дочерний элемент.</li>
+            <p>Пример:</p>
+<pre>
+  <code class="lang-js">
+    document.body.appendChild(newDiv);
+  </code>
+</pre>
+            <p>Этот код добавляет созданный <code>div</code> в конец тела документа.</p>
+            <li><strong><code>insertBefore</code></strong> — вставляет элемент перед другим элементом.</li>
+            <p>Пример:</p>
+<pre>
+  <code class="lang-js">
+    let existingDiv = document.getElementById("existingDiv");
+    document.body.insertBefore(newDiv, existingDiv);
+  </code>
+</pre>
+            <p>Здесь новый <code>div</code> вставляется перед существующим элементом с <code>id="existingDiv"</code>.</p>
+            <li><strong><code>append</code></strong> — добавляет текст или элементы в конец родителя. В отличие от appendChild, может добавлять сразу несколько узлов или строк.</li>
+            <p>Пример:</p>
+<pre>
+  <code class="lang-js">
+    document.body.append("Новый текст", newDiv);
+  </code>
+</pre>
+          </ul>
+          <p><strong>1.4 Клонирование элементов</strong></p>
+          <p>Если нужно создать копию существующего элемента, можно использовать метод <code>cloneNode</code>.</p>
+          <p>Пример:</p>
+<pre>
+  <code class="lang-js">
+    let clonedDiv = newDiv.cloneNode(true);
+    document.body.appendChild(clonedDiv);
+  </code>
+</pre>
+          <p>Этот код создаёт полную копию элемента <code>div</code> (включая всех его потомков, если передан аргумент <code>true</code>) и добавляет его в тело документа.</p>
+          <li><strong>Удаление элементов DOM</strong></li>
+          <p>Удаление элементов из DOM важно для очистки страницы от ненужных элементов, а также для управления отображением информации.</p>
+          <p><strong>2.1 Удаление с помощью <code>removeChild</code></strong></p>
+          <p>Метод <code>removeChild</code> удаляет элемент, являющийся дочерним для другого элемента. Для этого нужно сначала найти родительский элемент.</p>
+          <p>Пример:</p>
+<pre>
+  <code class="lang-js">
+    let parent = document.getElementById("parentDiv");
+    let child = document.getElementById("childDiv");
+    parent.removeChild(child);
+  </code>
+</pre>
+          <p>В этом примере удаляется элемент с <code>id="childDiv"</code>, который является дочерним для элемента с <code>id="parentDiv"</code>.</p>
+          <p><strong>2.2 Удаление с помощью remove</strong></p>
+          <p>Метод <code>remove</code> является более современным и простым способом удаления элемента. Он удаляет элемент напрямую, без необходимости обращения к родителю.</p>
+          <p>Пример:</p>
+<pre>
+  <code class="lang-js">
+    let element = document.getElementById("childDiv");
+    element.remove();
+  </code>
+</pre>
+          <p>Этот код удаляет элемент с <code>id="childDiv"</code>.</p>
+          <p><strong>2.3 Очистка содержимого элемента</strong></p>
+          <p>Чтобы удалить все дочерние элементы внутри родителя, можно использовать метод <code>innerHTML</code>, задав его равным пустой строке.</p>
+          <p>Пример:</p>
+<pre>
+  <code class="lang-js">
+    let container = document.getElementById("container");
+    container.innerHTML = "";
+  </code>
+</pre>
+          <p>Этот код удаляет всё содержимое элемента <code>container</code>.</p>
+          <li><strong>Примеры практического применения</strong></li>
+          <p><strong>3.1 Создание и добавление списка элементов</strong></p>
+          <p>Создадим список элементов и добавим их в DOM:</p>
+<pre>
+  <code class="lang-js">
+    let ul = document.createElement("ul");
+
+    for (let i = 1; i <= 5; i++) {
+        let li = document.createElement("li");
+        li.textContent = "Элемент " + i;
+        ul.appendChild(li);
+    }
+
+    document.body.appendChild(ul);
+  </code>
+</pre>
+          <p>Этот код создаёт ненумерованный список с пятью элементами и добавляет его в конец документа.</p>
+          <p><strong>3.2 Удаление элементов по клику</strong></p>
+          <p>Можно удалять элементы при клике на них:</p>
+<pre>
+  <code class="lang-js">
+    ul.addEventListener("click", function(event) {
+        if (event.target.tagName === "LI") {
+            event.target.remove();
+        }
+    });
+  </code>
+</pre>
+          <p>Этот код добавляет обработчик кликов на список. Если пользователь щелкает на элемент списка, он удаляется.</p>
+          <li><strong>Изменение структуры DOM на лету</strong></li>
+          <p>Поскольку элементы можно создавать и удалять динамически, это позволяет полностью изменить структуру страницы в зависимости от действий пользователя или других условий. Например, можно создавать новые секции, загружать контент по мере прокрутки страницы (ленивая загрузка) или реагировать на выборы пользователя в формах.</p>
+        </ol>
+        <p><strong>Заключение</strong></p>
+        <p>Создание и удаление элементов DOM — это основополагающая техника для динамического изменения содержимого веб-страниц. Освоение этих методов позволяет создавать более интерактивные и гибкие пользовательские интерфейсы, которые могут адаптироваться к действиям пользователя и другим изменениям на лету.</p>
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>
