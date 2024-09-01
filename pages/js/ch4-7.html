@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
+    <script src="../../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Работа с формами и валидация данных</h1><hr>
+        <p>Работа с формами является важной частью создания интерактивных веб-приложений. Формы позволяют пользователям вводить данные, которые затем можно обработать на сервере или использовать непосредственно на клиенте. Однако, прежде чем отправлять данные, важно убедиться в их корректности. Это достигается с помощью валидации данных.</p>
+        <ol>
+          <li><strong>Создание и структура форм</strong></li>
+          <p>Форма (&lt;form>) — это контейнер для элементов управления, таких как текстовые поля, переключатели, флажки и кнопки, которые позволяют пользователям вводить и отправлять данные.</p>
+          <p><strong>1.1 Структура HTML-формы</strong></p>
+          <p>Простая форма может выглядеть следующим образом:</p>
+<pre>
+  <code class="lang-html">
+    &frasl;&frasl;HTML
+    &lt;form id="myForm" action="/submit" method="POST">
+      &lt;label for="name">Имя:&lt;/label>
+      &lt;input type="text" id="name" name="name" required>
+  
+      &lt;label for="email">Email:&lt;/label>
+      &lt;input type="email" id="email" name="email" required>
+  
+      &lt;button type="submit">Отправить&lt;/button>
+    &lt;/form>
+  </code>
+</pre>
+          <pre>
+            <form id="myForm" action="/submit" method="POST">
+              <label for="name">Имя:</label>
+              <input type="text" id="name" name="name" required>
+            
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required>
+            
+              <button type="submit">Отправить</button>
+            </form>
+          </pre>
+          <p>Здесь форма содержит два поля ввода и кнопку отправки. Атрибуты <code>action</code> и <code>method</code> определяют, куда и как будут отправляться данные формы.</p>
+          <ul>
+            <li><strong><code>action</code></strong> — указывает URL, на который будут отправлены данные.</li>
+            <li><strong><code>method</code></strong> — определяет HTTP-метод (GET или POST), используемый для отправки данных.</li>
+          </ul>
+          <p><strong>1.2 Элементы формы</strong></p>
+          <p>Форма может содержать различные элементы:</p>
+          <ul>
+            <li><strong><code>&lt;input></code></strong> — используется для ввода текста, паролей, дат и других типов данных.</li>
+            <li><strong><code>&lt;textarea></code></strong> — многострочное текстовое поле.</li>
+            <li><strong><code>&lt;select></code></strong> — раскрывающийся список.</li>
+            <li><strong><code>&lt;button></code></strong> — кнопка для отправки или сброса формы.</li>
+          </ul>
+          <p>Пример:</p>
+<pre>
+  <code class="lang-html">
+    &frasl;&frasl;HTML
+    &lt;form>
+      &lt;label for="message">Сообщение:&lt;/label>
+      &lt;textarea id="message" name="message">&lt;/textarea>
+  
+      &lt;label for="gender">Пол:&lt;/label>
+      &lt;select id="gender" name="gender">
+          &lt;option value="male">Мужской&lt;/option>
+          &lt;option value="female">Женский&lt;/option>
+      &lt;/select>
+    &lt;/form>
+  </code>
+</pre>  
+          <pre>
+            <form>
+              <label for="message">Сообщение:</label>
+              <textarea id="message" name="message"></textarea>
+          
+              <label for="gender">Пол:</label>
+              <select id="gender" name="gender">
+                  <option value="male">Мужской</option>
+                  <option value="female">Женский</option>
+              </select>
+            </form>
+          </pre>
+          <li><strong>Валидация данных</strong></li>
+          <p>Валидация данных — это процесс проверки правильности данных перед их отправкой на сервер. Она может выполняться на стороне клиента (в браузере) или на стороне сервера. Клиентская валидация помогает избежать лишних запросов к серверу и повышает удобство использования.</p>
+          <p><strong>2.1 Валидация на стороне клиента</strong></p>
+          <p>HTML5 предоставляет встроенные атрибуты для валидации данных. Эти атрибуты можно использовать для обеспечения правильного формата и обязательности ввода.</p>
+          <ul>
+            <li><strong><code>required</code></strong> — требует обязательного заполнения поля.</li>
+            <p>Пример:</p>
+<pre>
+  <code class="lang-html">
+    &frasl;&frasl;HTML
+    &lt;input type="text" id="name" name="name" required>
+  </code>
+</pre>
+            <li><strong><code>type="email"</code></strong> — требует, чтобы введённое значение было валидным email-адресом.</li>
+            <p>Пример:</p>
+<pre>
+  <code class="lang-html">
+    &frasl;&frasl;HTML
+    &lt;input type="email" id="email" name="email" required>
+  </code>
+</pre>
+            <li><strong><code>minlength</code></strong> и <strong><code>maxlength</code></strong> — задают минимальную и максимальную длину текста.</li>
+            <p>Пример:</p>
+<pre>
+  <code class="lang-html">
+    &frasl;&frasl;HTML
+    &lt;input type="password" id="password" name="password" minlength="6" required>
+  </code>
+</pre>
+            <li><strong><code>pattern</code></strong> — задаёт регулярное выражение, которому должно соответствовать значение.</li>
+            <p>Пример:</p>
+<pre>
+  <code class="lang-html">
+    &frasl;&frasl;HTML
+    &lt;input type="text" id="username" name="username" pattern="[A-Za-z0-9]{5,15}" required>
+  </code>
+</pre>
+          </ul>
+          <p><strong>2.2 JavaScript для валидации форм</strong></p>
+          <p>Для более сложной валидации или кастомных проверок можно использовать JavaScript.</p>
+          <p>Пример кастомной валидации:</p>
+<pre>
+  <code class="lang-js">
+    let form = document.getElementById("myForm");
+
+    form.addEventListener("submit", function(event) {
+        let emailField = document.getElementById("email");
+        let emailValue = emailField.value;
+
+        if (!emailValue.includes("@")) {
+           alert("Введите корректный email!");
+           event.preventDefault(); // Предотвращает отправку формы
+       }
+    });   
+  </code>
+</pre>
+          <p>В этом примере проверяется, содержит ли значение поля <code>email</code> символ <code>@</code>. Если нет, форма не отправляется, а выводится сообщение с просьбой ввести корректный email.</p>
+          <p><strong>2.3 Сообщения об ошибках</strong></p>
+          <p>Вы можете отображать кастомные сообщения об ошибках при валидации. Это делается с помощью метода <code>setCustomValidity</code>.</p>
+          <p>Пример:</p>
+<pre>
+  <code class="lang-js">
+    let emailField = document.getElementById("email");
+
+    emailField.addEventListener("input", function() {
+        if (emailField.validity.typeMismatch) {
+            emailField.setCustomValidity("Пожалуйста, введите корректный email-адрес.");
+        } else {
+           emailField.setCustomValidity(""); // Очистка кастомного сообщения
+        }
+    });
+  </code>
+</pre>
+          <p>Здесь, если введённое значение не соответствует формату email, выводится кастомное сообщение об ошибке.</p>
+          <li><strong>Отправка форм и обработка данных</strong></li>
+          <p>После успешной валидации форма отправляется на сервер или обрабатывается на клиенте. Отправка может происходить традиционным способом или асинхронно с помощью технологии AJAX.</p>
+          <p><strong>3.1 Традиционная отправка форм</strong></p>
+          <p>Традиционно формы отправляются при нажатии на кнопку с <code>type="submit"</code>. Браузер отправляет данные формы на сервер, и пользователь может быть перенаправлен на новую страницу или получить ответ на текущей странице.</p>
+          <p>Пример:</p>
+<pre>
+  <code class="lang-html">
+    &frasl;&frasl;HTML
+    &lt;form action="/submit" method="POST">
+      &lt;!-- Поля формы -->
+      &lt;button type="submit">Отправить&lt;/button>
+    &lt;/form>
+  </code>
+</pre>
+          <p><strong>3.2 Асинхронная отправка форм с помощью AJAX</strong></p>
+          <p>Используя JavaScript, можно отправлять данные формы асинхронно, без перезагрузки страницы. Это улучшает пользовательский опыт и позволяет обновлять только часть страницы.</p>
+          <p>Пример использования Fetch API для отправки формы:</p>
+<pre>
+  <code class="lang-js">
+    form.addEventListener("submit", function(event) {
+       event.preventDefault(); // Предотвращает стандартную отправку формы
+  
+       let formData = new FormData(form);
+  
+        fetch('/submit', {
+            method: 'POST',
+            body: formData
+       })
+       .then(response => response.json())
+       .then(data => {
+            console.log("Ответ сервера:", data);
+       })
+        .catch(error => {
+            console.error("Ошибка:", error);
+       });
+    });
+  </code>
+</pre>
+          <p>Этот код отправляет данные формы на сервер с помощью Fetch API и обрабатывает ответ, не перезагружая страницу.</p>
+        </ol>
+        <p><strong>Заключение</strong></p>
+        <p>Работа с формами и валидация данных — это ключевые аспекты взаимодействия пользователя с веб-приложением. Понимание того, как создавать формы, валидировать данные и отправлять их на сервер, позволяет создавать безопасные и удобные интерфейсы. Клиентская валидация улучшает пользовательский опыт, тогда как серверная валидация обеспечивает надёжность и безопасность данных.</p>
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>
