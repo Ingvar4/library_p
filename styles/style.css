@@ -98,7 +98,6 @@ nav ul {
 p {
   text-indent: 20px;
   line-height: 1.5;
-  
 }
 
 h1, h3 {
@@ -128,10 +127,11 @@ pre {
 }
 
 code {
-  /* background-color: #e1e1e164; */
+  /* background-color: #e1e1e16d; */
   padding: 2px 4px;
   border-radius: 4px;
   font-family: monospace;
+  font-size: 17px;
 }
 
 .notextIndent, pre {
