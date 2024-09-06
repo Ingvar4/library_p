@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
+    <script src="../../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Обработка ошибок в асинхронном коде JavaScript</h1><hr>
+        <p>Когда работаешь с асинхронным кодом, важно учитывать возможность возникновения ошибок, поскольку асинхронные операции могут завершаться с ошибками. В JavaScript существует несколько способов обработки ошибок, особенно в случае использования промисов и асинхронных функций с <code>async/await</code>.</p>
+        <ol>
+          <li><strong>Обработка ошибок в промисах</strong></li>
+          <p>Когда промис отклоняется (rejected), возникает ошибка, и важно правильно обработать это событие. Для обработки ошибок в промисах можно использовать метод <code>catch</code>.</p>
+          <p><strong>Пример обработки ошибок с помощью <code>catch</code></strong>:</p>
+<pre>
+  <code class="lang-js">
+    let myPromise = new Promise((resolve, reject) => {
+        // Допустим, произошла ошибка
+        reject("Произошла ошибка");
+    });
+  
+    myPromise
+        .then(result => {
+            console.log("Успешно:", result);
+        })
+        .catch(error => {
+            console.error("Ошибка:", error); // Обработка ошибки
+        });
+  </code>
+</pre>
+          <p>Если в процессе выполнения промиса возникает ошибка, она передаётся в <code>catch</code>, который позволяет её обработать. Это аналог блоков <code>try/catch</code> для синхронного кода.</p>
+          <li><strong>Обработка ошибок в <code>async/await</code></strong></li>
+          <p>Когда вы работаете с <code>async/await</code>, для обработки ошибок удобно использовать блоки <code>try/catch</code>. Это делает код более линейным и удобочитаемым.</p>
+          <p>Пример:</p>
+<pre>
+  <code class="lang-js">
+    async function fetchData() {
+        try {
+            let response = await fetch("https://api.example.com/data");
+            let data = await response.json();
+            console.log(data);
+        } catch (error) {
+            console.error("Ошибка при получении данных:", error);
+        }
+    }
+  
+    fetchData();
+  </code>
+</pre>  
+          <p>В этом примере, если запрос завершится с ошибкой (например, сервер недоступен), она будет перехвачена блоком <code>catch</code>.</p>
+          <p>Пример ошибки при отсутствии подключения:</p>
+<pre>
+  <code class="lang-js">
+    async function fetchData() {
+        try {
+            let response = await fetch("https://api.nonexistent.com/data");
+            let data = await response.json();
+            console.log(data);
+        } catch (error) {
+            console.error("Произошла ошибка:", error); // Здесь будет показано сообщение об ошибке
+        }
+    }
+  
+    fetchData();
+  </code>
+</pre>
+          <p>При отсутствии сети или проблемах с сервером запрос отклонится, и блок <code>catch</code> отработает ошибку.</p>
+          <li><strong>Механизм <code>finally</code></strong></li>
+          <p>Иногда требуется выполнить некоторый код независимо от того, завершилась операция успешно или с ошибкой. Для этого существует метод <code>finally</code> у промисов или его эквивалент в комбинации с <code>async/await</code>.</p>
+          <p>Пример с <code>finally</code>:</p>
+<pre>
+  <code class="lang-js">
+    let myPromise = new Promise((resolve, reject) => {
+        // Допустим, произошла ошибка
+        reject("Ошибка");
+    });
+  
+    myPromise
+        .then(result => {
+            console.log("Успешно:", result);
+        })
+        .catch(error => {
+            console.error("Ошибка:", error);
+        })
+        .finally(() => {
+            console.log("Операция завершена");
+        });
+  </code>
+</pre>
+          <p>Метод <code>finally</code> выполнится вне зависимости от того, была ли ошибка или успех.</p>
+          <p>Пример с <code>async/await</code> и <code>finally</code>:</p>
+<pre>
+  <code class="lang-js">
+    async function fetchData() {
+        try {
+            let response = await fetch("https://api.example.com/data");
+            let data = await response.json();
+            console.log(data);
+        } catch (error) {
+            console.error("Ошибка:", error);
+        } finally {
+            console.log("Операция завершена");
+        }
+    }
+  
+    fetchData();
+  </code>
+</pre>
+          <p>Этот блок <code>finally</code> выполнится всегда, что делает его удобным для выполнения финальных действий, таких как закрытие соединений, освобождение ресурсов или уведомление пользователя.</p>
+          <li><strong>Параллельные промисы и обработка ошибок</strong></li>
+          <p>Если вам нужно выполнить несколько промисов параллельно, для обработки ошибок также можно использовать блоки <code>try/catch</code> в сочетании с <code>Promise.all</code>. Однако стоит учитывать, что если хотя бы один промис из массива завершится с ошибкой, весь <code>Promise.all</code> завершится с ошибкой.</p>
+          <p>Пример с <code>Promise.all</code>:</p>
+<pre>
+  <code class="lang-js">
+    async function fetchMultipleData() {
+        try {
+            let [data1, data2] = await Promise.all([
+                fetch("https://api.example.com/data1").then(res => res.json()),
+                fetch("https://api.example.com/data2").then(res => res.json())
+            ]);
+            console.log("Data 1:", data1);
+            console.log("Data 2:", data2);
+        } catch (error) {
+            console.error("Ошибка при загрузке данных:", error);
+        }
+    }
+  
+    fetchMultipleData();
+  </code>
+</pre>
+          <p>Здесь оба запроса выполняются параллельно, но если один из них завершится с ошибкой, весь <code>Promise.all</code> отклонится, и управление перейдёт в блок <code>catch</code>.</p>
+          <li><strong><code>Promise.allSettled</code> для обработки ошибок индивидуально</strong></li>
+          <p>Если необходимо обработать результат каждого промиса независимо (даже если один из них завершился с ошибкой), можно использовать метод <code>Promise.allSettled</code>. Он возвращает массив объектов с результатами всех промисов, не прерывая выполнение при ошибках.</p>
+          <p>Пример:</p>
+<pre>
+  <code class="lang-js">
+    async function fetchMultipleData() {
+        let results = await Promise.allSettled([
+            fetch("https://api.example.com/data1").then(res => res.json()),
+            fetch("https://api.example.com/data2").then(res => res.json())
+        ]);
+  
+        results.forEach((result, index) => {
+            if (result.status === "fulfilled") {
+                console.log(`Data ${index + 1}:`, result.value);
+            } else {
+                console.error(`Ошибка в запросе ${index + 1}:`, result.reason);
+            }
+        });
+    }
+  
+    fetchMultipleData();
+  </code>
+</pre>
+          <p>Здесь каждый промис обрабатывается отдельно, независимо от того, завершился он с успехом или с ошибкой.</p>
+          <li><strong>Создание собственных ошибок</strong></li>
+          <p>Вы можете намеренно вызывать ошибки в асинхронных функциях, используя оператор <code>throw</code>. Это полезно, если нужно прервать выполнение при определённых условиях.</p>
+          <p>Пример:</p>
+<pre>
+  <code class="lang-js">
+    async function fetchData() {
+        try {
+            let response = await fetch("https://api.example.com/data");
+            if (!response.ok) {
+                throw new Error("Ошибка HTTP: " + response.status);
+            }
+            let data = await response.json();
+            console.log(data);
+        } catch (error) {
+            console.error("Произошла ошибка:", error);
+        }
+    }
+  
+    fetchData();
+  </code>
+</pre>
+          <p>Здесь, если сервер вернёт ошибку (например, 404 или 500), сработает <code>throw</code>, который передаст ошибку в блок <code>catch</code>.</p>
+        </ol>
+        <p><strong>Заключение</strong></p>
+        <p>Обработка ошибок в асинхронном коде — это важная часть разработки, поскольку такие операции могут завершаться с ошибками по множеству причин (ошибки сети, проблемы с сервером, неверные данные). Использование блоков <code>try/catch</code>, методов <code>catch</code> и <code>finally</code>, а также возможностей промисов, таких как <code>Promise.allSettled</code>, помогает сделать код более устойчивым и защищённым от сбоев.</p>
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>
