@@ -15,7 +15,9 @@ html {
 body {
   background-color: #ccd0cf;
   margin: 0 auto;
-  width: calc(var(--index) * 50);
+  width: calc(var(--index) * 37);
+  /* font-size: 16px; */
+  /* text-align: justify; */
   /* width: 90%; */
   /* position: absolute; */
   /* left: 11vw; */
@@ -41,8 +43,6 @@ body {
 
 .main-header-top li {
   display: inline;
-  /* margin-left: 20px; */
-  
 }
 
 .main-header-top a {
@@ -57,8 +57,8 @@ body {
 }
 
 main {
-  padding: 1.2em 2em;
-  font-size: 1.3em;
+  padding: 0.5em 0.5em;
+  /* font-size: 1.3em; */
   display: block;
   /* font-size: calc(var(--index) * 0.6); */
   /* width: calc(var(--index) * 45); */
@@ -67,40 +67,32 @@ main {
 
 p {
   text-indent: 20px;
-  line-height: 1.5;
+  line-height: 1.8;
   
+}
+
+ol, ul {
+  padding-left: 20px;
+  margin: 10px 0px;
+  line-height: 1.6;
 }
 
 h1, h3 {
   background-color: gainsboro;
 }
- 
+
 pre {
   background-color: #e1e1e1b3;
-  padding: 10px;
+  /* padding: 10px; */
   border-radius: 4px;
   overflow-x: auto;
 }
 
 code {
-  padding: 2px 4px;
+  /* padding: 2px 4px; */
   border-radius: 4px;
   font-family: monospace;
 }
-
-.notextIndent, pre {
-  text-indent: -5px;
-}
-
-.ul-tablica {
-  list-style-type: none;
-}
-
-/* .iframe-code {
-  width: 500px;
-  height: 200px;
-  box-shadow: 5px 5px 5px #444;
-} */
 
 footer {
   padding: 1%;
