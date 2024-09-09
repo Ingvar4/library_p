@@ -40,7 +40,7 @@ body {
   background-color: #ffffff;
   color: #333;
   font-family: Roboto, sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   /* font: 1.2em / 1.2 Arial, Helvetica, sans-serif; */
   /*min-width: 1000px;*/
   max-width: 2000px;
@@ -203,6 +203,6 @@ img {
 }
 
 li{
-  line-height: 1.4; 
+  line-height: 1.7; 
 }
 
