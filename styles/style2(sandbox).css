@@ -104,3 +104,14 @@ footer {
   margin-top: 10px;
   border-top: 3px solid #bbb6b065;
 }
+
+@media (max-width: 425px) {
+  body {
+    margin: 0 auto;
+    width: calc(var(--index) * 31);
+  }
+
+  .main-header-top a {
+    padding: 1.2em 1em;
+  }
+}
