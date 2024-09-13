@@ -1,6 +1,6 @@
 //загрузка nav меню на страницы
 document.addEventListener('DOMContentLoaded', function () {
-  fetch('/partials/menu.html')
+  fetch('partials/menu.html')
     .then(response => response.text())
     .then(data => {
       document.getElementById('menu').innerHTML = data;
