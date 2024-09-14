@@ -1,9 +1,10 @@
 //загрузка footer на страницы
-export function loadFooter() {
-  fetch('/partials/footer.txt')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('footer').innerHTML = data;
-    })
-    .catch(error => console.log('Ошибка загрузки меню:', error));
-}
+let loadFooter = `
+  <footer> 
+    <p>©Copyright 2024 by nobody. All rights reversed.</p>
+  </footer>
+`;
+
+document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById('footer').innerHTML = loadFooter;
+});
