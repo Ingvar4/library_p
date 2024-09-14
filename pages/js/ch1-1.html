@@ -84,8 +84,16 @@
     <!--блок в нижней части страницы-->
     <div id="footer"></div>
 
-    <script src="../../scripts/loadMenu.js"></script>
-    <script src="../../scripts/loadFooter.js"></script>
+    <script type="module">
+      import { loadMenu } from '../../scripts/loadMenu.js';
+      import { loadFooter } from '../../scripts/loadFooter.js';
+      
+      // Загружаем меню
+      loadMenu();
+      loadFooter();
+    </script>
+
+    
   </body>
 
 </html>
