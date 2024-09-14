@@ -1,6 +1,6 @@
 //загрузка nav меню на страницы
 export function loadMenu() {
-  fetch('/partials/menu.html')
+  fetch('/partials/menu.txt')
     .then(response => response.text())
     .then(data => {
       document.getElementById('menu').innerHTML = data;
