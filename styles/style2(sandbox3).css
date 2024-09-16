@@ -1,0 +1,79 @@
+/* GLOBAL */
+
+:root {
+  /* colors */
+  --gray10: hsl(0, 0%, 10%);
+  --gray30: hsl(0, 0%, 30%);
+  --gray50: hsl(0, 0%, 50%);
+  --gray70: hsl(0, 0%, 70%);
+  --gray90: hsl(0, 0%, 90%);
+  --accent: hsl(153, 71%, 59%);
+  
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+  /* background: url(../pattern.png); */
+  
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0 auto;
+  width: 80%;
+  height: 100vh;
+}
+
+header {
+  background: var(--gray50);
+  height: 100px;
+  text-align: center;
+  margin-bottom: 5px;
+  border: 2px solid rgb(101, 215, 101);
+}
+
+footer {
+  background: var(--gray50);
+  height: 100px;
+  text-align: center;
+  border: 2px solid rgb(102, 217, 102);
+  margin-top: 5px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: 2px solid var(--gray30);
+}
+
+.box {
+  background: rgb(141, 179, 179);
+  border: 2px solid black;
+  padding: 2px;
+  margin: 2px;
+}
+
+.box-nav-left {
+  flex: 1 200px
+}
+
+.box-content {
+  flex: 3 200px;
+}
+
+.box-nav-right {
+  flex: 1 200px
+}
+
+@media (max-width: 550px) {
+  body {
+    width: 100%;
+  }
+}
