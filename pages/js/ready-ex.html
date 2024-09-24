@@ -29,6 +29,8 @@
     <!--основной блок с информацией-->
     <main>
       <article>
+
+        <!-- Кнопка "Subscribe" -->
         <p><strong>Кнопка "Subscribe"</strong></p>
         <button onclick="subscribe();" class="js-subscribe-button">Subscribe</button>
         <p>При нажатии запускается функция, которая меняет надпись на "Subscribed" и обратно.</p>
@@ -63,6 +65,7 @@
           </span>
         </ol><hr>
 
+        <!-- Rock Paper Scissors -->
         <p><strong>Rock Paper Scissors</strong></p>
 
         <button onclick="playGame('rock')">Rock</button>
@@ -79,8 +82,18 @@
           score.ties = 0;
           localStorage.removeItem('score')
           updateScoreElement();
-        ">Reset Score</button>
-      
+        ">Reset Score</button><hr>
+
+        <!-- Amazon Shipping Calculator -->
+        <p>Amazon Shipping Calculator</p>
+        <input placeholder="Cost of order" class="js-cost-input" onkeydown="
+          handleCostKeydown(event);
+          
+        ">
+        <button onclick="
+          calcilateTotal()
+        ">Calculate</button>
+        <p class="js-total-cost"></p>
 
         
           
