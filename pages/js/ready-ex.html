@@ -9,6 +9,21 @@
     <link rel="stylesheet" href="../../styles/prism.css">
     <script src="../../scripts/prism.js" defer></script>
     <script src="../../scripts/ready-ex.js" defer></script>
+    <style>
+      .subscribe-button {
+        border: none;
+        background-color: black;
+        color: white;
+        padding: 10px 15px;
+        font-weight: bold;
+        border-radius: 50px;
+        cursor: pointer;
+      }
+      .is-subscribed {
+        background-color: rgb(240, 240, 240);
+        color: black;
+      }
+    </style>
   </head>
 
   <body>
@@ -32,7 +47,7 @@
 
         <!-- Кнопка "Subscribe" -->
         <p><strong>Кнопка "Subscribe"</strong></p>
-        <button onclick="subscribe();" class="js-subscribe-button">Subscribe</button>
+        <button onclick="subscribe();" class="js-subscribe-button subscribe-button">Subscribe</button>
         <p>При нажатии запускается функция, которая меняет надпись на "Subscribed" и обратно.</p>
 <pre>
   <code class="lang-html">
