@@ -37,7 +37,7 @@
           <ol>
             <li><strong>Селекторы по тегу</strong>: Селекторы по тегу применяют стили ко всем элементам определенного типа на странице.</li>
 <pre>
-  <code class="lang-html">
+  <code class="lang-css">
     p {
       color: blue;
     }
@@ -45,7 +45,7 @@
 </pre>
             <li><strong>Селекторы по классу</strong>: Селекторы классов позволяют выбрать элементы с определенным классом. В HTML для элемента можно задать атрибут class, который можно использовать для селектора в CSS. Перед именем класса ставится точка (.).</li>
 <pre>
-  <code>
+  <code class="lang-css">
     .button {
       background-color: green;
     }
@@ -59,7 +59,7 @@
 </pre>
             <li><strong>Селекторы по идентификатору (id)</strong>: Селекторы идентификаторов позволяют выбрать элемент по его уникальному id. В отличие от классов, идентификатор должен быть уникален на странице. Для выбора элемента по id в CSS используется символ решетки (#).</li>
 <pre>
-  <code>
+  <code class="lang-css">
     #header {
       background-color: yellow;
     }
@@ -73,7 +73,7 @@
 </pre>
             <li><strong>Групповые селекторы</strong>: Чтобы применить один и тот же набор стилей к нескольким элементам, можно объединить селекторы через запятую.</li>
 <pre>
-  <code>
+  <code class="lang-css">
     h1, h2, p {
       color: black;
     }
@@ -82,7 +82,7 @@
             <p>Этот стиль применит черный цвет ко всем заголовкам &lt;h1>, &lt;h2> и абзацам &lt;p>.</p>
             <li><strong>Комбинированные селекторы</strong>: Можно выбирать элементы, основываясь на их родительских элементах или комбинациях классов и тегов. Например:</li>
 <pre>
-  <code>
+  <code class="lang-css">
     div p {
       color: red;
     }
@@ -90,7 +90,7 @@
 </pre>
             <p>Этот стиль будет применен только к элементам &lt;p>, которые находятся внутри элемента &lt;div>. А вот стиль ниже применится ко всем абзацам &lt;p>, у которых есть класс highlight:</p>
 <pre>
-  <code>
+  <code class="lang-css">
     p.highlight {
       color: red;
     }
@@ -98,7 +98,7 @@
 </pre>
             <li><strong>Псевдоклассы</strong>: Псевдоклассы позволяют выбирать элементы в определенных состояниях или на основе их положения среди других элементов. Например, :hover используется для изменения стилей элемента при наведении на него мыши:</li>
 <pre>
-  <code>
+  <code class="lang-css">
     a:hover {
       color: red;
     }
@@ -111,7 +111,7 @@
               <li>::after: добавляет контент после элемента.</li>
             </ul>
 <pre>
-  <code>
+  <code class="lang-css">
     p::before {
       content: "→ ";
       color: gray;
@@ -126,55 +126,55 @@
           <ol>
             <li>color — задает цвет текста.</li>
 <pre>
-  <code>
+  <code class="lang-css">
     color: blue;
   </code>
 </pre>
             <li>background-color — устанавливает цвет фона элемента.</li>
 <pre>
-  <code>
+  <code class="lang-css">
     background-color: yellow;
   </code>
 </pre>
             <li>font-size — определяет размер текста.</li>
 <pre>
-  <code>
+  <code class="lang-css">
     font-size: 16px;
   </code>
 </pre>
             <li>margin — задает внешние отступы вокруг элемента.</li>
 <pre>
-  <code>
+  <code class="lang-css">
     margin: 10px;
   </code>
 </pre>
             <li>padding — определяет внутренние отступы между содержимым элемента и его границами.</li>
 <pre>
-  <code>
+  <code class="lang-css">
     padding: 15px;
   </code>
 </pre>
             <li>border — добавляет границу вокруг элемента.</li>
 <pre>
-  <code>
+  <code class="lang-css">
     border: 1px solid black;
   </code>
 </pre>
             <li>display — определяет, как элемент будет отображаться на странице.</li>
 <pre>
-  <code>
+  <code class="lang-css">
     display: block;
   </code>
 </pre>
             <li>position — управляет расположением элемента.</li>
 <pre>
-  <code>
+  <code class="lang-css">
     position: absolute;
   </code>
 </pre>
             <li>text-align — выравнивает текст внутри элемента по левому, правому краю или центру.</li>
 <pre>
-  <code>
+  <code class="lang-css">
     text-align: center;
   </code>
 </pre>
@@ -189,7 +189,7 @@
               </ul>
             </li>
 <pre>
-  <code>
+  <code class="lang-css">
     color: red;
     background-color: #ff0000;
   </code>
@@ -202,7 +202,7 @@
               </ul>
             </li>
 <pre>
-  <code>
+  <code class="lang-css">
     font-size: 16px;
     margin: 10%;
   </code>
@@ -215,7 +215,7 @@
               </ul>
             </li>
 <pre>
-  <code>
+  <code class="lang-css">
     width: 50%;
   </code>
 </pre>
@@ -227,7 +227,7 @@
               </ul>
             </li>
 <pre>
-  <code>
+  <code class="lang-css">
     display: block;
   </code>
 </pre>
@@ -243,7 +243,7 @@
               </ul>
             </li>
 <pre>
-  <code>
+  <code class="lang-css">
     width: auto;
   </code>
 </pre>
@@ -253,7 +253,7 @@
         <ol>
           <li>Стилизация текста:</li>
 <pre>
-  <code>  
+  <code class="lang-css">  
     p {
       color: blue;
       font-size: 18px;
@@ -264,7 +264,7 @@
           <p>Этот стиль применяет синий цвет текста, шрифт Arial и размер текста 18px ко всем абзацам.</p>
           <li>Работа с фоном и отступами:</li>
 <pre>
-  <code>
+  <code class="lang-css">
     div {
       background-color: lightgray;
       margin: 20px;
