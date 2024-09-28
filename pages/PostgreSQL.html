@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostgreSQL</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <script src="../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+
+    <div class="logo">
+      PostgreSQL
+    </div>
+
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../pages/html.html">HTML</a></li>
+        <li><a href="../pages/css.html">CSS</a></li>
+        <li><a href="../pages/js.html">JS</a></li>
+        <li><a href="../pages/PostgreSQL.html">PostgreSQL</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>План обучения PostgreSQL</h1>
+        <h2>Этап 1: Введение в базы данных и PostgreSQL</h2>
+        <ol>
+          <li><strong>Что такое базы данных?</strong>
+            <ul>
+              <li>Понятие реляционных баз данных.</li>
+              <li>Основные компоненты баз данных (таблицы, строки, столбцы).</li>
+              <li>Введение в SQL (язык структурированных запросов).</li>
+            </ul>
+          </li>
+          <li><strong>Установка PostgreSQL</strong>
+            <ul>
+              <li>Установка PostgreSQL на Windows, macOS или Linux.</li>
+              <li>Установка графического интерфейса pgAdmin (для удобной работы с базой).</li>
+              <li>Настройка окружения.</li>
+            </ul>
+          </li>
+          <li><strong>Основные команды PostgreSQL</strong>
+            <ul>
+              <li>Подключение к базе данных через терминал или pgAdmin.</li>
+              <li>Базовые команды PostgreSQL (psql, подключение к базам).</li>
+            </ul>
+          </li>
+        </ol>
+        
+        <h2>Этап 2: Основы SQL</h2>
+        <ol>
+          <li><strong>Создание баз данных и таблиц</strong>
+            <ul>
+              <li>Команда <code>CREATE DATABASE</code>.</li>
+              <li>Команда <code>CREATE TABLE</code>.</li>
+              <li>Типы данных в PostgreSQL (INTEGER, VARCHAR, DATE, BOOLEAN и т.д.).</li>
+            </ul>
+          </li>
+          <li><strong>Операции CRUD</strong>
+            <ul>
+              <li>Create: Вставка данных с помощью команды <code>INSERT</code>.</li>
+              <li>Read: Чтение данных с помощью команды <code>SELECT</code> (простые запросы).</li>
+              <li>Update: Обновление данных с помощью команды <code>UPDATE</code>.</li>
+              <li>Delete: Удаление данных с помощью команды <code>DELETE</code>.</li>
+            </ul>
+          </li>
+          <li><strong>Операции с фильтрацией и сортировкой</strong>
+            <ul>
+              <li>Использование условий с <code>WHERE</code>.</li>
+              <li>Фильтрация с <code>LIKE</code>, <code>IN</code>, <code>BETWEEN</code>.</li>
+              <li>Сортировка данных с помощью <code>ORDER BY</code>.</li>
+              <li>Лимитирование результатов с помощью <code>LIMIT</code>.</li>
+            </ul>
+          </li>
+        </ol>
+
+        <h2>Этап 3: Углубление в запросы</h2>
+        <ol>
+          <li><strong>Агрегация данных</strong>
+            <ul>
+              <li>Функции агрегации (<code>COUNT</code>, <code>SUM</code>, <code>AVG</code>, <code>MAX</code>, <code>MIN</code>).</li>
+              <li>Группировка данных с помощью <code>GROUP BY</code>.</li>
+              <li>Фильтрация агрегированных данных с <code>HAVING</code>.</li>
+            </ul>
+          </li>
+          <li><strong>Объединение данных</strong>
+            <ul>
+              <li>Использование различных видов JOIN (INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL OUTER JOIN).</li>
+              <li>Работа с несколькими таблицами.</li>
+            </ul>
+          </li>
+          <li><strong>Подзапросы</strong>
+            <ul>
+              <li>Вложенные запросы (подзапросы).</li>
+              <li>Использование ключевых слов <code>EXISTS</code>, <code>ANY</code>, <code>ALL</code>.</li>
+            </ul>
+          </li>
+        </ol>
+
+        <h2>Этап 4: Работа с индексами и оптимизация</h2>
+        <ol>
+          <li><strong>Индексы</strong>
+            <ul>
+              <li>Зачем нужны индексы и как они работают.</li>
+              <li>Создание индексов с помощью команды <code>CREATE INDEX</code>.</li>
+              <li>Разновидности индексов (B-tree, Hash).</li>
+            </ul>
+          </li>
+          <li><strong>Оптимизация запросов</strong>
+            <ul>
+              <li>Введение в EXPLAIN и анализ планов выполнения запросов.</li>
+              <li>Как улучшить производительность запросов.</li>
+              <li>Избежание избыточных запросов.</li>
+            </ul>
+          </li>
+        </ol>
+
+        <h2>Этап 5: Работа с транзакциями</h2>
+        <ol>
+          <li><strong>Транзакции</strong>
+            <ul>
+              <li>Основные команды транзакций: <code>BEGIN</code>, <code>COMMIT</code>, <code>ROLLBACK</code>.</li>
+              <li>Понятие ACID (атомарность, согласованность, изоляция, долговечность).</li>
+              <li>Уровни изоляции транзакций.</li>
+            </ul>
+          </li>
+          <li><strong>Ограничения и связи</strong>
+            <ul>
+              <li>Первичные ключи (PRIMARY KEY).</li>
+              <li>Внешние ключи (FOREIGN KEY).</li>
+              <li>Ограничения уникальности (UNIQUE).</li>
+              <li>Ограничения проверки (CHECK).</li>
+            </ul>
+          </li>
+        </ol>
+
+        <h2>Этап 6: Администрирование PostgreSQL</h2>
+        <ol>
+          <li><strong>Пользователи и права доступа</strong>
+            <ul>
+              <li>Создание пользователей и ролей.</li>
+              <li>Назначение прав доступа (GRANT, REVOKE).</li>
+              <li>Управление правами на уровне таблиц и баз данных.</li>
+            </ul>
+          </li>
+          <li><strong>Резервное копирование и восстановление</strong>
+            <ul>
+              <li>Использование <code>pg_dump</code> для резервного копирования.</li>
+              <li>Восстановление данных с помощью <code>pg_restore</code>.</li>
+            </ul>
+          </li>
+          <li><strong>Мониторинг производительности</strong>
+            <ul>
+              <li>Основные инструменты для мониторинга PostgreSQL.</li>
+              <li>Понятие блокировок и deadlock'ов.</li>
+            </ul>
+          </li>
+        </ol>
+
+        <h2>Этап 7: Дополнительные темы</h2>
+        <ol>
+          <li><strong>Расширенные возможности PostgreSQL</strong>
+            <ul>
+              <li>Работа с JSON-данными.</li>
+              <li>Хранение и манипуляция массивами.</li>
+              <li>Встроенные функции и создание пользовательских функций.</li>
+            </ul>
+          </li>
+          <li><strong>Миграция данных</strong>
+            <ul>
+              <li>Импорт и экспорт данных (CSV, JSON).</li>
+              <li>Использование <code>COPY</code> для массовой вставки данных.</li>
+            </ul>
+          </li>
+        </ol>
+
+        <h2>Этап 8: Практика и проекты</h2>
+        <ol>
+          <li><strong>Создание реального проекта</strong>
+            <ul>
+              <li>Проект: создание базы данных для простого веб-приложения.</li>
+              <li>Проект: анализ данных с помощью агрегационных запросов и JOIN'ов.</li>
+            </ul>
+          </li>
+          <li><strong>Работа с ORM (Object-Relational Mapping)</strong>
+            <ul>
+              <li>Использование PostgreSQL с популярными фреймворками (например, Django, Sequelize).</li>
+            </ul>
+          </li>
+        </ol><hr>
+
+        <p><strong>Полезные ресурсы:</strong></p>
+        <ol>
+          <li><a href="https://www.postgresql.org/docs/">Официальная документация PostgreSQL </a></li>
+          <li>Курсы на YouTube (например, от freeCodeCamp)</li>
+          <li>Практические упражнения на SQL-платформах вроде SQLZoo или LeetCode.</li>
+        </ol>
+
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+
+</html>
