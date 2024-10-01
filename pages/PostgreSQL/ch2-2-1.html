@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostgreSQL</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
+    <script src="../../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Операции CRUD в PostgreSQL</h1>
+
+        <p>CRUD — это аббревиатура, означающая четыре основные операции взаимодействия с базой данных:</p>
+
+        <ul>
+            <li><strong>C</strong>reate (Создание)</li>
+            <li><strong>R</strong>ead (Чтение)</li>
+            <li><strong>U</strong>pdate (Обновление)</li>
+            <li><strong>D</strong>elete (Удаление)</li>
+        </ul>
+
+        <p>В PostgreSQL все эти операции реализуются с помощью SQL-запросов, что позволяет управлять данными в базе данных. Рассмотрим каждую операцию подробнее с примерами.</p>
+
+        <h2>1. Create (Создание данных)</h2>
+        <p>Для вставки данных в PostgreSQL используется команда <code>INSERT</code>. Этот запрос добавляет новую запись в таблицу.</p>
+
+        <h3>Пример:</h3>
+<pre>
+  <code>
+    INSERT INTO users (username, email, age)
+    VALUES ('john_doe', 'john@example.com', 30);
+  </code>
+</pre>
+
+        <p>Этот запрос вставляет новую строку в таблицу <code>users</code> с указанными значениями.</p>
+
+        <h3>Пример с возвратом добавленной записи:</h3>
+<pre>
+  <code>
+    INSERT INTO users (username, email, age)
+    VALUES ('john_doe', 'john@example.com', 30)
+    RETURNING *;
+  </code>
+</pre>
+
+        <p>Использование <code>RETURNING *</code> позволяет получить все данные о только что добавленной записи.</p>
+
+        <h2>2. Read (Чтение данных)</h2>
+        <p>Для извлечения данных используется команда <code>SELECT</code>. С помощью этого запроса можно выбрать необходимые поля или все данные из таблицы.</p>
+
+        <h3>Пример:</h3>
+        <pre><code>SELECT * FROM users;</code></pre>
+
+        <p>Этот запрос возвращает все строки и столбцы из таблицы <code>users</code>.</p>
+
+        <h3>Пример с условием:</h3>
+        <pre><code>SELECT username, email FROM users WHERE age &gt; 25;</code></pre>
+
+        <p>Здесь возвращаются только те строки, где возраст больше 25 лет, и выводятся только поля <code>username</code> и <code>email</code>.</p>
+
+        <h3>Пример с сортировкой:</h3>
+        <pre><code>SELECT * FROM users ORDER BY age DESC;</code></pre>
+
+        <p>Этот запрос вернёт все строки, отсортированные по возрасту в порядке убывания.</p>
+
+        <h2>3. Update (Обновление данных)</h2>
+        <p>Для обновления данных используется команда <code>UPDATE</code>. Этот запрос изменяет существующие записи в таблице.</p>
+
+        <h3>Пример:</h3>
+<pre>
+  <code>
+    UPDATE users
+    SET email = 'john_new@example.com'
+    WHERE username = 'john_doe';
+  </code>
+</pre>
+
+        <p>Запрос обновляет поле <code>email</code> у пользователя с именем <code>john_doe</code>.</p>
+
+        <h3>Пример с несколькими изменениями:</h3>
+<pre>
+  <code>
+    UPDATE users
+    SET email = 'john_new@example.com', age = 31
+    WHERE username = 'john_doe';
+  </code>
+</pre>
+
+        <p>Здесь обновляются сразу два поля — <code>email</code> и <code>age</code> для пользователя <code>john_doe</code>.</p>
+
+        <h2>4. Delete (Удаление данных)</h2>
+        <p>Для удаления записей используется команда <code>DELETE</code>. Она удаляет одну или несколько строк из таблицы на основе указанного условия.</p>
+
+        <h3>Пример:</h3>
+        <pre><code>DELETE FROM users WHERE username = 'john_doe';</code></pre>
+
+        <p>Этот запрос удаляет пользователя с именем <code>john_doe</code> из таблицы <code>users</code>.</p>
+
+        <h3>Пример удаления всех записей:</h3>
+        <pre><code>DELETE FROM users;</code></pre>
+
+        <p>Этот запрос удаляет все строки из таблицы, оставляя структуру таблицы на месте.</p>
+
+        <h2>Заключение</h2>
+        <p>Операции CRUD — это основа работы с любой базой данных, включая PostgreSQL. Понимание того, как создавать, читать, обновлять и удалять данные с помощью SQL-запросов, является ключевым навыком для работы с реляционными базами данных. В PostgreSQL каждая операция выполняется эффективно и поддерживает расширенные возможности, такие как возвращение изменённых строк или работа с условиями.</p>
+
+        <p><strong>Описание основных операций CRUD:</strong></p>
+        <ol>
+          <li><strong>Create (Создание данных):</strong>
+            <ul>
+              <li>Вставка данных с помощью команды INSERT.</li>
+              <li>Возможность возвращать данные о созданных записях с помощью RETURNING.</li>
+            </ul>
+          </li>
+          <li><strong>Read (Чтение данных):</strong>
+            <ul>
+              <li>Извлечение данных из таблицы с помощью команды SELECT.</li>
+              <li>Условия и сортировка позволяют фильтровать и упорядочивать данные.</li>
+            </ul>
+          </li>
+          <li><strong>Update (Обновление данных):</strong>
+            <ul>
+              <li>Обновление существующих записей с помощью команды UPDATE.</li>
+              <li>Можно изменять одно или несколько полей, используя условие WHERE.</li>
+            </ul>
+          </li>
+          <li><strong>Delete (Удаление данных):</strong>
+            <ul>
+              <li>Удаление записей с помощью команды DELETE.</li>
+              <li>Возможность удаления всех данных из таблицы.</li>
+            </ul>
+          </li>
+        </ol>
+        
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>
