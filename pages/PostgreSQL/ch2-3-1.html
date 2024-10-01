@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostgreSQL</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
+    <script src="../../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Использование условий с WHERE в PostgreSQL</h1>
+
+        <p>Оператор <code>WHERE</code> в SQL (и в частности в PostgreSQL) используется для фильтрации строк, которые удовлетворяют определённым условиям. Он применяется в запросах <code>SELECT</code>, <code>UPDATE</code>, <code>DELETE</code> и других SQL-операторах для выборки или манипуляции с данными на основе определённых критериев.</p>
+
+        <h2>Основные моменты использования WHERE</h2>
+        
+        <ul>
+            <li><strong>Операторы сравнения:</strong> <code>=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>&lt;&gt;</code> (не равно).</li>
+            <li><strong>Логические операторы:</strong> <code>AND</code>, <code>OR</code>, <code>NOT</code> для создания сложных условий.</li>
+            <li><strong>Операторы проверки на NULL:</strong> <code>IS NULL</code>, <code>IS NOT NULL</code>.</li>
+            <li><strong>Оператор диапазона:</strong> <code>BETWEEN</code>.</li>
+            <li><strong>Оператор включения в список:</strong> <code>IN</code>.</li>
+            <li><strong>Оператор шаблонов:</strong> <code>LIKE</code>, <code>ILIKE</code> (регистронезависимый).</li>
+        </ul>
+
+        <h2>Примеры использования оператора WHERE</h2>
+
+        <h3>1. Простое условие</h3>
+        <p>Запрос для выборки всех пользователей старше 30 лет:</p>
+        <pre><code>SELECT * FROM users WHERE age &gt; 30;</code></pre>
+
+        <h3>2. Условие с несколькими критериями (AND)</h3>
+        <p>Запрос для выборки пользователей, которые старше 30 лет и живут в городе Москва:</p>
+        <pre><code>SELECT * FROM users WHERE age &gt; 30 AND city = 'Москва';</code></pre>
+
+        <h3>3. Условие с оператором OR</h3>
+        <p>Запрос для выборки пользователей, которые моложе 20 или старше 50 лет:</p>
+        <pre><code>SELECT * FROM users WHERE age &lt; 20 OR age &gt; 50;</code></pre>
+
+        <h3>4. Поиск по NULL значениям</h3>
+        <p>Запрос для выборки всех пользователей, у которых не указан email (email равен NULL):</p>
+        <pre><code>SELECT * FROM users WHERE email IS NULL;</code></pre>
+
+        <h3>5. Использование BETWEEN</h3>
+        <p>Запрос для выборки пользователей в возрасте от 25 до 35 лет:</p>
+        <pre><code>SELECT * FROM users WHERE age BETWEEN 25 AND 35;</code></pre>
+
+        <h3>6. Использование IN</h3>
+        <p>Запрос для выборки пользователей, которые живут в одном из трёх городов:</p>
+        <pre><code>SELECT * FROM users WHERE city IN ('Москва', 'Санкт-Петербург', 'Казань');</code></pre>
+
+        <h3>7. Использование LIKE для поиска по шаблону</h3>
+        <p>Запрос для выборки пользователей, у которых email начинается с 'john':</p>
+        <pre><code>SELECT * FROM users WHERE email LIKE 'john%';</code></pre>
+
+        <p>Здесь <code>%</code> — это подстановочный символ, который заменяет любое количество символов.</p>
+
+        <h3>8. Использование ILIKE (регистронезависимый поиск)</h3>
+        <p>Запрос для выборки пользователей, у которых фамилия начинается с 'иванов' вне зависимости от регистра:</p>
+        <pre><code>SELECT * FROM users WHERE last_name ILIKE 'иванов%';</code></pre>
+
+        <h2>Сложные условия с WHERE</h2>
+
+        <p>Иногда необходимо составить сложные условия с несколькими уровнями логики. Например, для выборки пользователей, которые живут в Москве и старше 30 лет, или живут в Санкт-Петербурге, но их возраст меньше 25:</p>
+<pre>
+  <code>
+    SELECT * FROM users
+    WHERE (city = 'Москва' AND age &gt; 30) OR (city = 'Санкт-Петербург' AND age &lt; 25);
+  </code>
+</pre>
+
+        <p>Использование круглых скобок в условиях помогает правильно расставить приоритеты выполнения логических операций.</p>
+
+        <h2>Заключение</h2>
+        <p>Оператор <code>WHERE</code> является мощным инструментом фильтрации данных в PostgreSQL. Он позволяет выбирать только те строки, которые соответствуют заданным условиям, и гибко управлять запросами к базе данных. Правильное использование <code>WHERE</code> в комбинации с логическими операторами, диапазонами, списками и шаблонами значительно упрощает работу с данными и делает запросы более эффективными.</p>
+            
+        <p><strong>Описание ключевых моментов:</strong></p>
+        <ol>
+          <li>Операторы сравнения (=, >, <, >=, <=, <>) позволяют проверять значения в столбцах.</li>
+          <li>Логические операторы (AND, OR, NOT) помогают составлять сложные условия.</li>
+          <li>Операции с NULL с использованием IS NULL и IS NOT NULL.</li>
+          <li>Оператор диапазона BETWEEN используется для выбора значений в указанном диапазоне.</li>
+          <li>Оператор включения IN помогает фильтровать данные на основе списка возможных значений.</li>
+          <li>Шаблоны поиска с помощью LIKE и регистронезависимого ILIKE позволяют гибко искать данные по частичным совпадениям.</li>
+        </ol>
+
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>
