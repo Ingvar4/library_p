@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
+    <script src="../../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Шаги для соединения сайта с базой данных PostgreSQL</h1><hr>
+        <ol>
+          <li><strong>Установка PostgreSQL на локальном сервере</strong></li>
+          <li><strong>Настройка базы данных</strong></li>
+          <p>Пример SQL-запроса для создания базы данных:</p>
+<pre>
+  <code>
+    CREATE DATABASE my_website_db;
+  </code>
+</pre>
+          <p>Далее создать таблицы для хранения данных. Например, для сайта с учебными статьями по HTML, CSS и JavaScript, можно создать таблицу <code>articles</code>:</p>
+<pre>
+  <code>
+    CREATE TABLE articles (
+        id SERIAL PRIMARY KEY,
+        title VARCHAR(255) NOT NULL,
+        content TEXT NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+  </code>
+</pre>
+          <li><strong>Подключение через Node.js</strong></li>
+          <ul>
+            <li>Установка <a href="https://nodejs.org/">Node.js</a> и необходимых модулей</li>
+            <li>Создать новый проект в папке сайта:</li>
+<pre>
+  <code>
+    mkdir mywebsite
+    cd mywebsite
+    npm init -y
+  </code>
+</pre>
+            <li>Установить модуль для работы с PostgreSQL:</li>
+<pre>
+  <code>
+    npm install pg
+  </code>
+</pre>
+          </ul>
+          <li><strong>Подключение к базе данных PostgreSQL</strong></li>
+          <ul>
+            <li>Создать файл db.js для конфигурации подключения:</li>
+<pre>
+  <code class="lang-js">
+    // db.js
+    const { Pool } = require('pg');
+
+    // Настройки подключения к базе данных
+    const pool = new Pool({
+        user: 'твое_имя_пользователя',  // PostgreSQL пользователь
+        host: 'localhost',              // сервер, если локально — localhost
+        database: 'my_website_db',      // название базы данных
+        password: 'твои_пароль',        // пароль от базы данных
+        port: 5432,                     // порт по умолчанию
+    });
+
+    module.exports = pool;
+  </code>
+</pre>
+          </ul>
+          <li><strong>Запросы к базе данных</strong></li>
+          <p>Теперь мы можем использовать это подключение в своём приложении. Например, создадим простой сервер на Express.js, который будет получать статьи из базы данных.</p>
+          <ul>
+            <li>Установить Express.js:</li>
+<pre>
+  <code>
+    npm install express
+  </code>
+</pre>
+            <li>Создать файл app.js:</li>
+<pre>
+  <code class="lang-js">
+    // app.js
+    const express = require('express');
+    const pool = require('./db');  // подключаем конфигурацию базы данных
+
+    const app = express();
+    const port = 3000;
+
+    // Маршрут для получения всех статей
+    app.get('/articles', async (req, res) => {
+        try {
+            const result = await pool.query('SELECT * FROM articles');
+            res.json(result.rows);
+        } catch (err) {
+            console.error(err.message);
+            res.status(500).send('Ошибка сервера');
+        }
+    });
+
+    app.listen(port, () => {
+        console.log(`Сервер запущен на порту ${port}`);
+    });
+  </code>
+</pre>
+            <li>Запустить сервер:</li>
+<pre>
+  <code>
+    node app.js
+  </code>
+</pre>
+          <p>Теперь, если зайти в браузер по адресу <code>http://localhost:3000/articles</code>, то будет отображаться JSON с данными из таблицы articles.</p>
+          </ul>
+
+          <li><strong>Работа с данными через HTML</strong></li>
+          <p>Можно интегрировать эти данные на страницу, используя JavaScript для отправки запросов и отображения данных:</p>
+<pre>
+  <code class="lang-html">
+    &lt;!DOCTYPE html>
+    &lt;html lang="ru">
+    &lt;head>
+      &lt;meta charset="UTF-8">
+      &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+      &lt;title>Статьи по HTML и CSS&lt;/title>
+      &lt;script>
+              async function loadArticles() {
+                  const response = await fetch('http://localhost:3000/articles');
+                  const articles = await response.json();
+                  const articlesContainer = document.getElementById('articles');
+
+                  articles.forEach(article => {
+                      const articleDiv = document.createElement('div');
+                      articleDiv.innerHTML = `&lt;h2>${article.title}&lt;/h2>&lt;p>${article.content}&lt;/p>`;
+                      articlesContainer.appendChild(articleDiv);
+                  });
+              }
+
+              window.onload = loadArticles;
+      &lt;/script>
+    &lt;/head>
+    &lt;body>
+      &lt;h1>Учебные статьи&lt;/h1>
+      &lt;div id="articles">&lt;/div>
+    &lt;/body>
+    &lt;/html>
+  </code>
+</pre>
+
+         <li><strong>Access to fetch has been blocked by CORS policy.</strong></li>
+         <p>Проблема связана с политикой CORS (Cross-Origin Resource Sharing). Браузеры блокируют запросы между разными источниками, если сервер не указывает явно, что разрешает такие запросы. Это важно для безопасности, чтобы предотвратить несанкционированный доступ к ресурсам с других доменов.</p>
+         <p>Ошибка CORS возникает из-за отправки запроса с одного источника (<code>http://127.0.0.1:5500</code>) к другому источнику (<code>http://localhost:3000</code>), и сервер не настроен для разрешения таких запросов.</p>
+         <p><strong>Решение</strong></p>
+         <p>Чтобы разрешить запросы с других источников (в данном случае с <code>http://127.0.0.1:5500</code>), нужно настроить CORS на стороне сервера. В случае с Express.js это можно сделать с помощью специального middleware.</p>
+         <p><strong>Шаги для решения проблемы</strong></p>
+         <ol>
+           <li><strong>Установка модуля CORS</strong></li>
+           <p>Для начала нужно установить пакет cors, который помогает управлять политикой доступа на сервере:</p>
+<pre>
+  <code>
+    npm install cors
+  </code>
+</pre>
+           <li><strong>Подключение CORS в приложении</strong></li>
+           <p>После установки, необходимо подключить CORS в app.js. Это делается так:</p>
+<pre>
+  <code class="lang-js">
+    // app.js
+    const express = require('express');
+    const cors = require('cors');  // Подключаем CORS
+    const pool = require('./db');
+
+    const app = express();
+    const port = 3000;
+
+    // Включаем CORS для всех маршрутов
+    app.use(cors());
+
+    app.get('/articles', async (req, res) => {
+        try {
+            const result = await pool.query('SELECT * FROM articles');
+            res.json(result.rows);
+        } catch (err) {
+            console.error("Ошибка при запросе к базе данных:", err);
+            res.status(500).send('Ошибка сервера');
+        }
+    });
+
+    app.listen(port, () => {
+        console.log(`Сервер запущен на порту ${port}`);
+    });
+  </code>
+</pre>
+           <p>Теперь сервер Express будет автоматически добавлять заголовок <code>Access-Control-Allow-Origin: *</code>, что разрешает любые кросс-доменные запросы.</p>
+           <li><strong>Проверка</strong></li>
+           <p>После того как CORS будет подключен и настроен, снова открыть страницу в браузере и выполнить запрос через <code>fetch</code>. Ошибка должна исчезнуть, и запрос выполнится корректно.</p>
+         </ol>
+         <p><strong>Дополнительные настройки CORS</strong></p>
+         <p>Если нужно разрешить запросы только с определённого источника, можно указать конкретный адрес:</p>
+<pre>
+  <code class="lang-js">
+    app.use(cors({
+        origin: 'http://127.0.0.1:5500'  // Разрешаем только этот источник
+    }));
+  </code>
+</pre>
+         <p>Это повысит безопасность, разрешив запросы только с твоего фронтенд-сайта.</p>
+        </ol>
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>
