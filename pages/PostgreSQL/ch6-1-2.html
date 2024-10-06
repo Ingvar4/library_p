@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostgreSQL</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
+    <script src="../../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Назначение прав доступа в PostgreSQL</h1>
+
+        <p>В PostgreSQL есть два основных инструмента для управления правами доступа к объектам базы данных — это команды <code>GRANT</code> и <code>REVOKE</code>. Эти команды позволяют назначать или отзывать права доступа на таблицы, базы данных, схемы и другие объекты для конкретных пользователей или ролей.</p>
+
+        <h2>1. Команда <code>GRANT</code></h2>
+
+        <p>Команда <code>GRANT</code> используется для назначения прав доступа пользователям или ролям. Вы можете назначить права на выполнение конкретных операций, таких как <code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code> и другие.</p>
+
+        <h3>Синтаксис</h3>
+        <pre><code>GRANT privilege_type ON object TO role_name;</code></pre>
+
+        <p>Где:</p>
+        <ul>
+            <li><strong>privilege_type</strong> — тип привилегии (например, <code>SELECT</code>, <code>INSERT</code>).</li>
+            <li><strong>object</strong> — объект базы данных (например, таблица, база данных, схема).</li>
+            <li><strong>role_name</strong> — имя пользователя или роли, которой назначаются права.</li>
+        </ul>
+
+        <h3>Пример использования</h3>
+
+        <p>Предположим, у нас есть таблица <code>employees</code>, и мы хотим дать пользователю <code>new_user</code> права на выборку данных (SELECT):</p>
+
+        <pre><code>GRANT SELECT ON employees TO new_user;</code></pre>
+
+        <p>Теперь пользователь <code>new_user</code> может выполнять запросы <code>SELECT</code> для таблицы <code>employees</code>.</p>
+
+        <h2>2. Команда <code>REVOKE</code></h2>
+
+        <p>Команда <code>REVOKE</code> используется для отзыва ранее назначенных прав доступа у пользователя или роли.</p>
+
+        <h3>Синтаксис</h3>
+        <pre><code>REVOKE privilege_type ON object FROM role_name;</code></pre>
+
+        <p>Где:</p>
+        <ul>
+            <li><strong>privilege_type</strong> — тип привилегии (например, <code>SELECT</code>, <code>INSERT</code>).</li>
+            <li><strong>object</strong> — объект базы данных (например, таблица, база данных, схема).</li>
+            <li><strong>role_name</strong> — имя пользователя или роли, у которой отзываются права.</li>
+        </ul>
+
+        <h3>Пример использования</h3>
+
+        <p>Чтобы отозвать права <code>SELECT</code> у пользователя <code>new_user</code> для таблицы <code>employees</code>, используем следующий запрос:</p>
+
+        <pre><code>REVOKE SELECT ON employees FROM new_user;</code></pre>
+
+        <p>Теперь пользователь <code>new_user</code> больше не может выполнять запросы <code>SELECT</code> для таблицы <code>employees</code>.</p>
+
+        <h2>3. Права на таблицы</h2>
+
+        <p>Некоторые типы прав доступа, которые можно назначить для таблиц в PostgreSQL:</p>
+        <ul>
+            <li><code>SELECT</code> — выборка данных из таблицы.</li>
+            <li><code>INSERT</code> — вставка новых данных в таблицу.</li>
+            <li><code>UPDATE</code> — обновление данных в таблице.</li>
+            <li><code>DELETE</code> — удаление данных из таблицы.</li>
+            <li><code>ALL</code> — все права (включает <code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>).</li>
+        </ul>
+
+        <h2>4. Права на базы данных</h2>
+
+        <p>Вы также можете назначать права на всю базу данных. Вот пример предоставления пользователю <code>new_user</code> всех прав на базу данных <code>my_database</code>:</p>
+
+        <pre><code>GRANT ALL PRIVILEGES ON DATABASE my_database TO new_user;</code></pre>
+
+        <h2>5. Наследование прав в PostgreSQL</h2>
+
+        <p>Если у пользователя есть роль, которая уже имеет привилегии на объект, пользователь наследует эти привилегии. Например, если роль <code>dev_group</code> имеет доступ к таблице, все пользователи в этой группе также получают доступ к таблице.</p>
+
+        <h2>Заключение</h2>
+
+        <p>Команды <code>GRANT</code> и <code>REVOKE</code> — это основной способ управления доступом к объектам базы данных в PostgreSQL. С их помощью можно гибко управлять правами пользователей и ролей, что повышает безопасность и упрощает администрирование базы данных.</p>
+    
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>

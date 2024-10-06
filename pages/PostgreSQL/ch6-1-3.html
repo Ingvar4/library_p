@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostgreSQL</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
+    <script src="../../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Управление правами на уровне таблиц и баз данных в PostgreSQL</h1>
+
+        <p>В PostgreSQL управление правами пользователей и ролей на уровне таблиц и баз данных является важным элементом обеспечения безопасности и распределения доступа к данным. Существует несколько основных команд для назначения и отзыва прав: <code>GRANT</code> и <code>REVOKE</code>. Эти команды позволяют гибко управлять доступом к различным объектам базы данных.</p>
+
+        <h2>1. Основные права доступа в PostgreSQL</h2>
+
+        <p>Для управления доступом PostgreSQL использует несколько типов прав:</p>
+        <ul>
+            <li><strong>SELECT</strong> — позволяет выбирать данные из таблицы или представления (выполнение <code>SELECT</code> запросов).</li>
+            <li><strong>INSERT</strong> — позволяет вставлять данные в таблицу.</li>
+            <li><strong>UPDATE</strong> — позволяет обновлять существующие записи в таблице.</li>
+            <li><strong>DELETE</strong> — позволяет удалять записи из таблицы.</li>
+            <li><strong>TRUNCATE</strong> — позволяет удалять все записи из таблицы без возможности их восстановления.</li>
+            <li><strong>REFERENCES</strong> — позволяет ссылаться на таблицу при создании внешних ключей.</li>
+            <li><strong>ALL PRIVILEGES</strong> — назначает все доступные права.</li>
+        </ul>
+
+        <h2>2. Назначение прав с помощью команды <code>GRANT</code></h2>
+
+        <p>Команда <code>GRANT</code> используется для назначения прав на объекты базы данных (например, таблицы, базы данных, схемы) пользователям или ролям.</p>
+
+        <h3>Синтаксис команды GRANT</h3>
+        <pre><code>GRANT privilege_type ON object TO role_name;</code></pre>
+
+        <p>Где:</p>
+        <ul>
+            <li><strong>privilege_type</strong> — тип права (например, <code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>).</li>
+            <li><strong>object</strong> — объект базы данных, на который назначаются права (например, таблица).</li>
+            <li><strong>role_name</strong> — имя пользователя или роли, которой назначаются права.</li>
+        </ul>
+
+        <h3>Пример назначения прав</h3>
+        <p>Чтобы предоставить пользователю <code>user1</code> права на выборку данных из таблицы <code>employees</code>:</p>
+        <pre><code>GRANT SELECT ON employees TO user1;</code></pre>
+
+        <h2>3. Отзыв прав с помощью команды <code>REVOKE</code></h2>
+
+        <p>Команда <code>REVOKE</code> используется для отзыва ранее назначенных прав у пользователей или ролей.</p>
+
+        <h3>Синтаксис команды REVOKE</h3>
+        <pre><code>REVOKE privilege_type ON object FROM role_name;</code></pre>
+
+        <p>Где:</p>
+        <ul>
+            <li><strong>privilege_type</strong> — тип права, которое нужно отозвать.</li>
+            <li><strong>object</strong> — объект базы данных, для которого отзываются права.</li>
+            <li><strong>role_name</strong> — имя пользователя или роли, у которой отзываются права.</li>
+        </ul>
+
+        <h3>Пример отзыва прав</h3>
+        <p>Чтобы отозвать у пользователя <code>user1</code> права на выборку данных из таблицы <code>employees</code>:</p>
+        <pre><code>REVOKE SELECT ON employees FROM user1;</code></pre>
+
+        <h2>4. Управление правами на уровне базы данных</h2>
+
+        <p>Права можно назначать не только на отдельные таблицы, но и на всю базу данных. Например, чтобы предоставить пользователю <code>user2</code> все права на базу данных <code>mydb</code>:</p>
+
+        <pre><code>GRANT ALL PRIVILEGES ON DATABASE mydb TO user2;</code></pre>
+
+        <p>Для отзыва всех прав:</p>
+        <pre><code>REVOKE ALL PRIVILEGES ON DATABASE mydb FROM user2;</code></pre>
+
+        <h2>5. Роли и группы в PostgreSQL</h2>
+
+        <p>В PostgreSQL роли могут объединять несколько пользователей. Вы можете назначать права как индивидуальным пользователям, так и целым ролям (группам пользователей). Это позволяет легко управлять правами в больших системах.</p>
+
+        <p>Пример создания роли и назначения прав:</p>
+        <pre><code>CREATE ROLE developers;</code></pre>
+
+        <p>Назначим роли <code>developers</code> права на выполнение всех операций с таблицей <code>projects</code>:</p>
+        <pre><code>GRANT ALL PRIVILEGES ON projects TO developers;</code></pre>
+
+        <p>Теперь мы можем добавить пользователей в эту роль:</p>
+        <pre><code>GRANT developers TO user1, user2;</code></pre>
+
+        <h2>6. Права по умолчанию</h2>
+
+        <p>В PostgreSQL можно также назначать права по умолчанию для новых объектов. Например, если вы хотите, чтобы все новые таблицы, созданные в определённой схеме, автоматически предоставляли права на выборку пользователю <code>user1</code>:</p>
+
+        <pre><code>ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO user1;</code></pre>
+
+        <h2>Заключение</h2>
+
+        <p>Управление правами в PostgreSQL — это важный аспект администрирования базы данных. С помощью команд <code>GRANT</code> и <code>REVOKE</code> можно гибко контролировать доступ пользователей и ролей к данным, обеспечивая безопасность и распределённый доступ к данным.</p>
+   
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>
