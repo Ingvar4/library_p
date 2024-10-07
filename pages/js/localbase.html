@@ -50,6 +50,19 @@
     );
   </code>
 </pre>
+          <p>Добавляем информацию для примера в таблицу</p>
+<pre>
+  <code>
+    INSERT INTO articles (title, content) 
+    VALUES ('Изучаем HTML', '&lt;p>Это текст статьи про HTML&lt;/p>');
+  </code>
+</pre>
+          <p>Проверяем</p>
+<pre>
+  <code>
+    SELECT * FROM articles
+  </code>
+</pre>
           <li><strong>Подключение через Node.js</strong></li>
           <ul>
             <li>Установка <a href="https://nodejs.org/">Node.js</a> и необходимых модулей</li>
