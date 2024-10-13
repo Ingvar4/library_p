@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
+    <script src="../../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Роль HTML в связке с CSS и JavaScript.</h1><hr>
+        <p>HTML, CSS и JavaScript — это три кита, на которых строится фронтенд веб-разработки. Каждый из них играет свою уникальную роль, и их совместное использование позволяет создавать полноценные, интерактивные и эстетически привлекательные веб-страницы. Давай разберём, как они взаимодействуют и какие аспекты необходимо учитывать для полноценного понимания их связки.</p>
+        <ol>
+          <li><strong>HTML: Структура веб-страницы</strong></li>
+          <p>HTML (HyperText Markup Language) отвечает за структуру и содержание веб-страницы. Это язык разметки, который определяет, какие элементы будут находиться на странице и в каком порядке.</p>
+          <p><strong>Основные функции HTML:</strong></p>
+          <ul>
+            <li>Создание каркаса страницы.</li>
+            <li>Определение иерархии контента: заголовки, параграфы, списки и таблицы.</li>
+            <li>Разметка мультимедийных элементов (изображения, видео, аудио).</li>
+            <li>Добавление гиперссылок для навигации между страницами.</li>
+            <li>Внедрение форм для сбора данных (например, регистрационные формы).</li>
+          </ul>
+          <p><strong>Пример базового HTML-документа:</strong></p>
+<pre>
+  <code class="lang-html">
+    &lt;!DOCTYPE html>
+    &lt;html lang="en">
+      &lt;head>
+        &lt;meta charset="UTF-8">
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+        &lt;title>My First Webpage&lt;/title>
+      &lt;/head>
+      &lt;body>
+        &lt;h1>Welcome to my website!&lt;/h1>
+        &lt;p>This is a simple paragraph of text.&lt;/p>
+      &lt;/body>
+    &lt;/html>
+  </code>
+</pre>
+          <p>HTML описывает структуру страницы, но по умолчанию она будет выглядеть просто и минималистично — здесь на сцену выходит CSS.</p>
+          <li><strong>CSS: Стиль и визуальное оформление</strong></li>
+          <p>CSS (Cascading Style Sheets) отвечает за внешний вид и оформление веб-страницы. Он используется для задания стилей HTML-элементов — таких как цвета, шрифты, отступы, границы и расположение элементов на странице. CSS отделяет содержимое от его представления, что делает код более гибким и легко управляемым.</p>
+          <p><strong>Основные функции CSS:</strong></p>
+          <ul>
+            <li>Изменение цветов, шрифтов, фонов.</li>
+            <li>Управление отступами и полями (margins и padding).</li>
+            <li>Добавление границ (borders) и теней.</li>
+            <li>Адаптивная верстка с использованием медиа-запросов (<code>@media</code>).</li>
+            <li>Размещение элементов с помощью Flexbox и Grid Layout.</li>
+            <li>Анимации и переходы (transitions, animations).</li>
+          </ul>
+          <p><strong>Пример подключения CSS к HTML:</strong></p>
+          <ol>
+            <li><strong>Внешняя таблица стилей</strong>: это наиболее предпочтительный метод.</li>
+<pre>
+  <code class="lang-html">
+    &lt;link rel="stylesheet" href="styles.css">
+  </code>
+</pre>
+            <li><strong>Пример CSS кода для форматирования:</strong></li>
+<pre>
+  <code class="lang-css">
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    
+    h1 {
+        color: #333;
+        text-align: center;
+    }
+    
+    p {
+        font-size: 18px;
+        line-height: 1.6;
+    }
+  </code>
+</pre>
+          </ol>
+          <p><strong>Как работают стили?</strong></p>
+          <ul>
+            <li><strong>Каскадность (Cascading)</strong>: если несколько правил применяются к одному элементу, то браузер учитывает их каскадность. Например, если для одного элемента указаны несколько стилей (внешний файл, встроенный стиль и стиль "в линии"), приоритет будет у последнего из них.</li>
+            <li><strong>Наследование (Inheritance)</strong>: многие CSS-свойства передаются от родительских элементов к дочерним (например, шрифт и цвет текста).</li>
+            <li><strong>Специфичность (Specificity)</strong>: определяет, какое из конфликтующих CSS-правил будет применено.</li>
+          </ul>
+          <li><strong>JavaScript: Интерактивность и динамика</strong></li>
+          <p>JavaScript (JS) — это язык программирования, который используется для создания интерактивных и динамических элементов на веб-страницах. С помощью JavaScript можно управлять содержимым HTML и стилями CSS, изменяя их в реальном времени в зависимости от действий пользователя.</p>
+          <p><strong>Основные функции JavaScript:</strong></p>
+          <ul>
+            <li>Изменение содержимого страницы без перезагрузки (динамическое обновление DOM).</li>
+            <li>Реализация сложной логики: валидация форм, модальные окна, слайдеры, выпадающие меню.</li>
+            <li>Работа с событиями (клик, скролл, ввод данных).</li>
+            <li>Анимации и взаимодействие с пользователем.</li>
+            <li>Подключение и работа с внешними API (например, получение данных из сервера).</li>
+            <li>Обработка асинхронных операций (например, с помощью <code>fetch()</code> и работы с <code>Promises</code>).</li>
+          </ul>
+          <p><strong>Пример подключения JavaScript к HTML:</strong></p>
+          <ol>
+            <li>Внешний скрипт:</li>
+<pre>
+  <code class="lang-js">
+    &lt;script src="script.js">&lt;/script>
+  </code>
+</pre>
+            <li>Пример JavaScript кода:</li>
+<pre>
+  <code class="lang-js">
+    // Изменение текста заголовка при клике
+    document.querySelector('h1').addEventListener('click', function() {
+        this.textContent = "You clicked me!";
+    });
+  </code>
+</pre>
+          </ol>
+          <p><strong>DOM (Document Object Model)</strong> — это представление HTML-документа в виде иерархической структуры объектов, к которой JavaScript может получать доступ и манипулировать. Например, можно добавлять новые элементы, изменять атрибуты, стили и текст прямо на странице, используя JavaScript.</p>
+          <li><strong>Как HTML, CSS и JavaScript работают вместе?</strong></li>
+          <p>Эти три технологии тесно связаны, и их правильное использование создаёт полноценное веб-приложение.</p>
+          <ol>
+            <li><strong>HTML</strong> задаёт базовую структуру страницы: заголовки, абзацы, изображения, ссылки и формы.</li>
+            <li><strong>CSS</strong> стилизует эту структуру, превращая её в эстетически привлекательный интерфейс, придаёт интерактивные эффекты (анимации, переходы) и обеспечивает адаптивность.</li>
+            <li><strong>JavaScript</strong> добавляет логику и динамическое поведение на страницу, делает её интерактивной и способной реагировать на действия пользователя.</li>
+          </ol>
+          <p><strong>Пример взаимодействия всех трёх компонентов:</strong></p>
+<pre>
+  <code class="lang-html">
+    &lt;!DOCTYPE html>
+    &lt;html lang="en">
+      &lt;head>
+        &lt;meta charset="UTF-8">
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+        &lt;title>Interactive Page&lt;/title>
+        &lt;link rel="stylesheet" href="styles.css">
+      &lt;/head>
+      &lt;body>
+        &lt;h1 id="greeting">Click me!&lt;/h1>
+        &lt;p>This is a styled paragraph.&lt;/p>
+
+        &lt;script src="script.js">&lt;/script>
+      &lt;/body>
+    &lt;/html>
+  </code>
+</pre>
+          <p><strong>styles.css:</strong></p>
+<pre>
+  <code class="lang-css">
+    body {
+      background-color: #f4f4f4;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    
+    h1 {
+        color: #333;
+        cursor: pointer;
+    }
+    
+    p {
+        font-size: 20px;
+        color: #666;
+    }
+  </code>
+</pre>
+          <p><strong>script.js:</strong></p>
+<pre>
+  <code class="lang-js">
+    // Меняем текст заголовка при клике
+    document.getElementById('greeting').addEventListener('click', function() {
+        this.textContent = "Hello, JavaScript!";
+    });
+  </code>
+</pre>
+          <li><strong>Советы по эффективному использованию связки HTML, CSS и JavaScript</strong></li>
+          <ol>
+            <li><strong>Семантическая разметка</strong>. Использование семантических тегов HTML (&lt;article>, &lt;section>, &lt;nav>, &lt;footer>) помогает улучшить SEO и доступность страницы.</li>
+            <li><strong>Разделение кода</strong>. Старайся хранить HTML, CSS и JavaScript в отдельных файлах. Это улучшает поддержку кода, облегчает кэширование и ускоряет загрузку страницы.</li>
+            <li><strong>Медиазапросы и адаптивность</strong>. Используй CSS медиа-запросы, чтобы адаптировать страницу под разные устройства (мобильные телефоны, планшеты, компьютеры).</li>
+            <li><strong>Минимизация и сжатие файлов</strong>. Перед публикацией на сервер оптимизируй CSS и JavaScript, удаляя пробелы и комментарии для улучшения скорости загрузки страницы.</li>
+            <li><strong>Тестирование в разных браузерах</strong>. Обязательно проверяй, как сайт работает в разных браузерах (Chrome, Firefox, Safari, Edge), чтобы избежать кросс-браузерных проблем. </li>
+          </ol>
+          <li><strong>Заключение</strong></li>
+          <p>Связка HTML, CSS и JavaScript создаёт основу для разработки современных веб-сайтов. HTML задаёт структуру, CSS — стили и оформление, а JavaScript добавляет интерактивные элементы и логику. Важно правильно организовывать код, соблюдать стандарты и оптимизировать страницу для улучшения пользовательского опыта.</p>
+          <p>Когда все три технологии работают вместе, они создают динамичные, адаптивные и эстетически привлекательные веб-страницы, которые легко поддерживать и развивать.</p>
+        </ol>
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>
