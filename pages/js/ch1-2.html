@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
+    <script src="../../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Установка среды разработки для JavaScript (VS Code, Node.js)</h1><hr>
+        <p>Чтобы эффективно разрабатывать проекты на JavaScript, важно настроить правильную среду разработки. В этом процессе ключевую роль играют следующие инструменты:</p>
+        <ul>
+          <li><strong>Редактор кода</strong> (например, Visual Studio Code)</li>
+          <li><strong>Node.js</strong> — платформа для запуска JavaScript вне браузера</li>
+          <li><strong>npm</strong> — менеджер пакетов для установки библиотек и инструментов.</li>
+        </ul>
+        <h3>1. Установка Visual Studio Code (VS Code)</h3>
+        <p><strong>VS Code</strong> — это бесплатный и мощный редактор кода, который активно используется для разработки на JavaScript благодаря своей поддержке расширений, дебаггинга, автодополнения кода и интеграции с системами контроля версий, такими как Git.</p>
+        <p><strong>Шаги установки:</strong></p>
+        <ol>
+          <li><strong>Скачать VS Code:</strong>
+            <ul>
+              <li>Перейдите на официальный сайт: https://code.visualstudio.com/</li>
+              <li>Скачайте и установите версию, подходящую для вашей операционной системы (Windows, macOS, Linux).</li>
+            </ul>
+          </li>
+          <li><strong>Настройка VS Code:</strong>
+            <ul>
+              <li>После установки вы можете начать настройку редактора для более удобной работы с JavaScript.</li>
+              <li>Откройте VS Code, затем перейдите в раздел Extensions (на боковой панели или через комбинацию клавиш Ctrl+Shift+X).</li>
+              <li>Установите следующие полезные расширения:
+                <ul>
+                  <li><strong>ESLint</strong> — помогает соблюдать стандарты качества кода, проверяет синтаксис и стиль написания JavaScript.</li>
+                  <li><strong>Prettier</strong> — форматирует код по определённым правилам, делая его единообразным.</li>
+                  <li><strong>JavaScript (ES6) Code Snippets</strong> — предоставляет наборы сниппетов для написания кода быстрее.</li>
+                  <li><strong>Debugger for Chrome</strong> — позволяет дебажить код прямо в браузере Google Chrome.</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><strong>Терминал в VS Code:</strong>
+            <ul>
+              <li>VS Code поддерживает встроенный терминал, который можно открыть через меню Terminal -> New Terminal.</li>
+              <li>Это очень удобно для выполнения команд, таких как запуск серверов или управление пакетами с помощью npm.</li>
+            </ul>
+          </li>
+        </ol>
+        <h3>2. Установка Node.js</h3>
+        <p><strong>Node.js</strong> — это серверная платформа, которая позволяет запускать JavaScript вне браузера. Она важна не только для создания серверных приложений, но и для разработки фронтенда, поскольку предоставляет инструмент <strong>npm</strong> для управления пакетами и библиотеками.</p>
+        <p><strong>Шаги установки:</strong></p>
+        <ol>
+          <li><strong>Скачать Node.js:</strong>
+            <ul>
+              <li>Перейдите на официальный сайт Node.js: https://nodejs.org/</li>
+              <li>Выберите рекомендованную стабильную версию для скачивания (LTS — Long Term Support).</li>
+            </ul>
+          </li>
+          <li><strong>Установка:</strong>
+            <ul>
+              <li>Скачанный файл установки будет в виде исполняемого файла для вашей операционной системы.</li>
+              <li>Для Windows: запустите файл, следуйте инструкциям установщика.</li>
+              <li>Для macOS и Linux: доступны также версии через менеджеры пакетов, такие как Homebrew или apt.</li>
+            </ul>
+          </li>
+          <li><strong>Проверка установки:</strong> После установки Node.js можно проверить, всё ли прошло успешно:
+            <ul>
+              <li>Откройте терминал (встроенный в VS Code или стандартный терминал вашей системы).</li>
+              <li>Введите команду:
+<pre>
+  <code>
+    bash
+    node -v
+  </code>
+</pre>
+              <p>Это должно вывести текущую версию Node.js.</p>
+              </li>
+              <li>Чтобы проверить npm (он автоматически устанавливается вместе с Node.js), выполните:
+<pre>
+  <code>
+    bash
+    npm -v
+  </code>
+</pre>
+              </li>
+            </ul>
+          </li>
+        </ol>
+        <h3>3. npm — Менеджер пакетов</h3>
+        <p><strong>npm (Node Package Manager)</strong> — это стандартный инструмент для управления библиотеками и пакетами в проектах Node.js. Он позволяет легко устанавливать, обновлять и удалять пакеты, а также управлять зависимостями вашего проекта.</p>
+        <p><strong>Основные команды npm:</strong></p>
+        <ul>
+          <li><strong>Инициализация проекта</strong>: Чтобы создать файл package.json, который будет хранить информацию о зависимостях вашего проекта, выполните команду:
+<pre>
+  <code>
+    bash
+    npm init
+  </code>
+</pre>
+          <p>Вам будут предложены вопросы (например, имя проекта, версия и т.д.). Если не хотите заполнять все поля вручную, можно использовать флаг -y для создания файла с настройками по умолчанию:</p>
+<pre>
+  <code>
+    bash
+    npm init -y
+  </code>
+</pre>
+          </li>
+          <li><strong>Установка пакетов</strong>: Например, чтобы установить библиотеку axios, используйте команду:
+<pre>
+  <code>
+    bash
+    npm install axios
+  </code>
+</pre>
+          <p>Это создаст папку <code>node_modules</code>, в которой будут храниться установленные пакеты, а также добавит зависимости в <code>package.json</code>.</p>
+          </li>
+          <li><strong>Удаление пакетов</strong>: Чтобы удалить библиотеку:
+<pre>
+  <code>
+    bash
+    npm uninstall axios
+  </code>
+</pre>
+          </li>
+          <li><strong>Обновление пакетов</strong>: Для обновления всех пакетов проекта:
+<pre>
+  <code>
+    bash
+    npm update
+  </code>
+</pre>
+          </li>
+        </ul>
+        <h3>4. Запуск JavaScript кода с помощью Node.js</h3>
+        <p>После установки Node.js вы можете использовать его для выполнения JavaScript-файлов прямо из терминала.</p>
+        <p>Пример:</p>
+        <ol>
+          <li>Создайте файл app.js с простым JavaScript кодом:
+<pre>
+  <code>
+    console.log("Hello, World!");
+  </code>
+</pre>
+          </li>
+          <li>Запустите его в терминале:
+<pre>
+  <code>
+    bash
+    node app.js
+  </code>
+</pre>
+          <p>Вы должны увидеть в терминале сообщение: Hello, World!.</p>
+          </li>
+        </ol>
+        <h3>5. Установка дополнительных инструментов</h3>
+        <p>Кроме VS Code и Node.js, вы можете установить и использовать различные дополнительные инструменты для удобства разработки:</p>
+        <ul>
+          <li><strong>Git</strong> — система контроля версий, необходимая для работы с репозиториями, хранения кода и работы в команде.</li>
+          <li><strong>Webpack</strong> или <strong>Parcel</strong> — инструменты для сборки JavaScript-приложений, которые помогают объединять файлы, оптимизировать код и работать с модулями.</li>
+        </ul>
+        <p><strong>Заключение</strong></p>
+        <p>Чтобы начать разработку на JavaScript, необходимо установить два ключевых компонента: <strong>VS Code</strong> для удобного написания кода и <strong>Node.js</strong> для возможности выполнения и тестирования JavaScript вне браузера. Также, npm помогает управлять зависимостями проекта, делая разработку более продуктивной и структурированной.</p>
+       
+
+
+
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>

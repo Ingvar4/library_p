@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
+    <script src="../../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Подключение JavaScript к HTML-документу</h1><hr>
+        <p>Для того чтобы начать использовать JavaScript на веб-странице, необходимо подключить его к HTML-документу. Существует несколько способов подключения JavaScript: встроенный в HTML, внешний файл и подключение скриптов в разных частях документа. Рассмотрим каждый из этих способов.</p>
+        <h3>1. Встраивание JavaScript в HTML с помощью тега <code>&lt;script></code></h3>
+        <p>Тег <code>&lt;script></code> используется для внедрения и подключения JavaScript на HTML-страницу. Он может быть расположен непосредственно внутри HTML-документа или ссылаться на внешний JavaScript-файл.</p>
+        <p><strong>Вариант 1: Встраивание JavaScript в HTML</strong></p>
+        <p>Этот метод позволяет написать JavaScript код прямо в HTML-документе. Это полезно для небольших скриптов.</p>
+        <p>Пример:</p>
+<pre>
+  <code class="lang-html">
+    &lt;!DOCTYPE html>
+    &lt;html lang="en">
+      &lt;head>
+        &lt;meta charset="UTF-8">
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+        &lt;title>Встроенный JavaScript&lt;/title>
+      &lt;/head>
+      &lt;body>
+        &lt;h1>Привет, мир!&lt;/h1>
+
+        &lt;script>
+            // Ваш JavaScript-код
+            console.log("Этот код встроен в HTML-документ");
+        &lt;/script>
+      &lt;/body>
+    &lt;/html>
+  </code>
+</pre>
+        <p>В этом примере JavaScript-код написан между открывающим и закрывающим тегами <code>&lt;script></code>. Когда браузер загружает страницу, он выполняет код сразу же.</p>
+        <p><strong>Вариант 2: Подключение внешнего файла JavaScript</strong></p>
+        <p>Для крупных проектов или для лучшей организации кода рекомендуется хранить JavaScript-код в отдельном файле и подключать его к HTML.</p>
+<pre>
+  <code class="lang-html">
+    &lt;!DOCTYPE html>
+    &lt;html lang="en">
+      &lt;head>
+        &lt;meta charset="UTF-8">
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+        &lt;title>Подключение внешнего файла JavaScript&lt;/title>
+      &lt;/head>
+      &lt;body>
+        &lt;h1>Привет, мир!&lt;/h1>
+
+        &lt;script src="script.js">&lt;/script>
+      &lt;/body>
+    &lt;/html>
+  </code>
+</pre>
+        <p>И внешний файл <code>script.js</code>:</p>
+<pre>
+  <code class="lang-js">
+    // Ваш внешний JavaScript-код
+    console.log("Этот код находится во внешнем файле");
+  </code>
+</pre>
+        <p>В этом случае файл <code>script.js</code> загружается и выполняется браузером при загрузке страницы.</p>
+        <p><strong>Преимущества использования внешнего файла:</strong></p>
+        <ul>
+          <li>Организация кода: Удобнее работать с большим количеством кода.</li>
+          <li>Повторное использование: Один и тот же файл можно подключать к разным HTML-страницам.</li>
+          <li>Кэширование: Браузеры могут кэшировать внешний файл, что ускоряет загрузку страницы.</li>
+        </ul>
+        <h3>2. Место размещения тега &lt;script></h3>
+        <p>JavaScript можно размещать в разных местах HTML-документа: в <code>&lt;head></code>, в <code>&lt;body></code> или перед закрывающим тегом <code>&lt;/body></code>. Размещение скрипта может влиять на поведение страницы.</p>
+        <p><strong>Размещение скрипта в &lt;head></strong></p>
+        <p>Когда <code>&lt;script></code> расположен внутри <code>&lt;head></code>, браузер загружает и выполняет скрипт до отображения остального содержимого страницы.</p>
+        <p>Пример:</p>
+<pre>
+  <code class="lang-html">
+    &lt;!DOCTYPE html>
+      &lt;html lang="en">
+      &lt;head>
+        &lt;meta charset="UTF-8">
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+        &lt;title>Скрипт в head&lt;/title>
+        &lt;script src="script.js">&lt;/script>
+      &lt;/head>
+      &lt;body>
+        &lt;h1>Привет, мир!&lt;/h1>
+      &lt;/body>
+    &lt;/html>
+  </code>
+</pre>
+        <p><strong>Недостаток</strong>: Если в скрипте есть код, который работает с элементами на странице, может возникнуть ошибка, так как браузер еще не загрузил <code>&lt;body></code>. Чтобы избежать этого, используется атрибут <code>defer</code>.</p>
+        <p><strong>Размещение скрипта перед закрывающим тегом &lt;/body></strong></p>
+        <p>Рекомендуется подключать JavaScript перед закрывающим тегом <code>&lt;/body></code>. Это позволяет загрузить и отобразить содержимое страницы, а затем выполнить скрипты.</p>
+        <p>Пример:</p>
+<pre>
+  <code class="lang-html">
+    &lt;!DOCTYPE html>
+    &lt;html lang="en">
+      &lt;head>
+        &lt;meta charset="UTF-8">
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+        &lt;title>Скрипт в конце body&lt;/title>
+      &lt;/head>
+      &lt;body>
+        &lt;h1>Привет, мир!&lt;/h1>
+
+        &lt;script src="script.js">&lt;/script>
+      &lt;/body>
+    &lt;/html>
+  </code>
+</pre>
+        <p>Этот подход позволяет ускорить рендеринг страницы, так как браузер сначала отображает HTML-контент, а потом загружает и выполняет JavaScript.</p>
+        <h3>3. Асинхронная загрузка скриптов</h3>
+        <p>Для оптимизации загрузки JavaScript можно использовать атрибуты <code>async</code> и <code>defer</code>, которые позволяют загружать скрипты асинхронно, не блокируя отображение страницы.</p>
+        <p><strong>Атрибут <code>defer</code></strong></p>
+        <p>Атрибут <code>defer</code> говорит браузеру загрузить скрипт асинхронно, но выполнить его только после того, как весь HTML-код будет загружен и обработан.</p>
+        <p>Пример:</p>
+<pre>
+  <code class="lang-html">
+    &lt;!DOCTYPE html>
+    &lt;html lang="en">
+      &lt;head>
+        &lt;meta charset="UTF-8">
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+        &lt;title>Скрипт с defer&lt;/title>
+        &lt;script src="script.js" defer>&lt;/script>
+      &lt;/head>
+      &lt;body>
+        &lt;h1>Привет, мир!&lt;/h1>
+      &lt;/body>
+    &lt;/html>
+  </code>
+</pre>
+        <p><strong>Преимущества <code>defer</code>:</strong></p>
+        <ul>
+          <li>Скрипт загружается параллельно с HTML, но выполняется после полной загрузки страницы.</li>
+          <li>Поддерживается всеми браузерами.</li>
+        </ul>
+        <p><strong>Атрибут <code>async</code></strong></p>
+        <p>Атрибут <code>async</code> также загружает скрипт параллельно с загрузкой страницы, но выполняет его сразу же после загрузки, независимо от того, завершена ли загрузка HTML.</p>
+        <p>Пример:</p>
+<pre>
+  <code class="lang-html">
+    &lt;!DOCTYPE html>
+    &lt;html lang="en">
+      &lt;head>
+        &lt;meta charset="UTF-8">
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+        &lt;title>Скрипт с async&lt;/title>
+        &lt;script src="script.js" async>&lt;/script>
+      &lt;/head>
+      &lt;body>
+        &lt;h1>Привет, мир!&lt;/h1>
+      &lt;/body>
+    &lt;/html>
+  </code>
+</pre>
+        <p><strong>Особенность <code>async</code>:</strong></p>
+        <ul>
+          <li>Подходит для скриптов, которые не зависят от других элементов на странице.</li>
+          <li>Выполняется, как только загружен, что может привести к тому, что HTML еще не будет полностью загружен.</li>
+        </ul>
+        <h3>4. Подключение нескольких скриптов</h3>
+        <p>Если необходимо подключить несколько JavaScript-файлов, их можно разместить в разных частях HTML или указать их в нужном порядке в одной части.</p>
+        <p>Пример:</p>
+<pre>
+  <code class="lang-html">
+    &lt;!DOCTYPE html>
+    &lt;html lang="en">
+      &lt;head>
+        &lt;meta charset="UTF-8">
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+        &lt;title>Подключение нескольких скриптов&lt;/title>
+        &lt;script src="script1.js">&lt;/script>
+        &lt;script src="script2.js">&lt;/script>
+      &lt;/head>
+      &lt;body>
+        &lt;h1>Привет, мир!&lt;/h1>
+      &lt;/body>
+    &lt;/html>
+  </code>
+</pre>
+        <p>В этом случае сначала будет загружен и выполнен <code>script1.js</code>, затем — <code>script2.js</code>.</p>
+        <p><strong>Заключение</strong></p>
+        <p>Подключение JavaScript к HTML-документу может быть выполнено различными способами. Выбор метода зависит от задачи, структуры проекта и предпочтений разработчика. Наиболее предпочтительным является использование внешних файлов с JavaScript, подключаемых в конце страницы с атрибутом <code>defer</code>, что обеспечивает лучшую производительность и упрощает организацию кода.</p>
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>
