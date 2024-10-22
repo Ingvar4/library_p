@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
+    <script src="../../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Основные теги: &lt;form>, &lt;input>, &lt;label>, &lt;textarea>, &lt;button>.</h1><hr>
+        <p>Формы в HTML — это один из важнейших элементов веб-страниц, с помощью которых пользователи могут отправлять данные на сервер. Основные теги, используемые для создания форм, включают в себя: &lt;form>, <code>&lt;input></code>, <code>&lt;label></code>, <code>&lt;textarea></code>, <code>&lt;button></code>. Давай подробно разберем каждый из них.</p>
+        <h3>1. Тег &lt;form> — создание формы</h3>
+        <p>Тег <code>&lt;form></code> является контейнером для всех элементов формы. Этот тег указывает на то, как и куда данные формы должны быть отправлены.</p>
+        <p>Пример:</p>
+<pre>
+  <code class="lang-html">
+    &lt;form action="/submit" method="post">
+      &lt;!-- Поля ввода и кнопки формы -->
+    &lt;/form>
+  </code>
+</pre>
+        <p>Особенности:</p>
+        <ul>
+          <li>Атрибут <code>action</code> указывает URL, на который будут отправлены данные формы. Например, <code>/submit</code> — это путь на сервере, где обрабатываются данные.</li>
+          <li>Атрибут <code>method</code> задает HTTP-метод, который будет использоваться для отправки формы. Наиболее часто используются методы:
+            <ul>
+              <li><code>get</code>: данные передаются через URL (применяется для простых запросов).</li>
+              <li><code>post</code>: данные передаются через тело запроса (рекомендуется для форм с большим объемом данных).</li>
+            </ul>
+          </li>
+        </ul>
+        <h3>2. Тег &lt;input> — поля ввода</h3>
+        <p>Тег <code>&lt;input></code> используется для создания различных типов полей ввода. В зависимости от значения атрибута <code>type</code>, это могут быть текстовые поля, кнопки, флажки и многое другое.</p>
+        <p>Примеры различных типов полей:</p>
+<pre>
+  <code class="lang-html">
+    &lt;!-- Поле для ввода текста -->
+    &lt;input type="text" name="username">
+
+    &lt;!-- Поле для ввода пароля -->
+    &lt;input type="password" name="password">
+
+    &lt;!-- Поле для ввода email -->
+    &lt;input type="email" name="email">
+
+    &lt;!-- Поле для выбора даты -->
+    &lt;input type="date" name="birthdate">
+
+    &lt;!-- Поле для загрузки файла -->
+    &lt;input type="file" name="resume">
+
+    &lt;!-- Чекбокс -->
+    &lt;input type="checkbox" name="subscribe" value="yes">
+
+    &lt;!-- Радио-кнопка -->
+    &lt;input type="radio" name="gender" value="male"> Male
+    &lt;input type="radio" name="gender" value="female"> Female
+
+    &lt;!-- Кнопка отправки формы -->
+    &lt;input type="submit" value="Отправить">
+  </code>
+</pre>
+        <p>Особенности:</p>
+        <ul>
+          <li>Атрибут <code>name</code> задает имя поля, под которым данные будут отправлены на сервер. Это важно, так как сервер будет использовать это имя для идентификации полученных данных.</li>
+          <li>Атрибут <code>value</code> определяет значение поля, которое будет отправлено на сервер. Например, для чекбоксов и радио-кнопок <code>value</code> указывает, что именно будет передано, если пользователь выберет это поле.</li>
+        </ul>
+        <h3>3. Тег &lt;label> — метки для полей</h3>
+        <p>Тег <code>&lt;label></code> используется для привязки текста метки к определенному полю формы. Это повышает доступность формы для пользователей, особенно для тех, кто использует экранные читалки.</p>
+<pre>
+  <code class="lang-html">
+    &lt;label for="username">Имя пользователя:</label>
+    &lt;input type="text" id="username" name="username">
+  </code>
+</pre>
+        <p>Особенности:</p>
+        <ul>
+          <li>Атрибут <code>for</code> указывает на поле формы, с которым связан этот ярлык, и должен совпадать с атрибутом <code>id</code> соответствующего поля. Это создает связь между текстом метки и полем ввода.</li>
+          <li>Нажатие на метку автоматически фокусирует связанное поле ввода, что делает взаимодействие с формой более удобным для пользователей.</li>
+        </ul>
+        <h3>4. Тег &lt;textarea> — многострочное текстовое поле</h3>
+        <p>Тег <code>&lt;textarea></code> используется для создания многострочного текстового поля, которое позволяет вводить большие объемы текста.</p>
+<pre>
+  <code class="lang-html">
+    &lt;label for="message">Сообщение:</label>
+    &lt;textarea id="message" name="message" rows="4" cols="50"></textarea>
+  </code>
+</pre>
+        <p>Особенности:</p>
+        <ul>
+          <li>Атрибуты <code>rows</code> и <code>cols</code> определяют количество строк и столбцов текстового поля, то есть его размер.</li>
+          <li>В отличие от <code>&lt;input></code>, который создаёт однострочные поля, <code>&lt;textarea></code> подходит для ввода большого текста, например, комментариев или сообщений.</li>
+        </ul>
+        <h3>5. Тег &lt;button> — кнопка</h3>
+        <p>Тег <code>&lt;button></code> используется для создания кнопки, которая может выполнять различные функции, такие как отправка формы или выполнение JavaScript.</p>
+<pre>
+  <code class="lang-html">
+    &lt;button type="submit">Отправить&lt;/button>
+    &lt;button type="button" onclick="alert('Нажата кнопка')">Кликни меня&lt;/button>
+  </code>
+</pre>
+        <p>Особенности:</p>
+        <ul>
+          <li>Атрибут <code>type</code> определяет, как кнопка будет себя вести. Возможные значения:
+            <ul>
+              <li><code>submit</code>: кнопка отправит данные формы.</li>
+              <li><code>button</code>: обычная кнопка, не имеющая действий по умолчанию. Ее можно использовать для выполнения JavaScript или других задач.</li>
+              <li><code>reset</code>: кнопка сбрасывает данные всех полей формы до их начальных значений.</li>
+            </ul>
+          </li>
+          <li>Кнопку можно стилизовать и размещать внутри неё HTML-содержимое, например, иконки или изображения.</li>
+        </ul>
+        <h3>6. Атрибуты в формах</h3>
+        <p>Формы и их элементы поддерживают множество атрибутов, которые делают работу с ними более гибкой и удобной:</p>
+        <ul>
+          <li><code>required</code>: делает поле обязательным для заполнения. Например:</li>
+<pre>
+  <code class="lang-html">
+    &lt;input type="text" name="username" required>
+  </code>
+</pre>
+          <p>Это поле нельзя будет оставить пустым при отправке формы.</p>
+          <li><code>placeholder</code>: отображает текст-подсказку внутри поля до тех пор, пока пользователь не начнет вводить данные:</li>
+<pre>
+  <code class="lang-html">
+    &lt;input type="text" name="username" placeholder="Введите имя">
+  </code>
+</pre>
+          <li><code>disabled</code>: делает поле неактивным, оно не будет доступно для ввода:</li>
+<pre>
+  <code class="lang-html">
+    &lt;input type="text" name="username" disabled>
+  </code>
+</pre>
+          <li><code>readonly</code>: позволяет отображать поле как доступное для просмотра, но не для изменения:</li>
+<pre>
+  <code class="lang-html">
+    &lt;input type="text" name="username" value="readonly" readonly>
+  </code>
+</pre>
+        </ul>
+        <h3>7. Валидация форм</h3>
+        <p>HTML5 предоставляет встроенные инструменты валидации, которые помогают убедиться, что данные введены правильно до их отправки на сервер. Это снижает нагрузку на сервер и улучшает взаимодействие с пользователем.</p>
+        <ul>
+          <li>Поля могут быть проверены на соответствие типам данных, например, для поля с типом email будет автоматически проверено, введён ли корректный адрес электронной почты.</li>
+          <li>Атрибут <code>pattern</code> позволяет задавать регулярные выражения для более сложных проверок:
+<pre>
+  <code class="lang-html">
+    &lt;input type="text" name="username" pattern="[A-Za-z]{3,}" title="Имя должно содержать минимум 3 буквы">
+  </code>
+</pre>
+          </li>
+        </ul>
+        <h3>8. Методы отправки формы</h3>
+        <ul>
+          <li><strong>GET</strong>: отправляет данные в URL строки, данные видны пользователю, это удобно для поиска или фильтрации.</li>
+<pre>
+  <code class="lang-html">
+    &lt;form action="/search" method="get">
+      &lt;input type="text" name="query">
+      &lt;button type="submit">Поиск</button>
+    &lt;/form>
+  </code>
+</pre>
+          <li><strong>POST</strong>: данные отправляются скрыто, через тело запроса. Этот метод предпочтителен для отправки конфиденциальной информации.</li>
+<pre>
+  <code class="lang-html">
+    &lt;form action="/login" method="post">
+      &lt;input type="text" name="username">
+      &lt;input type="password" name="password">
+      &lt;button type="submit">Войти</button>
+    &lt;/form>
+  </code>
+</pre>
+        </ul>
+        <h3>9. Подключение JavaScript к формам</h3>
+        <p>Для динамического взаимодействия с формами можно использовать JavaScript. Например, можно предотвратить отправку формы, пока не будут выполнены определенные условия.</p>
+        <p>Пример:</p>
+<pre>
+  <code class="lang-html">
+    &lt;form id="myForm">
+      &lt;input type="text" id="username" name="username" required>
+      &lt;button type="submit">Отправить&lt;/button>
+    &lt;/form>
+    
+    &lt;script>
+      document.getElementById('myForm').addEventListener('submit', function(event) {
+        const username = document.getElementById('username').value;
+        if (username === '') {
+          event.preventDefault(); // Предотвращает отправку формы
+          alert('Имя пользователя обязательно для заполнения');
+        }
+      });
+    &lt;/script>
+  </code>
+</pre>
+        <h3>10. Заключение</h3>
+        <p>Формы — это основной способ взаимодействия пользователя с веб-приложением. Используя такие теги, как <code>&lt;form></code>, <code>&lt;input></code>, <code>&lt;label></code>, <code>&lt;textarea></code>, и <code>&lt;button></code>, можно создать формы для ввода данных, отправки информации и взаимодействия с сервером. Атрибуты позволяют гибко настраивать поведение полей формы, а JavaScript — добавлять интерактивность и валидацию.</p>
+        <p>Изучив формы в HTML, ты сможешь создавать функциональные и удобные интерфейсы для ввода данных, начиная от простых форм входа и заканчивая сложными анкетами и формами для регистрации.</p>
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>
