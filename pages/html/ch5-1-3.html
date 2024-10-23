@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
+    <script src="../../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Атрибуты: name, action, method, placeholder, required.</h1><hr>
+        <p>Атрибуты форм и полей ввода играют важную роль в организации взаимодействия пользователя с веб-страницей. Давай рассмотрим подробнее каждый из атрибутов: <code>name</code>, <code>action</code>, <code>method</code>, <code>placeholder</code>, <code>required</code>.</p>
+        <h3>1. Атрибут name</h3>
+        <p>Атрибут <code>name</code> является ключевым элементом для форм. Он используется для идентификации полей ввода при отправке данных на сервер. Сервер получает пары "имя-значение", где <code>name</code> выступает в роли ключа, а введённое пользователем значение — как значение этой пары.</p>
+<pre>
+  <code class="lang-html">
+    &lt;form action="/submit" method="POST">
+      &lt;label for="username">Имя пользователя:&lt;/label>
+      &lt;input type="text" id="username" name="username">
+      
+      &lt;label for="email">Электронная почта:&lt;/label>
+      &lt;input type="email" id="email" name="email">
+      
+      &lt;input type="submit" value="Отправить">
+    &lt;/form>
+  </code>
+</pre>
+        <p>Здесь, при отправке формы, на сервер будут отправлены данные в виде:</p>
+<pre>
+  <code>
+    username=введённое_имя
+    email=введённый_email
+  </code>
+</pre>
+        <h3>2. Атрибут action</h3>
+        <p>Атрибут <code>action</code> указывает URL, куда отправляются данные формы. Это может быть серверный скрипт (например, на PHP, Node.js, или Python), который обрабатывает данные формы.</p>
+<pre>
+  <code class="lang-html">
+    &lt;form action="/submit" method="POST">
+      &lt;!-- поля формы -->
+    &lt;/form>
+  </code>
+</pre>
+        <p>Если атрибут <code>action</code> не указан, данные формы будут отправлены на ту же страницу, где находится форма.</p>
+        <h3>3. Атрибут method</h3>
+        <p>Атрибут <code>method</code> определяет, каким HTTP-методом будут отправляться данные формы на сервер. Основные варианты:</p>
+        <ul>
+          <li><strong>GET</strong>: данные формы отправляются в URL-адресе (в строке запроса).</li>
+          <li><strong>POST</strong>: данные формы отправляются в теле HTTP-запроса.</li>
+        </ul>
+<pre>
+  <code class="lang-html">
+    &lt;form action="/submit" method="POST">
+      &lt;!-- поля формы -->
+    &lt;/form>
+  </code>
+</pre>
+        <p><strong>GET</strong> обычно используется для запросов, которые не изменяют состояние сервера (например, поисковые запросы), а <strong>POST</strong> — для отправки данных, которые могут изменять состояние (например, регистрация пользователя, загрузка файлов).</p>
+        <h3>4. Атрибут placeholder</h3>
+        <p>Атрибут <code>placeholder</code> используется для отображения текста-заполнителя внутри полей ввода, пока пользователь не начнёт вводить свои данные. Это помогает пользователю понять, какое значение ожидается в поле.</p>
+<pre>
+  <code class="lang-html"> 
+    &lt;label for="username">Имя пользователя:&lt;/label>
+    &lt;input type="text" id="username" name="username" placeholder="Введите ваше имя">
+  </code>
+</pre>
+        <p>Как только пользователь начинает вводить данные, текст, указанный в <code>placeholder</code>, исчезает. Это не влияет на отправляемые данные — текст заполнителя не будет отправлен на сервер, если пользователь ничего не введёт.</p>
+        <h3>5. Атрибут required</h3>
+        <p>Атрибут <code>required</code> обозначает, что данное поле обязательно для заполнения перед отправкой формы. Если это условие не выполнено, браузер не позволит отправить форму, пока пользователь не введёт данные.</p>
+<pre>
+  <code class="lang-html">
+    &lt;label for="email">Электронная почта:&lt;/label>
+    &lt;input type="email" id="email" name="email" required>
+  </code>
+</pre>
+        <p>Если пользователь попытается отправить форму без заполнения поля электронной почты, браузер покажет сообщение об ошибке.</p>
+        <h3>Комбинирование атрибутов</h3>
+        <p>Эти атрибуты часто используются вместе для создания интерактивных и удобных форм. Вот пример формы, которая использует все перечисленные атрибуты:</p>
+<pre>
+  <code class="lang-html">
+    &lt;form action="/submit" method="POST">
+      &lt;label for="username">Имя пользователя:&lt;/label>
+      &lt;input type="text" id="username" name="username" placeholder="Введите ваше имя" required>
+    
+      &lt;label for="email">Электронная почта:&lt;/label>
+      &lt;input type="email" id="email" name="email" placeholder="Введите вашу почту" required>
+    
+      &lt;input type="submit" value="Отправить">
+    &lt;/form>
+  </code>
+</pre>
+        <h3>Дополнительные особенности:</h3>
+        <ul>
+          <li><strong>Атрибуты</strong> <code>name</code> и <code>method</code> являются обязательными для корректной работы формы, так как <code>name</code> отправляет данные на сервер, а <code>method</code> определяет способ отправки.</li>
+          <li><strong>Атрибут</strong> <code>action</code> может быть динамически изменён с помощью JavaScript, если, например, форму нужно отправить на разные URL в зависимости от введённых данных.</li>
+          <li><strong>Атрибут</strong> <code>placeholder</code> — это декоративный элемент для улучшения UX, он не влияет на данные, но делает форму более понятной.</li>
+        </ul>
+        <p><strong>Заключение</strong></p>
+        <p>Эти атрибуты помогают управлять формами, определять их функциональность и упрощать взаимодействие пользователя с сайтом. Знание их особенностей — это базовый уровень, который пригодится в работе с HTML-формами и их интеграцией на веб-страницах.</p>
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>
