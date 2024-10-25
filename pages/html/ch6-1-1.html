@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
+    <script src="../../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Теги &lt;audio>, &lt;video>, атрибуты controls, autoplay, loop.</h1><hr>
+        <p>Теги <code>&lt;audio></code> и <code>&lt;video></code> в HTML используются для встраивания аудиофайлов и видеороликов на веб-страницу. Эти элементы были добавлены в HTML5 и предоставляют встроенные медиаплееры с элементами управления. Рассмотрим детально теги, их атрибуты и возможности.</p>
+        <h3>Тег &lt;audio></h3>
+        <p>Тег &lt;audio> используется для встраивания аудиофайлов на страницу. Этот элемент позволяет пользователям прослушивать аудио без необходимости установки дополнительных плагинов.</p>
+        <p><strong>Основной синтаксис:</strong></p>
+<pre>
+  <code class="lang-html">
+    &lt;audio src="audio-file.mp3" controls>&lt;/audio>
+  </code>
+</pre>
+        <p><strong>Атрибуты тега &lt;audio>:</strong></p>
+        <ol>
+          <li><code>src</code>: Указывает путь к аудиофайлу. Можно использовать различные форматы, такие как <code>.mp3</code>, <code>.ogg</code>, <code>.wav</code>.</li>
+<pre>
+  <code class="lang-html">
+    &lt;audio src="song.mp3" controls>&lt;/audio>
+  </code>
+</pre>
+          <li><code>controls</code>: Добавляет стандартные элементы управления для аудио (кнопка воспроизведения/паузы, регулятор громкости и т.д.). Это позволяет пользователю управлять воспроизведением.</li>
+<pre>
+  <code class="lang-html">
+    &lt;audio src="song.mp3" controls>&lt;/audio>
+  </code>
+</pre>
+          <li><code>autoplay</code>: Воспроизводит аудио автоматически при загрузке страницы. Однако стоит быть осторожным с использованием этого атрибута, так как многие браузеры блокируют автоматическое воспроизведение.</li>
+<pre>
+  <code class="lang-html">
+    &lt;audio src="song.mp3" autoplay controls>&lt;/audio>
+  </code>
+</pre>
+          <li><code>loop</code>: Аудиофайл будет проигрываться бесконечно, пока пользователь не остановит его вручную.</li>
+<pre>
+  <code class="lang-html">
+    &lt;audio src="song.mp3" loop controls>&lt;/audio>
+  </code>
+</pre>
+          <li><code>muted</code>: Начинает воспроизведение с отключенным звуком.</li>
+<pre>
+  <code class="lang-html">
+    &lt;audio src="song.mp3" muted controls>&lt;/audio>
+  </code>
+</pre>
+          <li><code>preload</code>: Определяет, как браузер должен загружать аудиофайл:
+            <ul>
+              <li><code>none</code>: Аудио не загружается до тех пор, пока пользователь не начнет его воспроизводить.</li>
+              <li><code>metadata</code>: Загружается только метаданные (длительность файла, тип).</li>
+              <li><code>auto</code>: Аудио загружается автоматически (по умолчанию).</li>
+            </ul>
+          </li>
+<pre>
+  <code class="lang-html">
+    &lt;audio src="song.mp3" preload="metadata" controls>&lt;/audio>
+  </code>
+</pre>
+        </ol>
+        <p><strong>Пример с поддержкой нескольких форматов:</strong></p>
+        <p>Для обеспечения поддержки разных браузеров можно указать несколько форматов аудиофайлов:</p>
+<pre>
+  <code class="lang-html">
+    &lt;audio controls>
+      &lt;source src="song.mp3" type="audio/mpeg">
+      &lt;source src="song.ogg" type="audio/ogg">
+      Ваш браузер не поддерживает элемент &lt;code>audio&lt;/code>.
+    &lt;/audio>
+  </code>
+</pre>
+        <h3>Тег &lt;video></h3>
+        <h3></h3>
+        <h3></h3>
+        <h3></h3>
+        <h3></h3>
+        <h3></h3>
+        
+
+       
+
+
+
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>
