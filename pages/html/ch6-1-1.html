@@ -96,17 +96,90 @@
   </code>
 </pre>
         <h3>Тег &lt;video></h3>
-        <h3></h3>
-        <h3></h3>
-        <h3></h3>
-        <h3></h3>
-        <h3></h3>
-        
+        <p>Тег <code>&lt;video></code> используется для встраивания видеороликов на веб-страницу. Подобно <audio>, этот элемент поддерживает различные атрибуты для управления воспроизведением видео.</p>
+        <p><strong>Основной синтаксис:</strong></p>
+<pre>
+  <code class="lang-html">
+    &lt;video src="video-file.mp4" controls>&lt;/video>
+  </code>
+</pre>
+        <p><strong>Атрибуты тега &lt;video>:</strong></p>
+        <ol>
+          <li><code>src</code>: Указывает путь к видеофайлу. Поддерживаются форматы <code>.mp4</code>, <code>.webm</code>, <code>.ogg</code>.</li>
+<pre>
+  <code class="lang-html">
+    &lt;video src="movie.mp4" controls>&lt;/video>
+  </code>
+</pre>
+          <li><code>controls</code>: Добавляет стандартные элементы управления для видео (кнопки воспроизведения/паузы, перемотка, регулятор громкости и т.д.).</li>
+<pre>
+  <code class="lang-html">
+    &lt;video src="movie.mp4" controls>&lt;/video>
+  </code>
+</pre>
+          <li><code>autoplay</code>: Видео автоматически воспроизводится при загрузке страницы. Как и с аудио, нужно быть осторожным, так как браузеры могут блокировать это поведение.</li>
+<pre>
+  <code class="lang-html">
+    &lt;video src="movie.mp4" autoplay controls>&lt;/video>
+  </code>
+</pre>
+          <li><code>loop</code>: Видеофайл будет проигрываться снова и снова в бесконечном цикле.</li>
+<pre>
+  <code class="lang-html">
+    &lt;video src="movie.mp4" loop controls>&lt;/video>
+  </code>
+</pre>
+          <li><code>muted</code>: Начинает воспроизведение с отключенным звуком. Это полезно при использовании атрибута <code>autoplay</code>, так как некоторые браузеры разрешают автоматическое воспроизведение только с отключенным звуком.</li>
+<pre>
+  <code class="lang-html">
+    &lt;video src="movie.mp4" muted autoplay controls>&lt;/video>
+  </code>
+</pre>
+          <li><code>preload</code>: Определяет, как браузер должен загружать видео:
+            <ul>
+              <li><code>none</code>: Видео не загружается, пока пользователь не начнет его воспроизводить.</li>
+              <li><code>metadata</code>: Загружается только метаданные (длительность, размеры).</li>
+              <li><code>auto</code>: Видео загружается автоматически (по умолчанию).</li>
+            </ul>
+          </li>
+<pre>
+  <code class="lang-html">
+    &lt;video src="movie.mp4" preload="metadata" controls>&lt;/video>
+  </code>
+</pre>
+          <li>poster: Указывает изображение-заглушку, которое будет отображаться до начала воспроизведения видео.</li>
+<pre>
+  <code class="lang-html">
+    &lt;video src="movie.mp4" poster="poster-image.jpg" controls>&lt;/video>
+  </code>
+</pre>
+        </ol>
+        <p><strong>Пример с несколькими форматами видео:</strong></p>
+        <p>Как и в случае с аудио, для обеспечения кроссбраузерной поддержки лучше указать несколько форматов:</p>
+<pre>
+  <code class="lang-html">
+    &lt;video controls>
+      &lt;source src="movie.mp4" type="video/mp4">
+      &lt;source src="movie.webm" type="video/webm">
+      Ваш браузер не поддерживает элемент &lt;code>video&lt;/code>.
+    &lt;/video>
+  </code>
+</pre>
+        <p><strong>Дополнительные функции:</strong></p>
+        <ul>
+          <li>Фоновое воспроизведение: Можно добавить видео на фон страницы, используя атрибуты autoplay, muted и loop, чтобы оно воспроизводилось без остановки и без звука:</li>
+<pre>
+  <code class="lang-html">
+    &lt;video autoplay muted loop>
+      &lt;source src="background-video.mp4" type="video/mp4">
+    &lt;/video>
+  </code>
+</pre>
+          <li>Доступность: Для улучшения доступности важно добавлять описание содержимого, если оно важно для понимания страницы, и использовать альтернативные текстовые элементы для контента, который может быть недоступен для некоторых пользователей.</li>
+        </ul>
+        <p><strong>Заключение</strong></p>
 
-       
-
-
-
+        <p>Теги <code>&lt;audio></code> и <code>&lt;video></code> значительно упрощают процесс интеграции мультимедиа в веб-страницы. С помощью атрибутов controls, autoplay, loop, и muted можно настроить элементы управления, автоматизацию воспроизведения и другие важные аспекты взаимодействия с мультимедийными файлами.</p>
       </article>
     </main>
 
