@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
+    <script src="../../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Адаптивная верстка</h1><hr>
+        <p>Адаптивная верстка — это подход к разработке веб-страниц, позволяющий сайтам корректно отображаться на различных устройствах с разными разрешениями экрана, будь то мобильные телефоны, планшеты, ноутбуки или широкоформатные мониторы. Достигается адаптивность за счёт использования семантических тегов HTML, медиа-запросов в CSS, гибких сеток и компонентов. Поговорим подробно обо всех аспектах этого подхода.</p>
+        <h3>Основы адаптивности: использование семантических тегов</h3>
+        <p>Семантические теги HTML5, такие как <code>&lt;header></code>, <code>&lt;footer></code>, <code>&lt;article></code>, <code>&lt;section></code>, <code>&lt;nav></code>, помогают структурировать страницу и улучшают её доступность для поисковых систем и вспомогательных технологий. Это важно для адаптивности, так как каждый элемент имеет определённое назначение, что позволяет браузерам и устройствам правильно трактовать контент и подстраиваться под условия отображения.</p>
+        <ul>
+          <li><strong>Пример семантической структуры:</strong>
+<pre>
+  <code class="lang-html">
+    &lt;header>
+      &lt;h1>Название сайта&lt;/h1>
+      &lt;nav>
+          &lt;ul>
+              &lt;li>&lt;a href="#home">Главная&lt;/a>&lt;/li>
+              &lt;li>&lt;a href="#about">О нас&lt;/a>&lt;/li>
+              &lt;li>&lt;a href="#services">Услуги&lt;/a>&lt;/li>
+              &lt;li>&lt;a href="#contact">Контакты&lt;/a>&lt;/li>
+          &lt;/ul>
+      &lt;/nav>
+  &lt;/header>
+  &lt;main>
+      &lt;section id="home">
+          &lt;h2>Добро пожаловать на сайт&lt;/h2>
+          &lt;p>Здесь краткое описание.&lt;/p>
+      &lt;/section>
+      &lt;section id="about">
+          &lt;h2>О нас&lt;/h2>
+          &lt;p>Информация о компании.&lt;/p>
+      &lt;/section>
+  &lt;/main>
+  &lt;footer>
+      &lt;p>&copy; 2024 Все права защищены.&lt;/p>
+  &lt;/footer>
+  </code>
+</pre>
+          </li>
+          <li><strong>Преимущества:</strong>
+            <ul>
+              <li>Улучшенная доступность: семантические теги упрощают навигацию для скринридеров.</li>
+              <li>Повышение SEO: поисковые системы лучше индексируют сайты с понятной структурой.</li>
+              <li>Упрощение адаптивной верстки: отдельные элементы, такие как навигация и футер, легко стилизовать и перестраивать.</li>
+            </ul>
+          </li>
+        </ul>
+        <h3>Медиа-запросы в CSS</h3>
+        <p>Медиа-запросы — основной инструмент адаптивной верстки, позволяющий изменять стили в зависимости от размера экрана, разрешения, ориентации устройства и других характеристик.</p>
+        <ol>
+          <li><strong>Основы медиа-запросов</strong>. Медиа-запросы используют директиву <code>@media</code>, которая позволяет применять CSS-правила только при выполнении определённых условий.</li>
+<pre>
+  <code class="lang-css">
+    /* Базовые стили для всех устройств */
+    body {
+        font-family: Arial, sans-serif;
+        color: #333;
+    }
+
+    /* Адаптация для экранов шириной менее 768px */
+    @media (max-width: 768px) {
+        body {
+            font-size: 14px;
+        }
+        nav ul {
+            flex-direction: column;
+        }
+    }
+
+    /* Адаптация для экранов шириной менее 480px */
+    @media (max-width: 480px) {
+        body {
+            font-size: 12px;
+        }
+        header h1 {
+            font-size: 24px;
+        }
+    }
+  </code>
+</pre>
+          <li><strong>Типичные точки перелома (breakpoints).</strong> Хотя выбор точек перелома зависит от аудитории и типа устройства, есть несколько стандартных точек:
+            <ul>  
+              <li><code>max-width: 1200px</code> — крупные экраны (десктопы).</li>
+              <li><code>max-width: 992px</code> — средние экраны (ноутбуки).</li>
+              <li><code>max-width: 768px</code> — планшеты и небольшие ноутбуки.</li>
+              <li><code>max-width: 576px</code> — смартфоны в горизонтальной ориентации.</li>
+              <li><code>max-width: 480px</code> — смартфоны в вертикальной ориентации.</li>
+            </ul>
+          </li>
+          <li><strong>Подход Mobile-First и Desktop-First</strong>
+            <ul>
+              <li><strong>Mobile-First</strong>: Базовые стили создаются для мобильных устройств, а стили для больших экранов добавляются с помощью медиа-запросов <code>min-width</code>.</li>
+<pre>
+  <code class="lang-css">
+    /* Стили для мобильных устройств */
+    body {
+        font-size: 14px;
+    }
+
+    /* Адаптация для больших экранов */
+    @media (min-width: 768px) {
+        body {
+            font-size: 16px;
+        }
+    }
+  </code>
+</pre>
+              <li><strong>Desktop-First</strong>: Стандартные стили создаются для больших экранов, а для мобильных устройств применяются медиа-запросы <code>max-width</code>.</li>
+            </ul>
+          </li>
+        </ol>
+        <h3>Гибкие сетки и компоненты</h3>
+        <p>Гибкость элементов — ещё один важный аспект адаптивной верстки, который помогает структурировать контент и менять его размеры и расположение в зависимости от экрана.</p>
+        <ol>
+          <li><strong>Гибкие контейнеры с использованием Flexbox и Grid</strong>. Flexbox и CSS Grid — мощные инструменты для создания гибких и адаптивных макетов.
+            <ul>
+              <li><strong>Flexbox</strong>: Используется для построения адаптивных рядов и колонок.
+<pre>
+  <code class="lang-css">
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .item {
+        flex: 1 1 200px;
+        margin: 10px;
+    }
+  </code>
+</pre>
+              </li>
+              <li><strong>Grid</strong>: Позволяет легко управлять более сложной сеткой с колонками и строками.
+<pre>
+  <code class="lang-css"> 
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+    }
+    .grid-item {
+        background-color: #ddd;
+        padding: 20px;
+    }
+  </code>
+</pre>
+              </li>
+            </ul>
+          </li>
+          <li><strong>Гибкие изображения и медиа</strong>. Чтобы изображения и видео не выходили за пределы контейнера, их можно сделать адаптивными с помощью CSS:
+<pre>
+  <code class="lang-css">
+    img, video {
+      max-width: 100%;
+      height: auto;
+    }
+  </code>
+</pre>
+          </li>
+          <li>Использование относительных единиц измерения
+            <ul>
+              <li><strong>Проценты (%)</strong>: Позволяют гибко управлять шириной и высотой элементов относительно родительского контейнера.</li>
+              <li><strong>Viewport Units</strong> (<code>vw</code>, <code>vh</code>): Устанавливают размеры относительно ширины и высоты окна браузера.</li>
+              <li><strong>Rem и Em</strong>: Упрощают масштабирование текста и элементов в зависимости от базового размера шрифта.</li>
+            </ul>
+          </li>
+        </ol>
+        <h3>Респонсивная типографика</h3>
+        <p>Типографика играет важную роль в адаптивности, так как размер текста должен быть легко читаемым на любом устройстве. Для этого используют относительные единицы измерения, а также функции CSS, такие как <code>clamp()</code>.</p>
+        <ol>
+          <li>Относительные единицы (<code>em</code>, <code>rem</code>): Эти единицы позволяют масштабировать текст относительно корневого или родительского элемента.</li>
+          <li>Функция <code>clamp()</code>: Позволяет установить минимальный, оптимальный и максимальный размер текста, что делает текст адаптивным.
+<pre>
+  <code class="lang-css">
+    h1 {
+      font-size: clamp(1.5rem, 2.5vw, 3rem);
+    }
+  </code>
+</pre>
+          </li>
+          <li>Медиа-запросы для шрифта: Позволяют установить разные размеры текста для разных экранов, если не используется <code>clamp</code>.
+<pre>
+  <code class="lang-css">
+    body {
+      font-size: 16px;
+    }
+    
+    @media (max-width: 768px) {
+        body {
+            font-size: 14px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        body {
+            font-size: 12px;
+        }
+    }
+  </code>
+</pre>
+          </li>
+        </ol>
+        <h3>Инструменты для проверки адаптивности</h3>
+        <ol>
+          <li><strong>Инструменты разработчика в браузерах</strong>: Chrome, Firefox и другие браузеры имеют встроенные средства для тестирования адаптивности и проверки отображения на различных устройствах.</li>
+          <li><strong>Онлайн-тесты адаптивности</strong>: Сервисы вроде <a href="https://ui.dev/amiresponsive">Am I Responsive?</a> или <a href="https://screenfly.org/">Screenfly</a> позволяют быстро протестировать адаптивность на различных устройствах.</li>
+          <li><strong>Фреймворки CSS</strong>: Библиотеки, такие как Bootstrap и Foundation, содержат встроенные инструменты для адаптивной верстки.</li>
+        </ol>
+        <p><strong>Заключение</strong></p>
+        <p>Адаптивная верстка — это ключевой аспект разработки современных сайтов. С помощью медиа-запросов, гибких сеток, семантических тегов и респонсивной типографики можно создать сайт, который будет одинаково удобен на любом устройстве.</p>
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>
