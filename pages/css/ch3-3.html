@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
+    <script src="../../scripts/script.js" defer></script>
+    <style>
+      .example li:nth-child(odd) {
+        background-color: gray;
+      }
+      .example li:nth-child(even) {
+        background-color: wheat;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Псевдоклассы: :hover, :focus, :active, :nth-child(), :last-child().</h1><hr>
+        <p>Псевдоклассы CSS позволяют добавлять стили к элементам в зависимости от их состояния или положения на странице. Использование псевдоклассов упрощает работу с интерактивными и динамическими элементами, улучшает восприятие интерфейса и делает его удобнее для пользователя. Рассмотрим ключевые псевдоклассы: <code>:hover</code>, <code>:focus</code>, <code>:active</code>, <code>:nth-child()</code>, <code>:last-child()</code> и их применение в стилях CSS.</p>
+        <h3>1. Псевдокласс :hover</h3>
+        <p>Описание: <code>:hover</code> применяется, когда пользователь наводит курсор на элемент, что особенно полезно для интерактивных элементов, таких как кнопки, ссылки и изображения.</p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    button:hover {
+      background-color: #005f99;
+      color: white;
+    }
+  </code>
+</pre>
+
+<pre>
+  <code class="lang-html">
+    &lt;!-- HTML -->
+
+    &lt;button>Наведи на меня&lt;/button>
+  </code>
+</pre>
+        <p><strong>Особенности:</strong>
+          <ul>
+            <li>Подходит для создания визуального отклика на действия пользователя (например, изменение цвета кнопок при наведении).</li>
+            <li>Может применяться к любым элементам, не только к интерактивным.</li>
+          </ul>
+        </p>
+        <p><strong>Лучшие практики:</strong>
+          <ul>
+            <li>Делайте изменения с <code>:hover</code> заметными, но не слишком резкими (например, плавные переходы).</li>
+            <li>Используйте <code>transition</code> для анимации изменений, чтобы сделать их более плавными:</li>
+          </ul>
+        </p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    button {
+      transition: background-color 0.3s ease;
+    }
+  </code>
+</pre>
+        <h3>2. Псевдокласс :focus</h3>
+        <p>Описание: <code>:focus</code> активируется, когда элемент получает фокус, например, при клике на текстовое поле или переключении на элемент с помощью клавиши Tab.</p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    input:focus {
+      border-color: #005f99;
+      outline: none;
+    }
+  </code>
+</pre>
+
+<pre>
+  <code class="lang-html">
+    &lt;!-- HTML -->
+
+    &lt;input type="text" placeholder="Введите текст">
+  </code>
+</pre>
+        <p><strong>Особенности:</strong>
+          <ul>
+            <li>Полезен для стилизации элементов формы, обеспечивая подсказки о том, какой элемент в фокусе.</li>
+            <li>Особенно важен для улучшения доступности, помогая пользователям с клавиатурной навигацией.</li>
+          </ul>
+        </p>
+        <p><strong>Лучшие практики:</strong>
+          <ul>
+            <li>Удалите стандартный <code>outline</code> и используйте стили для выделения фокуса, чтобы улучшить UX.</li>
+            <li>Добавьте <code>:focus</code> к элементам управления (кнопкам, полям ввода и т. д.) для улучшения доступности.</li>
+          </ul>
+        </p>
+        <h3>3. Псевдокласс :active</h3>
+        <p>Описание: <code>:active</code> применяется к элементу в момент его активации, например, когда пользователь нажимает на кнопку или ссылку.</p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    a:active {
+      color: red;
+    }
+  </code>
+</pre>
+
+<pre>
+  <code class="lang-html">
+    &lt;!-- HTML -->
+
+    &lt;a href="#">Кликни на меня&lt;/a>
+  </code>
+</pre>
+        <p><strong>Особенности:</strong>
+          <ul>
+            <li>Псевдокласс активен только в момент нажатия, что делает его полезным для придания обратной связи пользователю.</li>
+          </ul>
+        </p>
+        <p><strong>Лучшие практики:</strong>
+          <ul>
+            <li>Визуальные изменения должны быть заметны, но не мешать восприятию, например, можно немного изменить цвет кнопки или ссылку при клике.</li>
+          </ul>
+        </p>
+        <h3>4. Псевдокласс :nth-child()</h3>
+        <p>Описание: <code>:nth-child()</code> позволяет выбирать элементы по их порядковому номеру среди соседей, что особенно полезно при стилизации списков или повторяющихся элементов.</p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    li:nth-child(odd) {
+      background-color: gray;
+    }
+    li:nth-child(even) {
+        background-color: wheat;
+    }
+  </code>
+</pre>
+
+<pre>
+  <code class="lang-html">
+    &lt;!-- HTML -->
+
+    &lt;ul>
+      &lt;li>Элемент 1&lt;/li>
+      &lt;li>Элемент 2&lt;/li>
+      &lt;li>Элемент 3&lt;/li>
+      &lt;li>Элемент 4&lt;/li>
+    &lt;/ul>
+  </code>
+</pre>
+        <p>Результат:</p>
+        <ul class="example">
+          <li>Элемент 1</li>
+          <li>Элемент 2</li>
+          <li>Элемент 3</li>
+          <li>Элемент 4</li>
+        </ul>
+        <p><strong>Особенности:</strong>
+          <ul>
+            <li>Поддерживает ключевые слова <code>odd</code> и <code>even</code> для выделения нечетных и четных элементов.</li>
+            <li>Позволяет использовать формулу для выбора элементов, например <code>nth-child(3n+1)</code> выбирает каждый третий элемент.</li>
+          </ul>
+        </p>
+        <p><strong>Лучшие практики:</strong>
+          <ul>
+            <li>Используйте для стилизации строк таблиц, списков или других структур, где требуется чередование стилей.</li>
+          </ul>
+        </p>
+        <h3>5. Псевдокласс :last-child</h3>
+        <p>Описание: <code>:last-child</code> применяется к последнему дочернему элементу родителя, что позволяет уникально стилизовать последний элемент в группе.</p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  </code>
+</pre>
+
+<pre>
+  <code class="lang-html">
+    &lt;!-- HTML -->
+
+    &lt;div>
+      &lt;p>Параграф 1&lt;/p>
+      &lt;p>Параграф 2&lt;/p>
+    &lt;/div>
+  </code>
+</pre>
+        <p><strong>Особенности:</strong>
+          <ul>
+            <li>Полезен для устранения лишних отступов в конце групп элементов.</li>
+            <li>Работает с любым типом элементов, позволяя задавать стили для последнего элемента среди братьев.</li>
+          </ul>
+        </p>
+        <p><strong>Лучшие практики:</strong>
+          <ul>
+            <li>Используйте <code>:last-child</code> в списках, наборах элементов формы и других контейнерах, где последний элемент должен отличаться или требуются коррекции.</li>
+          </ul>
+        </p>
+        <p><strong>Заключение</strong></p>
+        <p>Псевдоклассы предоставляют возможности для точной настройки стилей и упрощают создание интерактивных интерфейсов. Они позволяют изменять стили элементов на основе состояния, позиции или взаимодействия, что делает интерфейсы более удобными и отзывчивыми.</p>
+        <p>Использование этих псевдоклассов, особенно в сочетании с анимацией и переходами, значительно улучшает пользовательский опыт и поддерживает лучшие практики доступности.</p>
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>
