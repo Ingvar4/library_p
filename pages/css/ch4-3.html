@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
+    <script src="../../scripts/script.js" defer></script>
+    <style>
+      .card {
+        width: 300px;
+        padding: 15px;
+        border: 1px solid #ddd;
+        margin: 20px;
+        box-sizing: border-box;
+      }
+      
+      .card-img {
+        width: 100%;
+        height: auto;
+      }
+      
+      .card-content {
+        padding: 10px;
+      }
+      
+      .container {
+        width: 80%;
+        height: 10px;
+        margin: 0 auto; /* Центрирование блока */
+        border: 2px solid green;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Модель блочной коробки (Box Model).</h1><hr>
+        <p>Модель блочной коробки описывает, как элементы HTML представлены в браузере. Каждый элемент воспринимается как прямоугольная коробка, состоящая из нескольких слоев. Эти слои определяют, как элемент взаимодействует с другими элементами и как управляется его размер и положение на странице.</p>
+        <h3>Структура Box Model</h3>
+        <p>Модель блочной коробки включает следующие компоненты (изнутри наружу):</p>
+        <ol>
+          <li><strong>Content (Содержимое):</strong>
+            <ul>
+              <li>Это область, в которой отображается контент, например, текст или изображения.</li>
+              <li>Ширина (<code>width</code>) и высота (<code>height</code>) элемента задаются для этой области.</li>
+            </ul>
+          </li>
+          <li><strong>Padding (Внутренние отступы):</strong>
+            <ul>
+              <li>Пространство между содержимым элемента и его границей (<code>border</code>).</li>
+              <li>Padding увеличивает размер элемента, но не влияет на его позиционирование относительно других элементов.</li>
+              <li>Задается свойствами <code>padding-top</code>, <code>padding-right</code>, <code>padding-bottom</code>, <code>padding-left</code> или сокращенной записью padding.</li>
+            </ul>
+          </li>
+          <li><strong>Border (Граница):</strong>
+            <ul>
+              <li>Граница, которая окружает содержимое и отступы.</li>
+              <li>Ширина границы влияет на общий размер элемента.</li>
+              <li>Настраивается свойствами <code>border-width</code>, <code>border-style</code>, <code>border-color</code> или сокращенной записью <code>border</code>.</li>
+            </ul>
+          </li>
+          <li><strong>Margin (Внешние отступы):</strong>
+            <ul>
+              <li>Пространство между элементом и другими элементами на странице.</li>
+              <li>Задается свойствами <code>margin-top</code>, <code>margin-right</code>, <code>margin-bottom</code>, <code>margin-left</code> или сокращенной записью <code>margin</code>.</li>
+              <li>Отступы могут быть отрицательными, что позволяет перекрывать элементы.</li>
+            </ul>
+          </li>
+        </ol>
+        <hr>
+
+        <h3>Визуализация Box Model</h3>
+        <p>Для лучшего понимания можно представить Box Model следующим образом:</p>
+        <img src="/images/boxmodel.png" alt="boxmodel">
+<!-- <pre>
+  <code>
+    +-----------------------------------+
+    |              Margin               |
+    |  +-----------------------------+  |
+    |  |           Border            |  |
+    |  |  +-----------------------+  |  |
+    |  |  |        Padding        |  |  |
+    |  |  |   +---------------+   |  |  |
+    |  |  |   |    Content    |   |  |  |
+    |  |  |   +---------------+   |  |  |
+    |  |  +-----------------------+  |  |
+    |  +-----------------------------+  |
+    +-----------------------------------+
+
+  </code>
+</pre> -->
+        <hr>
+        <h3>Управление размерами элементов</h3>
+        <p><strong>1. Ширина и высота</strong></p>
+        <p>Когда вы задаете ширину (<code>width</code>) и высоту (<code>height</code>) элемента, вы указываете размеры только содержимого (content). Padding, границы и отступы увеличивают общий размер элемента.</p>
+        <p><strong>Пример:</strong></p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    div {
+      width: 200px;
+      height: 100px;
+      padding: 20px;
+      border: 5px solid black;
+      margin: 10px;
+    }
+  </code>
+</pre>
+        <ul>
+          <li><strong>Content</strong>: 200px x 100px</li>
+          <li><strong>Padding</strong>: 20px со всех сторон (увеличивает размеры на 40px по ширине и 40px по высоте)</li>
+          <li><strong>Border</strong>: 5px со всех сторон (увеличивает размеры на 10px по ширине и 10px по высоте)</li>
+          <li><strong>Margin</strong>: 10px со всех сторон (пространство вокруг элемента)</li>
+        </ul>
+        <p><strong>2. Общий размер элемента</strong></p>
+        <p>Общий размер элемента вычисляется следующим образом:</p>
+        <ul>
+          <li><strong>Общая ширина</strong> = ширина содержимого + padding (слева и справа) + ширина границы (слева и справа)</li>
+          <li><strong>Общая высота</strong> = высота содержимого + padding (сверху и снизу) + ширина границы (сверху и снизу)</li>
+        </ul>
+        <p>Для примера выше:</p>
+        <ul>
+          <li><strong>Общая ширина</strong> = 200px + 40px + 10px = 250px</li>
+          <li><strong>Общая высота</strong> = 100px + 40px + 10px = 150px</li>
+        </ul>
+        <hr>
+        <h3>Свойство box-sizing</h3>
+        <p>Свойство <code>box-sizing</code> управляет тем, как рассчитывается размер элемента:</p>
+        <ol>
+          <li><code>box-sizing: content-box</code> (по умолчанию):
+            <ul>
+              <li>Ширина и высота применяются только к содержимому.</li>
+              <li>Padding и граница не включаются в указанные размеры, что может привести к тому, что элемент займет больше места, чем ожидалось.</li>
+            </ul>
+          </li>
+          <li><code>box-sizing: border-box</code>:
+            <ul>
+              <li>Padding и граница включаются в указанные размеры.</li>
+              <li>Это упрощает управление размерами элементов, так как вы точно знаете, какой будет итоговый размер элемента.</li>
+            </ul>
+          </li>
+        </ol>
+        <p><strong>Пример:</strong></p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    div {
+      box-sizing: border-box;
+      width: 200px;
+      padding: 20px;
+      border: 5px solid black;
+    }
+  </code>
+</pre>
+        <p>Теперь общий размер элемента будет ровно 200px по ширине, так как padding и граница учитываются.</p>
+        <hr>
+
+        <h3>Управление отступами: Margin Collapsing</h3>
+        <p><strong>Явление "схлопывания" отступов (Margin Collapsing)</strong></p>
+        <p>Когда вертикальные отступы двух блочных элементов встречаются, они могут "схлопнуться" (объединиться в один отступ), вместо того чтобы суммироваться.</p>
+        <p><strong>Пример:</strong></p>
+<pre>
+  <code class="lang-html">
+    &lt;!-- HTML -->
+
+    &lt;div style="margin-bottom: 20px;">Элемент 1&lt;/div>
+    &lt;div style="margin-top: 30px;">Элемент 2&lt;/div>
+  </code>
+</pre>
+        <div class="result">
+          <p class="resultP"><strong>Результат:</strong></p>
+          
+          <div style="margin-bottom: 20px; border: 1px solid red;">Элемент 1</div>
+          <div style="margin-top: 30px; border: 1px solid red;">Элемент 2</div>
+        </div>
+
+        <p>Вместо 50px между элементами будет только 30px, так как используется больший из двух отступов.</p>
+        <hr>
+
+        <h3>Лучшие практики использования модели блочной коробки</h3>
+        <ol>
+          <li><strong>Используйте <code>box-sizing: border-box</code> для упрощения расчета размеров</strong>
+            <ul>
+              <li><code>box-sizing: border-box</code> помогает управлять размером элемента, включая отступы и границу в указанные размеры. Это упрощает макетирование и предотвращает проблемы с переполнением элементов.</li>
+              <li>Чтобы применять это глобально ко всем элементам на странице, можно использовать следующий CSS:</li>
+            </ul>
+          </li>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+  </code>
+</pre>
+          <p>Это правило гарантирует, что все элементы и псевдоэлементы будут учитывать padding и границы в своих размерах.</p>
+          <li><strong>Избегайте чрезмерного использования отступов и вложенности</strong>
+            <ul>
+              <li>Старайтесь минимизировать количество вложенных элементов и используйте отступы (<code>margin</code>) и внутренние отступы (<code>padding</code>) с учетом общего дизайна.</li>
+              <li>Перегрузка разметки лишними контейнерами усложняет поддержку и стилизацию.</li>
+            </ul>
+          </li>
+          <p><strong>Совет</strong>: Организуйте структуру вашей разметки так, чтобы она была легко читаемой и логически структурированной. Это поможет избежать хаоса в стиле и упростит отладку.</p>
+          <li><strong>Применение резиновой верстки</strong>
+            <ul>
+              <li>При создании адаптивного дизайна используйте относительные единицы измерения, такие как проценты (<code>%</code>), <code>em</code>, или <code>rem</code>. Это позволяет элементам масштабироваться в зависимости от размера экрана или базового шрифта.</li>
+            </ul>
+          </li>
+          <p><strong>Пример адаптивного контейнера:</strong></p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    .container {
+      width: 80%; /* Относительная ширина */
+      padding: 2em; /* Относительный внутренний отступ */
+      border: 1px solid #ccc;
+    }
+  </code>
+</pre>
+        </ol>
+        <hr>
+
+        <h3>Методы отладки модели блочной коробки</h3>
+        <ol>
+          <li><strong>Использование инструментов разработчика в браузере</strong>
+            <ul>
+              <li>Современные браузеры (например, Chrome, Firefox) предоставляют мощные инструменты для отладки. Вы можете щелкнуть правой кнопкой мыши на элементе и выбрать "Inspect" (или аналогичную опцию), чтобы открыть панель инструментов разработчика.</li>
+              <li>Вкладка "Elements" покажет структуру вашего HTML и все примененные стили, а также визуализирует модель блочной коробки. Вы можете увидеть размеры содержимого, padding, границу и отступы.</li>
+            </ul>
+            <p><strong>Совет</strong>: Нажмите на элемент в инспекторе, чтобы получить наглядное представление о Box Model и визуально проверить правильность ваших расчетов.</p>
+          </li>
+          <li><strong>Отображение размеров элементов в реальном времени</strong>
+            <ul>
+              <li>Инструменты разработчика позволяют изменять стили элементов в реальном времени. Это удобно для тестирования различных значений отступов, padding и границ без необходимости обновления страницы.</li>
+              <li>Экспериментируйте с <code>box-sizing</code>, чтобы увидеть разницу в расчетах размеров.</li>
+            </ul>
+          </li>
+          <li><strong>Отладка с использованием вспомогательных стилей</strong></li>
+          <p>Иногда, для упрощения понимания расположения элементов на странице, вы можете использовать временные стили. Например, можно выделить элементы цветами:</p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    * {
+      outline: 1px solid red; /* Подсвечивает все элементы красной рамкой */
+    }
+  </code>
+</pre>
+          <p>Это поможет быстро определить границы элементов и понять, как они расположены.</p>
+        </ol>
+        <hr>
+
+        <h3>Примеры реальных сценариев использования Box Model</h3>
+        <ol>
+          <li><strong>Создание карточек с информацией</strong></li>
+          <p>Карточки часто используются для отображения информации в виде блока с текстом и изображениями. Box Model помогает грамотно распределить внутренние и внешние отступы.</p>
+          <p><strong>Пример карточки:</strong></p>
+<pre>
+  <code class="lang-html">
+    &lt;!-- HTML -->
+
+    &lt;div class="card">
+      &lt;img src="image.jpg" alt="Пример изображения" class="card-img">
+      &lt;div class="card-content">
+        &lt;h2 class="card-title">Заголовок&lt;/h2>
+        &lt;p class="card-description">Описание карточки...&lt;/p>
+      &lt;/div>
+    &lt;/div>
+  </code>
+</pre>
+
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    .card {
+      width: 300px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      margin: 20px;
+      box-sizing: border-box;
+    }
+    
+    .card-img {
+      width: 100%;
+      height: auto;
+    }
+    
+    .card-content {
+      padding: 10px;
+    }
+  </code>
+</pre>
+
+          <div class="result">
+            <p class="resultP"><strong>Результат:</strong></p>
+          
+            <div class="card">
+              <img src="/images/image_test.PNG" alt="Пример изображения" class="card-img">
+              <div class="card-content">
+                <p class="card-title"><strong>Заголовок</strong></p>
+                <p class="card-description">Описание карточки...</p>
+              </div>
+            </div>
+          </div>
+
+          <li><strong>Создание выравнивания элементов с использованием Margin</strong></li>
+          <p>Иногда требуется выровнять элемент по центру родительского контейнера. Самый простой способ сделать это с блочным элементом — использовать <code>margin: auto</code>.</p>
+          <p><strong>Пример центрирования блока:</strong></p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    .container {
+      width: 80%;
+      margin: 0 auto; /* Центрирование блока */
+    }
+  </code>
+</pre>
+          <p>Этот подход применяется для горизонтального центрирования блока фиксированной ширины.</p>
+          <li><strong>Проблемы с отступами у дочерних элементов</strong></li>
+          <p>Если у дочерних элементов есть отступы, они могут "схлопываться" с родительскими, вызывая неожиданные результаты. Чтобы избежать этого, можно:</p>
+          <ul>
+            <li>Добавить границу или padding к родительскому элементу.</li>
+            <li>Использовать <code>overflow: hidden</code> или <code>display: flex</code>.</li>
+          </ul>
+          <p>Пример предотвращения схлопывания отступов:</p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    .parent {
+      padding: 10px; /* Альтернатива, чтобы избежать схлопывания */
+    }
+  </code>
+</pre>
+        </ol>
+        <hr>
+        <p>Эти знания помогут вам более эффективно использовать модель блочной коробки в разработке, избегать распространенных ошибок и создавать более управляемую и адаптивную верстку.</p>
+
+
+
+
+
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>
