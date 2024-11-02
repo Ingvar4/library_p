@@ -37,7 +37,12 @@ html {
 body {
   width: 90%;
   margin: 0 auto;
-  background-color: #ffffff;
+  background-color: #253745ac;
+
+  /* предыдущий цвет фона */
+  /* background-color: #ffffff; */
+  /* background-color: #eae6e3c6; */
+
   color: #333;
   font-family: Roboto, sans-serif;
   font-size: 1.2rem;
@@ -47,6 +52,7 @@ body {
 }
 
 .logo {
+  color: white;
   font-size: 150%;
   height: 100px;
   padding: 50px 20px;
@@ -87,6 +93,13 @@ body {
   background-color: #bbb6b065;
 }
 
+.main-header-top a:active {
+  border: 0px inset rgba(255, 255, 255, 0);
+  background: grey;
+  color: black;
+  border-radius: 0px;
+}
+
 .header-logo img {
   width: 30px;
   height: 30px;
@@ -96,11 +109,13 @@ body {
 main {
   max-width: 1300px;
   margin: 10px auto;
-  background-color: #eae6e365;
+  background-color:whitesmoke;
+  /* старый вариант: */
+  /* background-color: #eae6e365; */
   padding: 0 20px 20px 20px;
   border: 2px solid #bbb6b0ec;
   display: block;
-}
+} 
 
 nav {
   float: left;
@@ -134,7 +149,8 @@ p {
 }
 
 h1, h3 {
-  background-color: gainsboro;
+  background-color: rgba(220, 220, 220, 0.464);
+  /* background-color: gainsboro; */
 }
 
 /* code {
@@ -160,7 +176,7 @@ pre {
 }
 
 code {
-  /* background-color: #e1e1e16d; */
+  background-color: #e1e1e16d;
   padding: 2px 4px;
   border-radius: 4px;
   font-family: monospace;
@@ -185,7 +201,7 @@ code {
 }
 
 footer {
-  
+  color: white;
   padding: 1%;
   margin-top: 10px;
   border-top: 3px solid #bbb6b065;
@@ -221,6 +237,22 @@ th, td {
 th {
   background-color: #f2f2f2;
 }
+
+.result {
+  width: 100%;
+  border: 2px solid gainsboro;
+  
+}
+
+.resultP {
+  background-color: rgba(220, 220, 220, 0.462);
+  margin-top: 0;
+  border-bottom: 1px solid black;
+}
+
+/* 
+-МЕДИА ЗАПРОСЫ-
+*/
 
 @media (max-width: 550px) {
   body {

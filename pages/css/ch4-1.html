@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
+    <script src="../../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Блочные и строчные элементы.</h1><hr>
+        <p>Элементы в HTML делятся на два основных типа: блочные и строчные. Понимание разницы между ними крайне важно для правильной разметки и стилизации веб-страниц.</p>
+        <h3>Блочные элементы</h3>
+        <ol>
+          <li><strong>Описание</strong>: Блочный элемент всегда начинает новую строку и занимает всю доступную ширину родительского контейнера по умолчанию. Это значит, что следующий элемент отображается ниже блочного элемента, даже если визуально он не занимает всю ширину.</li>
+          <li><strong>Примеры блочных элементов:</strong>
+            <ul>
+              <li><code>&lt;div></code>: универсальный контейнер для блоков содержимого.</li>
+              <li><code>&lt;p></code>: абзац текста.</li>
+              <li><code>&lt;h1></code>, <code>&lt;h2></code>, ..., <code>&lt;h6></code>: заголовки разных уровней.</li>
+              <li><code>&lt;ul></code>, <code>&lt;ol></code>: списки.</li>
+              <li><code>&lt;li></code>: элемент списка.</li>
+              <li><code>&lt;section></code>, <code>&lt;article></code>, <code>&lt;nav></code>, <code>&lt;header></code>, <code>&lt;footer></code>: семантические блоки для структурирования страницы.</li>
+            </ul>
+          </li>
+          <li><strong>Особенности:</strong>
+            <ul>
+              <li>Блочные элементы могут содержать другие блочные и строчные элементы.</li>
+              <li>Они могут иметь отступы (<code>margin</code>), поля (<code>padding</code>) и задний фон (<code>background-color</code>).</li>
+              <li>Типичный пример использования блочного элемента — контейнеры для группировки контента.</li>
+            </ul>
+          </li>
+        </ol>
+        <hr>
+        <h3>Строчные элементы</h3>
+        <ol>
+          <li><strong>Описание:</strong> Строчный элемент располагается в строке с другими строчными элементами. Он занимает только столько места, сколько необходимо для его содержимого. Строчные элементы не начинают новую строку и могут располагаться бок о бок с другими строчными элементами.</li>
+          <li><strong>Примеры строчных элементов:</strong>
+            <ul>
+              <li><code>&lt;span></code>: универсальный контейнер для строчного содержимого.</li>
+              <li><code>&lt;a></code>: ссылка.</li>
+              <li><code>&lt;strong></code>, <code>&lt;b></code>: выделение текста жирным.</li>
+              <li><code>&lt;em></code>, <code>&lt;i></code>: выделение текста курсивом.</li>
+              <li><code>&lt;img></code>: изображение.</li>
+              <li><code>&lt;input></code>, <code>&lt;button></code>: элементы формы.</li>
+              <li><code>&lt;label></code>: подпись для элемента формы.</li>
+            </ul>
+          </li>
+          <li><strong>Особенности:</strong>
+            <ul>
+              <li>Строчные элементы могут содержать только другие строчные элементы или текст.</li>
+              <li>Они игнорируют свойства отступов (margin) сверху и снизу.</li>
+              <li>Применение стилей, таких как цвет текста, может помочь выделить строчные элементы.</li>
+            </ul>
+          </li>
+        </ol>
+        <hr>
+        <h3>Примеры различий</h3>
+        <p><strong>Пример с блочным элементом</strong></p>
+<pre>
+  <code class="lang-html">
+    &lt;!-- HTML -->
+
+    &lt;div style="background-color: lightblue;">
+      Я — блочный элемент. Я займу всю ширину родителя!
+    &lt;/div>
+    &lt;p>Это следующий элемент, который начнется с новой строки.&lt;/p>
+  </code>
+</pre>
+        
+        <div class="result">
+          <p class="resultP"><strong>Результат:</strong></p>
+          <div style="background-color: rgba(173, 216, 230, 0.453);">
+            Я — блочный элемент. Я займу всю ширину родителя!
+          </div>
+          <p>Это следующий элемент, который начнется с новой строки.</p>
+        </div>
+
+        <p><strong>Пример со строчными элементами</strong></p>
+<pre>
+  <code class="lang-html">
+    &lt;!-- HTML -->
+
+    &lt;span style="color: red;">Я — строчный элемент,&lt;/span>
+    &lt;span>и я нахожусь в одной строке с другим строчным элементом.&lt;/span>
+  </code>
+</pre>
+
+        <div class="result">
+          <p class="resultP"><strong>Результат:</strong></p>
+          <span style="color: red;">Я — строчный элемент,</span>
+          <span>и я нахожусь в одной строке с другим строчным элементом.</span>
+        </div>
+
+        <p>Оба <code>&lt;span></code> расположены в одной строке, а текст в них не переносится.</p>
+        <hr>
+        <h3>Преобразование блочных и строчных элементов</h3>
+        <p>С помощью CSS можно менять тип отображения элементов:</p>
+        <ul>
+          <li><strong>Сделать блочный элемент строчным:</strong></li>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    div {
+      display: inline;
+    }
+  </code>
+</pre>
+          <p>Это заставит <code>&lt;div></code> вести себя как строчный элемент.</p>
+          <li><strong>Сделать строчный элемент блочным:</strong></li>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    span {
+      display: block;
+    }
+  </code>
+</pre>
+          <p>Это заставит <code>&lt;span></code> вести себя как блочный элемент.</p>
+        </ul>
+        <hr>
+        <h3>Свойство display и его значения</h3>
+        <ol>
+          <li><code>display: block</code>: элемент становится блочным, занимает всю ширину.</li>
+          <li><code>display: inline</code>: элемент становится строчным, не переносит следующую строку.</li>
+          <li><code>display: inline-block</code>: элемент ведет себя как строчный, но позволяет задавать отступы и размеры (ширину и высоту).</li>
+        </ol>
+        <hr>
+        <h3>Подробное использование и примеры</h3>
+        <p><strong>Блочные элементы в макете</strong></p>
+        <p>Блочные элементы идеально подходят для создания структурированных макетов страницы. Например:</p>
+<pre>
+  <code class="lang-html">
+    &lt;!-- HTML -->
+
+    &lt;header>Шапка сайта&lt;/header>
+    &lt;nav>Меню навигации&lt;/nav>
+    &lt;main>Основной контент&lt;/main>
+    &lt;footer>Подвал сайта&lt;/footer>
+  </code>
+</pre>        
+        <p>Здесь все элементы блочные, поэтому они располагаются друг под другом.</p>
+        <hr>
+        <h3>Строчные элементы для текста и ссылок</h3>
+        <p>Строчные элементы чаще всего используются для стилизации частей текста или создания ссылок:</p>
+<pre>
+  <code class="lang-html">
+    &lt;!-- HTML -->
+
+    &lt;p>Это &lt;strong>важный&lt;/strong> текст и &lt;a href="#">ссылка&lt;/a> в одном абзаце.&lt;/p>
+  </code>
+</pre>             
+
+        <div class="result">
+          <p class="resultP"><strong>Результат:</strong></p>
+          
+          <p>Это <strong>важный</strong> текст и <a href="#">ссылка</a> в одном абзаце.</p>
+        </div>
+        <hr>
+        <h3>Проблемы с блочными и строчными элементами</h3>
+        <ol>
+          <li><strong>Строчные элементы и размеры</strong>: Нельзя задавать ширину и высоту строчным элементам (они игнорируются). Если вам нужно изменить размеры, преобразуйте их в <code>inline-block</code>.</li>
+          <li><strong>Вложенные элементы</strong>: Убедитесь, что вы не вкладываете блочные элементы внутрь строчных (до HTML5 это было запрещено стандартом).</li>
+        </ol>
+
+
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>

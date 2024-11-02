@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
+    <script src="../../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Свойства display: block, inline-block, none.</h1><hr>
+        <h3>1. Использование display: inline-block</h3>
+        <p>Свойство <code>display: inline-block</code> сочетает преимущества блочных и строчных элементов:</p>
+        <ul>
+          <li>Элемент остается в одной строке с другими строчными элементами, но при этом можно задавать ему размеры: ширину (<code>width</code>) и высоту (<code>height</code>), а также отступы и поля.</li>
+          <li>Часто используется для создания элементов интерфейса, таких как кнопки, меню навигации и карточки с информацией.</li>
+        </ul>
+        <p><strong>Пример использования <code>inline-block</code>:</strong></p>
+<pre>
+  <code class="lang-html">
+    &lt;!-- HTML -->
+
+    &lt;div style="display: inline-block; width: 350px; height: 100px; background-color: lightcoral;">
+      Я — элемент с `display: inline-block`
+    &lt;/div>
+
+    &lt;div style="display: inline-block; width: 100px; height: 100px; background-color: lightblue;">
+      Я тоже!
+    &lt;/div>
+  </code>
+</pre>
+        <p>Эти два <code>&lt;div></code> будут располагаться бок о бок.</p>
+
+        <div class="result">
+          <p class="resultP"><strong>Результат:</strong></p>
+
+          <div style="display: inline-block; width: 350px; height: 100px; background-color: lightcoral;">Я — элемент с `display: inline-block`</div>
+          <div style="display: inline-block; width: 100px; height: 100px; background-color: lightblue;">Я тоже!</div>
+        </div>
+        <hr>
+
+        <h3>2. Гибкость верстки с display</h3>
+        <p><strong>Переопределение типа элемента</strong></p>
+        <ul>
+          <li>Порой полезно изменять поведение элементов с помощью CSS. Например, превращать блочные элементы в строчные и наоборот.</li>
+          <li>Это удобно для улучшения структуры и стилизации контента без изменения HTML-разметки.</li>
+        </ul>
+        <p><strong>Пример: Превращение абзаца в строчный элемент</strong></p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    p {
+      display: inline;
+    }
+  </code>
+</pre>
+        <p>Теперь <code>&lt;p></code> не будет начинать новую строку.</p>
+        <hr>
+        <h3>3. Работа с отступами у строчных элементов</h3>
+        <p>Строчные элементы не учитывают вертикальные отступы (сверху и снизу) так же, как блочные. Однако горизонтальные отступы (слева и справа) работают корректно.</p>
+        <p>Пример проблемы с отступами:</p>
+<pre>
+  <code class="lang-html">
+    &lt;!-- HTML -->
+
+    &lt;a href="#" style="margin-top: 120px;">Ссылка с вертикальным отступом&lt;/a>
+  </code>
+</pre>
+        
+        <div class="result">
+          <p class="resultP"><strong>Результат:</strong></p>
+          
+          <a href="#" style="margin-top: 120px;">Ссылка с вертикальным отступом</a>
+        </div>
+
+        <p>В этом случае вертикальный отступ может не вести себя так, как ожидается, из-за особенностей поведения строчных элементов. Чтобы решить эту проблему, можно использовать <code>display: inline-block</code>.</p>
+        <hr>
+        <h3>4. Белые промежутки между строчными элементами</h3>
+        <p>Когда строчные или <code>inline-block</code> элементы размещаются рядом в HTML, между ними могут появляться белые пробелы. Это связано с тем, что разметка в HTML учитывает пробелы, переносы строк и табуляции.</p>
+        <p><strong>Пример проблемы:</strong></p>
+<pre>
+  <code class="lang-html">
+    &lt;!-- HTML -->
+
+    &lt;div style="display: inline-block;">Элемент 1&lt;/div>
+    &lt;div style="display: inline-block;">Элемент 2&lt;/div>
+  </code>
+</pre>
+
+        <div class="result">
+          <p class="resultP"><strong>Результат:</strong></p>
+          
+          <div style="display: inline-block; border: 1px solid red;">Элемент 1</div>
+          <div style="display: inline-block; border: 1px solid red;">Элемент 2</div>
+        </div>
+
+        <p>В этом случае между элементами будет пробел. Чтобы избавиться от него:</p>
+        <ul>
+          <li>Удалите пробелы в HTML-разметке.</li>
+          <li>Используйте отрицательные отступы.</li>
+          <li>Установите родителю <code>font-size: 0</code> и затем восстановите размер шрифта для дочерних элементов.</li>
+        </ul>
+        <hr>
+        <h3>Семантическое использование блочных и строчных элементов</h3>
+        <ol>
+          <li><strong>Когда использовать блочные элементы</strong>
+            <ul>
+              <li>Для структурирования больших блоков контента.</li>
+              <li>Когда необходимо разделить содержимое на логические секции, которые должны занимать всю ширину родительского контейнера.</li>
+              <li>Примеры: заголовки, абзацы, секции сайта, карточки товаров.</li>
+            </ul>
+          </li>
+          <li><strong>Когда использовать строчные элементы</strong>
+            <ul>
+              <li>Для стилизации или выделения частей текста.</li>
+              <li>Когда нужно разместить элементы (например, ссылки или кнопки) в одной строке.</li>
+              <li>Примеры: выделение текста жирным или курсивом, создание гиперссылок, инлайновые иконки.</li>
+            </ul>
+          </li>
+        </ol>
+        <hr>
+
+        <h3>Современные подходы к верстке с использованием Flexbox и Grid</h3>
+        <p>С развитием CSS появились более мощные инструменты для управления расположением элементов, такие как <strong>Flexbox</strong> и <strong>CSS Grid</strong>. Они позволяют более гибко управлять блочными и строчными элементами, но понимание их основ все еще критично.</p>
+        <p><strong>1. Flexbox для блочных и строчных элементов</strong></p>
+        <p>Flexbox отлично подходит для упрощения управления компоновкой элементов на одной оси (горизонтальной или вертикальной):</p>
+        <ul>
+          <li>Можно выровнять строчные элементы по ширине или высоте контейнера.</li>
+          <li>Легко изменять порядок элементов, управлять равномерным распределением пространства.</li>
+        </ul>
+        <p><strong>Пример с Flexbox:</strong></p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+    }
+    .item {
+      padding: 10px;
+      background-color: lightgrey;
+    }
+  </code>
+</pre>
+        <p><strong>2. CSS Grid для сложных макетов</strong></p>
+        <p>Grid упрощает создание сложных сеток и позволяет управлять как блочными, так и строчными элементами в двух измерениях (по строкам и столбцам).</p>
+        <p><strong>Пример использования Grid:</strong></p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+    }
+    .grid-item {
+      padding: 20px;
+      background-color: lightgreen;
+    }
+  </code>
+</pre>        
+        <hr>
+        <h3>Заключение</h3>
+        <p>Знание различий между блочными и строчными элементами поможет вам создавать семантически правильную и удобную в обслуживании разметку. Используйте их разумно, учитывая задачи и требования вашего проекта. Также не забывайте про современные методы компоновки, такие как Flexbox и Grid, которые помогают решать более сложные задачи верстки.</p>
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>
