@@ -86,7 +86,7 @@ body {
   color: #fff;
   text-decoration: none;
   padding: .5em 1em;
-
+  transition: background 0.3s;
 }
 
 .main-header-top a:hover {
