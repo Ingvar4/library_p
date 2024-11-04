@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
+    <script src="../../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Свойства top, right, bottom, left, z-index.</h1><hr>
+        <p>Эти свойства определяют, как элемент смещается относительно определённых сторон контейнера. Они действуют только на элементы с позиционированием, отличным от static (по умолчанию).</p>
+        <p><strong>Как они работают</strong></p>
+        <ul>
+          <li><strong>top</strong>: Смещает элемент вниз относительно верхнего края его родительского контейнера.</li>
+          <li><strong>right</strong>: Смещает элемент влево относительно правого края.</li>
+          <li><strong>bottom</strong>: Смещает элемент вверх относительно нижнего края.</li>
+          <li><strong>left</strong>: Смещает элемент вправо относительно левого края.</li>
+        </ul>
+        <h3>Примеры использования</h3>
+        <ol>
+          <li><strong>Relative Positioning</strong>: При <code>position: relative</code>, эти свойства смещают элемент относительно его начальной позиции, но сам элемент всё ещё занимает место в нормальном потоке.</li>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    .relative-element {
+      position: relative;
+      top: 10px; /* Элемент сместится вниз на 10px */
+      left: 20px; /* Элемент сместится вправо на 20px */
+    }
+  </code>
+</pre>
+          <li><strong>Absolute Positioning</strong>: При <code>position: absolute</code>, элемент смещается относительно ближайшего позиционированного предка.</li>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    .absolute-element {
+      position: absolute;
+      top: 50px; /* Смещение на 50px вниз от родителя */
+      right: 10px; /* Смещение на 10px влево от правого края */
+    }
+  </code>
+</pre>
+          <li><strong>Fixed Positioning</strong>: При <code>position: fixed</code>, элемент смещается относительно окна браузера.</li>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    .fixed-element {
+      position: fixed;
+      bottom: 0; /* Прикрепляет элемент к нижнему краю окна */
+      left: 0; /* Прикрепляет элемент к левому краю окна */
+    }
+  </code>
+</pre>
+          <li><strong>Sticky Positioning</strong>: При <code>position: sticky</code>, элемент остаётся в обычном потоке, но становится фиксированным при прокрутке, когда достигает определённого значения.</li>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    .sticky-element {
+      position: sticky;
+      top: 20px; /* Липнет к 20px от верхнего края */
+    }
+  </code>
+</pre>
+        </ol>
+        <hr>
+
+        <h3>Важные моменты</h3>
+        <ul>
+          <li><strong>Зависимость от предка</strong>: Свойства <code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code> работают по-разному в зависимости от того, какой тип позиционирования задан у элемента и его родителя.</li>
+          <li><strong>Поддержка процентных значений</strong>: Вы можете использовать проценты, чтобы сместить элемент относительно размеров его контейнера. Например:</li>
+        </ul>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    .absolute-element {
+      position: absolute;
+      top: 50%; /* Смещение на половину высоты контейнера */
+      left: 50%; /* Смещение на половину ширины контейнера */
+    }
+  </code>
+</pre>
+        <hr>
+
+        <h3>Свойство z-index</h3>
+        <p>Свойство <code>z-index</code> управляет порядком перекрытия элементов по оси Z (глубине). Чем выше значение <code>z-index</code>, тем ближе элемент к зрителю.</p>
+        <p><strong>Особенности</strong></p>
+        <ul>
+          <li>Работает только с элементами, у которых значение <code>position</code> не равно <code>static</code> (например, <code>relative</code>, <code>absolute</code>, <code>fixed</code> или <code>sticky</code>).</li>
+          <li>Элементы с большим значением <code>z-index</code> перекрывают элементы с меньшим значением.</li>
+        </ul>
+        <p><strong>Примеры использования</strong></p>
+        <ol>
+          <li><strong>Абсолютное позиционирование и порядок перекрытия:</strong></li>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    .element1 {
+      position: absolute;
+      z-index: 1; /* Находится позади .element2 */
+    }
+    
+    .element2 {
+      position: absolute;
+      z-index: 2; /* Находится перед .element1 */
+    }
+  </code>
+</pre>
+          <li><strong>Использование с фиксированным позиционированием:</strong></li>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    .fixed-header {
+      position: fixed;
+      top: 0;
+      z-index: 1000; /* Обеспечивает, что заголовок всегда будет поверх других элементов */
+    }
+  </code>
+</pre>
+        </ol>
+        <p><strong>Советы по использованию z-index</strong></p>
+        <ul>
+          <li><strong>Избегайте слишком высоких значений</strong>: Используйте небольшие значения <code>z-index</code>, чтобы упростить управление слоями.</li>
+          <li><strong>Контекст наложения</strong>: Элементы могут создавать собственный контекст наложения, который ограничивает действие <code>z-index</code>. Например, контейнер с <code>position: relative</code> может создать новый контекст наложения для своих дочерних элементов.</li>
+          <li><strong>Понимание вложенности</strong>: Когда вы работаете с вложенными элементами, значения <code>z-index</code> применяются относительно контекста наложения их предков.</li>
+        </ul>
+        <p>Эти свойства позволяют тонко управлять размещением и видимостью элементов, создавая как статичные, так и интерактивные макеты для более гибкого веб-дизайна.</p>
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>
