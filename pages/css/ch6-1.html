@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
+    <script src="../../scripts/script.js" defer></script>
+    <style>
+      .header {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 10px;
+      }
+      .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+      }
+      .item {
+        background-color: #f4f4f4;
+        padding: 20px;
+        border: 1px solid #ddd;
+      }
+      @media (min-width: 768px) {
+        .container {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (min-width: 1200px) {
+        .container {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Введение в адаптивную верстку.</h1><hr>
+        <p>Адаптивная верстка (responsive web design) — это метод создания сайтов, которые корректно отображаются и работают на всех устройствах, независимо от размера экрана и разрешения. Суть адаптивной верстки заключается в том, чтобы сайт автоматически адаптировался под различные устройства, такие как настольные компьютеры, планшеты, смартфоны, а также устройства с нетипичными экранами.</p>
+        <h4>Основные концепции адаптивной верстки</h4>
+        <ol>
+          <li><strong>Мета-тег Viewport</strong>
+            <ul>
+              <li>Определяет, как сайт масштабируется и отображается на устройствах с разным размером экрана.</li>
+<pre>
+  <code class="lang-html">
+    &lt;!-- HTML -->
+
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </code>
+</pre>
+              <li><code>width=device-width</code>: ширина страницы будет равна ширине устройства.</li>
+              <li><code>initial-scale=1.0</code>: начальный масштаб равен 100%.</li>
+            </ul>
+          </li>
+          <li><strong>Медиа-запросы (Media Queries)</strong>
+            <ul>
+              <li>Позволяют применять CSS-стили в зависимости от характеристик устройства, таких как ширина экрана, высота, ориентация и т.д.</li>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    @media (max-width: 768px) {
+      body {
+        font-size: 14px;
+      }
+    }
+  </code>
+</pre>
+              <li>Примеры популярных брейкпоинтов:
+                <ul>
+                  <li><code>max-width: 1200px</code> (для больших экранов, ноутбуков)</li>
+                  <li><code>max-width: 992px</code> (для планшетов в ландшафтной ориентации)</li>
+                  <li><code>max-width: 768px</code> (для планшетов в портретной ориентации)</li>
+                  <li><code>max-width: 576px</code> (для смартфонов)</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><strong>Гибкие размеры (Fluid Grids and Layouts)</strong>
+            <ul>
+              <li>Использование процентов и единиц измерения, таких как em, rem, vh, vw, вместо фиксированных значений.</li>
+              <li>Например, задавая ширину контейнера:</li>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    .container {
+      width: 100%; /* занимает всю доступную ширину */
+    }
+  </code>
+</pre>
+            </ul>
+          </li>
+          <li><strong>Гибкие изображения и медиа</strong>
+            <ul>
+              <li>Изображения, видео и другие медиа должны изменять свои размеры в зависимости от экрана.</li>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    img {
+      max-width: 100%;
+      height: auto; /* сохраняет соотношение сторон */
+    }
+  </code>
+</pre>
+            </ul>
+          </li>
+        </ol>
+        <hr>
+
+        <h3>Подходы к адаптивной верстке</h3>
+        <ol>
+          <li><strong>Мобильный в первую очередь (Mobile-First Design)</strong>
+            <ul>
+              <li>Начинайте верстку с минимального размера экрана и добавляйте стили для больших экранов с помощью медиа-запросов.</li>
+              <li>Пример:</li>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    body {
+      font-size: 16px; /* базовые стили для мобильных устройств */
+    }
+    
+    @media (min-width: 768px) {
+      body {
+        font-size: 18px; /* для планшетов и больших экранов */
+      }
+    }
+  </code>
+</pre>
+            </ul>
+          </li>
+          <li><strong>Десктоп в первую очередь (Desktop-First Design)</strong>
+          <ul>
+            <li>Начинайте верстку с большего размера экрана и адаптируйте стили для меньших экранов.</li>
+            <li>Пример:</li>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    body {
+      font-size: 18px; /* базовые стили для больших экранов */
+    }
+    
+    @media (max-width: 768px) {
+      body {
+        font-size: 16px; /* уменьшение для мобильных устройств */
+      }
+    }
+  </code>
+</pre>
+          </ul></li>
+          <li><strong>Гибкие сетки (Flexible Grids)</strong>
+            <ul>
+              <li>Flexbox и Grid Layout часто используются для создания адаптивных макетов.</li>
+              <li><strong>Flexbox</strong>:</li>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    
+    .item {
+      flex: 1 1 100%; /* элемент занимает всю ширину */
+    }
+    
+    @media (min-width: 768px) {
+      .item {
+        flex: 1 1 50%; /* два элемента в строке на больших экранах */
+      }
+    }
+  </code>
+</pre>
+              <li><strong>Grid</strong>:</li>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    
+    @media (min-width: 768px) {
+      .grid-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </code>
+</pre>
+            </ul>
+          </li>
+        </ol>
+        <hr>
+
+        <h3>Адаптивная типографика</h3>
+        <ul>
+          <li>Использование гибких единиц, таких как em, rem, %, для размеров шрифта.</li>
+          <li>Пример:</li>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    html {
+      font-size: 16px;
+    }
+    
+    @media (max-width: 768px) {
+      html {
+        font-size: 14px; /* уменьшение размера шрифта для мобильных устройств */
+      }
+    }
+  </code>
+</pre>
+        </ul>
+        <h4>Пример комплексной адаптивной верстки</h4>
+<pre>
+  <code class="lang-html">
+    &lt;!-- HTML -->
+
+    &lt;!DOCTYPE html>
+    &lt;html lang="en">
+    &lt;head>
+      &lt;meta charset="UTF-8">
+      &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+      &lt;title>Адаптивная страница&lt;/title>
+      &lt;style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+        }
+        .header {
+          background-color: #333;
+          color: white;
+          text-align: center;
+          padding: 10px;
+        }
+        .container {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 20px;
+          padding: 20px;
+        }
+        .item {
+          background-color: #f4f4f4;
+          padding: 20px;
+          border: 1px solid #ddd;
+        }
+        @media (min-width: 768px) {
+          .container {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        @media (min-width: 1200px) {
+          .container {
+            grid-template-columns: repeat(4, 1fr);
+          }
+        }
+      &lt;/style>
+    &lt;/head>
+    &lt;body>
+      &lt;div class="header">Моя Адаптивная Страница&lt;/div>
+      &lt;div class="container">
+        &lt;div class="item">Контент 1&lt;/div>
+        &lt;div class="item">Контент 2&lt;/div>
+        &lt;div class="item">Контент 3&lt;/div>
+        &lt;div class="item">Контент 4&lt;/div>
+      &lt;/div>
+    &lt;/body>
+    &lt;/html>
+  </code>
+</pre>
+
+        <div class="result">
+          <p class="resultP"><strong>Результат:</strong></p>
+          
+          <div class="header">Моя Адаптивная Страница</div>
+            <div class="container">
+              <div class="item">Контент 1</div>
+              <div class="item">Контент 2</div>
+              <div class="item">Контент 3</div>
+              <div class="item">Контент 4</div>
+            </div>
+        </div>
+        <hr>
+
+        <h3>Заключение</h3>
+        <p>Адаптивная верстка играет важную роль в современном веб-дизайне, обеспечивая удобство использования на всех устройствах. Для создания таких макетов необходимо хорошо понимать работу с медиа-запросами, гибкими сетками и изображениями, а также подходами "мобильный в первую очередь" и "десктоп в первую очередь".</p>
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>
