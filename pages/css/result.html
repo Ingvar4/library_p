@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox Layout</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .header, .footer {
+      background-color: #333;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .content {
+      display: flex;
+      flex: 1;
+    }
+
+    .sidebar {
+      background-color: #f4f4f4;
+      padding: 1rem;
+      flex: 1;
+    }
+
+    .main {
+      background-color: #e4e4e4;
+      padding: 1rem;
+      flex: 3;
+    }
+
+    @media (max-width: 768px) {
+      .content {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">Заголовок</header>
+  <div class="content">
+    <aside class="sidebar">Боковая панель</aside>
+    <main class="main">Основной контент</main>
+  </div>
+  <footer class="footer">Подвал</footer>
+</body>
+</html>

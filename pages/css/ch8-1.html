@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
+    <script src="../../scripts/script.js" defer></script>
+    <style>
+      button {
+        padding: 10px;
+        margin: 10px;
+        margin-top: 0px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Создание простого макета сайта с помощью Flexbox.</h1><hr>
+        <p>Давай разберем стилизацию веб-страницы с помощью CSS, с акцентом на Flexbox для создания макета. Flexbox (Flexible Box Layout) — это метод CSS, который упрощает создание гибких, адаптивных макетов. Flexbox позволяет располагать элементы вдоль одной оси (горизонтальной или вертикальной) и автоматически выравнивать их в зависимости от доступного пространства.</p>
+      <ol>
+        <li><strong>Основные принципы Flexbox</strong>
+          <p>Flexbox состоит из родительского элемента, называемого "flex-контейнером", и дочерних элементов, называемых "flex-элементами". Flex-контейнер управляет расположением и поведением flex-элементов.</p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    .container {
+      display: flex;
+    }
+  </code>
+</pre>
+        </li>
+        <li><strong>Свойства flex-контейнера</strong>
+          <p>Эти свойства задаются контейнеру и влияют на поведение flex-элементов:</p>
+          <ul>
+            <li><code>display: flex</code> — задаёт контейнеру гибкий контейнер, активируя Flexbox.</li>
+            <li><code>flex-direction</code> — определяет направление оси (строки или столбца):
+              <ul>
+                <li><code>row</code> (по умолчанию): располагает элементы по горизонтали.</li>
+                <li><code>column</code>: располагает элементы по вертикали.</li>
+                <li><code>row-reverse</code> и <code>column-reverse</code>: изменяют порядок элементов в обратном направлении.</li>
+              </ul>
+            </li>
+            <li><code>flex-wrap</code> — управляет переносом flex-элементов:
+              <ul>
+                <li><code>nowrap</code> (по умолчанию): элементы не переносятся на новую строку.</li>
+                <li><code>wrap</code>: элементы переносятся на новую строку по мере необходимости.</li>
+                <li><code>wrap-reverse</code>: переносится в обратном порядке.</li>
+              </ul>
+            </li>
+            <li><code>justify-content</code> — выравнивает flex-элементы по основной оси:
+              <ul>
+                <li><code>flex-start</code>, <code>center</code>, <code>flex-end</code>, <code>space-between</code>, <code>space-around</code>, <code>space-evenly</code>.</li>
+              </ul>
+            </li>
+            <li><code>align-items</code> — выравнивает элементы по поперечной оси:
+              <ul>
+                <li><code>stretch</code> (по умолчанию): элементы растягиваются, чтобы занять всю высоту контейнера.</li>
+                <li><code>flex-start</code>, <code>center</code>, <code>flex-end</code>, <code>baseline</code>.</li>
+              </ul>
+            </li>
+            <li><code>align-content</code> — управляет выравниванием строк flex-элементов, если они переносятся.</li>
+          </ul>
+        </li>
+        <li><strong>Свойства flex-элементов</strong>
+          <p>Эти свойства задаются каждому flex-элементу отдельно и влияют на его размер и поведение в контейнере:</p>
+          <ul>
+            <li><code>flex-grow</code> — определяет, насколько элемент может увеличиваться относительно других.</li>
+            <li><code>flex-shrink</code> — определяет, насколько элемент может сжиматься при уменьшении пространства.</li>
+            <li><code>flex-basis</code> — задает базовый размер элемента.</li>
+            <li><code>align-self</code> — позволяет выровнять элемент по поперечной оси, независимо от других.</li>
+          </ul>
+        </li>
+        <li><strong>Создание макета страницы с Flexbox</strong></li>
+        <p>Для практики создадим макет веб-страницы с заголовком, основным контентом и подвалом. Основной контент будет содержать боковую панель и область для основной статьи.</p>
+<pre>
+  <code class="lang-html">
+    &lt;!-- HTML -->
+
+    &lt;!DOCTYPE html>
+    &lt;html lang="en">
+    &lt;head>
+      &lt;meta charset="UTF-8">
+      &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+      &lt;title>Flexbox Layout&lt;/title>
+      &lt;link rel="stylesheet" href="styles.css">
+    &lt;/head>
+    &lt;body>
+      &lt;header class="header">Заголовок&lt;/header>
+      &lt;div class="content">
+        &lt;aside class="sidebar">Боковая панель&lt;/aside>
+        &lt;main class="main">Основной контент&lt;/main>
+      &lt;/div>
+      &lt;footer class="footer">Подвал&lt;/footer>
+    &lt;/body>
+    &lt;/html>
+  </code>
+</pre>
+
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    
+    .header, .footer {
+      background-color: #333;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+    
+    .content {
+      display: flex;
+      flex: 1;
+    }
+    
+    .sidebar {
+      background-color: #f4f4f4;
+      padding: 1rem;
+      flex: 1;
+    }
+    
+    .main {
+      background-color: #e4e4e4;
+      padding: 1rem;
+      flex: 3;
+    }
+  </code>
+</pre>
+
+        <div class="result">
+          <p class="resultP"><strong>Результат:</strong></p>
+        
+          <button><a href="../css/result.html">Посмотреть результат</a></button>
+        </div>
+
+        <li><strong>Объяснение кода</strong></li>
+        <ul>
+          <li><strong>header</strong> и <strong>footer</strong> — шапка и подвал с фиксированной высотой и централизованным текстом.</li>
+          <li><strong>content</strong> — гибкий контейнер с помощью <code>display: flex</code>, внутри которого располагаются <code>sidebar</code> и <code>main</code>.</li>
+          <li><strong>sidebar</strong> и <strong>main</strong> — задаем им соотношение <code>flex</code> (1:3), где основная область шире боковой панели.</li>
+        </ul>
+        <li><strong>Использование адаптивности в Flexbox</strong></li>
+        <p>Flexbox позволяет создавать адаптивные макеты, которые изменяют своё расположение на разных устройствах.</p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    @media (max-width: 768px) {
+      .content {
+        flex-direction: column;
+      }
+    }
+  </code>
+</pre>
+      </ol>
+      <h4>Итог</h4>
+      <p>С помощью Flexbox можно легко создать адаптивный макет с различным выравниванием и переносом элементов. Такой подход упрощает работу с расположением и структурой, особенно при изменении размеров экрана.</p>
+      
+        
+
+       
+
+
+
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>
+
