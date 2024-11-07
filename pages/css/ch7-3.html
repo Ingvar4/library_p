@@ -80,9 +80,11 @@
       width: 100px;
       height: 100px;
       background-color: red;
-      animation: scale-up 2s forwards;
+      /* Изначально отключаем анимацию */
+      animation: none;
     }
     .animate {
+      /* Добавляем класс с анимацией */
       animation: scale-up 2s forwards;
     }
     @keyframes scale-up {
@@ -375,9 +377,11 @@
           width: 100px;
           height: 100px;
           background-color: red;
-          animation: scale-up 2s forwards;
+          /* Изначально отключаем анимацию */
+          animation: none;
         }
         .animate {
+          /* Добавляем класс с анимацией */
           animation: scale-up 2s forwards;
         }
         @keyframes scale-up {
@@ -397,6 +401,9 @@
       &lt;script>
         function startAnimation() {
           const box = document.getElementById('myBox');
+          // Удаляем класс, если он есть, и добавляем его снова, чтобы анимация перезапустилась
+          box.classList.remove('animate');
+          void box.offsetWidth; // Перезапускает анимацию путём перерасчёта стилей
           box.classList.add('animate');
         }
       &lt;/script>
@@ -487,8 +494,11 @@
     <script>
       function startAnimation() {
         const box = document.getElementById('myBox');
+        // Удаляем класс, если он есть, и добавляем его снова, чтобы анимация перезапустилась
+        box.classList.remove('animate');
+        void box.offsetWidth; // Перезапускает анимацию путём перерасчёта стилей
         box.classList.add('animate');
-      }
+    }
 
       const box = document.getElementById('myBox');
 
