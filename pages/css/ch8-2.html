@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
+    <script src="../../scripts/script.js" defer></script>
+    <style>
+      button {
+        padding: 10px;
+        margin: 10px;
+        margin-top: 0px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Стилизация типичных элементов веб-страницы (шапка, меню, контент, подвал).</h1><hr>
+        <p>Создание стилизованного и структурированного макета веб-страницы — одна из ключевых задач при верстке. Мы разберем стилизацию основных компонентов веб-страницы: шапки (header), меню навигации (navigation), основного контента (content) и подвала (footer), включая продвинутые техники, обеспечивающие адаптивность и гибкость макета.</p>
+        <h3>Шаблон страницы: структура и стилизация</h3>
+        <h4>1. Основная HTML-структура</h4>
+        <p>Для начала создадим базовую HTML-структуру, которая будет содержать все основные элементы страницы.</p>
+<pre>
+  <code class="lang-html">
+    &lt;!-- HTML -->
+
+    &lt;!DOCTYPE html>
+    &lt;html lang="en">
+    &lt;head>
+      &lt;meta charset="UTF-8">
+      &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+      &lt;title>Стилизация веб-страницы&lt;/title>
+      &lt;link rel="stylesheet" href="styles.css">
+    &lt;/head>
+    &lt;body>
+      &lt;header class="header">Заголовок страницы&lt;/header>
+      &lt;nav class="nav">Навигация&lt;/nav>
+      &lt;div class="content-wrapper">
+        &lt;aside class="sidebar">Боковая панель&lt;/aside>
+        &lt;main class="main">Основной контент&lt;/main>
+      &lt;/div>
+      &lt;footer class="footer">Подвал&lt;/footer>
+    &lt;/body>
+    &lt;/html>
+  </code>
+</pre>
+
+        <h4>2. Базовая стилизация (CSS Reset)</h4>
+        <p>Для консистентного отображения на всех устройствах и в браузерах, начнем с CSS Reset.</p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  </code>
+</pre>
+
+        <h4>3. Основные стили для body и страницы</h4>
+        <p>Установим базовые стили для фона страницы, шрифта и размера текста.</p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+  </code>
+</pre>
+
+        <h3>Стилизация Шапки (Header)</h3>
+        <p>Шапка — это верхний блок, обычно содержащий логотип и основное меню. Для header добавим фоновый цвет, отступы и центровку текста.</p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    .header {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+  </code>
+</pre>
+
+        <h3>Стилизация Навигационного Меню (Navigation)</h3>
+        <p>Навигационное меню часто располагается сразу под шапкой. Оно может быть фиксированным или гибким в зависимости от макета.</p>
+        <h4>HTML-структура меню</h4>
+<pre>
+  <code class="lang-html">
+    &lt;!-- HTML -->
+
+    &lt;nav class="nav">
+      &lt;ul class="nav-list">
+        &lt;li>&lt;a href="#">Главная&lt;/a>&lt;/li>
+        &lt;li>&lt;a href="#">О нас&lt;/a>&lt;/li>
+        &lt;li>&lt;a href="#">Услуги&lt;/a>&lt;/li>
+        &lt;li>&lt;a href="#">Контакты&lt;/a>&lt;/li>
+      &lt;/ul>
+    &lt;/nav>
+  </code>
+</pre>
+        <h4>Стилизация меню</h4>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    .nav {
+      background-color: #333;
+    }
+    
+    .nav-list {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+    }
+    
+    .nav-list li {
+      margin: 0 1rem;
+    }
+    
+    .nav-list a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    
+    .nav-list a:hover {
+      color: #4CAF50;
+    }
+  </code>
+</pre>
+        <h4>Мобильная адаптация меню</h4>
+        <p>Для адаптивности добавим медиа-запросы.</p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    @media (max-width: 768px) {
+      .nav-list {
+        flex-direction: column;
+        align-items: center;
+      }
+      .nav-list li {
+        margin: 0.5rem 0;
+      }
+    }
+  </code>
+</pre>
+
+        <h3>Стилизация Основного Контента и Боковой Панели</h3>
+        <p>Основная часть контента может содержать как текст, так и медиа, таблицы и другие элементы. Боковая панель (sidebar) обычно используется для ссылок, виджетов или других вспомогательных блоков.</p>
+        <h4>Структура и CSS-код для контейнера</h4>
+        <p>Flexbox отлично подходит для построения макета с боковой панелью.</p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    .content-wrapper {
+      display: flex;
+      flex: 1;
+      padding: 1rem;
+    }
+    
+    .sidebar {
+      flex: 1;
+      background-color: #e4e4e4;
+      padding: 1rem;
+      margin-right: 1rem;
+      border-radius: 8px;
+    }
+    
+    .main {
+      flex: 3;
+      background-color: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+  </code>
+</pre>
+        <h4>Адаптация для мобильных устройств</h4>
+        <p>На мобильных устройствах элементы могут быть выстроены вертикально.</p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    @media (max-width: 768px) {
+      .content-wrapper {
+        flex-direction: column;
+      }
+      .sidebar {
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+    }
+  </code>
+</pre>
+
+        <h3>Стилизация Подвала (Footer)</h3>
+        <p>Подвал страницы обычно используется для контактной информации, социальных ссылок или вспомогательных меню. Его можно стилизовать так, чтобы он был простым и отличался от остального макета.</p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    .footer {
+      background-color: #333;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+  </code>
+</pre>
+
+        <h3>Дополнительные элементы и анимации</h3>
+        <h4>Добавление эффектов для интерактивности</h4>
+        <p>С помощью CSS анимаций можно добавить плавные эффекты для улучшения пользовательского опыта.</p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    .nav-list a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    
+    .nav-list a:hover {
+      color: #4CAF50;
+    }
+  </code>
+</pre>
+        <h4>Анимация кнопок</h4>
+        <p>Для привлечения внимания к кнопкам добавим анимацию <code>scale</code> при наведении.</p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    .button {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    
+    .button:hover {
+      transform: scale(1.05);
+    }
+  </code>
+</pre>
+        <h4>Завершающий код CSS для мобильной адаптивности и интерактивности</h4>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    @media (max-width: 768px) {
+      .nav-list {
+        flex-direction: column;
+        align-items: center;
+      }
+    
+      .content-wrapper {
+        flex-direction: column;
+      }
+    
+      .sidebar {
+        margin: 0 0 1rem 0;
+      }
+    }
+    
+    a {
+      color: #4CAF50;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    a:hover {
+      color: #333;
+    }
+  </code>
+</pre>
+
+        <h4>Итог</h4>
+        <p>Таким образом, с помощью комбинации Flexbox, CSS-свойств и медиа-запросов мы можем создать адаптивный макет для основных частей веб-страницы, который будет одинаково хорошо смотреться на любых устройствах.</p>
+
+        <div class="result">
+          <p class="resultP"><strong>Результат:</strong></p>
+        
+          <button><a href="../css/result2.html">Посмотреть результат</a></button>
+        </div>
+        <hr>
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>
