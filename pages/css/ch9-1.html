@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
+    <script src="../../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Использование CSS-переменных (--var и var()).</h1><hr>
+        <p>CSS-переменные (кастомные свойства) и препроцессоры играют ключевую роль в оптимизации и улучшении гибкости стилей, позволяя проще управлять изменениями и облегчать сложные проекты. Рассмотрим детально CSS-переменные, их использование и разницу между переменными CSS и переменными в CSS-препроцессорах (например, Sass или Less), а также разберем, как их комбинировать для более мощного и гибкого подхода к стилям.</p>
+        <h3>1. Основы CSS-переменных</h3>
+        <p>CSS-переменные, также известные как кастомные свойства, позволяют задавать значения, которые могут быть использованы многократно и динамически изменены, повышая гибкость стилей и упрощая их настройку.</p>
+        <p><strong>Синтаксис CSS-переменных:</strong></p>
+        <ul>
+          <li>Переменные в CSS задаются через префикс <code>--</code> в селекторах.</li>
+          <li>Для использования переменной применяется функция <code>var()</code>.</li>
+        </ul>
+        <p>Пример:</p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    :root {
+      --primary-color: #3498db;
+      --font-size: 16px;
+    }
+    
+    body {
+      color: var(--primary-color);
+      font-size: var(--font-size);
+    }
+  </code>
+</pre>
+        <p><strong>Особенности:</strong></p>
+        <ul>
+          <li>Переменные, определенные в селекторе <code>:root</code>, становятся глобальными и доступны по всему документу.</li>
+          <li>Можно переопределять переменные в любом контейнере, что позволяет изменять значения в определенных зонах страницы.</li>
+        </ul>
+        <h3>2. Динамическое использование CSS-переменных</h3>
+        <p>CSS-переменные позволяют динамически изменять значения стилей в зависимости от условий и взаимодействий пользователя, например, через JavaScript или медиа-запросы.</p>
+        <p><strong>Изменение CSS-переменных через JavaScript</strong></p>
+        <p>Переменные могут обновляться динамически, что особенно полезно для создания светлой и темной тем или настройки предпочтений пользователя.</p>
+<pre>
+  <code class="lang-js">
+    //JS
+
+    document.documentElement.style.setProperty('--primary-color', '#2ecc71');
+  </code>
+</pre>
+        <p><strong>Использование в медиа-запросах</strong></p>
+        <p>CSS-переменные можно переопределять в медиа-запросах, что упрощает адаптивность дизайна.</p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    :root {
+      --font-size: 16px;
+    }
+    
+    @media (max-width: 768px) {
+      :root {
+        --font-size: 14px;
+      }
+    }
+    
+    body {
+      font-size: var(--font-size);
+    }
+  </code>
+</pre>
+        <h3>3. Значения по умолчанию и вложенность</h3>
+        <p>С помощью <code>var()</code> можно задавать значения по умолчанию, что полезно при отсутствии необходимой переменной.</p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    body {
+      color: var(--text-color, #333); /* #333 будет использован, если --text-color не задан */
+    }
+  </code>
+</pre>
+        <h3>4. Переменные в CSS и препроцессорах (Sass, Less)</h3>
+        <p>До появления CSS-переменных для многократного использования значений применялись переменные в препроцессорах, таких как Sass и Less.</p>
+        <p><strong>Отличия:</strong></p>
+        <ol>
+          <li><strong>CSS-переменные</strong>: динамические и работают на уровне DOM, что позволяет изменять их значения через JavaScript и применять к отдельным элементам.</li>
+          <li><strong>Переменные препроцессоров</strong>: компилируются на этапе сборки CSS и не меняются в браузере.</li>
+        </ol>
+        <p>Пример Sass-переменных:</p>
+<pre>
+  <code class="lang-css">
+    /*SCSS*/
+
+    $primary-color: #3498db;
+
+    body {
+      color: $primary-color;
+    }
+  </code>
+</pre>
+        <h3>5. Комбинирование CSS-переменных и переменных препроцессоров</h3>
+        <p>Использование CSS-переменных и препроцессоров вместе может сделать проект более мощным и гибким. Обычно препроцессорные переменные задают глобальные настройки (например, базовые цвета и шрифты), а CSS-переменные применяют для динамических значений, например, тем или адаптивных стилей.</p>
+        <p>Пример использования Sass и CSS-переменных вместе:</p>
+<pre>
+  <code class="lang-css">
+    /*SCSS*/
+
+    $base-color: #3498db;
+
+    :root {
+      --button-color: $base-color;
+    }
+
+    button {
+      background-color: var(--button-color);
+    }
+  </code>
+</pre>
+      <h3>6. Углубление: CSS-функции с CSS-переменными</h3>
+      <p>CSS-переменные отлично сочетаются с функциями CSS, такими как <code>calc()</code>, <code>rgb()</code>, <code>hsl()</code>, позволяя создавать сложные вычисления и динамические стили.</p>
+      <p>Пример использования <code>calc()</code> с CSS-переменными:</p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    :root {
+      --padding: 10px;
+    }
+    
+    .container {
+      padding: calc(var(--padding) * 2); /* Увеличение отступов в 2 раза */
+    }
+  </code>
+</pre>
+        <p>Пример с <code>hsl()</code>:</p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    :root {
+      --main-hue: 200;
+    }
+    
+    body {
+      color: hsl(var(--main-hue), 50%, 50%);
+    }
+  </code>
+</pre>
+        <h3>7. Вариативные темы с CSS-переменными</h3>
+        <p>С помощью CSS-переменных можно создать вариативные темы, например, для переключения между светлым и темным режимами.</p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    :root {
+      --background-color: #fff;
+      --text-color: #000;
+    }
+    
+    [data-theme="dark"] {
+      --background-color: #000;
+      --text-color: #fff;
+    }
+    
+    body {
+      background-color: var(--background-color);
+      color: var(--text-color);
+    }
+  </code>
+</pre>
+        <h3>8. Наследование и каскадирование CSS-переменных</h3>
+        <p>CSS-переменные подчиняются правилам наследования и каскадирования, что может создавать гибкие структуры, но также приводит к возможным конфликтам.</p>
+        <p><strong>Наследование</strong></p>
+        <p>Переменные, объявленные в <code>:root</code>, доступны всем элементам, а переменные, заданные в конкретном контейнере, наследуются дочерними элементами.</p>
+        <p><strong>Приоритет</strong></p>
+        <p>Как и другие CSS-правила, переменные следуют приоритетам специфичности и могут быть переопределены через <code>!important</code>.</p>
+        <p>Пример:</p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    :root {
+      --font-size: 16px;
+    }
+    
+    .container {
+      --font-size: 20px;
+    }
+    
+    .container p {
+      font-size: var(--font-size); /* будет 20px */
+    }
+  </code>
+</pre>
+        <h3>9. CSS Grid и Flexbox с CSS-переменными</h3>
+        <p>CSS-переменные отлично работают с <strong>Grid</strong> и <strong>Flexbox</strong>, упрощая управление размером колонок и строк или отступами между элементами.</p>
+        <p>Пример с <strong>Grid</strong>:</p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    :root {
+      --column-width: 1fr;
+    }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, var(--column-width));
+    }
+  </code>
+</pre>
+        <h3>10. Итог</h3>
+        <p>CSS-переменные обеспечивают удобный и гибкий способ управления стилями, особенно для больших проектов и адаптивного дизайна. Они позволяют динамически изменять значения через JavaScript, использовать с медиа-запросами и управлять темами. В сочетании с препроцессорами CSS-переменные дают возможность более эффективно организовывать код и добиваться сложных эффектов с минимальными затратами.</p>
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>
