@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
+    <script src="../../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Переменные и каскадность.</h1><hr>
+        <p>CSS-переменные, или кастомные свойства, позволяют сохранять значения в CSS, которые можно использовать в различных стилях, обеспечивая лёгкое управление цветами, размерами и другими значениями по всему коду.</p>
+        <h3>1. Синтаксис и объявление переменных</h3>
+        <p>Переменные определяются с помощью двух дефисов (<code>--</code>) перед именем и задаются на уровне селектора (часто <code>:root</code>), чтобы иметь глобальную область видимости. Для использования переменной применяется функция <code>var()</code>.</p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    :root {
+      --primary-color: #3498db;
+      --padding-default: 10px;
+    }
+    
+    .button {
+      background-color: var(--primary-color);
+      padding: var(--padding-default);
+    }
+  </code>
+</pre>
+        <h3>2. Использование переменных с фолбэками</h3>
+        <p>CSS позволяет задавать фолбэки, чтобы определить значение по умолчанию на случай, если переменная не определена.</p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    .button {
+      color: var(--text-color, black); /* Используется черный, если переменная не задана */
+    }
+  </code>
+</pre>
+        <h3>3. Динамическое изменение переменных</h3>
+        <p>CSS-переменные можно переопределять в контексте других селекторов, что полезно для создания тем и изменения стилей динамически, например, при взаимодействии с JavaScript.</p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    .theme-dark {
+      --primary-color: #2c3e50;
+    }
+    
+    .theme-light {
+      --primary-color: #ecf0f1;
+    }
+  </code>
+</pre>
+        <h3>4. Использование в медиа-запросах</h3>
+        <p>Переменные работают в медиа-запросах, что делает их особенно удобными для адаптивных дизайнов.</p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    :root {
+      --font-size: 16px;
+    }
+    
+    @media (min-width: 768px) {
+      :root {
+        --font-size: 18px;
+      }
+    }
+    
+    p {
+      font-size: var(--font-size);
+    }
+  </code>
+</pre>
+        <h3>5. Поддержка в JavaScript</h3>
+        <p>JavaScript может изменять CSS-переменные в реальном времени, что позволяет создавать интерактивные интерфейсы.</p>
+<pre>
+  <code class="lang-js">
+    /*JS*/
+
+    document.documentElement.style.setProperty('--primary-color', '#e74c3c');
+  </code>
+</pre>
+        <hr>
+        <h1>Каскадность (Cascading) в CSS</h1>
+        <p>Каскадность — это механизм, по которому браузер решает, какой из стилей должен применяться к элементу, когда на него воздействует несколько стилей. Важно понимать этот механизм для эффективного использования CSS.</p>
+        <h3>1. Порядок важности</h3>
+        <p>При выборе стилей для элемента браузер использует три ключевых правила:</p>
+        <ul>
+          <li><strong>Специфичность</strong>: более специфичные селекторы имеют больший приоритет.</li>
+          <li><strong>Источник стилей</strong>: пользовательские стили (&lt;style>, CSS-файлы) имеют приоритет над пользовательскими агентами (браузерными настройками).</li>
+          <li><strong>Важность</strong>: правило с !important переопределяет остальные правила.</li>
+        </ul>
+        <h3>2. Специфичность</h3>
+        <p>Специфичность — это мера точности селектора. Чем более специфичный селектор, тем выше его приоритет.</p>
+        <p>Примеры специфичности (от меньшего к большему):</p>
+        <ul>
+          <li>Теги (<code>p</code>, <code>h1</code>) — низкая специфичность.</li>
+          <li>Классы и псевдоклассы (<code>.button</code>, <code>:hover</code>) — средняя специфичность.</li>
+          <li>Идентификаторы (<code>#header</code>) — высокая специфичность.</li>
+          <li>Инлайновые стили (<code>style="color: red;"</code>) — максимально высокая специфичность.</li>
+        </ul>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    /* Этот стиль применится, потому что он более специфичен */
+    #header .button {
+      color: blue;
+    }
+  </code>
+</pre>
+        <h3>3. Наследование</h3>
+        <p>Некоторые свойства, такие как <code>font-size</code> и <code>color</code>, могут наследоваться от родительских элементов. Наследование также работает через <code>inherit</code>, <code>initial</code>, и <code>unset</code>.</p>
+        <ul>
+          <li><strong>inherit</strong> — заставляет элемент наследовать стиль от родителя.</li>
+          <li><strong>initial</strong> — возвращает значение свойства к значению по умолчанию для браузера.</li>
+          <li><strong>unset</strong> — сбрасывает значение свойства, либо наследуя, либо возвращая к начальному.</li>
+        </ul>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    .child {
+      color: inherit;
+    }
+  </code>
+</pre>
+        <h3>4. Использование !important</h3>
+        <p>Стили с <code>!important</code> имеют максимальный приоритет, но злоупотребление им усложняет управление CSS. Используйте <code>!important</code> только в исключительных случаях.</p>
+<pre>
+  <code class="lang-css">
+    /*CSS*/
+
+    .button {
+      color: red !important;
+    }
+  </code>
+</pre>
+        <h3>5. Каскад и порядок кода</h3>
+        <p>Если два правила имеют одинаковую специфичность, приоритет отдаётся тому, которое расположено ниже в CSS-файле.</p>
+        <hr>
+        <h3>Практические советы для работы с переменными и каскадностью</h3>
+        <ol>
+          <li><strong>Определяйте переменные в</strong> <code>:root</code> для глобальных значений и используйте их для создания визуально согласованных стилей.</li>
+          <li><strong>Минимизируйте использование</strong> <code>!important</code>, чтобы избежать проблем с каскадом.</li>
+          <li><strong>Изучите и применяйте специфичность</strong>, чтобы правильно структурировать CSS и упрощать поддержку.</li>
+          <li><strong>Используйте переменные в медиа-запросах</strong> для адаптивного дизайна. Это уменьшит необходимость переписывать стили для разных разрешений.</li>
+          <li><strong>Сочетайте CSS-переменные с JavaScript</strong> для создания интерактивных пользовательских интерфейсов.</li>
+        </ol>
+        
+
+       
+
+
+
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>
