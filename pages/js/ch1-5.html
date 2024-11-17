@@ -47,69 +47,98 @@
         <p>Арифметические операторы используются для выполнения математических операций.</p>
         <ul>
           <li><code>+</code> (сложение): Складывает два числа.</li>
-          <pre><code>let sum = 5 + 3; // 8</code></pre>
+          <pre><code class="lang-js">let sum = 5 + 3; // 8</code></pre>
           <li><code>-</code> (вычитание): Вычитает одно число из другого.</li>
-          <p><pre><code>let difference = 10 - 4; // 6</code></pre></p>
+          <p><pre><code class="lang-js">let difference = 10 - 4; // 6</code></pre></p>
           <li><code>*</code> (умножение): Умножает два числа.</li>
-          <p><pre><code>let product = 7 * 3; // 21</code></pre></p>
+          <p><pre><code class="lang-js">let product = 7 * 3; // 21</code></pre></p>
           <li><code>/</code> (деление): Делит одно число на другое.</li>
-          <p><pre><code>let quotient = 20 / 4; // 5</code></pre></p>
+          <p><pre><code class="lang-js">let quotient = 20 / 4; // 5</code></pre></p>
           <li><code>%</code> (остаток от деления): Возвращает остаток от деления двух чисел.</li>
-          <p><pre><code>let remainder = 10 % 3; // 1</code></pre></p>
+          <p><pre><code class="lang-js">let remainder = 10 % 3; // 1</code></pre></p>
           <li><code>**</code> (возведение в степень): Возводит число в степень.</li>
-          <p><pre><code>let power = 2 ** 3; // 8</code></pre></p>
+          <p><pre><code class="lang-js">let power = 2 ** 3; // 8</code></pre></p>
         </ul>
         <h3 id="Op">2. Операторы присваивания</h3>
-        <p>Эти операторы присваивают значения переменным. Основной оператор — это =, но существуют и составные операторы присваивания, которые объединяют операцию и присваивание.</p>
+        <p>Эти операторы присваивают значения переменным. Основной оператор — это <code>=</code>, но существуют и составные операторы присваивания, которые объединяют операцию и присваивание.</p>
         <ul>
           <li><code>=</code> Присваивает значение переменной.</li>
-          <p><pre><code>let x = 10;</code></pre></p>
+          <p><pre><code class="lang-js">let x = 10;</code></pre></p>
           <li><code>+=</code> Добавляет и присваивает.</li>
-          <pre><code>let x = 5;<br>x += 3; // x = x + 3; x теперь равен 8</code></pre>
+<pre>
+  <code class="lang-js">
+let x = 5; 
+x += 3; // x = x + 3; x теперь равен 8
+  </code>
+</pre>
           <li><code>-=</code> Вычитает и присваивает.</li>
-          <p class="notextIndent"><pre><code>let x = 5;<br>x -= 2; // x теперь равен 3</code></pre></p>
+<pre>
+  <code class="lang-js">
+let x = 5;
+x -= 2; // x теперь равен 3
+  </code>
+</pre>
           <li><code>*=</code> Умножает и присваивает.</li>
-          <p class="notextIndent"><pre><code>let x = 5;<br>x *= 3; // x теперь равен 15</code></pre></p>
+<pre>
+  <code class="lang-js">
+let x = 5;
+x *= 3; // x теперь равен 15
+  </code>
+</pre>
           <li><code>/=</code> Делит и присваивает.</li>
-          <p class="notextIndent"><pre><code>let x = 10;<br>x /= 2; // x теперь равен 5</code></pre></p>
+<pre>
+  <code class="lang-js">
+let x = 10;
+x /= 2; // x теперь равен 5
+  </code>
+</pre>
           <li><code>%=</code> Делит и присваивает остаток.</li>
-          <p class="notextIndent"><pre><code>let x = 10;<br>x %= 3; // x теперь равен 1</code></pre></p>
+<pre>
+  <code class="lang-js">
+let x = 10;
+x %= 3; // x теперь равен 1
+  </code>
+</pre>
         </ul>
         <h3 id="So">3. Строковые операторы</h3>
-        <p>Основной оператор для работы со строками — '+', который используется для конкатенации строк.</p>
+        <p>Основной оператор для работы со строками — '<code>+</code>', который используется для конкатенации строк.</p>
         <ul>
           <li>Конкатенация строк: Объединение двух или более строк.</li>
-          <p><pre><code>let greeting = "Hello, " + "world!"; // "Hello, world!"</code></pre></p>
+<pre>
+  <code class="lang-js">
+let greeting = "Hello, " + "world!"; // "Hello, world!"
+  </code>
+</pre>
         </ul>
         <h3 id="Os">4. Операторы сравнения</h3>
-        <p>Операторы сравнения используются для сравнения значений. Результатом сравнения является логическое значение 'true' или 'false'.</p>
+        <p>Операторы сравнения используются для сравнения значений. Результатом сравнения является логическое значение '<code>true</code>' или '<code>false</code>'.</p>
         <ul>
           <li><code>==</code> Равно. Проверяет равенство двух значений, при этом не учитывается их тип.</li>
-          <p><pre><code>5 == "5"; // true</code></pre></p>
+          <pre><code class="lang-js">5 == "5"; // true</code></pre>
           <li><code>===</code> Строгое равенство. Проверяет как значение, так и тип.</li>
-          <p><pre><code>5 === "5"; // false</code></pre></p>
+          <pre><code class="lang-js">5 === "5"; // false</code></pre> 
           <li><code>!=</code> Не равно. Проверяет неравенство значений.</li>
-          <p><pre><code>5 != "5"; // false</code></pre></p>
+          <pre><code class="lang-js">5 != "5"; // false</code></pre>  
           <li><code>!==</code> Строгое неравенство. Проверяет неравенство значений и типов.</li>
-          <p><pre><code>5 !== "5"; // true</code></pre></p>
+          <pre><code class="lang-js">5 !== "5"; // true</code></pre>  
           <li><code>></code> Больше.</li>
-          <p><pre><code>10 > 5; // true</code></pre></p>
+          <pre><code class="lang-js">10 > 5; // true</code></pre> 
           <li><code><</code> Меньше.</li>
-          <p><pre><code>3 < 7; // true</code></pre></p>
+          <pre><code class="lang-js">3 < 7; // true</code></pre>  
           <li><code>>=</code> Больше или равно.</li>
-          <p><pre><code>5 >= 5; // true</code></pre></p>
+          <pre><code class="lang-js">5 >= 5; // true</code></pre> 
           <li><code><=</code> Меньше или равно.</li>
-          <p><pre><code>4 <= 8; // true</code></pre></p>
+          <pre><code class="lang-js">4 <= 8; // true</code></pre> 
         </ul>
         <h3 id="Lo">5. Логические операторы</h3>
-        <p>Логические операторы используются для выполнения логических операций, которые возвращают значения 'true' или 'false'.</p>
+        <p>Логические операторы используются для выполнения логических операций, которые возвращают значения '<code>true</code>' или '<code>false</code>'.</p>
         <ul>
-          <li><code>&&</code> (логическое И): Возвращает true, если оба операнда истинны.</li>
-          <p><pre><code>let result = (5 > 3) && (8 > 5); // true</code></pre></p>
-          <li><code>||</code> (логическое ИЛИ): Возвращает true, если хотя бы один из операндов истинен.</li>
-          <p><pre><code>let result = (5 > 3) || (8 < 5); // true</code></pre></p>
+          <li><code>&&</code> (логическое И): Возвращает <code>true</code>, если оба операнда истинны.</li>
+          <pre><code class="lang-js">let result = (5 > 3) && (8 > 5); // true</code></pre>  
+          <li><code>||</code> (логическое ИЛИ): Возвращает <code>true</code>, если хотя бы один из операндов истинен.</li>
+          <pre><code class="lang-js">let result = (5 > 3) || (8 < 5); // true</code></pre>  
           <li><code>!</code> (логическое НЕ): Возвращает противоположное логическое значение.</li>
-          <p><pre><code>let result = !(5 > 3); // false</code></pre></p>
+          <pre><code class="lang-js">let result = !(5 > 3); // false</code></pre> 
         </ul>
         <h3 id="Or">6. Операторы работы с битами</h3>
         <p>Операторы работы с битами позволяют выполнять операции на уровне отдельных битов в числах.</p>
@@ -125,22 +154,56 @@
         <p>Операторы типа позволяют определить тип переменной или преобразовать значения к определенному типу.</p>
         <ul>
           <li><code>typeof</code> Возвращает строку, которая обозначает тип переменной.</li>
-          <p class="notextIndent"><pre><code>typeof "Hello"; // "string"<br>typeof 42; // "number"<br>typeof true; // "boolean"</code></pre></p>
+<pre>
+  <code class="lang-js">
+typeof "Hello"; // "string"
+typeof 42; // "number"
+typeof true; // "boolean"
+  </code>
+</pre>
           <li><code>instanceof</code> Проверяет, является ли объект экземпляром определенного класса или конструктора.</li>
-          <p class="notextIndent"><pre><code>let date = new Date();<br>date instanceof Date; // true</code></pre></p>
-        </ul>
+<pre>
+  <code class="lang-js">
+let date = new Date();
+date instanceof Date; // true
+  </code>
+</pre>
+          </ul>
         <h3 id="Sop">8. Специальные операторы</h3>
         <ul>
           <li>Запятая (<code>,</code>): Позволяет вычислить несколько выражений, возвращая значение последнего.</li>
-          <p class="notextIndent"><pre><code>let a = 1, b = 2, c = 3;</code></pre></p>
+<pre>
+  <code class="lang-js">
+let a = 1, b = 2, c = 3;
+  </code>
+</pre>
           <li>Тернарный оператор (<code>?:</code>): Упрощенная форма условного оператора <code>if</code>.</li>
-          <p class="notextIndent"><pre><code>let age = 18;<br>let isAdult = age >= 18 ? "Взрослый" : "Ребенок"; // "Взрослый"</code></pre></p>
+<pre>
+  <code class="lang-js">
+let age = 18;
+let isAdult = age >= 18 ? "Взрослый" : "Ребенок"; // "Взрослый"
+  </code>
+</pre>
           <li>Оператор <code>delete</code>: Удаляет свойство объекта.</li>
-          <p class="notextIndent"><pre><code>let person = {name: "John", age: 30};<br>delete person.age; // Удаляет свойство age</code></p></pre>
+<pre>
+  <code class="lang-js">
+let person = {name: "John", age: 30};
+delete person.age; // Удаляет свойство age
+  </code>
+</pre>
           <li>Оператор <code>in</code>: Проверяет, существует ли определенное свойство в объекте.</li>
-          <p class="notextIndent"><pre><code>let person = {name: "John", age: 30};<br>"age" in person; // true</code></pre></p>
+<pre>
+  <code class="lang-js">
+let person = {name: "John", age: 30};
+"age" in person; // true
+  </code>
+</pre>
           <li>Оператор <code>void</code>: Выполняет выражение, но всегда возвращает <code>undefined</code>.</li>
-          <p class="notextIndent"><pre><code>void(0); // undefined</code></pre></p>
+<pre>
+  <code class="lang-js">
+void(0); // undefined
+  </code>
+</pre>
         </ul>
       </article>
     </main>

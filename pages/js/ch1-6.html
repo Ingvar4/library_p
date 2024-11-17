@@ -84,9 +84,11 @@
   <code class="lang-js">
     const name = "Charlie";
     name = "David"; // Ошибка: попытка изменить значение константы
+
     const person = { name: "Alice", age: 30 };
     person.age = 31; // Это допустимо, так как мы изменяем свойство объекта, а не сам объект
     console.log(person.age); // 31
+    
     if (true) {
       const age = 40;
       console.log(age); // 40, переменная доступна внутри блока
