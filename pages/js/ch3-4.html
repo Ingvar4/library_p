@@ -45,12 +45,12 @@
 <pre>
   <code class="lang-js">
     try {
-       // Код, который может вызвать ошибку
-        let result = someFunction();
-        console.log(result);
+      // Код, который может вызвать ошибку
+      let result = someFunction();
+      console.log(result);
     } catch (error) {
-        // Обработка ошибки
-        console.error("Произошла ошибка:", error.message);
+      // Обработка ошибки
+      console.error("Произошла ошибка:", error.message);
     }
   </code>
 </pre>
@@ -61,12 +61,12 @@
 <pre>
   <code class="lang-js">
     try {
-        let result = someFunction();
-        console.log(result);
+      let result = someFunction();
+      console.log(result);
     } catch (error) {
-        console.error("Произошла ошибка:", error.message);
+      console.error("Произошла ошибка:", error.message);
     } finally {
-       console.log("Этот блок выполнится в любом случае");
+      console.log("Этот блок выполнится в любом случае");
     }
   </code>
 </pre>
@@ -77,17 +77,17 @@
 <pre>
   <code class="lang-js">
     function divide(a, b) {
-        if (b === 0) {
-           throw new Error("Деление на ноль невозможно");
-        }
-        return a / b;
+      if (b === 0) {
+        throw new Error("Деление на ноль невозможно");
+      }
+      return a / b;
     }
   
     try {
-        let result = divide(4, 0);
-        console.log(result);
+      let result = divide(4, 0);
+      console.log(result);
     } catch (error) {
-        console.error("Ошибка:", error.message);
+      console.error("Ошибка:", error.message);
     }
   </code>
 </pre>
@@ -118,12 +118,12 @@
           <p>Иногда в блоке <code>catch</code> может потребоваться повторно бросить ошибку, чтобы обработать ее на более высоком уровне кода. Это делается с помощью простого <code>throw</code> без аргументов.</p>
           <p>Пример:</p>
 <pre>
-  <code>
+  <code class="lang-js">
     try {
-        someFunction();
+      someFunction();
     } catch (error) {
-        console.error("Произошла ошибка:", error.message);
-        throw error; // Пробрасывание ошибки дальше
+      console.error("Произошла ошибка:", error.message);
+      throw error; // Пробрасывание ошибки дальше
     }
   </code>
 </pre>
