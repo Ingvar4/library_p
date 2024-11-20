@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
+    <script src="../../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Инструменты для тестирования и отладки.</h1><hr>
+        <p>Отладка и тестирование CSS — это важная часть процесса разработки. Понимание доступных инструментов и подходов позволяет быстро находить ошибки, оптимизировать стили и проверять корректность работы верстки в разных браузерах и на разных устройствах.</p>
+        <h3>1. Встроенные инструменты браузеров</h3>
+        <p>Современные браузеры (Google Chrome, Firefox, Edge, Safari) предоставляют мощные инструменты разработчика для работы с CSS:</p>
+        <ul>
+          <li><strong>Просмотр стилей (Styles):</strong>
+            <ul>
+              <li>Показывает применяемые к элементу стили, включая наследуемые, псевдоклассы и псевдоэлементы.</li>
+              <li>Удобно выявлять конфликтующие или перекрывающие друг друга правила.</li>
+            </ul>
+          </li>
+          <li><strong>Редактирование CSS в реальном времени:</strong>
+            <ul>
+              <li>Можно изменять стили прямо в браузере и видеть результат немедленно.</li>
+              <li>Удобно для тестирования и экспериментирования.</li>
+            </ul>
+          </li>
+          <li><strong>Layout (в Chrome DevTools):</strong>
+            <ul>
+              <li>Подсветка размеров, отступов (margin), полей (padding) и границ (border) через <strong>box model overlay</strong>.</li>
+              <li>Отображает сетки (Flexbox, Grid) и их свойства.</li>
+            </ul>
+          </li>
+          <li><strong>Simulate pseudo-classes:</strong>
+            <ul>
+              <li>Например, тестирование <code>:hover</code>, <code>:focus</code>, <code>:active</code>, чтобы убедиться, что эти состояния работают корректно.</li>
+            </ul>
+          </li>
+          <li><strong>Отображение медиазапросов:</strong>
+            <ul>
+              <li>Вкладка <strong>Responsive Design Mode</strong> в Firefox и Chrome позволяет тестировать различные размеры экранов и устройства.</li>
+            </ul>
+          </li>
+        </ul>
+        <h3>2. Расширения и плагины для браузеров</h3>
+        <ul>
+          <li><strong>WhatFont (Chrome/Firefox):</strong>
+            <ul>
+              <li>Узнайте, какой шрифт используется на сайте, его размер и свойства.</li>
+            </ul>
+          </li>
+          <li><strong>ColorZilla:</strong>
+            <ul>
+              <li>Позволяет быстро копировать цвета с сайта.</li>
+            </ul>
+          </li>
+          <li><strong>Axe Accessibility Checker:</strong>
+            <ul>
+              <li>Проверяет стили и контент на соответствие стандартам доступности (WCAG).</li>
+            </ul>
+          </li>
+          <li><strong>CSS Peeper:</strong>
+            <ul>
+              <li>Показывает информацию о дизайне, используемых шрифтах, цветах и элементах.</li>
+            </ul>
+          </li>
+        </ul>
+        <h3>3. Инструменты для проверки совместимости</h3>
+        <p>Совместимость стилей с различными браузерами и устройствами — частая проблема в разработке.</p>
+        <ul>
+          <li><strong>Can I Use:</strong>
+            <ul>
+              <li>Онлайн-инструмент для проверки поддержки CSS-свойств в разных браузерах.</li>
+              <li>Удобен для тестирования современных технологий, таких как <code>grid-template-areas</code> или <code>clip-path</code>.</li>
+            </ul>
+          </li>
+          <li><strong>BrowserStack:</strong>
+            <ul>
+              <li>Платформа для тестирования веб-приложений на разных устройствах и браузерах.</li>
+            </ul>
+          </li>
+          <li><strong>CrossBrowserTesting:</strong>
+            <ul>
+              <li>Альтернативный инструмент для проверки рендеринга сайта.</li>
+            </ul>
+          </li>
+        </ul>
+        <h3>4. Автоматизированное тестирование CSS</h3>
+        <p>CSS можно проверять автоматически с помощью специализированных библиотек и инструментов:</p>
+        <ul>
+          <li><strong>CSS Lint:</strong>
+            <ul>
+              <li>Проверяет код на ошибки и несоответствия стандартам.</li>
+            </ul>
+          </li>
+          <li><strong>Stylelint:</strong>
+            <ul>
+              <li>Настраиваемый инструмент для линтинга CSS и препроцессоров (Sass, LESS).</li>
+              <li>Поддерживает плагины для тестирования согласованности кодстайла.</li>
+            </ul>
+          </li>
+          <li><strong>Percy или Chromatic:</strong>
+            <ul>
+              <li>Для визуального тестирования. Сравнивают рендеринг страницы перед и после изменений, чтобы выявить визуальные дефекты.</li>
+            </ul>
+          </li>
+        </ul>
+        <h3>5. Инструменты для анализа и оптимизации CSS</h3>
+        <ul>
+          <li><strong>PurgeCSS:</strong>
+            <ul>
+              <li>Автоматически удаляет неиспользуемые стили из вашего CSS.</li>
+            </ul>
+          </li>
+          <li><strong>CSSNano:</strong>
+            <ul>
+              <li>Минифицирует CSS, сокращая объём файла.</li>
+            </ul>
+          </li>
+          <li><strong>UnCSS:</strong>
+            <ul>
+              <li>Удаляет неиспользуемые стили на основе анализа DOM.</li>
+            </ul>
+          </li>
+          <li><strong>PostCSS:</strong>
+            <ul>
+              <li>Позволяет использовать плагины для автоматической оптимизации кода, добавления вендорных префиксов и других улучшений.</li>
+            </ul>
+          </li>
+        </ul>
+        <h3>6. Диагностика производительности CSS</h3>
+        <ul>
+          <li><strong>Lighthouse (Google Chrome):</strong>
+            <ul>
+              <li>Проверяет производительность сайта, включая влияние CSS на скорость загрузки.</li>
+            </ul>
+          </li>
+          <li><strong>DevTools Performance Tab:</strong>
+            <ul>
+              <li>Анализирует, какие стили замедляют рендеринг страницы.</li>
+            </ul>
+          </li>
+          <li><strong>CSS Triggers:</strong>
+            <ul>
+              <li>Показывает, какие CSS-свойства вызывают перерасчёт стилей, перерисовку или рефлоу (reflow).</li>
+            </ul>
+          </li>
+        </ul>
+        <h3>7. Инструменты для работы с сетками (Flexbox и Grid)</h3>
+        <ul>
+          <li><strong>Flexbox Froggy и Grid Garden:</strong>
+            <ul>
+              <li>Игры, которые помогут лучше понять поведение Flexbox и CSS Grid.</li>
+            </ul>
+          </li>
+          <li><strong>CSS Grid Generator:</strong>
+            <ul>
+              <li>Генерирует код для сеток, облегчая разработку.</li>
+            </ul>
+          </li>
+          <li><strong>Flexbox Inspector (встроен в DevTools):</strong>
+            <ul>
+              <li>Показывает свойства Flexbox-контейнера и элементов.</li>
+            </ul>
+          </li>
+        </ul>
+        <h3>8. Мобильное тестирование</h3>
+        <ul>
+          <li><strong>Google DevTools Remote Debugging:</strong>
+            <ul>
+              <li>Тестирование и отладка сайта на мобильных устройствах через USB или эмуляцию.</li>
+            </ul>
+          </li>
+          <li><strong>Responsive Design Mode (Firefox):</strong>
+            <ul>
+              <li>Быстро переключайтесь между различными размерами экранов.</li>
+            </ul>
+          </li>
+          <li><strong>Viewport Resizer (Chrome/Firefox):</strong>
+            <ul>
+              <li>Тестирование адаптивных и резиновых макетов.</li>
+            </ul>
+          </li>
+        </ul>
+        <h3>9. Отладка сложных анимаций</h3>
+        <ul>
+          <li><strong>DevTools Animation Tab:</strong>
+            <ul>
+              <li>Отображает временные линии анимаций, их задержки, длительность и т.д.</li>
+            </ul>
+          </li>
+          <li><strong>Keyframes.app:</strong>
+            <ul>
+              <li>Удобный инструмент для создания и редактирования анимаций.</li>
+            </ul>
+          </li>
+        </ul>
+        <h3>10. Полезные фреймворки и утилиты</h3>
+        <ul>
+          <li><strong>Bootstrap или TailwindCSS:</strong>
+            <ul>
+              <li>Предоставляют готовые стили и сетки, ускоряя разработку.</li>
+            </ul>
+          </li>
+          <li><strong>Normalize.css:</strong>
+            <ul>
+              <li>Выравнивает различия в рендеринге между браузерами.</li>
+            </ul>
+          </li>
+          <li><strong>Modernizr:</strong>
+            <ul>
+              <li>Проверяет поддержку современных CSS-свойств и технологий.</li>
+            </ul>
+          </li>
+        </ul>
+        <p>Эти инструменты помогут вам на всех этапах разработки — от написания CSS до его оптимизации и тестирования.</p>
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>
