@@ -38,9 +38,9 @@
 <pre>
   <code class="lang-js">
     let person = {
-        name: "Иван",
-        age: 30,
-        isEmployed: true
+      name: "Иван",
+      age: 30,
+      isEmployed: true
     };
   </code>
 </pre>
@@ -104,13 +104,13 @@
 <pre>
   <code class="lang-js">
     let person = {
-        name: "Иван",
-        age: 30,
-        address: {
-            city: "Москва",
-            street: "Тверская",
-            houseNumber: 12
-        }
+      name: "Иван",
+      age: 30,
+      address: {
+        city: "Москва",
+        street: "Тверская",
+        houseNumber: 12
+      }
     };
   </code>
 </pre>
@@ -126,11 +126,11 @@
 <pre>
   <code class="lang-js">
     let person = {
-        name: "Иван",
-        age: 30,
-        greet: function() {
-            console.log("Привет! Меня зовут " + this.name);
-        }
+      name: "Иван",
+      age: 30,
+      greet: function() {
+        console.log("Привет! Меня зовут " + this.name);
+      }
     };
   
     person.greet(); // "Привет! Меня зовут Иван"
@@ -143,7 +143,7 @@
 <pre>
   <code class="lang-js">
     for (let key in person) {
-        console.log(key + ": " + person[key]);
+      console.log(key + ": " + person[key]);
     }
   </code>
 </pre>
