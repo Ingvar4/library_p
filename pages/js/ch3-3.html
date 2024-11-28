@@ -38,11 +38,11 @@
 <pre>
   <code class="lang-js">
     let person = {
-        name: "Иван",
-        age: 30,
-        greet: function() {
-            console.log("Привет! Меня зовут " + this.name);
-        }
+      name: "Иван",
+      age: 30,
+      greet: function() {
+        console.log("Привет! Меня зовут " + this.name);
+      }
     };
   </code>
 </pre>
@@ -53,12 +53,12 @@
 <pre> 
   <code class="lang-js">
     let car = {
-        make: "Toyota",
-        model: "Corolla",
-        year: 2020,
-        getInfo: function() {
-            return this.make + " " + this.model + ", " + this.year;
-        }
+      make: "Toyota",
+      model: "Corolla",
+      year: 2020,
+      getInfo: function() {
+        return this.make + " " + this.model + ", " + this.year;
+      }
     };
   
     console.log(car.getInfo()); // "Toyota Corolla, 2020"
@@ -71,11 +71,11 @@
 <pre>
   <code class="lang-js">
     let person = {
-        name: "Иван",
-        age: 30,
-        greet() {
-            console.log("Привет! Меня зовут " + this.name);
-        }
+      name: "Иван",
+      age: 30,
+      greet() {
+        console.log("Привет! Меня зовут " + this.name);
+      }
     };
   
     person.greet(); // "Привет! Меня зовут Иван"
