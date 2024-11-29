@@ -12,30 +12,16 @@
         max-width: 1300px;
       }
       
-      a {
+      .pagesLinks {
         outline: none;
-        /* text-decoration: none; */
         color: rgb(54, 47, 47);
       }
 
-      a:link {
-        color: black;
-      }
-
-      /* a:visited {
-        color: #437a16;
-      }
-
-      a:focus {
-        
-      } */
-
-      a:hover {
-        /* border-bottom: 1px solid; */
+      .pagesLinks:hover {
         background: rgba(220, 220, 220, 0.789);
       }
 
-      a:active {
+      .pagesLinks:active {
         border: 4px inset white;
         border-radius: 4px;
         background: whitesmoke;
@@ -72,79 +58,79 @@
         <h1>Начало работы с CSS</h1>
         <ul>
           <p><strong>1. Введение в CSS</strong></p>
-          <li><a href="../pages/css/ch1-1.html">Что такое CSS и зачем он нужен.</a></li>
-          <li><a href="../pages/css/ch1-2.html">Основные способы подключения CSS: <code style="background-color: rgba(169, 169, 169, 0.315);">inline</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">internal</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">external</code>.</a></li>
-          <li><a href="../pages/css/ch1-3.html">Основные синтаксические правила CSS.</a></li>
-          <li><a href="../pages/css/ch1-4.html">Основные понятия: селекторы, свойства, значения.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch1-1.html">Что такое CSS и зачем он нужен.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch1-2.html">Основные способы подключения CSS: <code style="background-color: rgba(169, 169, 169, 0.315);">inline</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">internal</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">external</code>.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch1-3.html">Основные синтаксические правила CSS.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch1-4.html">Основные понятия: селекторы, свойства, значения.</a></li>
         </ul>
 
         <ul>
           <p><strong>2. Базовые стили</strong></p>
-          <li><a href="../pages/css/ch2-1.html">Работа с текстом: <code style="background-color: rgba(169, 169, 169, 0.315);">font-size</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">font-family</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">font-weight</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">text-align</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">text-transform</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">line-height</code>.</a></li>
-          <li><a href="../pages/css/ch2-2.html">Цвета и фон: <code style="background-color: rgba(169, 169, 169, 0.315);">color</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">background-color</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">background-image</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">opacity</code>.</a></li>
-          <li><a href="../pages/css/ch2-3.html">Отступы и поля (<code style="background-color: rgba(169, 169, 169, 0.315);">margins</code> и <code style="background-color: rgba(169, 169, 169, 0.315);">padding)</code>.</a></li>
-          <li><a href="../pages/css/ch2-4.html">Бордеры и их свойства: <code style="background-color: rgba(169, 169, 169, 0.315);">border</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">border-radius</code>.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch2-1.html">Работа с текстом: <code style="background-color: rgba(169, 169, 169, 0.315);">font-size</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">font-family</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">font-weight</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">text-align</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">text-transform</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">line-height</code>.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch2-2.html">Цвета и фон: <code style="background-color: rgba(169, 169, 169, 0.315);">color</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">background-color</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">background-image</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">opacity</code>.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch2-3.html">Отступы и поля (<code style="background-color: rgba(169, 169, 169, 0.315);">margins</code> и <code style="background-color: rgba(169, 169, 169, 0.315);">padding)</code>.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch2-4.html">Бордеры и их свойства: <code style="background-color: rgba(169, 169, 169, 0.315);">border</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">border-radius</code>.</a></li>
         </ul>
 
         <ul>
           <p><strong>3. Селекторы в CSS</strong></p>
-          <li><a href="../pages/css/ch3-1.html">Простые селекторы: по тегам, классам, идентификаторам.</a></li>
-          <li><a href="../pages/css/ch3-2.html">Комбинированные селекторы: потомки, дети, соседние элементы.</a></li>
-          <li><a href="../pages/css/ch3-3.html">Псевдоклассы: <code style="background-color: rgba(169, 169, 169, 0.315);">:hover</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">:focus</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">:active</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">:nth-child()</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">:last-child()</code>.</a></li>
-          <li><a href="../pages/css/ch3-4.html">Псевдоэлементы: <code style="background-color: rgba(169, 169, 169, 0.315);">::before</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">::after</code>.</a></li>
-          <li><a href="../pages/css/ch3-5.html">Атрибутные селекторы.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch3-1.html">Простые селекторы: по тегам, классам, идентификаторам.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch3-2.html">Комбинированные селекторы: потомки, дети, соседние элементы.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch3-3.html">Псевдоклассы: <code style="background-color: rgba(169, 169, 169, 0.315);">:hover</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">:focus</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">:active</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">:nth-child()</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">:last-child()</code>.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch3-4.html">Псевдоэлементы: <code style="background-color: rgba(169, 169, 169, 0.315);">::before</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">::after</code>.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch3-5.html">Атрибутные селекторы.</a></li>
         </ul>
 
         <ul>
           <p><strong>4. Работа с блоками и макетом</strong></p>
-          <li><a href="../pages/css/ch4-1.html">Блочные и строчные элементы.</a></li>
-          <li><a href="../pages/css/ch4-2.html">Свойства <code style="background-color: rgba(169, 169, 169, 0.315);">display: block</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">inline-block</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">none</code>.</a></li>
-          <li><a href="../pages/css/ch4-3.html">Модель блочной коробки (Box Model).</a></li>
-          <li><a href="../pages/css/ch4-4.html">Введение в Flexbox: контейнер и элементы.</a></li>
-          <li><a href="../pages/css/ch4-5.html">Введение в CSS Grid: работа с сетками.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch4-1.html">Блочные и строчные элементы.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch4-2.html">Свойства <code style="background-color: rgba(169, 169, 169, 0.315);">display: block</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">inline-block</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">none</code>.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch4-3.html">Модель блочной коробки (Box Model).</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch4-4.html">Введение в Flexbox: контейнер и элементы.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch4-5.html">Введение в CSS Grid: работа с сетками.</a></li>
         </ul>
 
         <ul>
           <p><strong>5. Позиционирование элементов</strong></p>
-          <li><a href="../pages/css/ch5-1.html">Статичное, относительное, абсолютное и фиксированное позиционирование.</a></li>
-          <li><a href="../pages/css/ch5-2.html">Свойства <code style="background-color: rgba(169, 169, 169, 0.315);">top</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">right</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">bottom</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">left</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">z-index</code>.</a></li>
-          <li><a href="../pages/css/ch5-3.html">Современные макеты с помощью Flexbox и Grid.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch5-1.html">Статичное, относительное, абсолютное и фиксированное позиционирование.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch5-2.html">Свойства <code style="background-color: rgba(169, 169, 169, 0.315);">top</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">right</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">bottom</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">left</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">z-index</code>.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch5-3.html">Современные макеты с помощью Flexbox и Grid.</a></li>
         </ul>
 
         <ul>
           <p><strong>6. Адаптивный дизайн</strong></p>
-          <li><a href="../pages/css/ch6-1.html">Введение в адаптивную верстку.</a></li>
-          <li><a href="../pages/css/ch6-2.html">Использование медиа-запросов (<code style="background-color: rgba(169, 169, 169, 0.315);">@media</code>) для различных устройств.</a></li>
-          <li><a href="../pages/css/ch6-3.html">Основы подхода "Mobile First".</a></li>
-          <li><a href="../pages/css/ch6-4.html">Работа с резиновыми единицами: <code style="background-color: rgba(169, 169, 169, 0.315);">em</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">rem</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">vw</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">vh</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">%</code>.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch6-1.html">Введение в адаптивную верстку.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch6-2.html">Использование медиа-запросов (<code style="background-color: rgba(169, 169, 169, 0.315);">@media</code>) для различных устройств.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch6-3.html">Основы подхода "Mobile First".</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch6-4.html">Работа с резиновыми единицами: <code style="background-color: rgba(169, 169, 169, 0.315);">em</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">rem</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">vw</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">vh</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">%</code>.</a></li>
         </ul>
 
         <ul>
           <p><strong>7. Трансформации и анимации</strong></p>
-          <li><a href="../pages/css/ch7-1.html">Трансформации: <code style="background-color: rgba(169, 169, 169, 0.315);">transform</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">translate</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">rotate</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">scale</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">skew</code>.</a></li>
-          <li><a href="../pages/css/ch7-2.html">Переходы: <code style="background-color: rgba(169, 169, 169, 0.315);">transition</code>, как задать временные интервалы и задержки.</a></li>
-          <li><a href="../pages/css/ch7-3.html">Анимации: свойство <code style="background-color: rgba(169, 169, 169, 0.315);">animation</code>, ключевые кадры <code style="background-color: rgba(169, 169, 169, 0.315);">@keyframes</code>.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch7-1.html">Трансформации: <code style="background-color: rgba(169, 169, 169, 0.315);">transform</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">translate</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">rotate</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">scale</code>, <code style="background-color: rgba(169, 169, 169, 0.315);">skew</code>.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch7-2.html">Переходы: <code style="background-color: rgba(169, 169, 169, 0.315);">transition</code>, как задать временные интервалы и задержки.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch7-3.html">Анимации: свойство <code style="background-color: rgba(169, 169, 169, 0.315);">animation</code>, ключевые кадры <code style="background-color: rgba(169, 169, 169, 0.315);">@keyframes</code>.</a></li>
         </ul>
 
         <ul>
           <p><strong>8. Практика: Стилизация веб-страницы</strong></p>
-          <li><a href="../pages/css/ch8-1.html">Создание простого макета сайта с помощью Flexbox.</a></li>
-          <li><a href="../pages/css/ch8-2.html">Стилизация типичных элементов веб-страницы (шапка, меню, контент, подвал).</a></li>
-          <li><a href="../pages/css/ch8-3.html">Адаптация сайта под разные устройства с помощью медиа-запросов.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch8-1.html">Создание простого макета сайта с помощью Flexbox.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch8-2.html">Стилизация типичных элементов веб-страницы (шапка, меню, контент, подвал).</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch8-3.html">Адаптация сайта под разные устройства с помощью медиа-запросов.</a></li>
         </ul>
 
         <ul>
           <p><strong>9. Углубление: CSS-переменные и препроцессоры</strong></p>
-          <li><a href="../pages/css/ch9-1.html">Использование CSS-переменных (<code style="background-color: rgba(169, 169, 169, 0.315);">--var</code> и <code style="background-color: rgba(169, 169, 169, 0.315);">var()</code>).</a></li>
-          <li><a href="../pages/css/ch9-2.html">Введение в препроцессоры: Sass, LESS (основные концепции).</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch9-1.html">Использование CSS-переменных (<code style="background-color: rgba(169, 169, 169, 0.315);">--var</code> и <code style="background-color: rgba(169, 169, 169, 0.315);">var()</code>).</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch9-2.html">Введение в препроцессоры: Sass, LESS (основные концепции).</a></li>
         </ul>
 
         <ul>
           <p><strong>10. Продвинутые темы</strong></p>
-          <li><a href="../pages/css/ch10-1.html">CSS Grid для сложных макетов.</a></li>
-          <li><a href="../pages/css/ch10-2.html">Переменные и каскадность.</a></li>
-          <li><a href="../pages/css/ch10-3.html">Углубленное использование псевдоклассов и псевдоэлементов.</a></li>
-          <li><a href="../pages/css/ch10-4.html">Оптимизация производительности CSS.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch10-1.html">CSS Grid для сложных макетов.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch10-2.html">Переменные и каскадность.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch10-3.html">Углубленное использование псевдоклассов и псевдоэлементов.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch10-4.html">Оптимизация производительности CSS.</a></li>
         </ul>
 
         <ul>
@@ -155,16 +141,16 @@
 
         <ul>
           <p><strong>12. Поддержка кроссбраузерности</strong></p>
-          <li><a href="../pages/css/ch12-1.html">Как тестировать стили в разных браузерах.</a></li>
-          <li><a href="../pages/css/ch12-2.html">Использование автопрефиксеров.</a></li>
-          <li><a href="../pages/css/ch12-3.html">Инструменты для тестирования и отладки.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch12-1.html">Как тестировать стили в разных браузерах.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch12-2.html">Использование автопрефиксеров.</a></li>
+          <li><a class="pagesLinks" href="../pages/css/ch12-3.html">Инструменты для тестирования и отладки.</a></li>
         </ul>
 
         <ul>
           <p><strong>13. Ресурсы для углубления знаний</strong></p>
-          <li><a href="https://developer.mozilla.org/ru/docs/Web/CSS">MDN Web Docs: CSS</a></li>
-          <li><a href="https://css-tricks.com/">CSS Tricks</a></li>
-          <li><a href="https://www.freecodecamp.org/">freeCodeCamp: CSS</a></li>
+          <li><a class="pagesLinks" href="https://developer.mozilla.org/ru/docs/Web/CSS">MDN Web Docs: CSS</a></li>
+          <li><a class="pagesLinks" href="https://css-tricks.com/">CSS Tricks</a></li>
+          <li><a class="pagesLinks" href="https://www.freecodecamp.org/">freeCodeCamp: CSS</a></li>
           <li>Практика на платформах вроде <a href="https://codepen.io/">CodePen</a> и <a href="https://www.frontendmentor.io/">Frontend Mentor</a>.</li>
         </ul>
         <hr>
