@@ -52,10 +52,10 @@
 
     &frasl;&frasl;JS
     &lt;script>
-        let button = document.getElementById("myButton");
-        button.addEventListener("click", function() {
-            alert("Кнопка была нажата!");
-        });
+      let button = document.getElementById("myButton");
+      button.addEventListener("click", function() {
+        alert("Кнопка была нажата!");
+      });
     &lt;/script>
   </code>
 </pre>
@@ -70,10 +70,10 @@
 
     &frasl;&frasl;JS
     &lt;script>
-        let inputField = document.getElementById("myInput");
-        inputField.addEventListener("input", function() {
-           console.log("Пользователь ввёл: " + inputField.value);
-        });
+      let inputField = document.getElementById("myInput");
+      inputField.addEventListener("input", function() {
+        console.log("Пользователь ввёл: " + inputField.value);
+      });
     &lt;/script>
   </code>
 </pre>
@@ -91,12 +91,12 @@
     
     &frasl;&frasl;JS
     &lt;script>
-        let form = document.getElementById("myForm");
-        form.addEventListener("submit", function(event) {
-            event.preventDefault(); // Предотвращает отправку формы
-            alert("Форма отправлена успешно!");
-       });
-       &lt;/script>
+      let form = document.getElementById("myForm");
+      form.addEventListener("submit", function(event) {
+        event.preventDefault(); // Предотвращает отправку формы
+        alert("Форма отправлена успешно!");
+      });
+    &lt;/script>
   </code>
 </pre>
           <p>В этом примере событие <code>submit</code> связано с формой. Обработчик сначала предотвращает стандартное поведение формы (отправка), а затем выводит сообщение об успешной отправке.</p>
@@ -112,17 +112,17 @@
 
     &frasl;&frasl;JS
     &lt;script>
-        let button = document.getElementById("myButton");
-        let inputField = document.getElementById("myInput");
-        let output = document.getElementById("output");
+      let button = document.getElementById("myButton");
+      let inputField = document.getElementById("myInput");
+      let output = document.getElementById("output");
 
-        button.addEventListener("click", function() {
-           if (inputField.value.trim() === "") {
-                output.textContent = "Поле ввода пустое!";
-            } else {
-                output.textContent = "Ты ввёл: " + inputField.value;
-            }
-        });
+      button.addEventListener("click", function() {
+        if (inputField.value.trim() === "") {
+          output.textContent = "Поле ввода пустое!";
+        } else {
+          output.textContent = "Ты ввёл: " + inputField.value;
+        }
+      });
    &lt;/script>
   </code>
 </pre>
@@ -133,7 +133,7 @@
 <pre>
   <code class="lang-js">
     function showAlert() {
-       alert("Это сообщение будет показано только один раз");
+      alert("Это сообщение будет показано только один раз");
     }
   
     // Добавление обработчика
