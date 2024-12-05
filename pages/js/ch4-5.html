@@ -29,7 +29,7 @@
     <!--основной блок с информацией-->
     <main>
       <article>
-        <h1>Использование <code>addEventListener</code> для управления событиями</h1><hr>
+        <h1>Использование `addEventListener` для управления событиями</h1><hr>
         <p>Метод <code>addEventListener</code> — это универсальный способ назначения обработчиков событий элементам DOM. Он позволяет гибко управлять реакцией элементов на действия пользователя и другие события.</p>
         <ol>
           <li><strong>Основы использования <code>addEventListener</code></strong></li>
@@ -45,7 +45,7 @@
     let button = document.querySelector("button");
 
     button.addEventListener("click", function() {
-        alert("Кнопка была нажата!");
+      alert("Кнопка была нажата!");
     });
   </code>
 </pre>
@@ -56,7 +56,7 @@
 <pre>
   <code class="lang-js">
     function handleClick() {
-        alert("Кнопка была нажата!");
+      alert("Кнопка была нажата!");
     }
   
     let button = document.querySelector("button");
@@ -84,11 +84,11 @@
     let button = document.querySelector("button");
 
     div.addEventListener("click", function() {
-        console.log("DIV click");
+      console.log("DIV click");
     }, true); // Обработчик сработает на фазе захвата
 
     button.addEventListener("click", function() {
-       console.log("Button click");
+      console.log("Button click");
     });
   </code>
 </pre>
@@ -97,7 +97,7 @@
 <pre>
   <code class="lang-js">
     button.addEventListener("click", function() {
-        alert("Это сообщение будет показано только один раз");
+      alert("Это сообщение будет показано только один раз");
     }, { once: true });
   </code>
 </pre>
@@ -106,7 +106,7 @@
 <pre>
   <code class="lang-js">
     window.addEventListener("scroll", function() {
-        console.log("Пользователь скроллит страницу");
+      console.log("Пользователь скроллит страницу");
     }, { passive: true });
   </code>
 </pre>
@@ -120,11 +120,11 @@
     let div = document.querySelector("div");
 
     div.addEventListener("mouseover", function() {
-       div.style.backgroundColor = "lightblue";
+      div.style.backgroundColor = "lightblue";
     });
 
     div.addEventListener("mouseout", function() {
-        div.style.backgroundColor = "";
+      div.style.backgroundColor = "";
     });
   </code>
 </pre>
@@ -132,7 +132,7 @@
 <pre>
   <code class="lang-js">
     document.addEventListener("keydown", function(event) {
-        console.log("Клавиша нажата: " + event.key);
+      console.log("Клавиша нажата: " + event.key);
     });
   </code>
 </pre>
@@ -140,7 +140,7 @@
 <pre>
   <code class="lang-js">
     window.addEventListener("resize", function() {
-        console.log("Размер окна изменён");
+      console.log("Размер окна изменён");
     });
   </code>
 </pre>
@@ -150,11 +150,9 @@
         <p><code>addEventListener</code> — это мощный инструмент для работы с событиями в DOM. Он предоставляет гибкость и контроль над тем, как и когда ваши обработчики событий должны срабатывать, делая ваши веб-страницы интерактивными и отзывчивыми. Понимание и использование дополнительных опций метода открывает возможности для оптимизации и улучшения производительности вашего кода.</p>
       </article>
     </main>
-
     <!--блок в нижней части страницы-->
     <footer> 
       <p>©Copyright 2024 by nobody. All rights reversed.</p>
     </footer>
-
   </body>
 </html>
