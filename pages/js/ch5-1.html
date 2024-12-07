@@ -45,14 +45,14 @@
 <pre>
   <code class="lang-js">
     function doSomethingAsync(callback) {
-        setTimeout(() => {
-            console.log("Асинхронная операция завершена");
-            callback();
-       }, 1000);
+      setTimeout(() => {
+        console.log("Асинхронная операция завершена");
+          callback();
+      }, 1000);
     }
   
     function onComplete() {
-       console.log("Колбэк выполнен");
+      console.log("Колбэк выполнен");
     }
   
     doSomethingAsync(onComplete);
@@ -76,23 +76,23 @@
 <pre>
   <code class="lang-js">
     let promise = new Promise((resolve, reject) => {
-        setTimeout(() => {
-            let success = true;
-            if (success) {
-                resolve("Операция выполнена успешно");
-            } else {
-                reject("Произошла ошибка");
-            }
-        }, 1000);
+      setTimeout(() => {
+        let success = true;
+        if (success) {
+          resolve("Операция выполнена успешно");
+        } else {
+          reject("Произошла ошибка");
+        }
+      }, 1000);
     });
   
     promise
-        .then(result => {
-            console.log(result);
-        })
-        .catch(error => {
-            console.error(error);
-        });
+      .then(result => {
+        console.log(result);
+      })
+      .catch(error => {
+        console.error(error);
+      });
   </code>
 </pre>
           <p>В этом примере промис симулирует асинхронную операцию. Если операция завершается успешно, вызывается функция <code>resolve</code>, иначе — <code>reject</code>. Метод <code>then</code> используется для обработки успешного завершения, а <code>catch</code> — для обработки ошибок.</p>
@@ -114,15 +114,15 @@
   <code class="lang-js">
     async function fetchData() {
       try {
-          let response = await fetch("https://api.example.com/data");
-          let data = await response.json();
-          console.log(data);
+        let response = await fetch("https://api.example.com/data");
+        let data = await response.json();
+        console.log(data);
       } catch (error) {
           console.error("Ошибка:", error);
       }
-  }
+    }
   
-  fetchData();
+    fetchData();
   </code>
 </pre>
           <p>Здесь функция <code>fetchData</code> использует <code>await</code> для ожидания завершения промисов, возвращаемых методами <code>fetch</code> и <code>response.json</code>. Если возникает ошибка, она перехватывается с помощью блока <code>try/catch</code>.</p>
@@ -132,18 +132,18 @@
   <code class="lang-js">
     async function fetchAllData() {
       try {
-          let [data1, data2] = await Promise.all([
-              fetch("https://api.example.com/data1").then(res => res.json()),
-              fetch("https://api.example.com/data2").then(res => res.json())
-          ]);
+        let [data1, data2] = await Promise.all([
+          fetch("https://api.example.com/data1").then(res => res.json()),
+          fetch("https://api.example.com/data2").then(res => res.json())
+        ]);
           console.log("Data 1:", data1);
           console.log("Data 2:", data2);
-      } catch (error) {
-          console.error("Ошибка:", error);
+        } catch (error) {
+            console.error("Ошибка:", error);
       }
-  }
+    }
   
-  fetchAllData();
+    fetchAllData();
   </code>
 </pre>
           <p>В этом примере оба запроса выполняются параллельно, и результат обрабатывается, когда оба промиса завершены.</p>
