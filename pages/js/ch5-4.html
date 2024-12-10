@@ -43,7 +43,7 @@
 <pre>
   <code class="lang-js">
     async function sayHello() {
-        return "Привет, мир!";
+      return "Привет, мир!";
     }
   
     sayHello().then(result => console.log(result)); // "Привет, мир!"
@@ -56,9 +56,9 @@
 <pre>
   <code class="lang-js">
     async function fetchData() {
-        let response = await fetch("https://api.example.com/data");
-        let data = await response.json();
-        console.log(data);
+      let response = await fetch("https://api.example.com/data");
+      let data = await response.json();
+      console.log(data);
     }
   
     etchData();
@@ -75,16 +75,16 @@
 <pre>
   <code class="lang-js">
     async function fetchData() {
-        try {
-            let response = await fetch("https://api.example.com/data");
-            if (!response.ok) {
-                throw new Error("Ошибка HTTP: " + response.status);
-            }
-            let data = await response.json();
+      try {
+        let response = await fetch("https://api.example.com/data");
+          if (!response.ok) {
+            throw new Error("Ошибка HTTP: " + response.status);
+          }
+        let data = await response.json();
             console.log(data);
         } catch (error) {
             console.error("Произошла ошибка:", error);
-        }
+      }
     }
   
     fetchData();
@@ -97,16 +97,16 @@
 <pre>
   <code class="lang-js">
     async function fetchAllData() {
-        try {
-            let [data1, data2] = await Promise.all([
-                fetch("https://api.example.com/data1").then(res => res.json()),
-                fetch("https://api.example.com/data2").then(res => res.json())
-            ]);
-            console.log("Data 1:", data1);
-            console.log("Data 2:", data2);
-        } catch (error) {
-            console.error("Ошибка:", error);
-        }
+      try {
+        let [data1, data2] = await Promise.all([
+          fetch("https://api.example.com/data1").then(res => res.json()),
+          fetch("https://api.example.com/data2").then(res => res.json())
+        ]);
+          console.log("Data 1:", data1);
+          console.log("Data 2:", data2);
+      } catch (error) {
+          console.error("Ошибка:", error);
+      }
     }
   
     fetchAllData();
@@ -119,9 +119,9 @@
 <pre>
   <code class="lang-js">
     async function processArray(array) {
-        for (let item of array) {
-            await processItem(item);
-        }
+      for (let item of array) {
+        await processItem(item);
+      }
     }
   </code>
 </pre>
@@ -142,12 +142,12 @@
 <pre>
   <code class="lang-js">
     async function getNumber() {
-        return 42;
+      return 42;
     }
   
     async function printNumber() {
-        let number = await getNumber();
-        console.log(number); // 42
+      let number = await getNumber();
+      console.log(number); // 42
     }
   
     printNumber();
