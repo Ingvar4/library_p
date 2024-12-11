@@ -38,17 +38,17 @@
 <pre>
   <code class="lang-js">
     let myPromise = new Promise((resolve, reject) => {
-        // Допустим, произошла ошибка
-        reject("Произошла ошибка");
+      // Допустим, произошла ошибка
+      reject("Произошла ошибка");
     });
   
     myPromise
-        .then(result => {
-            console.log("Успешно:", result);
-        })
-        .catch(error => {
-            console.error("Ошибка:", error); // Обработка ошибки
-        });
+      .then(result => {
+        console.log("Успешно:", result);
+      })
+      .catch(error => {
+        console.error("Ошибка:", error); // Обработка ошибки
+      });
   </code>
 </pre>
           <p>Если в процессе выполнения промиса возникает ошибка, она передаётся в <code>catch</code>, который позволяет её обработать. Это аналог блоков <code>try/catch</code> для синхронного кода.</p>
@@ -58,13 +58,13 @@
 <pre>
   <code class="lang-js">
     async function fetchData() {
-        try {
-            let response = await fetch("https://api.example.com/data");
-            let data = await response.json();
-            console.log(data);
-        } catch (error) {
-            console.error("Ошибка при получении данных:", error);
-        }
+      try {
+        let response = await fetch("https://api.example.com/data");
+        let data = await response.json();
+          console.log(data);
+      } catch (error) {
+          console.error("Ошибка при получении данных:", error);
+      }
     }
   
     fetchData();
@@ -75,13 +75,13 @@
 <pre>
   <code class="lang-js">
     async function fetchData() {
-        try {
-            let response = await fetch("https://api.nonexistent.com/data");
-            let data = await response.json();
-            console.log(data);
-        } catch (error) {
-            console.error("Произошла ошибка:", error); // Здесь будет показано сообщение об ошибке
-        }
+      try {
+        let response = await fetch("https://api.nonexistent.com/data");
+        let data = await response.json();
+          console.log(data);
+      } catch (error) {
+          console.error("Произошла ошибка:", error); // Здесь будет показано сообщение об ошибке
+      }
     }
   
     fetchData();
@@ -94,20 +94,20 @@
 <pre>
   <code class="lang-js">
     let myPromise = new Promise((resolve, reject) => {
-        // Допустим, произошла ошибка
-        reject("Ошибка");
+      // Допустим, произошла ошибка
+      reject("Ошибка");
     });
   
     myPromise
-        .then(result => {
-            console.log("Успешно:", result);
-        })
-        .catch(error => {
-            console.error("Ошибка:", error);
-        })
-        .finally(() => {
-            console.log("Операция завершена");
-        });
+      .then(result => {
+        console.log("Успешно:", result);
+      })
+      .catch(error => {
+        console.error("Ошибка:", error);
+      })
+      .finally(() => {
+        console.log("Операция завершена");
+      });
   </code>
 </pre>
           <p>Метод <code>finally</code> выполнится вне зависимости от того, была ли ошибка или успех.</p>
@@ -115,15 +115,15 @@
 <pre>
   <code class="lang-js">
     async function fetchData() {
-        try {
-            let response = await fetch("https://api.example.com/data");
-            let data = await response.json();
-            console.log(data);
-        } catch (error) {
-            console.error("Ошибка:", error);
-        } finally {
-            console.log("Операция завершена");
-        }
+      try {
+        let response = await fetch("https://api.example.com/data");
+        let data = await response.json();
+          console.log(data);
+      } catch (error) {
+          console.error("Ошибка:", error);
+      } finally {
+          console.log("Операция завершена");
+      }
     }
   
     fetchData();
@@ -136,16 +136,16 @@
 <pre>
   <code class="lang-js">
     async function fetchMultipleData() {
-        try {
-            let [data1, data2] = await Promise.all([
-                fetch("https://api.example.com/data1").then(res => res.json()),
-                fetch("https://api.example.com/data2").then(res => res.json())
-            ]);
-            console.log("Data 1:", data1);
-            console.log("Data 2:", data2);
-        } catch (error) {
-            console.error("Ошибка при загрузке данных:", error);
-        }
+      try {
+        let [data1, data2] = await Promise.all([
+          fetch("https://api.example.com/data1").then(res => res.json()),
+          fetch("https://api.example.com/data2").then(res => res.json())
+        ]);
+          console.log("Data 1:", data1);
+          console.log("Data 2:", data2);
+      } catch (error) {
+          console.error("Ошибка при загрузке данных:", error);
+      }
     }
   
     fetchMultipleData();
@@ -158,18 +158,18 @@
 <pre>
   <code class="lang-js">
     async function fetchMultipleData() {
-        let results = await Promise.allSettled([
-            fetch("https://api.example.com/data1").then(res => res.json()),
-            fetch("https://api.example.com/data2").then(res => res.json())
-        ]);
+      let results = await Promise.allSettled([
+        fetch("https://api.example.com/data1").then(res => res.json()),
+        fetch("https://api.example.com/data2").then(res => res.json())
+      ]);
   
-        results.forEach((result, index) => {
-            if (result.status === "fulfilled") {
-                console.log(`Data ${index + 1}:`, result.value);
-            } else {
-                console.error(`Ошибка в запросе ${index + 1}:`, result.reason);
-            }
-        });
+      results.forEach((result, index) => {
+        if (result.status === "fulfilled") {
+          console.log(`Data ${index + 1}:`, result.value);
+        } else {
+            console.error(`Ошибка в запросе ${index + 1}:`, result.reason);
+        }
+      });
     }
   
     fetchMultipleData();
@@ -182,16 +182,16 @@
 <pre>
   <code class="lang-js">
     async function fetchData() {
-        try {
-            let response = await fetch("https://api.example.com/data");
-            if (!response.ok) {
-                throw new Error("Ошибка HTTP: " + response.status);
-            }
-            let data = await response.json();
-            console.log(data);
-        } catch (error) {
-            console.error("Произошла ошибка:", error);
+      try {
+        let response = await fetch("https://api.example.com/data");
+        if (!response.ok) {
+          throw new Error("Ошибка HTTP: " + response.status);
         }
+        let data = await response.json();
+          console.log(data);
+      } catch (error) {
+          console.error("Произошла ошибка:", error);
+      }
     }
   
     fetchData();
