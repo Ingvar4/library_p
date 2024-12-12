@@ -55,16 +55,16 @@
 <pre>
   <code class="lang-js">
     async function fetchData() {
-        try {
-            let response = await fetch('https://api.example.com/data');
-            if (!response.ok) {
-                throw new Error(`Ошибка: ${response.status}`);
-            }
-            let data = await response.json(); // Преобразование ответа в JSON
-            console.log(data); // Вывод данных в консоль
-        } catch (error) {
-            console.error('Произошла ошибка:', error);
+      try {
+        let response = await fetch('https://api.example.com/data');
+        if (!response.ok) {
+          throw new Error(`Ошибка: ${response.status}`);
         }
+        let data = await response.json(); // Преобразование ответа в JSON
+          console.log(data); // Вывод данных в консоль
+      } catch (error) {
+          console.error('Произошла ошибка:', error);
+      }
     }
   
     fetchData();
@@ -80,28 +80,28 @@
 <pre>
   <code class="lang-js">
     async function postData() {
-        try {
-            let response = await fetch('https://api.example.com/data', {
-                method: 'POST', // Указываем метод POST
-                headers: {
-                    'Content-Type': 'application/json' // Указываем, что передаем JSON данные
-                },
-                body: JSON.stringify({
-                    name: 'John Doe',
-                    age: 30
-                }) // Тело запроса, преобразованное в строку
-            });
-            if (!response.ok) {
-                throw new Error(`Ошибка: ${response.status}`);
-            }
-            let result = await response.json();
-            console.log(result); // Ответ от сервера
-        } catch (error) {
-            console.error('Произошла ошибка:', error);
+      try {
+        let response = await fetch('https://api.example.com/data', {
+          method: 'POST', // Указываем метод POST
+          headers: {
+            'Content-Type': 'application/json' // Указываем, что передаем JSON данные
+          },
+          body: JSON.stringify({
+            name: 'John Doe',
+            age: 30
+          }) // Тело запроса, преобразованное в строку
+        });
+        if (!response.ok) {
+          throw new Error(`Ошибка: ${response.status}`);
         }
+        let result = await response.json();
+          console.log(result); // Ответ от сервера
+      } catch (error) {
+            console.error('Произошла ошибка:', error);
+      }
     }
   
-  postData();
+    postData();
   </code>
 </pre>
           <ul>
@@ -115,22 +115,22 @@
 <pre>
   <code class="lang-js">
     async function fetchWithHeaders() {
-        try {
-            let response = await fetch('https://api.example.com/secure-data', {
-                method: 'GET',
-                headers: {
-                    'Authorization': 'Bearer your_token_here', // Аутентификация через токен
-                    'Accept': 'application/json' // Ожидаемый формат данных
-                }
-            });
-            if (!response.ok) {
-                throw new Error(`Ошибка: ${response.status}`);
-            }
-            let data = await response.json();
-            console.log(data);
-        } catch (error) {
-            console.error('Произошла ошибка:', error);
+      try {
+        let response = await fetch('https://api.example.com/secure-data', {
+          method: 'GET',
+          headers: {
+            'Authorization': 'Bearer your_token_here', // Аутентификация через токен
+            'Accept': 'application/json' // Ожидаемый формат данных
+          }
+        });
+        if (!response.ok) {
+          throw new Error(`Ошибка: ${response.status}`);
         }
+        let data = await response.json();
+          console.log(data);
+      } catch (error) {
+          console.error('Произошла ошибка:', error);
+      }
     }
   
     fetchWithHeaders();
@@ -143,16 +143,16 @@
 <pre>
   <code class="lang-js">
     async function fetchDataWithErrorHandling() {
-        try {
-            let response = await fetch('https://api.example.com/data');
-            if (!response.ok) {
-                throw new Error(`Ошибка: ${response.status}`);
-            }
-            let data = await response.json();
-            console.log(data);
-        } catch (error) {
-            console.error('Произошла ошибка при запросе данных:', error);
+      try {
+        let response = await fetch('https://api.example.com/data');
+        if (!response.ok) {
+          throw new Error(`Ошибка: ${response.status}`);
         }
+        let data = await response.json();
+        console.log(data);
+      } catch (error) {
+          console.error('Произошла ошибка при запросе данных:', error);
+      }
     }
   
     fetchDataWithErrorHandling();
@@ -165,18 +165,18 @@
 <pre>
   <code class="lang-js">
     async function getData() {
-        try {
-            let response = await fetch('https://api.example.com/data');
-            let data = await response.json();
-            return data; // Возвращаем данные
-        } catch (error) {
-            console.error('Ошибка при получении данных:', error);
-        }
+      try {
+        let response = await fetch('https://api.example.com/data');
+        let data = await response.json();
+        return data; // Возвращаем данные
+      } catch (error) {
+          console.error('Ошибка при получении данных:', error);
+      }
     }
   
     async function main() {
-        let data = await getData(); // Ожидаем результата
-        console.log('Полученные данные:', data);
+      let data = await getData(); // Ожидаем результата
+      console.log('Полученные данные:', data);
     }
   
     main();
@@ -189,18 +189,18 @@
 <pre>
   <code class="lang-js">
     async function fetchDataWithToken() {
-        const token = 'your-jwt-token-here';
-        try {
-            let response = await fetch('https://api.example.com/protected', {
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-            });
-            let data = await response.json();
-            console.log(data);
-        } catch (error) {
-            console.error('Ошибка при доступе к защищённому ресурсу:', error);
-        }
+      const token = 'your-jwt-token-here';
+      try {
+        let response = await fetch('https://api.example.com/protected', {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+        let data = await response.json();
+          console.log(data);
+      } catch (error) {
+          console.error('Ошибка при доступе к защищённому ресурсу:', error);
+      }
     }
   
     fetchDataWithToken();
@@ -224,12 +224,12 @@
     const axios = require('axios');
 
     async function getData() {
-        try {
-            const response = await axios.get('https://api.example.com/data');
-            console.log(response.data);
-        } catch (error) {
-            console.error('Ошибка при запросе данных:', error);
-        }
+      try {
+        const response = await axios.get('https://api.example.com/data');
+        console.log(response.data);
+      } catch (error) {
+          console.error('Ошибка при запросе данных:', error);
+      }
     }
 
     getData();
