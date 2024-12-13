@@ -38,11 +38,11 @@
 <pre>
   <code class="lang-js">
     for (let i = 0; i < 3; i++) {
-        console.log("Внешний цикл: " + i);
+      console.log("Внешний цикл: " + i);
       
-        for (let j = 0; j < 2; j++) {
-            console.log("  Внутренний цикл: " + j);
-        }
+      for (let j = 0; j < 2; j++) {
+        console.log("  Внутренний цикл: " + j);
+      }
     }
   </code>
 </pre>
@@ -67,15 +67,15 @@
 <pre>
   <code class="lang-js">
     let matrix = [
-        [1, 2, 3],
-        [4, 5, 6],
-        [7, 8, 9]
+      [1, 2, 3],
+      [4, 5, 6],
+      [7, 8, 9]
     ];
 
     for (let i = 0; i < matrix.length; i++) {
-        for (let j = 0; j < matrix[i].length; j++) {
-            console.log("Элемент [" + i + "][" + j + "] = " + matrix[i][j]);
-        }
+      for (let j = 0; j < matrix[i].length; j++) {
+        console.log("Элемент [" + i + "][" + j + "] = " + matrix[i][j]);
+      }
     }
   </code>
 </pre>
@@ -100,12 +100,12 @@
 <pre>
   <code class="lang-js">
     for (let i = 0; i < 5; i++) {
-        for (let j = 0; j < 5; j++) {
-            if (j === 3) {
-                break; // Выход из внутреннего цикла
-            }
-            console.log("i: " + i + ", j: " + j);
+      for (let j = 0; j < 5; j++) {
+        if (j === 3) {
+          break; // Выход из внутреннего цикла
         }
+        console.log("i: " + i + ", j: " + j);
+      }
     }
   </code>
 </pre>
@@ -136,12 +136,12 @@
 <pre>
   <code class="lang-js">
     for (let i = 0; i < 5; i++) {
-        for (let j = 0; j < 5; j++) {
-            if (j === 2) {
-                continue; // Пропуск оставшейся части тела внутреннего цикла
-            }
-            console.log("i: " + i + ", j: " + j);
+      for (let j = 0; j < 5; j++) {
+        if (j === 2) {
+          continue; // Пропуск оставшейся части тела внутреннего цикла
         }
+        console.log("i: " + i + ", j: " + j);
+      }
     }
   </code>
 </pre>
@@ -177,12 +177,12 @@
 <pre>
   <code class="lang-js">
     outerLoop: for (let i = 0; i < 3; i++) {
-        for (let j = 0; j < 3; j++) {
-            if (i === 1 && j === 1) {
-               break outerLoop; // Выход из обоих циклов
-            }
-            console.log("i: " + i + ", j: " + j);
+      for (let j = 0; j < 3; j++) {
+        if (i === 1 && j === 1) {
+          break outerLoop; // Выход из обоих циклов
         }
+        console.log("i: " + i + ", j: " + j);
+      }
     }
   </code>
 </pre>
@@ -199,11 +199,6 @@
         </ol>
         <p><strong>Заключение</strong></p>
         <p>Вложенные циклы и операторы управления потоком (<code>break</code>, <code>continue</code>) позволяют создавать сложные логические структуры и точно управлять выполнением программы. Они особенно полезны при работе с многомерными массивами и в ситуациях, когда необходимо завершить или пропустить итерацию в зависимости от определенных условий. Однако, при использовании вложенных циклов важно учитывать их сложность и избегать чрезмерного углубления, чтобы сохранить код читабельным и поддерживаемым.</p>
-
-       
-
-
-
       </article>
     </main>
 
