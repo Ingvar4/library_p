@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
+    <script src="../../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Конструкции try, catch, finally</h1><hr>
+        <p>Обработка ошибок является одной из ключевых задач в программировании. Конструкции <code>try</code>, <code>catch</code>, и <code>finally</code> в JavaScript предоставляют мощный механизм для обработки исключений, предотвращая аварийное завершение программы.</p>
+        <h3>1. Что такое try, catch и finally?</h3>
+        <p>Эти конструкции используются для обработки ошибок в блоке кода. Основная задача — захватить исключение (ошибку), которое возникает во время выполнения программы, и предоставить способ справиться с этой ошибкой, не прерывая выполнение всего приложения.</p>
+        <ul>
+          <li><code>try</code>: Блок кода, где может произойти ошибка.</li>
+          <li><code>catch</code>: Блок кода, который обрабатывает ошибку, если она возникла в блоке try.</li>
+          <li><code>finally</code> (опционально): Блок кода, который выполняется в любом случае — была ошибка или нет.</li>
+        </ul>
+        <h3>2. Синтаксис</h3>
+<pre>
+  <code class="lang-js">
+    try {
+      // Код, который потенциально может вызвать ошибку
+    } catch (error) {
+      // Код для обработки ошибки
+    } finally {
+      // Код, который выполнится в любом случае (опционально)
+    }
+  </code>
+</pre>
+        <p>Пример:</p>
+<pre>
+  <code class="lang-js">
+    try {
+      let result = 10 / 0; // Ошибки не будет, но результат Infinity
+        console.log(result);
+        console.log(undeclaredVariable); // Эта строка вызовет ошибку
+    } catch (error) {
+        console.log("Произошла ошибка:", error.message);
+    } finally {
+        console.log("Этот код выполнится в любом случае");
+    }
+  </code>
+</pre>
+        <p>Вывод:</p>
+<pre>
+  <code>
+    Infinity
+    Произошла ошибка: undeclaredVariable is not defined
+    Этот код выполнится в любом случае
+  </code>
+</pre>
+        
+
+       
+
+
+
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>
