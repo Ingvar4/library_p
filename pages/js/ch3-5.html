@@ -72,6 +72,66 @@
     Этот код выполнится в любом случае
   </code>
 </pre>
+        <h3>3. Детали работы try, catch</h3>
+        <h4>3.1. Блок try</h4>
+        <p>Внутри блока <code>try</code> размещается код, который может вызвать ошибку. Ошибки могут быть как синтаксическими (ошибки разработчика), так и логическими (например, деление на ноль или попытка доступа к несуществующему свойству).</p>
+        <ul>
+          <li>Если ошибка не возникает, код <code>catch</code> игнорируется.</li>
+          <li>Если возникает ошибка, выполнение <code>try</code> прекращается, и управление передается в <code>catch</code>.</li>
+        </ul>
+        <h4>3.2. Блок catch</h4>
+        <p>Блок catch перехватывает ошибки, возникшие в try. Обработчик принимает объект ошибки как аргумент, который содержит информацию об ошибке.</p>
+        <p>Пример:</p>
+<pre>
+  <code class="lang-js">
+    try {
+      JSON.parse("{invalidJson}"); // Некорректный JSON
+    } catch (error) {
+        console.log("Ошибка:", error.name); // Тип ошибки
+        console.log("Сообщение:", error.message); // Описание ошибки
+    }
+  </code>
+</pre>
+        <p>Вывод:</p>
+<pre>
+  <code>
+    Ошибка: SyntaxError
+    Сообщение: Unexpected token i in JSON at position 1
+  </code>
+</pre>
+        <h4>3.3. Блок finally</h4>
+        <p>Блок <code>finally</code> выполняется всегда:</p>
+        <ul>
+          <li>Если ошибка произошла.</li>
+          <li>Если ошибки не было.</li>
+          <li>Даже если в <code>try</code> или <code>catch</code> есть <code>return</code>.</li>
+        </ul>
+        <p>Пример:</p>
+<pre>
+  <code class="lang-js">
+    function testFinally() {
+      try {
+        console.log("Выполняется блок try");
+        return "Возврат из try";
+      } catch (error) {
+          console.log("Ошибка:", error.message);
+      } finally {
+          console.log("Блок finally выполнен");
+      }
+    }
+  
+    console.log(testFinally());
+  </code>
+</pre>
+        <p>Вывод:</p>
+<pre>
+  <code>
+    Выполняется блок try
+    Блок finally выполнен
+    Возврат из try
+  </code>
+</pre>
+        <h3>4. Искусственное создание ошибок</h3>
         
 
        
