@@ -132,7 +132,92 @@
   </code>
 </pre>
         <h3>4. Искусственное создание ошибок</h3>
-        
+        <p>JavaScript позволяет искусственно вызывать ошибки с помощью оператора <code>throw</code>. Это полезно для проверки обработки ошибок или для генерации собственных сообщений об ошибках.</p>
+        <h4>Синтаксис throw</h4>
+<pre>
+  <code class="lang-js">
+    throw выражение;
+  </code>
+</pre>
+        <p>Пример:</p>
+<pre>
+  <code class="lang-js">
+    try {
+      let age = -5;
+      if (age < 0) {
+        throw new Error("Возраст не может быть отрицательным!");
+      }
+    } catch (error) {
+        console.log("Произошла ошибка:", error.message);
+    }
+  </code>
+</pre>
+        <p>Вывод:</p>
+<pre>
+  <code>
+    Произошла ошибка: Возраст не может быть отрицательным!
+  </code>
+</pre>
+        <h3>5. Типы ошибок в JavaScript</h3>
+        <h4>5.1. Встроенные ошибки</h4>
+        <p>JavaScript имеет встроенные типы ошибок, которые можно перехватывать:</p>
+        <ul>
+          <li><code>Error</code>: Базовый класс всех ошибок.</li>
+          <li><code>SyntaxError</code>: Ошибка синтаксиса.</li>
+          <li><code>TypeError</code>: Ошибка типа (например, вызов не-функции как функции).</li>
+          <li><code>ReferenceError</code>: Попытка обращения к необъявленной переменной.</li>
+          <li><code>RangeError</code>: Ошибка диапазона (например, бесконечный цикл в рекурсии).</li>
+          <li><code>URIError</code>: Ошибка при неправильном использовании URI-функций (например, decodeURIComponent).</li>
+        </ul>
+        <p>Пример:</p>
+<pre>
+  <code class="lang-js">
+    try {
+      null.test(); // Попытка доступа к свойству у null
+    } catch (error) {
+        console.log("Тип ошибки:", error.name);
+        console.log("Сообщение:", error.message);
+    }
+  </code>
+</pre>
+        <h3>6. Особенности обработки ошибок</h3>
+        <h4>6.1. Локальные и глобальные ошибки</h4>
+        <p>Не все ошибки можно обработать с помощью <code>try...catch</code>. Например:</p>
+        <ul>
+          <li>Ошибки синтаксиса невозможно перехватить, потому что они возникают до выполнения кода.</li>
+          <li>Глобальные ошибки, которые не перехвачены <code>try...catch</code>, можно обрабатывать с помощью обработчика <code>window.onerror</code> в браузере.</li>
+        </ul>
+        <p>Пример:</p>
+<pre>
+  <code class="lang-js">
+    window.onerror = function (message, source, lineno, colno, error) {
+      console.log("Глобальная ошибка:", message);
+    };
+    console.log(undeclaredVariable); // Глобальная ошибка
+  </code>
+</pre>
+        <h4>6.2. Асинхронные операции</h4>
+        <p>Блоки <code>try...catch</code> не обрабатывают ошибки в асинхронном коде, если не используется <code>await</code> (в случае промисов). Для этого нужно использовать методы промисов или <code>async/await</code>.</p>
+        <p>Пример с промисами:</p>
+<pre>
+  <code class="lang-js">
+    Promise.reject(new Error("Асинхронная ошибка"))
+      .catch(error => console.log("Обработано:", error.message));
+  </code>
+</pre>
+        <p>Пример с <code>async/await:</code></p>
+<pre>
+  <code class="lang-js">
+    (async function() {
+      try {
+        await Promise.reject(new Error("Ошибка в async/await"));
+      } catch (error) {
+          console.log("Ошибка обработана:", error.message);
+      }
+    })();
+  </code>
+</pre>
+        <h3>7. Продвинутые приемы</h3>
 
        
 
