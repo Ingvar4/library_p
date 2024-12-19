@@ -218,6 +218,61 @@
   </code>
 </pre>
         <h3>7. Продвинутые приемы</h3>
+        <h4>7.1. Вложенные блоки try...catch</h4>
+        <p>Можно использовать несколько уровней <code>try...catch</code> для более детальной обработки.</p>
+        <p>Пример:</p>
+<pre>
+  <code class="lang-js">
+    try {
+      try {
+        throw new Error("Внутренняя ошибка");
+      } catch (innerError) {
+          console.log("Внутренний catch:", innerError.message);
+          throw new Error("Внешняя ошибка");
+      }
+    } catch (outerError) {
+        console.log("Внешний catch:", outerError.message);
+    }
+  </code>
+</pre>
+        <p>Вывод:</p>
+<pre>
+  <code>
+    Внутренний catch: Внутренняя ошибка
+    Внешний catch: Внешняя ошибка
+  </code>
+</pre>
+        <h4>7.2. Использование пользовательских ошибок</h4>
+        <p>Для создания собственных ошибок можно наследоваться от класса Error.</p>
+        <p>Пример:</p>
+<pre>
+  <code class="lang-js">
+    class CustomError extends Error {
+      constructor(message) {
+        super(message);
+        this.name = "CustomError";
+      }
+    }
+  
+    try {
+      throw new CustomError("Это пользовательская ошибка");
+    } catch (error) {
+        console.log(error.name + ": " + error.message);
+    }
+  </code>
+</pre>
+        <p>Вывод:</p>
+<pre>
+  <code>
+    CustomError: Это пользовательская ошибка
+  </code>
+</pre>
+        <h3>8. Практические советы</h3>
+        <ul>
+          <li>Используйте <code>try...catch</code> для обработки предсказуемых ошибок.</li>
+          <li>Не злоупотребляйте <code>try...catch</code> для логики программы. Лучше проверять условия с помощью <code>if</code>.</li>
+          <li>Логируйте ошибки, чтобы упростить отладку.</li>
+        </ul>
 
        
 
