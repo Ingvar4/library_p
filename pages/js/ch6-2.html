@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="../../images/image.jpg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="../../styles/prism.css">
+    <script src="../../scripts/prism.js" defer></script>
+    <script src="../../scripts/script.js" defer></script>
+  </head>
+
+  <body>
+    <!--шапка с кнопками переходами-->
+    <header class="main-header-top">
+      <div class="header-logo">
+        <img src="../../images/image2.png">
+      </div>
+      
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../pages/html.html">HTML</a></li>
+        <li><a href="../../pages/css.html">CSS</a></li>
+        <li><a href="../../pages/js.html">JS</a></li>
+      </ul>
+    </header>
+
+    <!--основной блок с информацией-->
+    <main>
+      <article>
+        <h1>Решение задач на алгоритмы и логику</h1><hr>
+        <h3>1. Что такое алгоритмы и задачи на логику?</h3>
+        <ul>
+          <li><strong>Алгоритм</strong> — это последовательность шагов, которая позволяет решить определённую задачу.</li>
+          <li><strong>Задачи на логику</strong> проверяют вашу способность думать аналитически и находить решения нетривиальных задач.</li>
+        </ul>
+        <p>Примеры задач:</p>
+        <ol>
+          <li>Найти факториал числа.</li>
+          <li>Определить, является ли строка палиндромом.</li>
+          <li>Отсортировать массив.</li>
+        </ol>
+        <h3>2. Основные типы задач</h3>
+        <h4>2.1. Задачи на массивы</h4>
+        <ul>
+          <li><strong>Поиск максимального/минимального элемента.</strong></li>
+          <li><strong>Сортировка массива.</strong></li>
+          <li><strong>Работа с подмассивами</strong> (например, найти подмассив с максимальной суммой).</li>
+        </ul>
+        <p>Пример: Найти сумму всех элементов массива:</p>
+<pre>
+  <code class="lang-js">
+    const array = [1, 2, 3, 4];
+    const sum = array.reduce((acc, curr) => acc + curr, 0);
+    console.log(sum); // 10
+  </code>
+</pre>
+        <h4>2.2. Задачи на строки</h4>
+        <ul>
+          <li><strong>Определение палиндрома.</strong></li>
+          <li><strong>Подсчёт уникальных символов.</strong></li>
+          <li><strong>Реверс строки.</strong></li>
+        </ul>
+        <p>Пример: Реверс строки:</p>
+<pre>
+  <code class="lang-js">
+    const reverseString = str => str.split('').reverse().join('');
+    console.log(reverseString('hello')); // 'olleh'
+  </code>
+</pre>
+        <h4>2.3. Задачи на числа</h4>
+        <ul>
+          <li><strong>Поиск простых чисел.</strong></li>
+          <li><strong>Числа Фибоначчи.</strong></li>
+          <li><strong>Работа с системами счисления.</strong></li>
+        </ul>
+        <p>Пример: Определить, является ли число простым:</p>
+<pre>
+  <code class="lang-js">
+    const isPrime = num => {
+      if (num <= 1) return false;
+      for (let i = 2; i < Math.sqrt(num) + 1; i++) {
+        if (num % i === 0) return false;
+      }
+      return true;
+    };
+    console.log(isPrime(11)); // true
+  </code>
+</pre>
+       
+
+
+
+      </article>
+    </main>
+
+    <!--блок в нижней части страницы-->
+    <footer> 
+      <p>©Copyright 2024 by nobody. All rights reversed.</p>
+    </footer>
+
+  </body>
+</html>
