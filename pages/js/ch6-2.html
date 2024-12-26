@@ -171,10 +171,44 @@
   console.log(binarySearch([1, 2, 3, 4, 5], 3)); // 2
   </code>
 </pre>
-       
-
-
-
+        <h3>6. Советы по решению задач</h3>
+        <ol>
+          <li><strong>Практикуйтесь</strong>: используйте платформы, такие как LeetCode, Codewars, или HackerRank.</li>
+          <li><strong>Читай чужой код</strong>: анализируйте решения других.</li>
+          <li><strong>Развивайте навыки дебага</strong>: используйте console.log, дебаггеры в IDE или браузере.</li>
+          <li><strong>Оптимизируйте</strong>: после написания решения подумайте, можно ли улучшить его.</li>
+        </ol>
+        <h3>7. Готовые задачи для практики</h3>
+        <h4>Пример 1: Сумма чисел в диапазоне</h4>
+<pre>
+  <code class="lang-js">
+    const sumRange = (start, end) => {
+      let sum = 0;
+      for (let i = start; i <= end; i++) {
+        sum += i;
+      }
+      return sum;
+    };
+    console.log(sumRange(1, 5)); // 15
+  </code>
+</pre>
+        <h4>Пример 2: Перемешать массив</h4>
+<pre>
+  <code class="lang-js">
+    const shuffle = arr => arr.sort(() => Math.random() - 0.5);
+    console.log(shuffle([1, 2, 3, 4, 5]));
+  </code>
+</pre>
+        <h4>Пример 3: Найти второй максимальный элемент</h4>
+<pre>
+  <code class="lang-js">
+    const secondMax = arr => {
+      const max = Math.max(...arr);
+      return Math.max(...arr.filter(el => el !== max));
+    };
+    console.log(secondMax([1, 2, 3, 4, 5])); // 4
+  </code>
+</pre>
       </article>
     </main>
 
