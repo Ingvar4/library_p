@@ -209,6 +209,52 @@
     console.log(secondMax([1, 2, 3, 4, 5])); // 4
   </code>
 </pre>
+        <h1>Дополнительно</h1>
+        <h3>1. Задачи на строки</h3>
+        <h4>1.1. Подсчёт количества вхождений символа</h4>
+        <p>Найти, сколько раз символ встречается в строке.</p>
+<pre>
+  <code class="lang-js">
+    const countOccurrences = (str, char) => {
+      return str.split(char).length - 1;
+    };
+    console.log(countOccurrences("hello world", "o")); // 2
+  </code>
+</pre>
+        <h4>1.2. Удаление гласных</h4>
+        <p>Удалить все гласные из строки.</p>
+<pre>
+  <code class="lang-js">
+    const removeVowels = str => {
+      return str.replace(/[aeiou]/gi, '');
+    };
+    console.log(removeVowels("hello world")); // "hll wrld"
+  </code>
+</pre>
+        <h4>1.3. Проверка анаграммы</h4>
+        <p>Проверить, являются ли две строки анаграммами.</p>
+<pre>
+  <code class="lang-js">
+    const isAnagram = (str1, str2) => {
+      const normalize = str => str.toLowerCase().split('').sort().join('');
+      return normalize(str1) === normalize(str2);
+    };
+    console.log(isAnagram("listen", "silent")); // true
+  </code>
+</pre>
+        <h4>1.4. Реверс слов в предложении</h4>
+        <p>Перевернуть слова, сохранив порядок слов.</p>
+<pre>
+  <code class="lang-js">
+    const reverseWords = sentence => {
+      return sentence.split(' ').map(word => word.split('').reverse().join('')).join(' ');
+    };
+    console.log(reverseWords("hello world")); // "olleh dlrow"
+  </code>
+</pre>
+
+
+
       </article>
     </main>
 
