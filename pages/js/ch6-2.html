@@ -252,7 +252,48 @@
     console.log(reverseWords("hello world")); // "olleh dlrow"
   </code>
 </pre>
-
+        <h3>2. Задачи на массивы</h3>
+        <h4>2.1. Фильтрация уникальных значений</h4>
+        <p>Вывести только уникальные значения массива.</p>
+<pre>
+  <code class="lang-js">
+    const uniqueValues = arr => {
+      return [...new Set(arr)];
+    };
+    console.log(uniqueValues([1, 2, 2, 3, 4, 4])); // [1, 2, 3, 4]
+  </code class="lang-js">
+</pre>
+        <h4>2.2. Слияние и сортировка двух массивов</h4>
+        <p>Объединить два массива и отсортировать их.</p>
+<pre>
+  <code class="lang-js">
+    const mergeAndSort = (arr1, arr2) => {
+      return [...arr1, ...arr2].sort((a, b) => a - b);
+    };
+    console.log(mergeAndSort([3, 1, 4], [5, 2])); // [1, 2, 3, 4, 5]
+  </code>
+</pre>
+        <h4>2.3. Проверка подмножества</h4>
+        <p>Проверить, является ли один массив подмножеством другого.</p>
+<pre>
+  <code class="lang-js">
+    const isSubset = (arr1, arr2) => {
+      return arr2.every(el => arr1.includes(el));
+    };
+    console.log(isSubset([1, 2, 3, 4], [2, 3])); // true
+    console.log(isSubset([1, 2, 3, 4], [5]));    // false
+  </code>
+</pre>
+        <h4>2.4. Перемещение нулей в конец массива</h4>
+        <p>Переместить все нули в конец массива, сохранив порядок остальных элементов.</p>
+<pre>
+  <code class="lang-js">
+    const moveZeroes = arr => {
+      return arr.filter(el => el !== 0).concat(arr.filter(el => el === 0));
+    };
+    console.log(moveZeroes([0, 1, 0, 3, 12])); // [1, 3, 12, 0, 0]
+  </code>
+</pre>
 
 
       </article>
