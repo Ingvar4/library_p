@@ -344,6 +344,39 @@
     console.log(isArmstrong(123)); // false
   </code>
 </pre>
+        <h3>4. Задачи на комбинирование типов данных</h3>
+        <h4>4.1. Группировка элементов по частоте</h4>
+        <p>Группировать элементы массива по количеству их появления.</p>
+<pre>
+  <code class="lang-js">
+    const groupByFrequency = arr => {
+      const freqMap = {};
+      arr.forEach(el => freqMap[el] = (freqMap[el] || 0) + 1);
+      return freqMap;
+    };
+    console.log(groupByFrequency([1, 2, 2, 3, 3, 3])); // {1: 1, 2: 2, 3: 3}
+  </code>
+</pre>
+        <h4>4.2. Проверка баланса скобок</h4>
+        <p>Проверить, правильно ли расставлены скобки.</p>
+<pre>
+  <code class="lang-js">
+    const isBalanced = str => {
+      const stack = [];
+      const map = { ')': '(', ']': '[', '}': '{' };
+      for (const char of str) {
+        if (['(', '[', '{'].includes(char)) {
+          stack.push(char);
+        } else if ([')', ']', '}'].includes(char)) {
+            if (stack.pop() !== map[char]) return false;
+        }
+      }
+      return stack.length === 0;
+    };
+    console.log(isBalanced("(a[b]c{d}e)")); // true
+    console.log(isBalanced("(a[b)c{d}e)")); // false
+  </code>
+</pre>
 
 
       </article>
