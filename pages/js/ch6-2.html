@@ -294,6 +294,53 @@
     console.log(moveZeroes([0, 1, 0, 3, 12])); // [1, 3, 12, 0, 0]
   </code>
 </pre>
+        <h4>2.5. Найти максимальное произведение пары чисел в массиве</h4>
+        <p>Вычислить максимальное произведение двух чисел.</p>
+<pre>
+  <code class="lang-js">
+    const maxProduct = arr => {
+      let max1 = -Infinity, max2 = -Infinity, min1 = Infinity, min2 = Infinity;
+      for (const num of arr) {
+        if (num > max1) [max1, max2] = [num, max1];
+        else if (num > max2) max2 = num;
+  
+        if (num < min1) [min1, min2] = [num, min1];
+        else if (num < min2) min2 = num;
+      }
+      return Math.max(max1 * max2, min1 * min2);
+    };
+    console.log(maxProduct([1, -10, -20, 4, 3])); // 200
+  </code>
+</pre>
+        <h4>2.6. Сумма минимальных чисел</h4>
+        <p>Найти сумму двух минимальных чисел в массиве.</p>
+<pre>
+  <code class="lang-js">
+    const sumOfMinTwo = arr => {
+      const [min1, min2] = arr.sort((a, b) => a - b);
+      return min1 + min2;
+    };
+    console.log(sumOfMinTwo([19, 5, 42, 2, 77])); // 7
+  </code>
+</pre>
+        <h4>2.7. Удаление дубликатов с сохранением порядка</h4>
+        <p>Удалить дубликаты из массива, сохранив порядок их первого появления.</p>
+<pre>
+  <code class="lang-js">
+    const removeDuplicates = arr => {
+      return arr.filter((item, index) => arr.indexOf(item) === index);
+    };
+    console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5])); // [1, 2, 3, 4, 5]
+  </code>
+</pre>
+
+
+
+
+
+
+
+
         <h3>3. Задачи на числа</h3>
         <h4>3.1. Сумма цифр числа</h4>
         <p>Найти сумму всех цифр числа.</p>
