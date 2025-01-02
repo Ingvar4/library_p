@@ -333,14 +333,98 @@
     console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5])); // [1, 2, 3, 4, 5]
   </code>
 </pre>
-
-
-
-
-
-
-
-
+        <h4>2.8. Поиск пары с заданной суммой</h4>
+        <p>Найти в массиве пару чисел, сумма которых равна заданному числу.</p>
+<pre>
+  <code class="lang-js">
+    const findPair = (arr, target) => {
+      const seen = new Set();
+      for (const num of arr) {
+        const complement = target - num;
+        if (seen.has(complement)) return [complement, num];
+        seen.add(num);
+      }
+      return null;
+    };
+    console.log(findPair([2, 7, 11, 15], 9)); // [2, 7]
+  </code>
+</pre>
+        <h4>2.9. Ротация массива</h4>
+        <p>Сместить массив на заданное количество шагов вправо.</p>
+<pre>
+  <code class="lang-js">
+    const rotateArray = (arr, steps) => {
+      const n = arr.length;
+      steps = steps % n;
+      return arr.slice(-steps).concat(arr.slice(0, n - steps));
+    };
+    console.log(rotateArray([1, 2, 3, 4, 5], 2)); // [4, 5, 1, 2, 3]
+  </code>
+</pre>
+        <h4>2.10. Группировка элементов массива по чётности</h4>
+        <p>Разделить массив на два подмассива: чётные и нечётные числа.</p>
+<pre>
+  <code class="lang-js">
+    const groupByParity = arr => {
+      const even = arr.filter(num => num % 2 === 0);
+      const odd = arr.filter(num => num % 2 !== 0);
+      return { even, odd };
+    };
+    console.log(groupByParity([1, 2, 3, 4, 5])); // { even: [2, 4], odd: [1, 3, 5] }
+  </code>
+</pre>
+        <h4>2.11. Поиск наиболее часто встречающегося элемента</h4>
+        <p>Найти элемент, который встречается чаще всего.</p>
+<pre>
+  <code class="lang-js">
+    const mostFrequent = arr => {
+      const freq = {};
+      let maxCount = 0, maxItem;
+      arr.forEach(item => {
+        freq[item] = (freq[item] || 0) + 1;
+        if (freq[item] > maxCount) {
+          maxCount = freq[item];
+          maxItem = item;
+        }
+      });
+      return maxItem;
+    };
+    console.log(mostFrequent([1, 3, 3, 2, 1, 3, 4])); // 3
+  </code>
+</pre>
+        <h4>2.12. Поиск отсутствующего числа</h4>
+        <p>В массиве чисел от 1 до n найти отсутствующее число.</p>
+<pre>
+  <code class="lang-js">
+    const findMissingNumber = arr => {
+      const n = arr.length + 1;
+      const totalSum = (n * (n + 1)) / 2;
+      const actualSum = arr.reduce((sum, num) => sum + num, 0);
+      return totalSum - actualSum;
+    };
+    console.log(findMissingNumber([1, 2, 4, 5])); // 3
+  </code>
+</pre>
+        <h4>2.13. Объединение интервалов</h4>
+        <p>Объединить пересекающиеся интервалы.</p>
+<pre>
+  <code class="lang-js">
+    const mergeIntervals = intervals => {
+      intervals.sort((a, b) => a[0] - b[0]);
+      const result = [intervals[0]];
+      for (const [start, end] of intervals.slice(1)) {
+        const last = result[result.length - 1];
+        if (start <= last[1]) {
+          last[1] = Math.max(last[1], end);
+        } else {
+            result.push([start, end]);
+        }
+      }
+      return result;
+    };
+    console.log(mergeIntervals([[1, 3], [2, 6], [8, 10], [15, 18]])); // [[1, 6], [8, 10], [15, 18]]
+  </code>
+</pre>
         <h3>3. Задачи на числа</h3>
         <h4>3.1. Сумма цифр числа</h4>
         <p>Найти сумму всех цифр числа.</p>
