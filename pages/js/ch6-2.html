@@ -508,6 +508,76 @@
     console.log(isBalanced("(a[b)c{d}e)")); // false
   </code>
 </pre>
+        <h4>4.3. Преобразование массива объектов в объект</h4>
+        <p>Создать объект, где ключами являются значения одного из свойств массива объектов, а значениями — соответствующие объекты.</p>
+<pre>
+  <code class="lang-js">
+    const arrayToObject = (arr, key) => {
+      return arr.reduce((acc, item) => {
+        acc[item[key]] = item;
+        return acc;
+      }, {});
+    };
+    const data = [
+      { id: 1, name: 'Alice' },
+      { id: 2, name: 'Bob' },
+      { id: 3, name: 'Charlie' }
+    ];
+    console.log(arrayToObject(data, 'id'));
+    // {
+    //    1: { id: 1, name: 'Alice' },
+    //    2: { id: 2, name: 'Bob' },
+    //    3: { id: 3, name: 'Charlie' }
+    // }
+  </code>
+</pre>
+        <h4>4.4. Конкатенация и фильтрация</h4>
+        <p>Объединить несколько массивов, удалить дубликаты и оставить только числа.</p>
+<pre>
+  <code class="lang-js">
+    const mergeAndFilter = (...arrays) => {
+      return [...new Set(arrays.flat().filter(item => typeof item === 'number'))];
+    };
+    console.log(mergeAndFilter([1, 'a', 2], [3, 4, 'b'], [2, 5, 6]));
+    // [1, 2, 3, 4, 5, 6]
+  </code>
+</pre>
+        <h4>4.5. Подсчёт частоты слов в строке</h4>
+        <p>Подсчитать, сколько раз каждое слово встречается в строке.</p>
+<pre>
+  <code class="lang-js">
+    const wordFrequency = str => {
+      return str.toLowerCase().split(/\W+/).reduce((acc, word) => {
+        if (word) acc[word] = (acc[word] || 0) + 1;
+        return acc;
+      }, {});
+    };
+    console.log(wordFrequency("Hello world! Hello again."));
+    // { hello: 2, world: 1, again: 1 }
+  </code>
+</pre>
+        <h4>4.7. Фильтрация уникальных объектов</h4>
+        <p>Оставить в массиве только уникальные объекты по заданному ключу.</p>
+<pre>
+  <code class="lang-js">
+    const uniqueByKey = (arr, key) => {
+      const seen = new Set();
+      return arr.filter(item => {
+        const value = item[key];
+        if (seen.has(value)) return false;
+        seen.add(value);
+        return true;
+      });
+    };
+    const data = [
+      { id: 1, name: 'Alice' },
+      { id: 2, name: 'Bob' },
+      { id: 1, name: 'Alice' }
+    ];
+    console.log(uniqueByKey(data, 'id'));
+    // [{ id: 1, name: 'Alice' }, { id: 2, name: 'Bob' }]
+  </code>
+</pre>
 
 
       </article>
