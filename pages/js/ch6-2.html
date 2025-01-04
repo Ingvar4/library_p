@@ -556,7 +556,7 @@
     // { hello: 2, world: 1, again: 1 }
   </code>
 </pre>
-        <h4>4.7. Фильтрация уникальных объектов</h4>
+        <h4>4.6. Фильтрация уникальных объектов</h4>
         <p>Оставить в массиве только уникальные объекты по заданному ключу.</p>
 <pre>
   <code class="lang-js">
@@ -576,6 +576,100 @@
     ];
     console.log(uniqueByKey(data, 'id'));
     // [{ id: 1, name: 'Alice' }, { id: 2, name: 'Bob' }]
+  </code>
+</pre>
+        <h4>4.7. Слияние объектов с пересекающимися ключами</h4>
+        <p>Объединить два объекта, суммируя значения одинаковых ключей.</p>
+<pre>
+  <code class="lang-js">
+    const mergeObjects = (obj1, obj2) => {
+      const result = { ...obj1 };
+      for (const [key, value] of Object.entries(obj2)) {
+        result[key] = (result[key] || 0) + value;
+      }
+      return result;
+    };
+    console.log(mergeObjects({ a: 1, b: 2 }, { b: 3, c: 4 }));
+    // { a: 1, b: 5, c: 4 }
+  </code>
+</pre>
+        <h4>4.8. Группировка элементов по свойству</h4>
+        <p>Сгруппировать массив объектов по значению указанного свойства.</p>
+<pre>
+  <code class="lang-js">
+    const groupBy = (arr, key) => {
+      return arr.reduce((acc, item) => {
+        const group = item[key];
+        acc[group] = acc[group] || [];
+        acc[group].push(item);
+        return acc;
+      }, {});
+    };
+    const data = [
+      { name: 'Alice', role: 'developer' },
+      { name: 'Bob', role: 'designer' },
+      { name: 'Charlie', role: 'developer' }
+    ];
+    console.log(groupBy(data, 'role'));
+    // {
+    //     developer: [
+    //        { name: 'Alice', role: 'developer' },
+    //        { name: 'Charlie', role: 'developer' }
+    //     ],
+    //     designer: [
+    //        { name: 'Bob', role: 'designer' }
+    //     ]
+    // }
+  </code>
+</pre>
+        <h4>4.9. Преобразование строки JSON</h4>
+        <p>Преобразовать строку JSON в массив объектов и отсортировать по значению ключа.</p>
+<pre>
+  <code class="lang-js">
+    const sortJsonArray = (jsonStr, key) => {
+      const arr = JSON.parse(jsonStr);
+      return arr.sort((a, b) => (a[key] > b[key] ? 1 : -1));
+    };
+    const jsonData = '[{"name":"Charlie","age":30},{"name":"Alice","age":25},{"name":"Bob","age":35}]';
+    console.log(sortJsonArray(jsonData, 'name'));
+    // [{ name: "Alice", age: 25 }, { name: "Bob", age: 35 }, { name: "Charlie", age: 30 }]
+  </code>
+</pre>
+        <h4>4.10. Сравнение массивов объектов</h4>
+        <p>Найти различия между двумя массивами объектов.</p>
+<pre>
+  <code class="lang-js">
+    const diffObjects = (arr1, arr2, key) => {
+      const set2 = new Set(arr2.map(item => item[key]));
+      return arr1.filter(item => !set2.has(item[key]));
+    };
+    const arr1 = [{ id: 1 }, { id: 2 }, { id: 3 }];
+    const arr2 = [{ id: 2 }, { id: 3 }];
+    console.log(diffObjects(arr1, arr2, 'id'));
+    // [{ id: 1 }]
+  </code>
+</pre>
+        <h4>4.11. Упрощение структуры данных</h4>
+        <p>Преобразовать массив вложенных объектов в плоский массив ключей.</p>
+<pre>
+  <code class="lang-js">
+    const flattenKeys = obj => {
+      const keys = [];
+      const recurse = (current, prefix = '') => {
+        for (const key in current) {
+          const newKey = prefix ? `${prefix}.${key}` : key;
+          if (typeof current[key] === 'object') {
+            recurse(current[key], newKey);
+          } else {
+            keys.push(newKey);
+          }
+        }
+      };
+      recurse(obj);
+      return keys;
+    };
+    console.log(flattenKeys({ a: { b: { c: 1 }, d: 2 }, e: 3 }));
+    // ["a.b.c", "a.d", "e"]
   </code>
 </pre>
 
