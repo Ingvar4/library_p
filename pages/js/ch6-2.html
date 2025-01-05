@@ -672,6 +672,92 @@
     // ["a.b.c", "a.d", "e"]
   </code>
 </pre>
+        <h3>5. Массивы и объекты</h3>
+        <h4>5.1. Объединение массивов с приоритетом</h4>
+        <p>Объединить два массива объектов, сохранив уникальные элементы. Если объект с одинаковым ключом присутствует в обоих массивах, использовать элемент из первого массива.</p>
+<pre>
+  <code class="lang-js">
+    const mergeWithPriority = (arr1, arr2, key) => {
+      const map = new Map(arr2.map(item => [item[key], item]));
+      arr1.forEach(item => map.set(item[key], item));
+      return Array.from(map.values());
+    };
+    const arr1 = [{ id: 1, name: 'Alice' }, { id: 2, name: 'Bob' }];
+    const arr2 = [{ id: 2, name: 'Robert' }, { id: 3, name: 'Charlie' }];
+    console.log(mergeWithPriority(arr1, arr2, 'id'));
+    // [{ id: 1, name: 'Alice' }, { id: 2, name: 'Bob' }, { id: 3, name: 'Charlie' }]
+  </code>
+</pre>
+        <h4>5.2. Сравнение массивов объектов по нескольким полям</h4>
+        <p>Выявить различия между двумя массивами объектов, сравнивая их по нескольким ключам.</p>
+<pre>
+  <code class="lang-js">
+    const diffByFields = (arr1, arr2, keys) => {
+      const serialize = obj => keys.map(key => obj[key]).join('|');
+      const set2 = new Set(arr2.map(serialize));
+      return arr1.filter(item => !set2.has(serialize(item)));
+    };
+    const arr1 = [{ id: 1, name: 'Alice' }, { id: 2, name: 'Bob' }];
+    const arr2 = [{ id: 2, name: 'Bob' }, { id: 3, name: 'Charlie' }];
+    console.log(diffByFields(arr1, arr2, ['id', 'name']));
+    // [{ id: 1, name: 'Alice' }]
+  </code>
+</pre>
+        <h4>5.3. Глубокое объединение объектов</h4>
+        <p>Объединить два объекта, учитывая вложенные структуры.</p>
+<pre>
+  <code class="lang-js">
+    const deepMerge = (obj1, obj2) => {
+      const result = { ...obj1 };
+      for (const [key, value] of Object.entries(obj2)) {
+        if (typeof value === 'object' && value !== null && typeof result[key] === 'object') {
+          result[key] = deepMerge(result[key], value);
+        } else {
+          result[key] = value;
+        }
+      }
+      return result;
+    };
+    const obj1 = { a: 1, b: { c: 2, d: 3 } };
+    const obj2 = { b: { c: 10, e: 4 }, f: 5 };
+    console.log(deepMerge(obj1, obj2));
+    // { a: 1, b: { c: 10, d: 3, e: 4 }, f: 5 }
+  </code>
+</pre>
+        <h4>5.4. Поиск циклических зависимостей</h4>
+        <p>Выявить циклические зависимости в графе объектов.</p>
+<pre>
+  <code class="lang-js">
+    const hasCycle = (graph) => {
+      const visited = new Set();
+      const stack = new Set();
+  
+      const dfs = (node) => {
+        if (stack.has(node)) return true;
+        if (visited.has(node)) return false;
+  
+        visited.add(node);
+        stack.add(node);
+  
+        for (const neighbor of graph[node] || []) {
+          if (dfs(neighbor)) return true;
+        }
+  
+        stack.delete(node);
+        return false;
+      };
+  
+      return Object.keys(graph).some(node => dfs(node));
+    };
+    const graph = {
+      A: ['B'],
+      B: ['C'],
+      C: ['A'] // Цикл: A → B → C → A
+    };
+    console.log(hasCycle(graph));
+    // true
+  </code>
+</pre>
 
 
       </article>
