@@ -836,7 +836,110 @@
     console.log(queue.isEmpty()); // false
   </code>
 </pre>
-
+        <h4>6.4. Реализация связного списка</h4>
+        <p>Создать связный список с базовыми методами (<code>add</code>, <code>remove</code>, <code>find</code>).</p>
+<pre>
+  <code class="lang-js">
+    class Node {
+      constructor(value) {
+        this.value = value;
+        this.next = null;
+      }
+    }
+  
+    class LinkedList {
+      constructor() {
+        this.head = null;
+      }
+  
+      add(value) {
+        const newNode = new Node(value);
+        if (!this.head) {
+          this.head = newNode;
+        } else {
+            let current = this.head;
+              while (current.next) {
+                current = current.next;
+            }
+            current.next = newNode;
+        }
+      }
+  
+      remove(value) {
+        if (!this.head) return;
+        if (this.head.value === value) {
+          this.head = this.head.next;
+          return;
+        }
+        let current = this.head;
+        while (current.next && current.next.value !== value) {
+          current = current.next;
+        }
+        if (current.next) {
+          current.next = current.next.next;
+        }
+      }
+  
+      find(value) {
+        let current = this.head;
+        while (current) {
+          if (current.value === value) return current;
+          current = current.next;
+        }
+        return null;
+      }
+    }
+  
+    const list = new LinkedList();
+    list.add(1);
+    list.add(2);
+    list.add(3);
+    console.log(list.find(2)); // Node { value: 2, next: Node { value: 3, next: null } }
+    list.remove(2);
+    console.log(list.find(2)); // null
+  </code>
+</pre>
+        <h4>6.5. Обработка вложенных данных</h4>
+        <p>Развернуть массив объектов, содержащий вложенные массивы.</p>
+        <p><strong>Задача:</strong> Написать функцию, которая развернёт массив с вложенными массивами в один плоский массив.</p>
+<pre>
+  <code class="lang-js">
+    const flattenArray = (arr) => {
+      return arr.reduce((flat, item) => {
+        return flat.concat(Array.isArray(item) ? flattenArray(item) : item);
+      }, []);
+    };
+  
+    const nestedArray = [1, [2, [3, [4]], 5]];
+    console.log(flattenArray(nestedArray));
+    // [1, 2, 3, 4, 5]
+  </code>
+</pre>
+        <h4>6.6. Группировка данных</h4>
+        <p>Группировать данные по значению ключа.</p>
+        <p><strong>Задача:</strong> Группировать пользователей по их возрасту.</p>
+<pre>
+  <code class="lang-js">
+    const groupBy = (arr, key) => {
+      return arr.reduce((groups, item) => {
+        const group = item[key];
+        groups[group] = groups[group] || [];
+        groups[group].push(item);
+        return groups;
+      }, {});
+    };
+  
+    const users = [
+      { name: 'Alice', age: 25 },
+      { name: 'Bob', age: 30 },
+      { name: 'Charlie', age: 25 },
+      { name: 'David', age: 30 }
+    ];
+    console.log(groupBy(users, 'age'));
+    // { '25': [{ name: 'Alice', age: 25 }, { name: 'Charlie', age: 25 }],
+    //   '30': [{ name: 'Bob', age: 30 }, { name: 'David', age: 30 }] }
+  </code>
+</pre>
 
       </article>
     </main>
