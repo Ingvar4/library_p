@@ -940,6 +940,79 @@
     //   '30': [{ name: 'Bob', age: 30 }, { name: 'David', age: 30 }] }
   </code>
 </pre>
+        <h3>7. Алгоритмы и паттерны проектирования</h3>
+        <h4>7.1. Алгоритм сортировки — Быстрая сортировка (Quick Sort)</h4>
+        <p>Реализовать алгоритм быстрой сортировки для массива чисел.</p>
+<pre>
+  <code class="lang-js">
+    const quickSort = (arr) => {
+      if (arr.length <= 1) return arr;
+      const pivot = arr[arr.length - 1];
+      const left = arr.filter((el) => el < pivot);
+      const right = arr.filter((el) => el > pivot);
+      return [...quickSort(left), pivot, ...quickSort(right)];
+    };
+  
+    const unsortedArray = [5, 3, 8, 4, 2, 7, 1, 10];
+    console.log(quickSort(unsortedArray)); 
+    // [1, 2, 3, 4, 5, 7, 8, 10]
+  </code>
+</pre>
+        <h4>7.2. Паттерн проектирования — Singleton</h4>
+        <p>Реализовать Singleton, который гарантирует создание только одного экземпляра объекта.</p>
+<pre>
+  <code class="lang-js">
+    class Singleton {
+      constructor() {
+        if (Singleton.instance) {
+          return Singleton.instance;
+        }
+        Singleton.instance = this;
+        this.timestamp = Date.now();
+      }
+  
+      getInstance() {
+        return this;
+      }
+    }
+  
+    const instance1 = new Singleton();
+    const instance2 = new Singleton();
+  
+    console.log(instance1 === instance2); // true
+    console.log(instance1.timestamp); // одинаковый timestamp
+  </code>
+</pre>
+        <h4>7.3. Алгоритм — Проверка сбалансированных скобок</h4>
+        <p>Написать функцию, которая проверяет, сбалансированы ли скобки в строке.</p>
+<pre>
+  <code class="lang-js">
+    const isBalanced = (str) => {
+      const stack = [];
+      const pairs = {
+        ')': '(',
+        ']': '[',
+        '}': '{',
+      };
+  
+      for (const char of str) {
+        if (['(', '[', '{'].includes(char)) {
+          stack.push(char);
+        } else if ([')', ']', '}'].includes(char)) {
+          if (stack.pop() !== pairs[char]) {
+            return false;
+          }
+        }
+      }
+  
+      return stack.length === 0;
+    };
+  
+    console.log(isBalanced("{[()]}")); // true
+    console.log(isBalanced("{[(])}")); // false
+    console.log(isBalanced("{{[[(())]]}}")); // true
+  </code>
+</pre>
 
       </article>
     </main>
