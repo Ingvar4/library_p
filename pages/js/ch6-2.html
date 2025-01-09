@@ -1013,6 +1013,28 @@
     console.log(isBalanced("{{[[(())]]}}")); // true
   </code>
 </pre>
+        <h4>7.4. Функциональное программирование — Каррирование (Currying)</h4>
+        <p>Реализовать функцию для каррирования.</p>
+<pre>
+  <code  class="lang-js">
+    const curry = (fn) => {
+      return function curried(...args) {
+          if (args.length >= fn.length) {
+              return fn(...args);
+          } else {
+              return (...nextArgs) => curried(...args, ...nextArgs);
+          }
+      };
+    };
+  
+    const add = (a, b, c) => a + b + c;
+    const curriedAdd = curry(add);
+  
+    console.log(curriedAdd(1)(2)(3)); // 6
+    console.log(curriedAdd(1, 2)(3)); // 6
+    console.log(curriedAdd(1, 2, 3)); // 6
+  </code>
+</pre>
 
       </article>
     </main>
