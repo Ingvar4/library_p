@@ -1035,6 +1035,46 @@
     console.log(curriedAdd(1, 2, 3)); // 6
   </code>
 </pre>
+        <h4>7.5. Реализация паттерна Observer</h4>
+        <p>Создать простую реализацию паттерна Observer.</p>
+<pre>
+  <code class="lang-js">
+    class Observable {
+      constructor() {
+        this.observers = [];
+      }
+  
+      subscribe(observer) {
+        this.observers.push(observer);
+      }
+  
+      unsubscribe(observer) {
+        this.observers = this.observers.filter((obs) => obs !== observer);
+      }
+  
+      notify(data) {
+        this.observers.forEach((observer) => observer(data));
+      }
+    }
+  
+    const observable = new Observable();
+  
+    const observer1 = (data) => console.log(`Observer 1: ${data}`);
+    const observer2 = (data) => console.log(`Observer 2: ${data}`);
+  
+    observable.subscribe(observer1);
+    observable.subscribe(observer2);
+  
+    observable.notify('Hello Observers!'); 
+    // Observer 1: Hello Observers!
+    // Observer 2: Hello Observers!
+  
+    observable.unsubscribe(observer1);
+  
+    observable.notify('Second message'); 
+    // Observer 2: Second message
+  </code>
+</pre>
 
       </article>
     </main>
