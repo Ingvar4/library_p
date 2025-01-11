@@ -1075,6 +1075,21 @@
     // Observer 2: Second message
   </code>
 </pre>
+        <h4>5.6. Обратный маппинг</h4>
+        <p>Создать обратный маппинг из объекта: значения становятся ключами, а ключи — значениями.</p>
+<pre>
+  <code class="lang-js">
+    const reverseMapping = (obj) => {
+      return Object.entries(obj).reduce((acc, [key, value]) => {
+        acc[value] = key;
+        return acc;
+      }, {});
+    };
+    const mapping = { a: 1, b: 2, c: 3 };
+    console.log(reverseMapping(mapping));
+    // { 1: 'a', 2: 'b', 3: 'c' }
+  </code>
+</pre>
 
       </article>
     </main>
