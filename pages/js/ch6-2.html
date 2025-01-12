@@ -758,6 +758,41 @@
     // true
   </code>
 </pre>
+        <h4>5.5. Группировка по диапазонам значений</h4>
+        <p>Сгруппировать массив чисел по заданным диапазонам.</p>
+<pre>
+  <code class="lang-js">
+    const groupByRange = (arr, ranges) => {
+      const groups = {};
+      for (const num of arr) {
+        const range = ranges.find(([min, max]) => num >= min && num <= max);
+        const key = range ? `${range[0]}-${range[1]}` : 'others';
+        groups[key] = groups[key] || [];
+        groups[key].push(num);
+      }
+      return groups;
+    };
+    const numbers = [1, 5, 10, 15, 20, 25, 30];
+    const ranges = [[0, 10], [11, 20], [21, 30]];
+    console.log(groupByRange(numbers, ranges));
+    // { '0-10': [1, 5, 10], '11-20': [15, 20], '21-30': [25, 30] }
+  </code>
+</pre>
+        <h4>5.6. Обратный маппинг</h4>
+        <p>Создать обратный маппинг из объекта: значения становятся ключами, а ключи — значениями.</p>
+<pre>
+  <code class="lang-js">
+    const reverseMapping = (obj) => {
+      return Object.entries(obj).reduce((acc, [key, value]) => {
+        acc[value] = key;
+        return acc;
+      }, {});
+    };
+    const mapping = { a: 1, b: 2, c: 3 };
+    console.log(reverseMapping(mapping));
+    // { 1: 'a', 2: 'b', 3: 'c' }
+  </code>
+</pre>
         <h3>6. Обработка данных, API и реализация структур данных:</h3>
         <h4>6.1. Получение и обработка данных из API</h4>
         <p>Выполнить запрос к API, обработать данные и вывести список с определённым форматом.</p>
@@ -1075,19 +1110,25 @@
     // Observer 2: Second message
   </code>
 </pre>
-        <h4>5.6. Обратный маппинг</h4>
-        <p>Создать обратный маппинг из объекта: значения становятся ключами, а ключи — значениями.</p>
+        <h4>7.6. Генерация всех возможных перестановок строки</h4>
+        <p>Реализовать функцию, которая генерирует все перестановки заданной строки.</p>
 <pre>
-  <code class="lang-js">
-    const reverseMapping = (obj) => {
-      return Object.entries(obj).reduce((acc, [key, value]) => {
-        acc[value] = key;
-        return acc;
-      }, {});
+  <code>
+    const permutations = (str) => {
+      if (str.length <= 1) return [str];
+      const result = [];
+      for (let i = 0; i < str.length; i++) {
+        const char = str[i];
+        const remaining = str.slice(0, i) + str.slice(i + 1);
+        for (const perm of permutations(remaining)) {
+          result.push(char + perm);
+        }
+      }
+      return result;
     };
-    const mapping = { a: 1, b: 2, c: 3 };
-    console.log(reverseMapping(mapping));
-    // { 1: 'a', 2: 'b', 3: 'c' }
+  
+    console.log(permutations("abc")); 
+    // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
   </code>
 </pre>
 
