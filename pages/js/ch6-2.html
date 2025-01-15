@@ -428,12 +428,27 @@
         <h4>2.14. Уникальные элементы в массиве</h4>
         <p>Напишите функцию, которая возвращает массив, содержащий только уникальные элементы.</p>
 <pre>
-  <code>
+  <code class="lang-js">
     const getUniqueElements = (arr) => {
       return [...new Set(arr)];
     };
   
     console.log(getUniqueElements([1, 2, 3, 2, 4, 1])); // [1, 2, 3, 4]
+  </code>
+</pre>
+        <h4>2.15. Переворот массива</h4>
+        <p>Реализуйте функцию, которая принимает массив и возвращает его в обратном порядке без использования встроенного метода reverse.</p>
+<pre>
+  <code class="lang-js">
+    const reverseArray = (arr) => {
+      const reversed = [];
+      for (let i = arr.length - 1; i >= 0; i--) {
+          reversed.push(arr[i]);
+      }
+      return reversed;
+    };
+  
+    console.log(reverseArray([1, 2, 3, 4])); // [4, 3, 2, 1]
   </code>
 </pre>
         <h3>3. Задачи на числа</h3>
