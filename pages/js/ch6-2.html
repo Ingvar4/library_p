@@ -451,6 +451,22 @@
     console.log(reverseArray([1, 2, 3, 4])); // [4, 3, 2, 1]
   </code>
 </pre>
+        <h4>2.16. Чередование двух массивов</h4>
+        <p>Напишите функцию, которая принимает два массива одинаковой длины и возвращает новый массив, элементы которого чередуются.</p>
+<pre>
+  <code class="lang-js">
+    const alternateArrays = (arr1, arr2) => {
+      const result = [];
+      for (let i = 0; i < arr1.length; i++) {
+        result.push(arr1[i], arr2[i]);
+      }
+      return result;
+    };
+  
+    console.log(alternateArrays([1, 2, 3], ['a', 'b', 'c'])); 
+    // [1, 'a', 2, 'b', 3, 'c']
+  </code>
+</pre>
         <h3>3. Задачи на числа</h3>
         <h4>3.1. Сумма цифр числа</h4>
         <p>Найти сумму всех цифр числа.</p>
