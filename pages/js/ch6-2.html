@@ -467,6 +467,23 @@
     // [1, 'a', 2, 'b', 3, 'c']
   </code>
 </pre>
+        <h4>2.17. Группировка массива по длине строк</h4>
+        <p>Создайте функцию, которая группирует строки массива по их длине.</p>
+<pre>
+  <code class="lang-js">
+    const groupByLength = (arr) => {
+      return arr.reduce((acc, str) => {
+        const len = str.length;
+        acc[len] = acc[len] || [];
+        acc[len].push(str);
+        return acc;
+      }, {});
+    };
+  
+    console.log(groupByLength(['apple', 'pear', 'kiwi', 'banana'])); 
+    // { 4: ['pear', 'kiwi'], 5: ['apple'], 6: ['banana'] }
+  </code>
+</pre>
         <h3>3. Задачи на числа</h3>
         <h4>3.1. Сумма цифр числа</h4>
         <p>Найти сумму всех цифр числа.</p>
