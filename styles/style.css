@@ -1,33 +1,7 @@
 
-@font-face {
-  font-weight: 100;
-  font-family: Roboto;
-  src: url(../fonts/Roboto-Thin.ttf);
-}
-
-@font-face {
-  font-weight: 100;
-  font-family: Roboto;
-  src: url(../fonts/Roboto-ThinItalic.ttf);
-}
-
-@font-face {
-  font-weight: 400;
-  font-family: Roboto;
-  src: url(../fonts/Roboto-Regular.ttf);
-}
-
-@font-face {
-  font-weight: 700;
-  font-family: Roboto;
-  src: url(../fonts/Roboto-Bold.ttf);
-}
-
-/* @font-face {
-  font-weight: 700;
-  font-family: Roboto;
-  src: url(../fonts/Roboto-BoldItalic.ttf);
-} */
+@import url('fonts.css');
+@import url('header.css');
+@import url('footer.css');
 
 html {
   /*background-color: #a9a9a9;*/
@@ -51,60 +25,7 @@ body {
   /* max-width: 2000px; */
 }
 
-.logo {
-  color: white;
-  font-size: 150%;
-  height: 100px;
-  padding: 50px 20px;
-  margin: 0 auto;
-  max-width: 980px;
-}
 
-
-.main-header-top {
-  /* max-width: 2000px; */
-  background-color: #000;
-  padding: .5em;
-  height: 26px;
-  display: flex;
-  align-items: center;
-}
-
-.main-header-top ul {
-  padding: 0;
-  list-style-type: none;
-  flex: 2;
-  display: flex;
-  
-}
-
-.main-header-top li {
-  display: inline;
-}
-
-.main-header-top a {
-  color: #fff;
-  text-decoration: none;
-  padding: .5em 1em;
-  transition: background 0.3s;
-}
-
-.main-header-top a:hover {
-  background-color: #bbb6b065;
-}
-
-.main-header-top a:active {
-  border: 0px inset rgba(255, 255, 255, 0);
-  background: grey;
-  color: black;
-  border-radius: 0px;
-}
-
-.header-logo img {
-  width: 30px;
-  height: 30px;
-  /* padding-left: 200px; */
-}
 
 main {
   max-width: 1100px;
@@ -199,12 +120,7 @@ code {
   */
 }
 
-footer {
-  color: white;
-  padding: 1%;
-  margin-top: 10px;
-  border-top: 3px solid #bbb6b065;
-}
+
 
 .youtube-iframe {
   float: left;
