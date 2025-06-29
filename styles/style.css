@@ -2,91 +2,31 @@
 @import url('fonts.css');
 @import url('header.css');
 @import url('footer.css');
+@import url('variables.css');
 
-html {
-  /*background-color: #a9a9a9;*/
-  background: url(../pattern.png);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  width: 90%;
-  margin: 0 auto;
-  background-color: #253745ac;
-
-  /* предыдущий цвет фона */
-  /* background-color: #ffffff; */
-  /* background-color: #eae6e3c6; */
-
-  color: #333;
-  font-family: Roboto, sans-serif;
-  font-size: 1.2rem;
-  /* font: 1.2em / 1.2 Arial, Helvetica, sans-serif; */
-  /*min-width: 1000px;*/
-  /* max-width: 2000px; */
+  background-color: var(--gray90);
+  font-family: 'Inter';
+  margin: 0;
+  padding: 0;
+  /* transition: all 1s ease; */
 }
 
 
 
-main {
-  max-width: 1100px;
-  margin: 10px auto;
-  background-color:whitesmoke;
-  /* старый вариант: */
-  /* background-color: #eae6e365; */
-  padding: 0 20px 20px 20px;
-  border: 2px solid #bbb6b0ec;
-  display: block;
-} 
-
-nav {
-  float: left;
-}
-
-nav a {
-  text-decoration: none;
-  color: #000;
-  line-height: 3;
-  border: 1px solid black;
-  display: block;
-  width: 150px;
-  height: 50px;
-  margin: .9em;
-}
-
-nav a:hover {
-  background: #bbb6b065;
-  color: white;
-}
-
-nav ul {
-  list-style-type: none;
-  text-align: center; 
-}
-
-p {
-  text-indent: 20px;
-  line-height: 1.4;
-}
 
 h1, h3 {
   background-color: rgba(220, 220, 220, 0.464);
   /* background-color: gainsboro; */
 }
 
-/* code {
-  background-color: #eee;
-  border-radius: 3px;
-  font-family: courier, monospace;
-} */
 
-/* pre {
-  max-width: 850px;
-  height: 150px;
-  box-shadow: 5px 5px 5px #444;
-  border: 2px solid #bbb6b0fa;
-  padding: 20px;
-  overflow: auto;
-} */
  
 pre {
   background-color: #e1e1e1b3;
@@ -103,201 +43,16 @@ code {
   font-size: 17px;
 }
 
-.notextIndent, pre {
-  text-indent: -5px;
-}
-
-.ul-tablica {
-  list-style-type: none;
-}
-
-.iframe-code {
-  width: 400px;
-  height: 200px;
-  box-shadow: 5px 5px 5px #444;
-  /*
-  background-image: linear-gradient(180deg, #fff, #ddd 40%, #ccc);
-  */
-}
-
-
-
-.youtube-iframe {
-  float: left;
-  margin: 0 10px 5px 10px;
-  max-width: 100%;
-}
 
 img {
   max-width: 100%;
   height: auto;
 }
 
-li{
-  line-height: 1.7; 
-}
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-table, th, td {
-  border: 1px solid #ddd;
-}
-th, td {
-  padding: 10px;
-  text-align: left;
-}
-th {
-  background-color: #f2f2f2;
-}
 
-.result {
-  width: 100%;
-  border: 2px solid gainsboro;
-  
-}
-
-.resultP {
-  background-color: rgba(220, 220, 220, 0.462);
-  margin-top: 0;
-  border-bottom: 1px solid black;
-}
-
-.sidebar {
-  width: 300px;
-  padding: 15px;
-  margin: 10px;
-  right: 353px;
-  position: fixed;
-  overflow-y: auto;
-  background-color: #f4f4f4;
-  border: 2px solid #bbb6b0ec;
-}
-
-.sidebar h2 {
-  font-size: 18px;
-}
-
-.sidebar a {
-  font-size: 13px;
-}
-
-.sidebar ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.sidebar ul li {
-  margin-bottom: 10px;
-}
-
-.sidebar ul li a {
-  text-decoration: none;
-  color: #333;
-}
-
-.sidebar ul li a:hover {
-  color: #007bff;
-}
-.sidebar ul li a.active {
-  font-weight: bold;
-  color: #007bff;
-}
-.dline {
-  line-height: 0.9em;
-}
-.dline::before {
-  content: ' \21C0';
-  color: black;
-  margin-right: 3px;
-}
 
 /* 
 -МЕДИА ЗАПРОСЫ-
 */
 
-@media (max-width: 550px) {
-  body {
-    width: 100%;
-  }
-
-  main {
-    min-height: 57vh;
-  }
-
-  .logo {
-    font-size: 90%;
-    text-align: center;
-  }
-
-  .iframe-code {
-    width: 350px;
-  }
-
-  footer {
-    text-align: center;
-  }
-
-  pre {
-    background-color: #e1e1e1b3;
-    padding: 10px;
-    border-radius: 4px;
-    display: block;
-    /* text-wrap: wrap; */
-    /* overflow-wrap: break-word; */
-    overflow: auto;
-  }
-  
-  code {
-    /* background-color: #e1e1e16d; */
-    padding: 2px 4px;
-    border-radius: 4px;
-    font-family: monospace;
-    font-size: 12px;
-  }
-  .header-logo img {
-    display: none;
-  }
-}
-
-@media (max-width: 1917px) {
-  .sidebar {
-    display: none;
-  }
-  .header-logo img {
-    display: none;
-  }
-}
-
-@media (max-width: 1920px) {
-  .header-logo img {
-    padding-left: 280px;
-  }
-
-  .sidebar {
-    width: 250px;
-    padding: 5px;
-    margin: 10px;
-    right: 112px;
-    position: fixed;
-    overflow-y: auto;
-    background-color: #f4f4f4;
-    border: 2px solid #bbb6b0ec;
-  }
-
-  .sidebar h2 {
-    font-size: 14px;
-  }
-  
-  .sidebar a {
-    font-size: 10px;
-  }
-}
-
-@media (min-width: 2560px) {
-  .header-logo img {
-    padding-left: 560px;
-  }
-}

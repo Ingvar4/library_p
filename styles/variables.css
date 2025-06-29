@@ -1,0 +1,11 @@
+:root {
+  /* colors */
+  --gray10: hsl(0, 0%, 10%);
+  --gray30: hsl(0, 0%, 30%);
+  --gray50: hsl(0, 0%, 50%);
+  --gray70: hsl(0, 0%, 70%);
+  --gray90: hsl(0, 0%, 90%);
+  --accent: hsl(153, 71%, 59%);
+  --bs-yellow: #ffc107;
+  --bs-blue: #0d6efd;
+}
