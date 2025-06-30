@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LIBRARY</title>
   <link rel="stylesheet" href="./styles/style.css">
+  
 </head>
 <body>
   <header class="main-header-top">
@@ -16,27 +17,116 @@
       <p>LIBRARY</p>
     </div>
     
-    <div class="header-menu">
-      <ul>
-        <!-- <li><a href="index.html">Home</a></li> -->
-        <li><a href="pages/html.html">HTML</a></li>
-        <li><a href="pages/css.html">CSS</a></li>
-        <li><a href="pages/js.html">JS</a></li>
-      </ul>
-    </div>
-    
   </header>
 
 
 
 
   <main>
-    
-      <h1>Начало работы с HTML, CSS, JS</h1>
+    <div class="tabs">
+      <div class="tab-buttons">
+        <button class="tab-button active" data-tab="tab1">HTML</button>
+        <button class="tab-button" data-tab="tab2">CSS</button>
+        <button class="tab-button" data-tab="tab3">JS</button>
+        
 
-      <p>Сайт-шпаргалка, сделанный для обощения всего нужного материала для создания сайта.</p>
-      <p>Дополнительная информация:</p>
+        <div class="dropdown">
+          <button class="tab-button dropdown-toggle">Ещё ▾</button>
+          <div class="dropdown-menu">
+            <button class="dropdown-item" data-tab="tab4">PostgreSQL</button>
+            <button class="dropdown-item" data-tab="tab5">React</button>
+            <button class="dropdown-item" data-tab="tab6">Next</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content active" id="tab1">
+        <a href="./pages/html.html">12345</a>
+
+
+          
+      </div>
+
+
+
+
+
+
+
+
+      
+      <div class="tab-content" id="tab2">
+        <p>Контент второй статьи.</p>
+        <p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. То маленькая которое всемогущая они переулка снова, выйти свое путь, там одна первую если рыбного пояс. Силуэт деревни большого которое?
+        Запятой, назад подпоясал наш рыбными свою вершину напоивший? От всех то страну семь это, гор вдали правилами о пунктуация имени собрал своего свое всемогущая города, осталось дал точках встретил за родного?
+        От всех деревни прямо за даже ipsum подзаголовок гор страну. Решила, продолжил путь снова жаренные реторический повстречался образ толку не строчка безопасную ручеек предложения? Всеми там пунктуация власти повстречался предупредила свой.
+        Даль силуэт повстречался решила пунктуация моей если lorem не пустился домах правилами, жаренные скатился эта, грамматики наш? Выйти маленькая злых великий меня! Знаках наш то о переписывается, залетают все напоивший.</p>
+      </div>
+
+      <div class="tab-content" id="tab3">
+        <h1>Глава 1: Введение в JavaScript и Основы</h1>
+        <ul>
+          <h3>Тема 1</h3>
+          <li> <a class="pagesLinks" href="../pages/js/ch1-1.html">Что такое JavaScript и где его применяют</a> </li>
+          <li><a class="pagesLinks" href="../pages/js/ch1-2.html">Установка среды разработки (VS Code, Node.js)</a></li>
+          <li><a class="pagesLinks" href="../pages/js/ch1-3.html">Подключение JavaScript к HTML-документу</a></li>
+          <li> <a class="pagesLinks" href="../pages/js/ch1-4.html">Введение в синтаксис JavaScript (переменные, типы данных)</a> </li>
+        </ul>
+
+        <ul>
+          <h3>Тема 2</h3>
+          <li><a class="pagesLinks" href="../pages/js/ch1-5.html">Операторы и выражения</a></li>
+          <li><a class="pagesLinks" href="../pages/js/ch1-6.html">Работа с переменными (let, const, var)</a></li>
+          <li><a class="pagesLinks" href="../pages/js/ch1-7.html">Базовые операции с числами и строками</a></li>
+        </ul>
+
+        <ul>
+          <h3>Тема 3</h3>
+          <li><a class="pagesLinks" href="../pages/js/ch1-8.html">Основы работы с функциями</a></li>
+          <li><a class="pagesLinks" href="../pages/js/ch1-9.html">Функции как блоки кода (определение, вызов)</a></li>
+          <li><a class="pagesLinks" href="../pages/js/ch1-10.html">Параметры и возврат значений</a></li>
+        </ul>
+
+        <ul>
+          <h3>Тема 4</h3>
+          <li><a class="pagesLinks" href="../pages/js/ch1-11.html">Практика: написание простых функций и выполнение арифметических операций</a></li>
+        </ul>
+      </div>
+
+      <div class="tab-content" id="tab4">
+        <p>Тут будут статьи PostgreSQL.</p>
+      </div>
+      <div class="tab-content" id="tab5">
+        <p>Тут будут статьи React.</p>
+      </div>
+      <div class="tab-content" id="tab6">
+        <p>Тут будут статьи Next.</p>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- <div class="center-content">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pages/html.html">HTML</a></li>
+        <li><a href="pages/css.html">CSS</a></li>
+        <li><a href="pages/js.html">JS</a></li>
+      </ul>
+    </div> -->
+
       <a href="pages/PostgreSQL.html">PostgreSQL</a>
+      <a href="render.html">рендер</a>
+      
       <hr>
       
   </main>
@@ -48,6 +138,7 @@
 
   
   <script src="./scripts/main.js" type="module"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 </body>
 
 </html>
