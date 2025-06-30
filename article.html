@@ -1,12 +1,14 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <link rel="shortcut icon" href="./assets/images/image.jpg" type="image/x-icon">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LIBRARY</title>
+  <meta charset="UTF-8" />
+  <title>Статья</title>
   <link rel="stylesheet" href="./styles/style.css">
-  
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <style>
+    /* body { font-family: sans-serif; max-width: 800px; margin: 0 auto; padding: 30px; } */
+    .loading { color: gray; }
+  </style>
 </head>
 <body>
   <header class="main-header-top">
@@ -36,14 +38,9 @@
       </div>
 
       <div class="tab-content active" id="tab1">
-        <h2>Глава 1: Введение в HTML</h2>
-        <ul>
-          <h3>Тема 1. Что такое HTML и как он работает?</h3>
-          <li><a href="article.html?slug=html-tags">Основные концепции веб-страниц: структура, браузеры и HTML.</a></li>
-          <li><a href="article.html?slug=html-forms">Роль HTML в связке с CSS и JavaScript.</a></li>
-          <h3>Тема 2. Первая HTML-страница</h3>
-          <li><a href="http://">Теги <code>&lt;html></code>, <code>&lt;head></code>, <code>&lt;body></code>, структура HTML-документа.</a></li>
-        </ul>
+        <div id="article">
+          <p class="loading">Загрузка статьи...</p>
+        </div>
       </div>
 
 
@@ -57,7 +54,6 @@
       <div class="tab-content" id="tab2">
         <ul>
           <li><a href="article-css.html?slug=css page1">CSS статья</a></li>
-          
         </ul>
       </div>
 
@@ -123,22 +119,51 @@
     </div> -->
 
       <a href="pages/PostgreSQL.html">PostgreSQL</a>
-      <a href="./pages/html.html">pages html</a>
-      <a href="./pages/css.html">pages CSS</a>
       
       
       <hr>
       
   </main>
 
-  <!--блок в нижней части страницы-->
   <footer> 
     <p>©Copyright 2025 by nobody. All rights reversed.</p>
   </footer>
 
-  
-  <script src="./scripts/main.js" type="module"></script>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script> -->
-</body>
+  <script>
+    const supabase = window.supabase.createClient(
+      'https://dftxrmlepmufduwxtwxr.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRmdHhybWxlcG11ZmR1d3h0d3hyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTEwMTM3NzYsImV4cCI6MjA2NjU4OTc3Nn0.E5CDsvpDNzWhVATuqEcflQGtRH6jH3J1imtGKO3yX70'
+    );
 
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get('slug');
+
+    if (!slug) {
+      document.getElementById('article').innerHTML = '<p>Ошибка: slug статьи не указан.</p>';
+    } else {
+      loadArticle(slug);
+    }
+
+    async function loadArticle(slug) {
+      const { data: article, error } = await supabase
+        .from('articles')
+        .select('*')
+        .eq('slug', slug)
+        .single();
+
+      const container = document.getElementById('article');
+
+      if (error || !article) {
+        container.innerHTML = '<p>Статья не найдена.</p>';
+        return;
+      }
+
+      container.innerHTML = `
+        <h1>${article.title}</h1>
+        <div>${article.content}</div>
+      `;
+    }
+  </script>
+  <script src="./scripts/main.js" type="module"></script>
+</body>
 </html>
