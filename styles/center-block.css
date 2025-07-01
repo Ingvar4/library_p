@@ -1,0 +1,11 @@
+.center-block {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 50px;
+}
+
+.center-block-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,15 +1,14 @@
 .main-header-top {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  padding: 40px 50px;
 }
 
 .header-logo{
   display: flex;
   align-items: center;
-  margin: 10px;
 }
 
 .header-logo img {
@@ -17,16 +16,17 @@
   height: 32px;
 }
 
-.header-logo p{
+.header-logo p {
   padding-left: 10px;
 }
 
-.header-menu ul{
+.header-menu{
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center; 
 }
 
-.header-menu li {
-  padding: 10px;
-  list-style: none;
+.header-menu a {
+  padding-left: 10px;
 }
