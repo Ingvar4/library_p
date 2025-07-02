@@ -130,7 +130,7 @@
   box-shadow: 0 4px 16px 0 #0000004d;
 }
 
-.tab-content li a {
+.pagesLinks {
   color: var(--gray30);
   text-decoration-line: none;
 }

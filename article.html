@@ -2,12 +2,25 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>Статья</title>
+  <link rel="shortcut icon" href="./assets/images/image.jpg" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page</title>
+  <link rel="stylesheet" href="./assets/font-awesome-4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./styles/style.css">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <style>
     /* body { font-family: sans-serif; max-width: 800px; margin: 0 auto; padding: 30px; } */
     .loading { color: gray; }
+    .tab-content li {
+      padding: 0px;
+      color: var(--gray10);
+    }
+    .tab-content li:hover {
+      box-shadow: none;
+    }
+    .tab-content ul {
+      list-style-type: circle;
+    }
   </style>
 </head>
 <body>
@@ -23,7 +36,7 @@
   <main>
     <div class="tabs">
       <div class="tab-buttons">
-        <button class="tab-button active" data-tab="tab1">HTML</button>
+        <button class="tab-button active" data-tab="tab1"><i class="fa fa-forward" aria-hidden="true"></i> <a href="./index.html">HTML</a></button>
         <button class="tab-button" data-tab="tab2">CSS</button>
         <button class="tab-button" data-tab="tab3">JS</button>
         
@@ -159,7 +172,7 @@
       }
 
       container.innerHTML = `
-        <h1>${article.title}</h1>
+        <h1>${article.title}</h1><hr>
         <div>${article.content}</div>
       `;
     }
