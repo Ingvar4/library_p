@@ -2,12 +2,16 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>Статья</title>
+  <link rel="shortcut icon" href="./assets/images/image.jpg" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page</title>
   <link rel="stylesheet" href="./styles/style.css">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <style>
-    /* body { font-family: sans-serif; max-width: 800px; margin: 0 auto; padding: 30px; } */
     .loading { color: gray; }
+    #article li{padding: 0px; color: var(--gray10);}
+    #article li:hover{box-shadow: none;}
+    #article ul{list-style-type: circle;}
   </style>
 </head>
 <body>
@@ -39,29 +43,94 @@
         </div>
       </div>
 
+<!-- HTML содержание -->
       <div class="tab-content" id="tab1">
+        <h2><i class="fa fa-html5" aria-hidden="true"></i> Введение в HTML</h2>
         <ul>
-          <li><a href="article.html?slug=html-tags">HTML: Основные теги</a></li>
-          <li><a href="article.html?slug=html-forms">HTML: Формы</a></li>
+          <li><a class="pagesLinks" href="article.html?slug=html1-1-1">Основные концепции веб-страниц: структура, браузеры и HTML.</a></li>
+          <li><a class="pagesLinks" href="article.html?slug=html1-1-2">Роль HTML в связке с CSS и JavaScript.</a></li>
+          <li><a class="pagesLinks" href="article.html?slug=html1-2-1">Теги <code>&lt;html></code>, <code>&lt;head></code>, <code>&lt;body></code>, структура HTML-документа.</a></li>
+          <li><a class="pagesLinks" href="article.html?slug=html1-2-2">Тег <code>&lt;title></code>, заголовки <code>&lt;h1> – &lt;h6></a></code>.</li>
+        </ul>
+        
+        <h2>Текст и форматирование</h2>
+        <ul>
+          <li><a class="pagesLinks" href="article.html?slug=html2-1-1">Теги <code>&lt;p></code>, <code>&lt;br></code>, <code>&lt;hr></a></code>.</li>
+          <li><a class="pagesLinks" href="article.html?slug=html2-2-1">Жирный текст <code>&lt;b></code>, курсив <code>&lt;i></code>, подчёркнутый <code>&lt;u></code>, зачёркнутый <code>&lt;s></a></code>.</li>
+          <li><a class="pagesLinks" href="article.html?slug=html2-2-2">Сильное выделение <code>&lt;strong></code> и акцентирование <code>&lt;em></code>.</a></li>
+          <li><a class="pagesLinks" href="article.html?slug=html2-3-1">Нумерованные списки <code>&lt;ol></code> и ненумерованные <code>&lt;ul></code>, элементы списка <code>&lt;li></a></code>.</li>
+        </ul>
+        
+        <h2>Ссылки и изображения</h2>
+        <ul>
+          <li><a class="pagesLinks" href="article.html?slug=html3-1-1">Тег <code>&lt;a></code>, атрибуты <code>href</code>, <code>target</code>.</a></li>
+          <li><a class="pagesLinks" href="article.html?slug=html3-1-2">Ссылки на внутренние страницы и внешние ресурсы.</a></li>
+          <li><a class="pagesLinks" href="article.html?slug=html3-2-1">Тег <code>&lt;img></code>, атрибуты <code>src</code>, <code>alt</code>, <code>width</code>, <code>height</code>.</a></li>
+        </ul>
+          
+        <h2>Структурирование содержимого</h2>
+        <ul>
+          <li><a class="pagesLinks" href="article.html?slug=html4-1-1">Основные структурные элементы: <code>&lt;header></code>, <code>&lt;footer></code>, <code>&lt;nav></code>, <code>&lt;main></code>, <code>&lt;article></code>, <code>&lt;section></code>, <code>&lt;aside></code>.</a></li>
+          <li><a class="pagesLinks" href="article.html?slug=html4-1-2">Важность семантики для SEO и доступности.</a></li>
+          <li><a class="pagesLinks" href="article.html?slug=html4-2-1">Теги <code>&lt;table></code>, <code>&lt;tr></code>, <code>&lt;td></code>, <code>&lt;th></code>, атрибуты colspan, rowspan.</a></li>
+        </ul>
+
+        <h2>Формы и взаимодействие с пользователем</h2>
+        <ul>
+          <li><a class="pagesLinks" href="article.html?slug=html5-1-1">Основные теги: <code>&lt;form></code>, <code>&lt;input></code>, <code>&lt;label>,</code> <code>&lt;textarea></code>, <code>&lt;button></code>.</a></li>
+          <li><a class="pagesLinks" href="article.html?slug=html5-1-2">Поля ввода: текстовые поля, пароли, чекбоксы, радиокнопки, селекторы.</a></li>
+          <li><a class="pagesLinks" href="article.html?slug=html5-1-3">Атрибуты: <code>name</code>, <code>action</code>, <code>method</code>, <code>placeholder</code>, <code>required</code>.</a></li>
+          <li><a class="pagesLinks" href="article.html?slug=html5-2-1">Понимание GET и POST методов.</a></li>
+          <li>Обработка отправки форм на сервер.</li>
+        </ul>
+          
+        <h2>Мультимедиа и другие теги</h2>
+        <ul>
+          <li><a class="pagesLinks" href="article.html?slug=html6-1-1">Теги <code>&lt;audio></code>, <code>&lt;video></code>, атрибуты <code>controls</code>, <code>autoplay</code>, <code>loop</code>.</a></li>
+          <li><a class="pagesLinks" href="article.html?slug=html6-2-1">Теги <code>&lt;details></code>, <code>&lt;summary></code>, <code>&lt;dialog></code>, <code>&lt;progress></code>, <code>&lt;meter></code>.</a></li>
+        </ul>
+          
+        <h2>Продвинутые темы</h2>
+        <ul>
+          <li><a class="pagesLinks" href="article.html?slug=html7-1-1">Тег <code>&lt;meta></code>, атрибуты <code>charset</code>, <code>name</code>, <code>content</code>, настройка заголовков и описаний для SEO.</a></li>
+          <li>Практика: настройка метаданных для веб-страницы.</li>
+          <li><a class="pagesLinks" href="article.html?slug=html7-2-1">Тег комментария <code>&lt;!-- комментарий --></code>.</a></li>
+          <li><a class="pagesLinks" href="article.html?slug=html7-3-1">Подключение CSS и JavaScript: теги <code>&lt;link></code> и <code>&lt;script></code>.</a></li>
+        </ul>
+          
+        <h2>Углубление и практика</h2>
+        <ul>
+          <li><a class="pagesLinks" href="article.html?slug=html8-1-1">Как проверять HTML-код на ошибки с помощью валидаторов.</a></li>
+          <li><a class="pagesLinks" href="article.html?slug=html8-3-1">Основы адаптивности: использование семантических тегов и медиа-запросов.</a></li>
+        </ul>
+          
+        <h2>Оптимизация и продвинутые техники</h2>
+        <ul>
+          <li><a class="pagesLinks" href="article.html?slug=html9-1-1">Работа с тегами для SEO оптимизации.</a></li>
+          <li>Практика: улучшение SEO параметров существующего сайта.</li>
+          <li><a class="pagesLinks" href="article.html?slug=html9-2-1">Создание доступного интерфейса: <code>aria-labels</code>, alt-описания, семантические теги.</a></li>
+          <li>Практика: улучшение доступности страницы.</li>
+        </ul>
+          
+        <h2>Проектная работа</h2>
+        <ul>
+          <li><a class="pagesLinks" href="article.html?slug=html10-1-1">Реализация многостраничного сайта с использованием всех изученных технологий.</a></li>
+          <li>Практика: создание и размещение проекта на хостинге.</li>
+        </ul>
+          
+        <h2>Статьи HTML</h2>
+        <ul>
+          <li><a class="pagesLinks" href="article.html?slug=htmlTags">Теги HTML</a></li>
         </ul>
       </div>
 
+<!-- CSS содержание -->
       <div class="tab-content active" id="tab2">
         <div id="article">
-        <p class="loading">Загрузка статьи...</p>
+          <p class="loading">Загрузка статьи...</p>
+        </div>
       </div>
 
-          
-      </div>
-
-
-
-
-
-
-
-
-      
       <div class="tab-content" id="tab2">
         <p>Контент второй статьи.</p>
         <p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. То маленькая которое всемогущая они переулка снова, выйти свое путь, там одна первую если рыбного пояс. Силуэт деревни большого которое?

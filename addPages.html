@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Добавление статьи</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      max-width: 600px;
+      margin: auto;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1rem;
+      margin-top: 0.25rem;
+    }
+    button {
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+    }
+    #result {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Добавить новую статью</h1>
+
+  <form id="article-form">
+    <label>
+      Заголовок:
+      <input type="text" name="title" required>
+    </label>
+
+    <label>
+      Slug (например, css-selectors):
+      <input type="text" name="slug" required>
+    </label>
+
+    <label>
+      Содержимое:
+      <textarea name="content" rows="6" required></textarea>
+    </label>
+
+    <label>
+      Порядок:
+      <input type="number" name="order" required>
+    </label>
+
+    <label>
+      Категория:
+      <select name="category_id" id="category-select" required></select>
+    </label>
+
+    <button type="submit">Добавить</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    // const { createClient } = supabase;
+
+    const supabaseUrl = 'https://dftxrmlepmufduwxtwxr.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRmdHhybWxlcG11ZmR1d3h0d3hyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTEwMTM3NzYsImV4cCI6MjA2NjU4OTc3Nn0.E5CDsvpDNzWhVATuqEcflQGtRH6jH3J1imtGKO3yX70';
+    // const supabase = createClient(supabaseUrl, supabaseKey);
+    const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+    async function loadCategories() {
+      const { data, error } = await supabase.from('categories').select('id, name');
+
+      const select = document.getElementById('category-select');
+
+      if (error) {
+        select.innerHTML = '<option>Ошибка загрузки категорий</option>';
+        return;
+      }
+
+      data.forEach(cat => {
+        const option = document.createElement('option');
+        option.value = cat.id;
+        option.textContent = cat.name;
+        select.appendChild(option);
+      });
+    }
+
+    document.getElementById('article-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const title = form.title.value;
+      const slug = form.slug.value;
+      const content = form.content.value;
+      const order = parseInt(form.order.value);
+      const category_id = form.category_id.value;
+
+      const { data, error } = await supabase.from('articles').insert([
+        { title, slug, content, order, category_id }
+      ]);
+
+      const result = document.getElementById('result');
+      if (error) {
+        result.textContent = 'Ошибка: ' + error.message;
+        result.style.color = 'red';
+      } else {
+        result.textContent = 'Статья успешно добавлена!';
+        result.style.color = 'green';
+        form.reset();
+      }
+    });
+
+    loadCategories();
+  </script>
+</body>
+</html>
