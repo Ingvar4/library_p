@@ -16,6 +16,7 @@
     rgba(255, 255, 255, 0.3),
     rgba(0, 0, 0, 0.2)
   ); */
+  font-family: 'Montserrat';
 }
 
 .tab-buttons {
@@ -32,6 +33,7 @@
   cursor: pointer;
   transition: background 0.2s;
   font-size: 16px;
+  font-family: 'Montserrat';
 }
 
 .tab-button:hover {
@@ -108,6 +110,7 @@
   text-align: left;
   cursor: pointer;
   font-size: 14px;
+  font-family: 'Montserrat';
 }
 
 .dropdown-item:hover {
@@ -116,11 +119,14 @@
 
 .dropdown-toggle {
   font-weight: normal;
-  /* font-style: italic; */
   background: var(--gray70);
 }
 
 /* Кастомизация содержания tabs */
+.tab-content h1, h2, h3, h4{
+  color: var(--gray10);
+}
+
 .tab-content li {
   padding: 5px 5px 5px 5px;
   color: var(--gray70);

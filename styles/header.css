@@ -9,6 +9,9 @@
 .header-logo{
   display: flex;
   align-items: center;
+  font-family: 'Montserrat';
+  font-weight: 900;
+  font-size: 40px;
 }
 
 .header-logo img {
@@ -25,8 +28,17 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center; 
+  font-family: 'Montserrat';
+  font-size: 18px;
 }
 
 .header-menu a {
   padding-left: 10px;
+  text-decoration: none;
+  color: var(--gray10);
+}
+
+.header-menu a:hover{
+  color: var(--accent);
+  transition: 0.2s;
 }

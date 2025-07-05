@@ -2,10 +2,28 @@
   display: flex;
   flex-direction: column;
   padding: 40px 50px;
+  align-items: center; 
 }
 
 .center-block-content {
-  display: flex;
   justify-content: center;
-  align-items: center;
+}
+
+.center-block-text {
+  font-family: 'Rubik Doodle Shadow';
+  font-size: 5em;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.center-block-text2 {
+  font-size: 25px;
+  text-align: center;
+  font-family: 'Montserrat';
+}
+
+@media (max-width: 768px) {
+  .center-block-text {
+    font-size: 4em;
+  }
 }
