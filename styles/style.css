@@ -35,13 +35,11 @@ body {
   margin: 0;
   padding: 0;
   transition: all 1s ease;
-  /* height: 100vh; */
 }
 
 pre {
   width: 100%;
   text-align: left;
-  /* background-color: #e1e1e1b3; */
   background-color: #e1e1e1b3;
   padding: 10px;
   border-radius: 4px;
@@ -49,24 +47,16 @@ pre {
 }
 
 code {
-  /* background-color: #e1e1e16d; */
   background-color: #fff4da13;
   padding: 1px 4px;
   border-radius: 4px;
-  /* font-family: monospace; */
-  /* font-size: 17px; */
-  /* font-family: "DotGothic16", serif; */
-  /* font-weight: 400; */
-  /* font-style: normal; */
   font-family: 'JetBrainsMono-Thin';
 }
-
 
 img {
   max-width: 100%;
   height: auto;
 }
-
 
 .result {
   width: 100%;
@@ -80,17 +70,10 @@ img {
   border-bottom: 1px solid black;
 }
 
-
-
 /* 
 -МЕДИА ЗАПРОСЫ-
 */
-
 @media (max-width: 768px) {
-  /* h1 {
-    font-size: 45px;
-  } */
-
   pre {
     font-size: 12px;
   }
@@ -98,14 +81,4 @@ img {
   img {
     width: 100%;
   }
-  /* ul{
-    margin-left: 15px; 
-  } */
-  /* ol {
-    margin-left: 15px; 
-  } */
-  /* li {
-    line-height: 20px;
-    padding: 0px;
-  } */
 }

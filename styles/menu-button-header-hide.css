@@ -65,6 +65,7 @@ body.menu-open {
   }
 
   .close-menu {
+    color: var(--gray90);
     display: block;
     align-self: flex-end;
     background: none;
