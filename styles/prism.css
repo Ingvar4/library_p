@@ -2,9 +2,10 @@
 https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
 code[class*="language-"],
 pre[class*="language-"] {
-  color: #000;
+  /* color: #000; */
+  color: var(--gray10);
   /* background: 0 0; */
-  /* text-shadow: 0 1px #fff; */
+  /* text-shadow: 0 1px var(--gray20); */
   /* font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace; */
   /* font-size: 1em; */
   /* text-align: left; */
@@ -49,6 +50,7 @@ pre[class*="language-"] {
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
   /* background: #f5f2f0; */
+  background-color: var(--gray90);
 }
 :not(pre) > code[class*="language-"] {
   padding: 0.1em;

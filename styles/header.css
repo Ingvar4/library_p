@@ -19,8 +19,9 @@
   height: 32px;
 }
 
-.header-logo p {
+.header-logo-span {
   padding-left: 10px;
+  color: var(--gray10);
 }
 
 .header-menu{
@@ -41,4 +42,20 @@
 .header-menu a:hover{
   color: var(--accent);
   transition: 0.2s;
+}
+
+/* Переключение темы */
+#theme-toggle {
+  font-size: 1.2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+@media (width < 769px) {
+  .main-header-top {
+    justify-content: flex-start;
+    padding: 40px 10px;
+  }
 }

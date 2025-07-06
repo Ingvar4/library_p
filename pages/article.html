@@ -14,6 +14,51 @@
     #article li:hover{box-shadow: none;}
     #article ul{list-style-type: circle;}
     .tabs {min-height: 80.1vh;}
+    p {font-size: 20px;
+      color: var(--gray10);
+      width: 100%;
+      text-align: left;
+      padding-top: 1vh;
+      padding-bottom: 1vh;
+    }
+    .table {overflow-x: auto;}
+    table {
+      border: 1px solid gray;
+      border-collapse: collapse;
+      text-align: center;
+      color: var(--gray10);
+    }
+    td {
+      text-align: left;
+      padding: 10px;
+      border-top: 1px solid gray;
+    }
+    details {
+      color: var(--gray10);
+      background-color: var(--gray80);
+      padding: 5px 5px 10px 5px;
+      width: 100%;
+      border: 1px solid gray;
+    }
+    ul{margin-left: 25px; }
+    ol {margin-left: 30px; }
+    li {
+      line-height: 27px;
+      padding: 0px;
+      margin-top: 5px;
+    }
+    details[open] {animation: slide .3s ease-in-out;}
+    @keyframes slide {
+      0%    { opacity: 0; transform:  translate(0, -5px); }
+      100%  { opacity: 1; transform:  translate(0, 0); }
+    }
+    @media (max-width: 768px) {
+      p {font-size: 16px;}
+      ul{margin-left: 10px;}
+      ol {margin-left: 10px;}
+      li {line-height: 20px;padding: 0px;}
+    }
+    /* @media (max-width: 925px) {.main-header-top {justify-content: flex-start;padding: 30px 10px;}} */
   </style>
 </head>
 <body>
@@ -22,7 +67,7 @@
       <img src="../assets/icons/html-icon.png" alt="html-icon">
       <img src="../assets/icons/css-icon.png" alt="css-icon">
       <img src="../assets/icons/js-icon.png" alt="css-icon">
-      <p>LIBRARY</p>
+      <span class="header-logo-span">LIBRARY</span class="header-logo-span">
     </div>
 
     <button class="burger-menu" aria-label="Открыть меню">&#9776;</button>
@@ -33,6 +78,7 @@
       <a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i> Войти</a>
       <a href="#"><i class="fa fa-caret-left" aria-hidden="true"></i> Выйти</a>
       <a href="#"><i class="fa fa-hand-spock-o" aria-hidden="true"></i> Зарегистрироваться</a>
+      <button id="theme-toggle" aria-label="Переключить тему">🌓</button>
     </div>
   </header>
   <div class="overlay"></div>
@@ -228,7 +274,7 @@
       <p>©Copyright 2025 by nobody. All rights reversed.</p>
     </div>
   </footer>
-
+  <button id="scrollToTopButton">&#8593;</button>
   <script>
     const supabase = window.supabase.createClient(
       'https://dftxrmlepmufduwxtwxr.supabase.co',

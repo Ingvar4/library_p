@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   height: 133px;
-  background-color: var(--gray50);
+  background-color: var(--gray70);
 }
 
 .footer-content {
@@ -26,4 +26,5 @@
  font-size: 22px;
  text-align: center;
  font-family: 'Montserrat';
+ color: var(--gray10);
 }

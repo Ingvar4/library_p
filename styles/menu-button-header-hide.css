@@ -8,6 +8,7 @@ body.menu-open {
   background: none;
   border: none;
   cursor: pointer;
+  color: var(--gray10);
 }
 
 .close-menu {
@@ -49,7 +50,7 @@ body.menu-open {
     opacity: 0;
     transform: translateX(20px);
     transition: transform 0.3s ease, opacity 0.3s ease;
-    color: var(--gray90);
+    color: whitesmoke;
   }
 
   .header-menu.open {

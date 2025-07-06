@@ -1,11 +1,27 @@
 :root {
-  /* colors */
   --gray10: hsl(0, 0%, 10%);
   --gray30: hsl(0, 0%, 30%);
   --gray50: hsl(0, 0%, 50%);
+  --gray60:hsl(0, 0%, 60%);
   --gray70: hsl(0, 0%, 70%);
+  --gray80: hsl(0, 0%, 80%);
   --gray90: hsl(0, 0%, 90%);
   --accent: hsl(153, 71%, 59%);
   --bs-yellow: #ffc107;
   --bs-blue: #0d6efd;
+  --background-image: url("../assets/images/pattern.jpg");
+}
+
+:root[data-theme="dark"] {
+  --gray10: hsl(0, 0%, 90%);
+  --gray30: hsl(0, 0%, 70%);
+  --gray50: hsl(0, 0%, 50%);
+  --gray60: hsl(0, 0%, 40%);
+  --gray70: hsl(0, 0%, 30%);
+  --gray80: hsl(0, 0%, 20%);
+  --gray90: hsl(0, 0%, 10%);
+  --accent: hsl(153, 71%, 59%);
+  --bs-yellow: #ffc107;
+  --bs-blue: #0e3c80;
+  --background-image: url("../assets/images/pattern-dark.jpg");
 }
