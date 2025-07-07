@@ -2,12 +2,13 @@
 
 export function initTabsModule(supabase) {
     const tabMap = {
-    tab1: '../pages/toc-html.html',
-    tab2: '../pages/toc-css.html',
-    tab3: '../pages/toc-js.html',
+    tab1: 'pages/toc-html.html',
+    tab2: 'pages/toc-css.html',
+    tab3: 'pages/toc-js.html',
     tab4: 'pages/toc-postgres.html',
     tab5: 'pages/toc-react.html',
-    tab6: 'pages/toc-next.html'
+    tab6: 'pages/toc-next.html',
+    tab1: '../pages/toc-html.html',
   };
 
   let currentTab = 'tab1';
