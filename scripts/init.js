@@ -3,6 +3,7 @@ import { prism } from "./utils/prism.js";
 import { openHeaderMenu } from "./utils/open_menu_header.js";
 import { switchTheme } from "./utils/switchTheme.js";
 import { scrollToTopButton } from "./utils/scrollToTopButton.js";
+import { renderTabs } from "./render/renderTabs.js";
 
 export function initApp() {
   tabsSwitchMainPage();
@@ -10,4 +11,5 @@ export function initApp() {
   openHeaderMenu();
   switchTheme();
   scrollToTopButton();
+  renderTabs();
 }

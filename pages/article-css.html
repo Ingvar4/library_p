@@ -5,8 +5,6 @@
   <link rel="shortcut icon" href="../assets/images/image.jpg" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
   <title>Page</title>
   <link rel="stylesheet" href="../assets/font-awesome-4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="../styles/style.css">
@@ -90,7 +88,7 @@
     <div class="tabs">
       <div class="tab-buttons">
         <button class="tab-button" data-tab="tab1">HTML</button>
-        <button class="tab-button active" data-tab="tab2"><a href="../index.html"><i class="fa fa-arrow-left" aria-hidden="true"></i></a></button>
+        <button class="tab-button active" data-tab="tab2" id="back-to-css"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
         <button class="tab-button" data-tab="tab3">JS</button>
         
         <div class="dropdown">
@@ -103,190 +101,25 @@
         </div>
       </div>
 
-<!-- HTML содержание -->
-      <div class="tab-content" id="tab1">
-        <h2><i class="fa fa-html5" aria-hidden="true"></i> Введение в HTML</h2>
-        <ul>
-          <li><a class="pagesLinks" href="article.html?slug=html1-1-1">Основные концепции веб-страниц: структура, браузеры и HTML.</a></li>
-          <li><a class="pagesLinks" href="article.html?slug=html1-1-2">Роль HTML в связке с CSS и JavaScript.</a></li>
-          <li><a class="pagesLinks" href="article.html?slug=html1-2-1">Теги <code>&lt;html></code>, <code>&lt;head></code>, <code>&lt;body></code>, структура HTML-документа.</a></li>
-          <li><a class="pagesLinks" href="article.html?slug=html1-2-2">Тег <code>&lt;title></code>, заголовки <code>&lt;h1> – &lt;h6></a></code>.</li>
-        </ul>
-        
-        <h2>Текст и форматирование</h2>
-        <ul>
-          <li><a class="pagesLinks" href="article.html?slug=html2-1-1">Теги <code>&lt;p></code>, <code>&lt;br></code>, <code>&lt;hr></a></code>.</li>
-          <li><a class="pagesLinks" href="article.html?slug=html2-2-1">Жирный текст <code>&lt;b></code>, курсив <code>&lt;i></code>, подчёркнутый <code>&lt;u></code>, зачёркнутый <code>&lt;s></a></code>.</li>
-          <li><a class="pagesLinks" href="article.html?slug=html2-2-2">Сильное выделение <code>&lt;strong></code> и акцентирование <code>&lt;em></code>.</a></li>
-          <li><a class="pagesLinks" href="article.html?slug=html2-3-1">Нумерованные списки <code>&lt;ol></code> и ненумерованные <code>&lt;ul></code>, элементы списка <code>&lt;li></a></code>.</li>
-        </ul>
-        
-        <h2>Ссылки и изображения</h2>
-        <ul>
-          <li><a class="pagesLinks" href="article.html?slug=html3-1-1">Тег <code>&lt;a></code>, атрибуты <code>href</code>, <code>target</code>.</a></li>
-          <li><a class="pagesLinks" href="article.html?slug=html3-1-2">Ссылки на внутренние страницы и внешние ресурсы.</a></li>
-          <li><a class="pagesLinks" href="article.html?slug=html3-2-1">Тег <code>&lt;img></code>, атрибуты <code>src</code>, <code>alt</code>, <code>width</code>, <code>height</code>.</a></li>
-        </ul>
-          
-        <h2>Структурирование содержимого</h2>
-        <ul>
-          <li><a class="pagesLinks" href="article.html?slug=html4-1-1">Основные структурные элементы: <code>&lt;header></code>, <code>&lt;footer></code>, <code>&lt;nav></code>, <code>&lt;main></code>, <code>&lt;article></code>, <code>&lt;section></code>, <code>&lt;aside></code>.</a></li>
-          <li><a class="pagesLinks" href="article.html?slug=html4-1-2">Важность семантики для SEO и доступности.</a></li>
-          <li><a class="pagesLinks" href="article.html?slug=html4-2-1">Теги <code>&lt;table></code>, <code>&lt;tr></code>, <code>&lt;td></code>, <code>&lt;th></code>, атрибуты colspan, rowspan.</a></li>
-        </ul>
+      <div class="tab-content" id="tab1"></div>
 
-        <h2>Формы и взаимодействие с пользователем</h2>
-        <ul>
-          <li><a class="pagesLinks" href="article.html?slug=html5-1-1">Основные теги: <code>&lt;form></code>, <code>&lt;input></code>, <code>&lt;label>,</code> <code>&lt;textarea></code>, <code>&lt;button></code>.</a></li>
-          <li><a class="pagesLinks" href="article.html?slug=html5-1-2">Поля ввода: текстовые поля, пароли, чекбоксы, радиокнопки, селекторы.</a></li>
-          <li><a class="pagesLinks" href="article.html?slug=html5-1-3">Атрибуты: <code>name</code>, <code>action</code>, <code>method</code>, <code>placeholder</code>, <code>required</code>.</a></li>
-          <li><a class="pagesLinks" href="article.html?slug=html5-2-1">Понимание GET и POST методов.</a></li>
-          <li>Обработка отправки форм на сервер.</li>
-        </ul>
-          
-        <h2>Мультимедиа и другие теги</h2>
-        <ul>
-          <li><a class="pagesLinks" href="article.html?slug=html6-1-1">Теги <code>&lt;audio></code>, <code>&lt;video></code>, атрибуты <code>controls</code>, <code>autoplay</code>, <code>loop</code>.</a></li>
-          <li><a class="pagesLinks" href="article.html?slug=html6-2-1">Теги <code>&lt;details></code>, <code>&lt;summary></code>, <code>&lt;dialog></code>, <code>&lt;progress></code>, <code>&lt;meter></code>.</a></li>
-        </ul>
-          
-        <h2>Продвинутые темы</h2>
-        <ul>
-          <li><a class="pagesLinks" href="article.html?slug=html7-1-1">Тег <code>&lt;meta></code>, атрибуты <code>charset</code>, <code>name</code>, <code>content</code>, настройка заголовков и описаний для SEO.</a></li>
-          <li>Практика: настройка метаданных для веб-страницы.</li>
-          <li><a class="pagesLinks" href="article.html?slug=html7-2-1">Тег комментария <code>&lt;!-- комментарий --></code>.</a></li>
-          <li><a class="pagesLinks" href="article.html?slug=html7-3-1">Подключение CSS и JavaScript: теги <code>&lt;link></code> и <code>&lt;script></code>.</a></li>
-        </ul>
-          
-        <h2>Углубление и практика</h2>
-        <ul>
-          <li><a class="pagesLinks" href="article.html?slug=html8-1-1">Как проверять HTML-код на ошибки с помощью валидаторов.</a></li>
-          <li><a class="pagesLinks" href="article.html?slug=html8-3-1">Основы адаптивности: использование семантических тегов и медиа-запросов.</a></li>
-        </ul>
-          
-        <h2>Оптимизация и продвинутые техники</h2>
-        <ul>
-          <li><a class="pagesLinks" href="article.html?slug=html9-1-1">Работа с тегами для SEO оптимизации.</a></li>
-          <li>Практика: улучшение SEO параметров существующего сайта.</li>
-          <li><a class="pagesLinks" href="article.html?slug=html9-2-1">Создание доступного интерфейса: <code>aria-labels</code>, alt-описания, семантические теги.</a></li>
-          <li>Практика: улучшение доступности страницы.</li>
-        </ul>
-          
-        <h2>Проектная работа</h2>
-        <ul>
-          <li><a class="pagesLinks" href="article.html?slug=html10-1-1">Реализация многостраничного сайта с использованием всех изученных технологий.</a></li>
-          <li>Практика: создание и размещение проекта на хостинге.</li>
-        </ul>
-      </div>
-
-<!-- CSS содержание -->
       <div class="tab-content active" id="tab2">
         <div id="article">
           <p class="loading">Загрузка статьи...</p>
         </div>
       </div>
 
-<!-- JavaScript содержание -->
-      <div class="tab-content" id="tab3">
-        <h2><i class="fa fa-space-shuttle" aria-hidden="true"></i> Введение в JavaScript и Основы</h2>
-        <ul>
-          <li> <a class="pagesLinks" href="article-js.html?slug=js1-1">Что такое JavaScript и где его применяют</a> </li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js1-2">Установка среды разработки (VS Code, Node.js)</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js1-3">Подключение JavaScript к HTML-документу</a></li>
-          <li> <a class="pagesLinks" href="article-js.html?slug=js1-4">Введение в синтаксис JavaScript (переменные, типы данных)</a> </li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js1-5">Операторы и выражения</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js1-6">Работа с переменными (let, const, var)</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js1-7">Базовые операции с числами и строками</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js1-8">Основы работы с функциями</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js1-9">Функции как блоки кода (определение, вызов)</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js1-10">Параметры и возврат значений</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js1-11">Практика: написание простых функций и выполнение арифметических операций</a></li>
-        </ul>
+      <div class="tab-content" id="tab3"></div>
 
-        <h2>Управление потоком и основы массивов</h2>
-        <ul>
-          <li><a class="pagesLinks" href="article-js.html?slug=js2-1">Условные операторы (if, else, switch)</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js2-2">Логические операторы</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js2-3">Тернарный оператор</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js2-4">Циклы (for, while, do...while)</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js2-5">Вложенные циклы и управление потоком (break, continue)</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js2-6">Введение в массивы</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js2-7">Основные методы массивов (push, pop, shift, unshift)</a></li>
-          <li>Практика: создание простых программ с использованием циклов и массивов</li>
-        </ul>
-      
-        <h2>Работа с объектами и обработка ошибок</h2>
-        <ul>
-          <li><a class="pagesLinks" href="article-js.html?slug=js3-1">Введение в объекты</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js3-2">Создание и доступ к свойствам объектов</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js3-3">Методы объектов</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js3-4">Введение в обработку ошибок</a></li>
-          <li><a class="pagesLinks "href="article-js.html?slug=js3-5">Конструкции try, catch, finally</a></li>
-          <li>Создание собственных ошибок (throw)</li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js3-7">Глубокое копирование и сравнение объектов</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js3-8">Прототипы и наследование</a></li>
-          <li>Практика: создание и работа с объектами, реализация простых методов</li>
-        </ul>
+      <div class="tab-content" id="tab4"></div>
 
-        <h2>Работа с DOM и событиями</h2>
-        <ul>
-          <li><a class="pagesLinks" href="article-js.html?slug=js4-1">Введение в Document Object Model (DOM)</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js4-2">Поиск и манипуляция элементами DOM (getElementById, querySelector)</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js4-3">Изменение стилей и содержимого элементов</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js4-4">Работа с событиями (click, input, submit)</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js4-5">Использование addEventListener для управления событиями</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js4-6">Создание и удаление элементов DOM</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js4-7">Работа с формами и валидация данных</a></li>
-          <li>Практика: создание интерактивной веб-страницы с обработкой событий</li>
-        </ul>
+      <div class="tab-content" id="tab5"></div>
 
-        <h2>Асинхронное программирование и работа с API</h2>
-        <ul>
-          <li><a class="pagesLinks" href="article-js.html?slug=js5-1">Введение в асинхронное программирование</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js5-2">Использование setTimeout и setInterval</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js5-3">Введение в промисы (Promises)</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js5-4">Работа с async/await</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js5-5">Обработка ошибок в асинхронном коде</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js5-6">Введение в работу с API</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js5-7">Отправка запросов и получение данных (fetch, axios)</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js5-8">Практика: работа с API, получение данных и отображение их на странице</a></li>
-        </ul>
-
-        <h2>Завершение и проект</h2>
-        <ul>
-          <li><a class="pagesLinks" href="article-js.html?slug=js6-2">Решение задач на алгоритмы и логику</a></li>
-          <li>Планирование проекта: создание ТЗ</li>
-          <li>Начало работы над финальным проектом (простое веб-приложение)</li>
-          <li>Продолжение работы над проектом</li>
-          <li>Реализация основных функций и взаимодействие с DOM и API</li>
-          <li>Завершение проекта и презентация (самостоятельная проверка и доработка)</li>
-        </ul>
-
-        <h2>Прочие ссылки</h2>
-        <ul>
-          <li>Онлайн-курсы: <a class="pagesLinks" href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp</a>, <a class="pagesLinks" href="https://www.codecademy.com/" target="_blank">Codecademy</a>, <a href="https://learn.javascript.ru/" target="_blank">JavaScript.info</a> </li>
-          <li>Книги: "Eloquent JavaScript" Марейн Хавербеке, "JavaScript: The Good Parts" Дуглас Крокфорд</li>
-          <li>Практические задания: <a href="https://leetcode.com//" target="_blank">LeetCode</a> , <a href="https://www.codewars.com/">Codewars</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js-localbase">Локальный сервер и локальная база</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js-sandbox">Песочница</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js-massiv">Массивы</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js-objects">Объекты</a></li>
-          <li><a class="pagesLinks" href="article-js.html?slug=js-cycle">Циклы</a></li>
-        </ul>
-      </div>
-
-      <div class="tab-content" id="tab4">
-        <p>Тут будут статьи PostgreSQL.</p>
-      </div>
-      <div class="tab-content" id="tab5">
-        <p>Тут будут статьи React.</p>
-      </div>
-      <div class="tab-content" id="tab6">
-        <p>Тут будут статьи Next.</p>
-      </div>
+      <div class="tab-content" id="tab6"></div>
     </div>
-
-<footer class="footer-container"> 
+  </main>
+  
+  <footer class="footer-container"> 
     <div class="footer-content">
       <a href="#"><i class="fa fa-vk" aria-hidden="true"></i></a>
       <a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
