@@ -7,8 +7,7 @@ export function initTabsModule(supabase) {
     tab3: 'pages/toc-js.html',
     tab4: 'pages/toc-postgres.html',
     tab5: 'pages/toc-react.html',
-    tab6: 'pages/toc-next.html',
-    tab1: '../pages/toc-html.html',
+    tab6: 'pages/toc-next.html'
   };
 
   let currentTab = 'tab1';
