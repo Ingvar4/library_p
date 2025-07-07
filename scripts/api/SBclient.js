@@ -1,5 +1,8 @@
-export function renderTabs () {
-  
+export function SBclient() {
+  const supabase = window.supabase.createClient(
+    'https://dftxrmlepmufduwxtwxr.supabase.co',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRmdHhybWxlcG11ZmR1d3h0d3hyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTEwMTM3NzYsImV4cCI6MjA2NjU4OTc3Nn0.E5CDsvpDNzWhVATuqEcflQGtRH6jH3J1imtGKO3yX70'
+  );
 
   const slug = new URLSearchParams(window.location.search).get('slug');
   const articleContainer = document.getElementById('article');
@@ -43,10 +46,6 @@ export function renderTabs () {
     // Назад к оглавлению
     document.getElementById('back-to-html')?.addEventListener('click', () => {
       loadTabContent('tab1', tabMap['tab1']);
-      isTab1ShowingArticle = false;
-    });
-    document.getElementById('back-to-css')?.addEventListener('click', () => {
-      loadTabContent('tab2', tabMap['tab2']);
       isTab1ShowingArticle = false;
     });
   }
@@ -120,4 +119,3 @@ export function renderTabs () {
     isTab1ShowingArticle = false;
   }
 }
-

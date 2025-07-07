@@ -8,6 +8,11 @@
   <title>LIBRARY</title>
   <link rel="stylesheet" href="./assets/font-awesome-4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./styles/style.css">
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script> -->
+  <style>
+    .hidden {display: none !important;}
+    
+  </style>
 </head>
 <body>
   <header class="main-header-top">
@@ -43,7 +48,7 @@
   <main>
     <div class="tabs">
       <div class="tab-buttons">
-        <button class="tab-button active" data-tab="tab1">HTML</button>
+        <button class="tab-button" data-tab="tab1">HTML</button>
         <button class="tab-button" data-tab="tab2">CSS</button>
         <button class="tab-button" data-tab="tab3">JS</button>
         
@@ -57,21 +62,16 @@
         </div>
       </div>
 
-      <div class="tab-content active" id="tab1"></div>
-
+      <div class="tab-content" id="tab1">
+        <!-- <div id="article">
+          <p class="loading">Загрузка статьи...</p>
+        </div> -->
+      </div>
       <div class="tab-content" id="tab2"></div>
-      
       <div class="tab-content" id="tab3"></div>
-
-      <div class="tab-content" id="tab4">
-        <p>Тут будут статьи PostgreSQL.</p>
-      </div>
-      <div class="tab-content" id="tab5">
-        <p>Тут будут статьи React.</p>
-      </div>
-      <div class="tab-content" id="tab6">
-        <p>Тут будут статьи Next.</p>
-      </div>
+      <div class="tab-content" id="tab4"></div>
+      <div class="tab-content" id="tab5"></div>
+      <div class="tab-content" id="tab6"></div>
     </div>
   </main>
 
@@ -92,6 +92,47 @@
     </div>
   </footer>
   <button id="scrollToTopButton">&#8593;</button>
+
+  <!-- <script>
+    const supabase = window.supabase.createClient(
+      'https://dftxrmlepmufduwxtwxr.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRmdHhybWxlcG11ZmR1d3h0d3hyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTEwMTM3NzYsImV4cCI6MjA2NjU4OTc3Nn0.E5CDsvpDNzWhVATuqEcflQGtRH6jH3J1imtGKO3yX70'
+    );
+
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get('slug');
+
+    if (!slug) {
+      document.getElementById('article').innerHTML = '<p>Ошибка: slug статьи не указан.</p>';
+    } else {
+      loadArticle(slug);
+    }
+
+    async function loadArticle(slug) {
+      const { data: article, error } = await supabase
+        .from('articles')
+        .select('*')
+        .eq('slug', slug)
+        .single();
+
+      const container = document.getElementById('article');
+
+      if (error || !article) {
+        container.innerHTML = '<p>Статья не найдена.</p>';
+        return;
+      }
+
+      container.innerHTML = `
+        <h1>${article.title}</h1><hr>
+        <div>${article.content}</div>
+      `;
+      if (window.Prism) {
+        Prism.highlightAll();
+      }
+    }
+
+    
+  </script> -->
   <script src="./scripts/main.js" type="module"></script>
 </body>
 </html>
