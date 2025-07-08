@@ -1,123 +1,82 @@
-export function renderTabs () {
-  
+const tabMap = {
+  tab1: 'pages/toc-html.html',
+  tab2: 'pages/toc-css.html',
+  tab3: 'pages/toc-js.html',
+  tab4: 'pages/toc-postgres.html',
+  tab5: 'pages/toc-react.html',
+  tab6: 'pages/toc-next.html'
+};
 
-  const slug = new URLSearchParams(window.location.search).get('slug');
-  const articleContainer = document.getElementById('article');
+let currentTab = null;
 
-  const tabMap = {
-    tab1: '../pages/toc-html.html',
-    tab2: '../pages/toc-css.html',
-    tab3: '../pages/toc-js.html',
-    tab4: '../pages/toc-postgres.html',
-    tab5: '../pages/toc-react.html',
-    tab6: '../pages/toc-next.html'
-  };
+function setActiveTab(tabId) {
+  // Удаляем активные классы
+  document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
 
-  // Состояние вкладки 1: статья или оглавление?
-  let isTab1ShowingArticle = false;
+  // Добавляем активность
+  const btn = document.querySelector(`[data-tab="${tabId}"]`);
+  const content = document.getElementById(tabId);
+  if (btn) btn.classList.add('active');
+  if (content) content.classList.add('active');
 
-  async function loadArticle(slug) {
-    const { data: article, error } = await supabase
-      .from('articles')
-      .select('*')
-      .eq('slug', slug)
-      .single();
+  currentTab = tabId;
+}
 
-    if (error || !article) {
-      articleContainer.innerHTML = '<p>Статья не найдена.</p>';
-      return;
-    }
+async function loadTabContent(tabId) {
+  const el = document.getElementById(tabId);
+  if (!el) return;
 
-    articleContainer.innerHTML = `
-      <div class="article-head">
-        <button id="back-to-html" class="back-button">← Назад к HTML</button>
-        <h1>${article.title}</h1>
-      </div>
-      <div>${article.content}</div>
-    `;
+  el.innerHTML = '<p class="loading">Загрузка содержимого...</p>';
 
-    if (window.Prism) Prism.highlightAll();
-
-    isTab1ShowingArticle = true;
-
-    // Назад к оглавлению
-    document.getElementById('back-to-html')?.addEventListener('click', () => {
-      loadTabContent('tab1', tabMap['tab1']);
-      isTab1ShowingArticle = false;
-    });
-    document.getElementById('back-to-css')?.addEventListener('click', () => {
-      loadTabContent('tab2', tabMap['tab2']);
-      isTab1ShowingArticle = false;
-    });
+  const file = tabMap[tabId];
+  if (!file) {
+    el.innerHTML = '<p class="empty">Содержимое ещё не добавлено.</p>';
+    return;
   }
 
-  async function loadTabContent(tabId, filePath) {
-    const target = document.getElementById(tabId);
-    if (!target) return;
-
-    target.innerHTML = '<p>Загрузка...</p>';
-
-    try {
-      const response = await fetch(filePath);
-      if (!response.ok) throw new Error('Ошибка загрузки');
-      const html = await response.text();
-      target.innerHTML = html;
-    } catch (err) {
-      target.innerHTML = '<p>Не удалось загрузить оглавление.</p>';
-      console.error(err);
-    }
+  try {
+    const res = await fetch(file);
+    if (!res.ok) throw new Error();
+    const html = await res.text();
+    el.innerHTML = html;
+  } catch (err) {
+    el.innerHTML = '<p class="empty">Ошибка загрузки содержимого.</p>';
+    console.error(err);
   }
+}
 
-  function setActiveTab(tabId) {
-    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-    document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-
-    const btn = document.querySelector(`[data-tab="${tabId}"]`);
-    const tab = document.getElementById(tabId);
-    if (btn) btn.classList.add('active');
-    if (tab) tab.classList.add('active');
-  }
-
-  // Обработка кликов по вкладкам
-  document.querySelectorAll('.tab-button').forEach(button => {
-    if (!button.classList.contains('dropdown-toggle')) {
-      button.addEventListener('click', () => {
-        const tabId = button.dataset.tab;
-        setActiveTab(tabId);
-
-        if (tabId === 'tab1') {
-          if (isTab1ShowingArticle) {
-            // если сейчас показана статья → показать оглавление
-            loadTabContent('tab1', tabMap['tab1']);
-            isTab1ShowingArticle = false;
-          }
-        } else {
-          loadTabContent(tabId, tabMap[tabId]);
+function setupTabs() {
+  // Основные кнопки вкладок
+  document.querySelectorAll('.tab-button').forEach(btn => {
+    if (!btn.classList.contains('dropdown-toggle')) {
+      btn.addEventListener('click', () => {
+        const tabId = btn.dataset.tab;
+        if (tabId) {
+          setActiveTab(tabId);
+          loadTabContent(tabId);
         }
       });
     }
   });
 
-  // Dropdown
+  // Кнопки из выпадающего меню
   document.querySelectorAll('.dropdown-item').forEach(item => {
     item.addEventListener('click', () => {
       const tabId = item.dataset.tab;
-      const dropdown = document.querySelector('.dropdown');
-      dropdown.classList.remove('open');
-
-      setActiveTab(tabId);
-      loadTabContent(tabId, tabMap[tabId]);
+      if (tabId) {
+        setActiveTab(tabId);
+        loadTabContent(tabId);
+        // закрыть меню (если оно раскрывается по hover, можно убрать)
+        document.querySelector('.dropdown-menu')?.classList.remove('open');
+      }
     });
   });
-
-  // Загрузка по умолчанию
-  if (slug) {
-    setActiveTab('tab1');
-    loadArticle(slug);
-  } else {
-    setActiveTab('tab1');
-    loadTabContent('tab1', tabMap['tab1']);
-    isTab1ShowingArticle = false;
-  }
 }
 
+// При загрузке страницы
+document.addEventListener('DOMContentLoaded', () => {
+  setupTabs();
+  setActiveTab('tab1');
+  loadTabContent('tab1');
+});

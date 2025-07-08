@@ -22,6 +22,7 @@
 .header-logo-span {
   padding-left: 10px;
   color: var(--gray10);
+  text-decoration: none;
 }
 
 .header-menu{

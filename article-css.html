@@ -2,13 +2,12 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <link rel="shortcut icon" href="../assets/images/image.jpg" type="image/x-icon">
+  <link rel="shortcut icon" href="./assets/images/image.jpg" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light dark">
   <title>Page</title>
-  <link rel="stylesheet" href="../assets/font-awesome-4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="../styles/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <link rel="stylesheet" href="./assets/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./styles/style.css">
   <style>
     .loading { color: gray; }
     #article li{padding: 0px; color: var(--gray10);}
@@ -59,16 +58,16 @@
       ol {margin-left: 10px;}
       li {line-height: 20px;padding: 0px;}
     }
-    /* @media (max-width: 925px) {.main-header-top {justify-content: flex-start;padding: 30px 10px;}} */
+    .empty {padding: 20px;color: #777;font-style: italic;}
   </style>
 </head>
 <body>
   <header class="main-header-top">
     <div class="header-logo">
-      <img src="../assets/icons/html-icon.png" alt="html-icon">
-      <img src="../assets/icons/css-icon.png" alt="css-icon">
-      <img src="../assets/icons/js-icon.png" alt="css-icon">
-      <span class="header-logo-span">LIBRARY</span class="header-logo-span">
+      <img src="./assets/icons/html-icon.png" alt="html-icon">
+      <img src="./assets/icons/css-icon.png" alt="css-icon">
+      <img src="./assets/icons/js-icon.png" alt="css-icon">
+      <span><a class="header-logo-span" href="index.html">LIBRARY</a></span class="header-logo-span">
     </div>
 
     <button class="burger-menu" aria-label="Открыть меню">&#9776;</button>
@@ -88,7 +87,7 @@
     <div class="tabs">
       <div class="tab-buttons">
         <button class="tab-button" data-tab="tab1">HTML</button>
-        <button class="tab-button active" data-tab="tab2" id="back-to-css"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+        <button class="tab-button" data-tab="tab2"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
         <button class="tab-button" data-tab="tab3">JS</button>
         
         <div class="dropdown">
@@ -102,19 +101,10 @@
       </div>
 
       <div class="tab-content" id="tab1"></div>
-
-      <div class="tab-content active" id="tab2">
-        <div id="article">
-          <p class="loading">Загрузка статьи...</p>
-        </div>
-      </div>
-
+      <div class="tab-content" id="tab2"></div>
       <div class="tab-content" id="tab3"></div>
-
       <div class="tab-content" id="tab4"></div>
-
       <div class="tab-content" id="tab5"></div>
-
       <div class="tab-content" id="tab6"></div>
     </div>
   </main>
@@ -136,44 +126,9 @@
     </div>
   </footer>
   <button id="scrollToTopButton">&#8593;</button>
-  <script>
-    const supabase = window.supabase.createClient(
-      'https://dftxrmlepmufduwxtwxr.supabase.co',
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRmdHhybWxlcG11ZmR1d3h0d3hyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTEwMTM3NzYsImV4cCI6MjA2NjU4OTc3Nn0.E5CDsvpDNzWhVATuqEcflQGtRH6jH3J1imtGKO3yX70'
-    );
-
-    const params = new URLSearchParams(window.location.search);
-    const slug = params.get('slug');
-
-    if (!slug) {
-      document.getElementById('article').innerHTML = '<p>Ошибка: slug статьи не указан.</p>';
-    } else {
-      loadArticle(slug);
-    }
-
-    async function loadArticle(slug) {
-      const { data: article, error } = await supabase
-        .from('articles')
-        .select('*')
-        .eq('slug', slug)
-        .single();
-
-      const container = document.getElementById('article');
-
-      if (error || !article) {
-        container.innerHTML = '<p>Статья не найдена.</p>';
-        return;
-      }
-
-      container.innerHTML = `
-        <h1>${article.title}</h1><hr>
-        <div>${article.content}</div>
-      `;
-      if (window.Prism) {
-        Prism.highlightAll();
-      }
-    }
-  </script>
-  <script src="../scripts/main.js" type="module"></script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="./scripts/render/tabs-handler.js" type="module"></script>
+  <script src="./scripts/main.js" type="module"></script>
 </body>
 </html>
